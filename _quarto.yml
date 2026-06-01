@@ -1,0 +1,46 @@
+project:
+  type: book
+  output-dir: docs
+
+# bibliography: library/references.bib
+date: last-modified
+date-format: "MMM YYYY"
+
+
+book:
+  title: "CDI Data Acquisition System"
+  subtitle: "From Public Omics Data Discovery to Reproducible Reference Datasets"
+  chapters:
+    - index.qmd
+    - 00-preface-and-overview.qmd
+    - 01-public-data-landscape.qmd
+    - 02-study-discovery.qmd
+    - 03-accession-systems.qmd
+    - 04-metadata-acquisition.qmd
+    - 05-data-download.qmd
+    - 06-data-validation.qmd
+    - 07-cloud-storage-and-transfer.qmd
+    - 08-reference-dataset-assembly.qmd
+    - 09-case-study-alphabiomics.qmd
+    - 999-references.qmd
+
+format:
+  html:
+    toc: true
+    toc-depth: 3
+    number-sections: false
+    number-depth: 2
+    smooth-scroll: true
+    anchor-sections: true
+    link-external-icon: true
+    css: assets/css/cdi.css
+    code-fold: true
+    mermaid:
+      theme: forest
+
+execute:
+  echo: true
+  warning: false
+  message: false
+  freeze: auto
+  working-dir: .

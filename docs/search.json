@@ -1,0 +1,122 @@
+[
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "CDI Data Acquisition System",
+    "section": "",
+    "text": "Data Acquisition System: Updated Jun 2026",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>index.html</span>"
+    ]
+  },
+  {
+    "objectID": "00-preface-and-overview.html",
+    "href": "00-preface-and-overview.html",
+    "title": "00-preface-and-overview",
+    "section": "",
+    "text": "Content goes here.",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>00-preface-and-overview</span>"
+    ]
+  },
+  {
+    "objectID": "01-public-data-landscape.html",
+    "href": "01-public-data-landscape.html",
+    "title": "01-public-data-landscape",
+    "section": "",
+    "text": "Content goes here.",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>01-public-data-landscape</span>"
+    ]
+  },
+  {
+    "objectID": "02-study-discovery.html",
+    "href": "02-study-discovery.html",
+    "title": "02-study-discovery",
+    "section": "",
+    "text": "Content goes here.",
+    "crumbs": [
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>02-study-discovery</span>"
+    ]
+  },
+  {
+    "objectID": "03-accession-systems.html",
+    "href": "03-accession-systems.html",
+    "title": "03-accession-systems",
+    "section": "",
+    "text": "Content goes here.",
+    "crumbs": [
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>03-accession-systems</span>"
+    ]
+  },
+  {
+    "objectID": "04-metadata-acquisition.html",
+    "href": "04-metadata-acquisition.html",
+    "title": "04-metadata-acquisition",
+    "section": "",
+    "text": "Content goes here.",
+    "crumbs": [
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>04-metadata-acquisition</span>"
+    ]
+  },
+  {
+    "objectID": "05-data-download.html",
+    "href": "05-data-download.html",
+    "title": "05-data-download",
+    "section": "",
+    "text": "Content goes here.",
+    "crumbs": [
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>05-data-download</span>"
+    ]
+  },
+  {
+    "objectID": "06-data-validation.html",
+    "href": "06-data-validation.html",
+    "title": "06-data-validation",
+    "section": "",
+    "text": "Content goes here.",
+    "crumbs": [
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>06-data-validation</span>"
+    ]
+  },
+  {
+    "objectID": "07-cloud-storage-and-transfer.html",
+    "href": "07-cloud-storage-and-transfer.html",
+    "title": "07-cloud-storage-and-transfer",
+    "section": "",
+    "text": "Content goes here.",
+    "crumbs": [
+      "<span class='chapter-number'>9</span>  <span class='chapter-title'>07-cloud-storage-and-transfer</span>"
+    ]
+  },
+  {
+    "objectID": "08-reference-dataset-assembly.html",
+    "href": "08-reference-dataset-assembly.html",
+    "title": "08-reference-dataset-assembly",
+    "section": "",
+    "text": "Content goes here.",
+    "crumbs": [
+      "<span class='chapter-number'>10</span>  <span class='chapter-title'>08-reference-dataset-assembly</span>"
+    ]
+  },
+  {
+    "objectID": "09-case-study-alphabiomics.html",
+    "href": "09-case-study-alphabiomics.html",
+    "title": "09-case-study-alphabiomics",
+    "section": "",
+    "text": "Content goes here.",
+    "crumbs": [
+      "<span class='chapter-number'>11</span>  <span class='chapter-title'>09-case-study-alphabiomics</span>"
+    ]
+  },
+  {
+    "objectID": "999-references.html",
+    "href": "999-references.html",
+    "title": "999-references",
+    "section": "",
+    "text": "Content goes here.",
+    "crumbs": [
+      "<span class='chapter-number'>12</span>  <span class='chapter-title'>999-references</span>"
+    ]
+  }
+]
