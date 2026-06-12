@@ -1,0 +1,195 @@
+# Reference Dataset Assembly
+
+:::cdi-message
+- **ID:** DAS-008
+- **Type:** Foundations
+- **Audience:** Omics Data Scientists, Bioinformaticians, and Research Teams
+- **Theme:** Transforming Acquired Data into Reusable Resources
+:::
+
+Acquiring data is only the beginning of the data acquisition process. The ultimate objective is to construct a reference dataset that is organized, reproducible, and aligned with a clearly defined purpose.
+
+Reference dataset assembly is the process of integrating studies, metadata, and sequencing data into a coherent resource that can support downstream analysis, benchmarking, interpretation, and decision-making.
+
+## What Is a Reference Dataset?
+
+A reference dataset is a curated collection of samples and associated metadata assembled for a specific purpose.
+
+Examples include:
+
+- Healthy gut microbiome references
+- Disease-specific cohorts
+- RNA-Seq benchmark datasets
+- Single-cell reference atlases
+- Population genomics resources
+
+Unlike raw public repository data, reference datasets are intentionally constructed and documented.
+
+## Why Reference Dataset Assembly Matters
+
+Public repositories contain data from many studies, populations, and experimental designs.
+
+Simply combining datasets without careful evaluation can introduce:
+
+- Bias
+- Duplicates
+- Inconsistent metadata
+- Confounding variables
+- Reproducibility challenges
+
+Reference dataset assembly helps ensure that data are appropriate for the intended objective.
+
+## From Acquisition to Assembly
+
+```{mermaid}
+flowchart TD
+
+A[Study Discovery]
+--> B[Metadata Acquisition]
+
+B --> C[Data Download]
+
+C --> D[Data Validation]
+
+D --> E[Reference Dataset Assembly]
+```
+
+Dataset assembly builds directly on the outputs of previous acquisition stages.
+
+## Defining the Objective
+
+Every reference dataset should begin with a clearly defined objective.
+
+| Objective | Dataset Type |
+|------------|------------|
+| Healthy Gut Reference | Healthy cohort |
+| IBD Comparison Dataset | Disease cohort |
+| RNA-Seq Benchmark | Expression reference |
+| Single-Cell Atlas | Cell-state reference |
+
+The objective determines which samples are included and how they are organized.
+
+## Sample Selection
+
+Reference datasets should be constructed using predefined inclusion and exclusion criteria.
+
+### Inclusion Examples
+
+- Human samples
+- Healthy individuals
+- Stool specimens
+- Publicly available metadata
+
+### Exclusion Examples
+
+- Missing metadata
+- Disease status unknown
+- Duplicate samples
+- Poor-quality data
+
+Consistent criteria improve reproducibility.
+
+## Metadata Harmonization
+
+Studies often use different terminology.
+
+| Study A | Study B |
+|----------|----------|
+| Healthy | Control |
+| Male | M |
+| Female | F |
+
+Metadata harmonization creates a common representation across studies.
+
+This process improves integration and comparability.
+
+## Dataset Integration
+
+Multiple studies may contribute to a single reference dataset.
+
+```{mermaid}
+flowchart LR
+
+A[Study 1]
+--> D[Reference Dataset]
+
+B[Study 2]
+--> D
+
+C[Study 3]
+--> D
+```
+
+Integration combines validated samples while preserving provenance information.
+
+## Provenance Tracking
+
+Reference datasets should retain information about:
+
+- Source studies
+- BioProjects
+- BioSamples
+- Download dates
+- Validation status
+
+Provenance ensures transparency and reproducibility.
+
+## Dataset Documentation
+
+Every reference dataset should include documentation describing:
+
+- Purpose
+- Data sources
+- Inclusion criteria
+- Exclusion criteria
+- Metadata fields
+- Validation procedures
+- Known limitations
+
+Documentation allows others to understand and reuse the dataset.
+
+## AlphaBiomics Example
+
+Suppose the objective is:
+
+> Build a healthy reference gut microbiome dataset.
+
+The assembly workflow may proceed as follows:
+
+```text
+Candidate Studies
+        ↓
+Metadata Review
+        ↓
+Apply Inclusion Criteria
+        ↓
+Apply Exclusion Criteria
+        ↓
+Validate Samples
+        ↓
+Harmonize Metadata
+        ↓
+Reference Dataset
+```
+
+The final dataset is no longer simply a collection of downloaded files. It becomes a curated analytical resource.
+
+## Characteristics of a High-Quality Reference Dataset
+
+A high-quality reference dataset should be:
+
+- Purpose-driven
+- Reproducible
+- Well-documented
+- Metadata-rich
+- Validated
+- Traceable
+- Reusable
+
+These characteristics increase confidence in downstream analyses.
+
+## Looking Ahead
+
+The previous chapters described the individual components of a data acquisition workflow. The final chapter brings these components together through a complete case study focused on constructing a healthy reference microbiome dataset from public repositories.
+
+In the next chapter, we walk through the AlphaBiomics-inspired workflow from study discovery to reference dataset assembly.

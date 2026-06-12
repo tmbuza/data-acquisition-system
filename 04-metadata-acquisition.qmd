@@ -1,3 +1,556 @@
-# 04-metadata-acquisition
+# Metadata Acquisition
 
-Content goes here.
+## Introduction
+
+Once relevant studies have been discovered and their accession systems understood, the next step is metadata acquisition.
+
+Metadata provide the context needed to understand biological samples, sequencing experiments, and associated data files. They help researchers determine whether a study is relevant to a particular objective and whether individual samples should be included or excluded from downstream analyses.
+
+Without metadata, sequencing files become difficult to interpret, compare, validate, or integrate into a reproducible dataset.
+
+Metadata acquisition is the process of discovering, retrieving, validating, evaluating, and organizing information that describes sequencing studies, samples, experiments, sequencing runs, and associated files.
+
+Before any sequencing data are downloaded, metadata provide the information needed to understand:
+
+- What was studied
+- Which samples were collected
+- How sequencing was performed
+- Which sequencing runs are available
+- Which files can be downloaded
+- Whether a dataset meets project requirements
+
+For many projects, metadata acquisition is the most important stage of the data acquisition workflow because it determines which data ultimately enter the analysis pipeline.
+
+## What Is Metadata?
+
+Metadata are data about data.
+
+In public sequencing repositories, metadata describe the context surrounding biological data rather than the sequencing reads themselves.
+
+| Data | Metadata |
+|--------|----------|
+| FASTQ file | File size, sequencing platform, run accession |
+| Sequencing run | Run date, read count, instrument model |
+| Biological sample | Organism, body site, disease status |
+| Study | Title, description, publication |
+
+## Why Metadata Matter?
+
+Metadata support:
+
+- Study discovery
+- Sample selection
+- Quality assessment
+- Download planning
+- Dataset assembly
+- Reproducible research
+
+## Metadata Across the Data Acquisition Lifecycle
+
+```text
+Study Discovery
+      ↓
+Metadata Acquisition
+      ↓
+Metadata Evaluation
+      ↓
+Download Planning
+      ↓
+Data Download
+      ↓
+Reference Dataset Assembly
+```
+
+## Metadata Categories
+
+### Study Metadata
+
+Examples:
+
+- BioProject accession
+- Study title
+- Study description
+- Associated publication
+
+### Sample Metadata
+
+Examples:
+
+- BioSample accession
+- Organism
+- Body site
+- Disease status
+- Geographic location
+
+### Experiment Metadata
+
+Examples:
+
+- Library strategy
+- Library source
+- Library selection
+- Sequencing platform
+
+### Run Metadata
+
+Examples:
+
+- Run accession
+- Read counts
+- Base counts
+- Instrument model
+
+### File Metadata
+
+Examples:
+
+- FASTQ locations
+- File sizes
+- MD5 checksums
+- Download URLs
+
+## Metadata Sources
+
+### Repository Metadata
+
+- NCBI
+- ENA
+- DDBJ
+
+### Publication Metadata
+
+- Study objectives
+- Experimental design
+- Cohort descriptions
+
+### Supplementary Metadata
+
+- Sample sheets
+- Metadata spreadsheets
+- Clinical annotation tables
+
+### Curated Metadata
+
+- Download manifests
+- Integrated metadata tables
+- Project inventories
+
+## Metadata Completeness
+
+Not all studies provide the same level of metadata.
+
+Rich metadata may include:
+
+- Age
+- Sex
+- Disease status
+- Treatment information
+- Body site
+- Collection date
+
+Limited metadata may include only accession identifiers and basic sequencing information.
+
+Metadata completeness often determines whether a dataset can be reused for a particular analysis.
+
+## Inclusion and Exclusion Criteria
+
+Metadata are frequently used to decide which samples should enter a project.
+
+Examples of inclusion criteria:
+
+- Healthy individuals
+- Human gut microbiome samples
+- Shotgun metagenomic sequencing
+
+Examples of exclusion criteria:
+
+- Disease cohorts
+- Intervention studies
+- Incomplete metadata
+
+### Healthy Reference Microbiome Example
+
+Building a healthy reference microbiome dataset requires careful metadata review before any sequencing files are downloaded.
+
+Samples may be excluded because of:
+
+- Disease status
+- Antibiotic exposure
+- Missing metadata
+- Inappropriate sample types
+
+## Metadata Challenges
+
+Common metadata challenges include:
+
+- Missing metadata
+- Inconsistent terminology
+- Ambiguous sample descriptions
+- Repository-specific differences
+- Incomplete publications
+
+These challenges often require manual review and curation.
+
+## Metadata as a Scientific Asset
+
+Metadata are not merely supporting information.
+
+Well-curated metadata become scientific assets that:
+
+- Enable reproducible research
+- Support dataset integration
+- Improve study interpretation
+- Facilitate downstream analyses
+
+### AlphaBiomics Example
+
+In projects such as healthy reference microbiome construction, metadata become the foundation for:
+
+- Study selection
+- Sample selection
+- Dataset integration
+- Reference dataset assembly
+
+## Installing Entrez Direct (EDirect)
+
+EDirect provides command-line access to NCBI databases and is widely used for metadata retrieval from BioProject, BioSample, SRA, and PubMed.
+
+Throughout this chapter we use three core commands:
+
+- `esearch` — search NCBI databases
+- `efetch` — retrieve records
+- `xtract` — extract fields from structured outputs
+
+### Environment Setup
+
+Create an `environment.yml` file containing the required metadata acquisition tools.
+
+```yaml
+name: cdi-data-acquisition
+
+channels:
+  - conda-forge
+  - bioconda
+
+dependencies:
+  - entrez-direct
+```
+
+Create the environment:
+
+```bash
+mamba env create -f environment.yml
+```
+
+Activate the environment:
+
+```bash
+conda activate cdi-data-acquisition
+```
+
+### Verification
+
+Confirm that EDirect tools are available:
+
+```bash
+which esearch
+which efetch
+which xtract
+```
+
+Example output:
+
+```text
+/Users/tmbmacbookair/anaconda3/envs/cdi-data-acquisition/bin/esearch
+/Users/tmbmacbookair/anaconda3/envs/cdi-data-acquisition/bin/efetch
+/Users/tmbmacbookair/anaconda3/envs/cdi-data-acquisition/bin/xtract
+```
+
+Next, test communication with NCBI:
+
+```bash
+esearch -db sra \
+-query "PRJNA477349[bioproject]"
+```
+
+Example output:
+
+```xml
+<ENTREZ_DIRECT>
+  <Db>sra</Db>
+  <WebEnv>MCID_6a292bec9551de53c901708f</WebEnv>
+  <QueryKey>1</QueryKey>
+  <Count>133</Count>
+  <Step>1</Step>
+  <Elapsed>3</Elapsed>
+</ENTREZ_DIRECT>
+```
+
+Interpretation:
+
+- `Db` indicates the database queried (`sra`).
+- `WebEnv` is an NCBI session identifier used internally by EDirect.
+- `QueryKey` identifies the result set within the session.
+- `Count` reports the number of matching records (133 sequencing runs for this BioProject). Later, when retrieving the RunInfo table, you should expect 134 lines in total: 133 sequencing runs plus 1 header row.
+- `Step` indicates the workflow step executed by EDirect.
+- `Elapsed` reports the query execution time in seconds.
+
+A successful query confirms that EDirect is installed correctly and can communicate with NCBI. The result count also provides a useful first validation of the dataset before retrieving detailed metadata.
+
+::: {.callout-tip}
+Using an environment file ensures that metadata acquisition workflows remain reproducible and portable across systems.
+:::
+
+## Worked Example: From BioProject to Download Manifest
+
+BioProject:
+
+```text
+PRJNA477349
+```
+
+### Retrieve Run Metadata
+
+```bash
+esearch -db sra \
+-query 'PRJNA477349[bioproject]' \
+| efetch -format runinfo \
+> data/metadata/runinfo-prjna477349.csv
+```
+
+### Validate Metadata
+
+```bash
+wc -l data/metadata/runinfo-prjna477349.csv
+```
+
+Expected:
+
+```text
+134
+```
+
+133 sequencing runs plus one header row.
+
+### Extract Run Accessions
+
+```bash
+cut -d',' -f1 data/metadata/runinfo-prjna477349.csv | head
+```
+
+Explanation:
+
+- `-d','` specifies comma-delimited fields.
+- `-f1` extracts the first column.
+
+Remove the header:
+
+```bash
+tail -n +2 data/metadata/runinfo-prjna477349.csv | wc -l
+```
+
+### Create Download Manifest
+
+```bash
+cut -d',' -f1 data/metadata/runinfo-prjna477349.csv \
+| tail -n +2 \
+> data/metadata/srr-accessions.txt
+```
+
+## Metadata Validation
+
+Validation activities include:
+
+- Record counts
+- Accession completeness
+- Field verification
+- Manifest generation
+
+Outputs:
+
+- runinfo-prjna477349.csv
+- srr-accessions.txt
+
+## Metadata Acquisition Beyond NCBI
+
+### The INSDC Ecosystem
+
+Public sequencing metadata are distributed across the International Nucleotide Sequence Database Collaboration (INSDC), a partnership between three major repositories:
+
+```text
+INSDC
+│
+├── NCBI (USA)
+├── ENA  (Europe)
+└── DDBJ (Japan)
+```
+
+These repositories regularly exchange records and often contain the same underlying studies, samples, and sequencing runs.
+
+### ENA Example
+
+In addition to NCBI, metadata can be retrieved directly from the European Nucleotide Archive (ENA).
+
+```bash
+curl -o data/metadata/ena-prjna477349.tsv \
+"https://www.ebi.ac.uk/ena/portal/api/filereport?accession=PRJNA477349&result=read_run"
+```
+
+Example output:
+
+```text
+100 33717    0 33717    0     0  12205      0 --:--:--  0:00:02 --:--:-- 12203
+```
+
+Interpretation:
+
+- `100` indicates that the download completed successfully.
+- `33717` bytes of metadata were downloaded.
+- The metadata were saved to:
+
+```text
+data/metadata/ena-prjna477349.tsv
+```
+
+### Validation
+
+Confirm that the metadata file was created successfully:
+
+```bash
+wc -l data/metadata/ena-prjna477349.tsv
+```
+
+Example output:
+
+```text
+134
+```
+
+Interpretation:
+
+The ENA file contains:
+
+- 133 sequencing run records
+- 1 header row
+
+This matches the NCBI metadata retrieval results obtained earlier.
+
+### NCBI Versus ENA
+
+The same BioProject can often be accessed through both NCBI and ENA.
+
+For BioProject `PRJNA477349`:
+
+```text
+EDirect Search
+      ↓
+Count = 133
+
+NCBI RunInfo
+      ↓
+133 records
+
+ENA File Report
+      ↓
+133 records
+```
+
+The agreement between NCBI and ENA provides confidence that metadata retrieval was successful and complete.
+
+| Repository | Primary Strength |
+|------------|------------------|
+| NCBI | Metadata discovery, accession relationships, and repository navigation |
+| ENA | Download metadata, FASTQ locations, file sizes, and checksums |
+| DDBJ | Alternative INSDC access point |
+
+### Repository Selection Strategy
+
+A practical metadata acquisition workflow often combines NCBI and ENA.
+
+```text
+Study Discovery
+      ↓
+NCBI
+      ↓
+Metadata Validation
+      ↓
+ENA
+      ↓
+Download Planning
+      ↓
+Data Download
+```
+
+In this workflow:
+
+- NCBI is used to discover studies and retrieve metadata.
+- ENA is used to obtain download-oriented metadata such as FASTQ locations, file sizes, and MD5 checksums.
+- DDBJ serves as an additional access point within the INSDC ecosystem when needed.
+
+## Metadata Acquisition Outputs
+
+The workflows presented in this chapter generate reusable metadata assets that support downstream data acquisition activities.
+
+```text
+data/
+└── metadata/
+    ├── runinfo-prjna477349.csv
+    ├── ena-prjna477349.tsv
+    └── srr-accessions.txt
+```
+
+| File | Purpose |
+|--------|----------|
+| `runinfo-prjna477349.csv` | Run-level metadata retrieved from NCBI SRA |
+| `ena-prjna477349.tsv` | Download-oriented metadata retrieved from ENA |
+| `srr-accessions.txt` | Download manifest containing sequencing run accessions |
+
+Together, these assets provide the foundation for reproducible data download and dataset assembly workflows.
+
+## Summary
+
+In this chapter, we transformed a study accession into validated metadata assets suitable for downstream analysis.
+
+```text
+Study Accession
+      ↓
+Metadata Discovery
+      ↓
+Metadata Retrieval
+      ↓
+Metadata Validation
+      ↓
+Metadata Evaluation
+      ↓
+Download Manifest
+```
+
+Along the way, we explored:
+
+- Metadata categories and sources
+- Metadata completeness and quality
+- Inclusion and exclusion criteria
+- NCBI metadata retrieval using EDirect
+- ENA metadata retrieval using the ENA API
+- Validation and manifest generation
+- Metadata as a scientific asset
+
+The resulting metadata assets provide the information needed to identify relevant samples, plan downloads, and support reproducible dataset construction.
+
+## Looking Ahead
+
+Metadata acquisition determines **what** data should be downloaded.
+
+The next stage of the Data Acquisition System focuses on **retrieving the data themselves**.
+
+In Chapter 05, we use the download manifest generated here to acquire sequencing data from public repositories, validate downloaded files, and prepare them for downstream analysis.
+
+```text
+Metadata Acquisition
+      ↓
+Download Manifest
+      ↓
+Data Download
+      ↓
+FASTQ Files
+```

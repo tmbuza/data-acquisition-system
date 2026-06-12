@@ -1,0 +1,222 @@
+# AlphaBiomics Case Study
+
+:::cdi-message
+- **ID:** DAS-009
+- **Type:** Case Study
+- **Audience:** Omics Data Scientists, Bioinformaticians, and Research Teams
+- **Theme:** Building a Healthy Reference Microbiome from Public Data
+:::
+
+Throughout this guide, we explored the major components of a reproducible data acquisition workflow, including study discovery, accession systems, metadata acquisition, data download, validation, cloud storage, and reference dataset assembly.
+
+This chapter integrates those components through a practical case study inspired by a common challenge in microbiome research:
+
+> How can we build a healthy reference microbiome dataset from public repositories?
+
+The objective is not to perform downstream microbiome analysis, but to demonstrate the acquisition workflow required to construct a reusable reference dataset.
+
+## Project Objective
+
+The goal is to assemble a healthy human gut microbiome reference dataset suitable for future comparative analyses.
+
+Potential applications include:
+
+- Population benchmarking
+- Health reference construction
+- Method development
+- Educational workflows
+- Commercial microbiome products
+
+## Step 1: Define the Target Population
+
+Before searching repositories, define the target cohort.
+
+### Inclusion Criteria
+
+- Human samples
+- Healthy individuals
+- Stool samples
+- Publicly available metadata
+- Publicly available sequencing data
+
+### Exclusion Criteria
+
+- Disease cohorts
+- Antibiotic-treated individuals
+- Unknown health status
+- Non-human samples
+- Missing metadata
+
+These criteria establish the scope of the reference dataset.
+
+## Step 2: Study Discovery
+
+The next step is identifying candidate studies.
+
+```{mermaid}
+flowchart TD
+
+A[Healthy Reference Objective]
+--> B[Repository Search]
+
+B --> C[Candidate Studies]
+
+C --> D[Study Evaluation]
+```
+
+Potential repositories include:
+
+- NCBI
+- ENA
+- MGnify
+- GEO
+
+At this stage, the objective is to identify studies that may contain eligible samples.
+
+## Step 3: Accession Retrieval
+
+For each candidate study:
+
+```{mermaid}
+flowchart TD
+
+A[BioProject]
+--> B[BioSamples]
+
+B --> C[Experiments]
+
+C --> D[Runs]
+```
+
+Accession identifiers provide the link between studies, samples, metadata, and downloadable sequencing data.
+
+## Step 4: Metadata Acquisition
+
+Metadata determine whether samples satisfy project requirements.
+
+| Variable | Example |
+|-----------|-----------|
+| Health Status | Healthy |
+| Body Site | Stool |
+| Age | Adult |
+| Antibiotic Use | No |
+| Host | Human |
+
+Metadata acquisition often becomes the most time-consuming stage of the workflow.
+
+## Step 5: Sample Filtering
+
+A typical filtering process may resemble:
+
+```text
+2,000 Samples
+        ↓
+Remove Disease Samples
+        ↓
+Remove Antibiotic-Treated Samples
+        ↓
+Remove Missing Metadata
+        ↓
+850 Eligible Samples
+```
+
+Filtering transforms candidate studies into a defined cohort.
+
+## Step 6: Data Download
+
+Once eligible samples are identified:
+
+```text
+Eligible Samples
+        ↓
+Retrieve Run Accessions
+        ↓
+Download Data
+        ↓
+Organize Files
+```
+
+Downloaded data should be stored using a reproducible directory structure.
+
+## Step 7: Data Validation
+
+Validation confirms:
+
+- Expected sample counts
+- File integrity
+- Metadata consistency
+- Absence of duplicates
+
+Only validated samples should proceed to dataset assembly.
+
+## Step 8: Reference Dataset Assembly
+
+Validated samples are combined into a unified resource.
+
+```{mermaid}
+flowchart TD
+
+A[Validated Study 1]
+--> D[Reference Dataset]
+
+B[Validated Study 2]
+--> D
+
+C[Validated Study 3]
+--> D
+```
+
+Metadata are harmonized and provenance information is preserved.
+
+## Final Dataset
+
+The resulting dataset contains:
+
+- Selected studies
+- Harmonized metadata
+- Validated sequencing data
+- Documentation
+- Provenance records
+
+The dataset is now suitable for downstream analysis and interpretation.
+
+## Lessons Learned
+
+This case study highlights several important principles:
+
+1. Public data are not automatically reference datasets.
+2. Metadata often determine dataset quality.
+3. Validation is essential.
+4. Reproducibility should be considered throughout the workflow.
+5. Reference datasets are constructed, not simply downloaded.
+
+## CDI Data Acquisition System Summary
+
+```{mermaid}
+flowchart TD
+
+A[Public Data Landscape]
+--> B[Study Discovery]
+
+B --> C[Accession Systems]
+
+C --> D[Metadata Acquisition]
+
+D --> E[Data Download]
+
+E --> F[Data Validation]
+
+F --> G[Cloud Storage and Transfer]
+
+G --> H[Reference Dataset Assembly]
+
+H --> I[Healthy Reference Dataset]
+```
+
+The AlphaBiomics case study demonstrates how each component of the CDI Data Acquisition System contributes to the creation of a reproducible reference dataset.
+
+## Next Steps
+
+The workflow presented in this guide provides a foundation for many downstream activities, including microbiome analysis, RNA-Seq studies, benchmarking projects, clinical evidence generation, and commercial product development.
+
+The acquisition process is complete. The resulting reference dataset is now ready to support the next stage of scientific investigation.

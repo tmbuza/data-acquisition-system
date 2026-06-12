@@ -1,0 +1,180 @@
+# Cloud Storage and Transfer
+
+:::cdi-message
+- **ID:** DAS-007
+- **Type:** Foundations
+- **Audience:** Omics Data Scientists, Bioinformaticians, and Research Teams
+- **Theme:** Managing Data Beyond the Local Computer
+:::
+
+A dataset is not truly useful if it cannot be stored, organized, transferred, shared, and recovered reliably.
+
+As sequencing projects grow, data volumes often exceed the capacity of a single workstation. Cloud storage and transfer systems provide scalable solutions for managing large datasets while supporting collaboration and reproducibility.
+
+## Why Cloud Storage Matters
+
+Modern omics datasets can range from gigabytes to terabytes in size.
+
+Examples include:
+
+- Large microbiome cohorts
+- Population-scale sequencing studies
+- RNA-Seq consortia
+- Single-cell atlases
+- Multi-omics projects
+
+Managing these datasets requires storage systems that are scalable, accessible, and resilient.
+
+## Storage Options
+
+### Local Storage
+
+Examples:
+
+- Laptops
+- Workstations
+- External drives
+
+Advantages:
+
+- Simple
+- Immediate access
+
+Limitations:
+
+- Limited capacity
+- Higher risk of data loss
+
+### Institutional Storage
+
+Examples:
+
+- University servers
+- Research clusters
+- Shared file systems
+
+Advantages:
+
+- Centralized management
+- Collaboration support
+
+### Cloud Storage
+
+Examples:
+
+- AWS S3
+- Google Cloud Storage
+- Azure Blob Storage
+
+Advantages:
+
+- Scalability
+- Durability
+- Global accessibility
+
+## Data Transfer Workflows
+
+```{mermaid}
+flowchart TD
+
+A[Public Repository]
+--> B[Download]
+
+B --> C[Validation]
+
+C --> D[Cloud Storage]
+
+D --> E[Analysis Environment]
+```
+
+Cloud storage often becomes the central hub connecting acquisition and analysis.
+
+## Organizing Cloud Data
+
+A structured layout improves reproducibility.
+
+```text
+project/
+├── metadata/
+├── raw-data/
+├── validated-data/
+├── reference-dataset/
+└── documentation/
+```
+
+Consistent organization simplifies navigation and collaboration.
+
+## Data Transfer Methods
+
+Common approaches include:
+
+- HTTPS
+- FTP
+- Aspera
+- rsync
+- Cloud synchronization tools
+
+The choice depends on data volume, infrastructure, and repository support.
+
+## Data Provenance
+
+Every transfer should preserve provenance information.
+
+Important records include:
+
+- Source repository
+- Accessions
+- Transfer date
+- Validation status
+- Storage location
+
+Provenance enables datasets to be traced and reconstructed.
+
+## Security and Access Control
+
+Not all datasets are publicly accessible.
+
+Researchers may encounter:
+
+- Controlled-access datasets
+- Institutional permissions
+- User authentication requirements
+- Data use agreements
+
+Storage systems should support appropriate access controls.
+
+## AlphaBiomics Example
+
+A healthy reference microbiome project may follow:
+
+```text
+Public Repositories
+        ↓
+Metadata Filtering
+        ↓
+Validated Downloads
+        ↓
+Cloud Storage
+        ↓
+Reference Dataset Assembly
+```
+
+Cloud storage becomes the staging area where validated data are prepared for integration into a reference dataset.
+
+## Common Challenges
+
+Researchers frequently encounter:
+
+- Storage limits
+- Transfer interruptions
+- Version confusion
+- Duplicate files
+- Inconsistent folder structures
+
+Planning storage workflows early helps avoid these problems.
+
+## Looking Ahead
+
+Once data have been downloaded, validated, and organized, the next challenge is combining them into a coherent and reproducible reference dataset.
+
+In the next chapter, we explore reference dataset assembly and the process of transforming acquired data into reusable analytical resources.

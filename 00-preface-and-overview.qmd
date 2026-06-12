@@ -1,3 +1,24 @@
-# 00-preface-and-overview
+# Preface and Overview
 
-Content goes here.
+:::cdi-message
+- **ID:** DAS-000
+- **Type:** Preface
+- **Audience:** Omics Data Scientists, Bioinformaticians, and Research Teams
+- **Theme:** From Public Data to Reference Datasets
+:::
+
+The journey from public omics repositories to a usable reference dataset is often longer and more complex than the downstream analysis itself. Study discovery, metadata curation, validation, and reproducible organization are not administrative tasks; they are foundational scientific activities that determine the quality and credibility of subsequent analyses.
+
+The CDI Data Acquisition System presents data acquisition as a reproducible workflow, helping researchers move from public data discovery to reference dataset assembly through a structured and transparent process.
+
+Whether the goal is educational, scientific, clinical, or commercial, the ability to identify, evaluate, acquire, and organize public datasets is an essential skill for modern omics research.
+
+## CDI Data Acquisition System
+
+Many omics analysis guides begin with a dataset that is already available and ready for analysis. In practice, however, obtaining a suitable dataset is often one of the most challenging stages of a project.
+
+Researchers, analysts, and organizations routinely spend substantial time searching public repositories, evaluating studies, collecting metadata, validating files, and assembling reference datasets before any statistical analysis can begin.
+
+The **CDI Data Acquisition System** was developed to provide a structured framework for this process.
+
+Rather than focusing on a specific omics domain, this guide focuses on the common activities required to transform publicly available data into reproducible datasets suitable for downstream analysis.

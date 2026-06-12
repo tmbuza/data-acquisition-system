@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Public Data Landscape – CDI Data Acquisition System</title>
+<title>Cloud Storage and Transfer – CDI Data Acquisition System</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -65,8 +65,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./02-study-discovery.html" rel="next">
-<link href="./00-preface-and-overview.html" rel="prev">
+<link href="./08-reference-dataset-assembly-system.html" rel="next">
+<link href="./06-data-validation-system.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
@@ -123,7 +123,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./00-preface-and-overview.html">Foundations</a></li><li class="breadcrumb-item"><a href="./01-public-data-landscape.html"><span class="chapter-title">Public Data Landscape</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./04-metadata-acquisition.html">Acquisition Systems</a></li><li class="breadcrumb-item"><a href="./07-cloud-storage-and-transfer-system.html"><span class="chapter-title">Cloud Storage and Transfer</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -169,7 +169,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./01-public-data-landscape.html" class="sidebar-item-text sidebar-link active"><span class="chapter-title">Public Data Landscape</span></a>
+  <a href="./01-public-data-landscape.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Public Data Landscape</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -210,7 +210,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./07-cloud-storage-and-transfer-system.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Cloud Storage and Transfer</span></a>
+  <a href="./07-cloud-storage-and-transfer-system.html" class="sidebar-item-text sidebar-link active"><span class="chapter-title">Cloud Storage and Transfer</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -267,24 +267,20 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#why-public-repositories-matter" id="toc-why-public-repositories-matter" class="nav-link active" data-scroll-target="#why-public-repositories-matter">Why Public Repositories Matter</a></li>
-  <li><a href="#the-global-repository-ecosystem" id="toc-the-global-repository-ecosystem" class="nav-link" data-scroll-target="#the-global-repository-ecosystem">The Global Repository Ecosystem</a></li>
-  <li><a href="#the-international-nucleotide-sequence-database-collaboration" id="toc-the-international-nucleotide-sequence-database-collaboration" class="nav-link" data-scroll-target="#the-international-nucleotide-sequence-database-collaboration">The International Nucleotide Sequence Database Collaboration</a></li>
-  <li><a href="#major-repository-components" id="toc-major-repository-components" class="nav-link" data-scroll-target="#major-repository-components">Major Repository Components</a>
+  <li><a href="#why-cloud-storage-matters" id="toc-why-cloud-storage-matters" class="nav-link active" data-scroll-target="#why-cloud-storage-matters">Why Cloud Storage Matters</a></li>
+  <li><a href="#storage-options" id="toc-storage-options" class="nav-link" data-scroll-target="#storage-options">Storage Options</a>
   <ul class="collapse">
-  <li><a href="#bioproject" id="toc-bioproject" class="nav-link" data-scroll-target="#bioproject">BioProject</a></li>
-  <li><a href="#biosample" id="toc-biosample" class="nav-link" data-scroll-target="#biosample">BioSample</a></li>
-  <li><a href="#sequence-archives" id="toc-sequence-archives" class="nav-link" data-scroll-target="#sequence-archives">Sequence Archives</a></li>
-  <li><a href="#functional-genomics-repositories" id="toc-functional-genomics-repositories" class="nav-link" data-scroll-target="#functional-genomics-repositories">Functional Genomics Repositories</a></li>
+  <li><a href="#local-storage" id="toc-local-storage" class="nav-link" data-scroll-target="#local-storage">Local Storage</a></li>
+  <li><a href="#institutional-storage" id="toc-institutional-storage" class="nav-link" data-scroll-target="#institutional-storage">Institutional Storage</a></li>
+  <li><a href="#cloud-storage" id="toc-cloud-storage" class="nav-link" data-scroll-target="#cloud-storage">Cloud Storage</a></li>
   </ul></li>
-  <li><a href="#domain-specific-examples" id="toc-domain-specific-examples" class="nav-link" data-scroll-target="#domain-specific-examples">Domain-Specific Examples</a>
-  <ul class="collapse">
-  <li><a href="#microbiome" id="toc-microbiome" class="nav-link" data-scroll-target="#microbiome">Microbiome</a></li>
-  <li><a href="#rna-seq" id="toc-rna-seq" class="nav-link" data-scroll-target="#rna-seq">RNA-Seq</a></li>
-  <li><a href="#gwas" id="toc-gwas" class="nav-link" data-scroll-target="#gwas">GWAS</a></li>
-  <li><a href="#single-cell" id="toc-single-cell" class="nav-link" data-scroll-target="#single-cell">Single-Cell</a></li>
-  </ul></li>
-  <li><a href="#a-first-look-at-repository-relationships" id="toc-a-first-look-at-repository-relationships" class="nav-link" data-scroll-target="#a-first-look-at-repository-relationships">A First Look at Repository Relationships</a></li>
+  <li><a href="#data-transfer-workflows" id="toc-data-transfer-workflows" class="nav-link" data-scroll-target="#data-transfer-workflows">Data Transfer Workflows</a></li>
+  <li><a href="#organizing-cloud-data" id="toc-organizing-cloud-data" class="nav-link" data-scroll-target="#organizing-cloud-data">Organizing Cloud Data</a></li>
+  <li><a href="#data-transfer-methods" id="toc-data-transfer-methods" class="nav-link" data-scroll-target="#data-transfer-methods">Data Transfer Methods</a></li>
+  <li><a href="#data-provenance" id="toc-data-provenance" class="nav-link" data-scroll-target="#data-provenance">Data Provenance</a></li>
+  <li><a href="#security-and-access-control" id="toc-security-and-access-control" class="nav-link" data-scroll-target="#security-and-access-control">Security and Access Control</a></li>
+  <li><a href="#alphabiomics-example" id="toc-alphabiomics-example" class="nav-link" data-scroll-target="#alphabiomics-example">AlphaBiomics Example</a></li>
+  <li><a href="#common-challenges" id="toc-common-challenges" class="nav-link" data-scroll-target="#common-challenges">Common Challenges</a></li>
   <li><a href="#looking-ahead" id="toc-looking-ahead" class="nav-link" data-scroll-target="#looking-ahead">Looking Ahead</a></li>
   </ul>
 </nav>
@@ -292,9 +288,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./00-preface-and-overview.html">Foundations</a></li><li class="breadcrumb-item"><a href="./01-public-data-landscape.html"><span class="chapter-title">Public Data Landscape</span></a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./04-metadata-acquisition.html">Acquisition Systems</a></li><li class="breadcrumb-item"><a href="./07-cloud-storage-and-transfer-system.html"><span class="chapter-title">Cloud Storage and Transfer</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-title">Public Data Landscape</span></h1>
+<h1 class="title"><span class="chapter-title">Cloud Storage and Transfer</span></h1>
 </div>
 
 
@@ -319,206 +315,194 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <div class="cdi-message">
 <ul>
-<li><strong>ID:</strong> DAS-001</li>
+<li><strong>ID:</strong> DAS-007</li>
 <li><strong>Type:</strong> Foundations</li>
 <li><strong>Audience:</strong> Omics Data Scientists, Bioinformaticians, and Research Teams</li>
-<li><strong>Theme:</strong> Understanding the Public Omics Ecosystem</li>
+<li><strong>Theme:</strong> Managing Data Beyond the Local Computer</li>
 </ul>
 </div>
-<p>A successful data acquisition workflow begins with understanding where public omics data reside. Modern sequencing projects generate enormous quantities of biological data that are deposited into public repositories for preservation, sharing, and reuse. These repositories form a global ecosystem that supports scientific discovery, reproducibility, education, and innovation.</p>
-<p>Before searching for studies or downloading files, it is important to understand the major repository systems, how they relate to one another, and what types of data they contain.</p>
-<section id="why-public-repositories-matter" class="level2">
-<h2 class="anchored" data-anchor-id="why-public-repositories-matter">Why Public Repositories Matter</h2>
-<p>Public repositories serve several important functions:</p>
-<ul>
-<li>Long-term data preservation</li>
-<li>Scientific transparency</li>
-<li>Reproducibility</li>
-<li>Data reuse</li>
-<li>Meta-analysis</li>
-<li>Benchmarking and method development</li>
-</ul>
-<p>Without these repositories, many large-scale biological discoveries would not be possible.</p>
-</section>
-<section id="the-global-repository-ecosystem" class="level2">
-<h2 class="anchored" data-anchor-id="the-global-repository-ecosystem">The Global Repository Ecosystem</h2>
-<p>Most public omics data are distributed through a small number of major repository systems.</p>
-<div class="cell" data-layout-align="default">
-<details class="code-fold">
-<summary>Code</summary>
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>flowchart LR</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>A[NCBI]</span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>B[EMBL-EBI]</span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>C[DDBJ]</span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>A &lt;--&gt; B</span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>B &lt;--&gt; C</span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>A &lt;--&gt; C</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
-<div class="cell-output-display">
-<div>
-<p></p><figure class="figure"><p></p>
-<div>
-<pre class="mermaid mermaid-js">flowchart LR
-
-A[NCBI]
-B[EMBL-EBI]
-C[DDBJ]
-
-A &lt;--&gt; B
-B &lt;--&gt; C
-A &lt;--&gt; C
-</pre>
-</div>
-<p></p></figure><p></p>
-</div>
-</div>
-</div>
-<p>Together these organizations support the global exchange of biological data.</p>
-</section>
-<section id="the-international-nucleotide-sequence-database-collaboration" class="level2">
-<h2 class="anchored" data-anchor-id="the-international-nucleotide-sequence-database-collaboration">The International Nucleotide Sequence Database Collaboration</h2>
-<p>The International Nucleotide Sequence Database Collaboration (INSDC) is a long-standing partnership between three major organizations:</p>
-<table class="caption-top table">
-<thead>
-<tr class="header">
-<th>Organization</th>
-<th>Region</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>NCBI</td>
-<td>United States</td>
-</tr>
-<tr class="even">
-<td>EMBL-EBI</td>
-<td>Europe</td>
-</tr>
-<tr class="odd">
-<td>DDBJ</td>
-<td>Japan</td>
-</tr>
-</tbody>
-</table>
-<p>These repositories routinely exchange data, ensuring that submitted datasets become available throughout the international community.</p>
-</section>
-<section id="major-repository-components" class="level2">
-<h2 class="anchored" data-anchor-id="major-repository-components">Major Repository Components</h2>
-<p>The public data landscape consists of several interconnected resources.</p>
-<section id="bioproject" class="level3">
-<h3 class="anchored" data-anchor-id="bioproject">BioProject</h3>
-<p>A BioProject describes the overall research initiative.</p>
-<p>Examples:</p>
-<ul>
-<li>Human gut microbiome study</li>
-<li>RNA-Seq disease study</li>
-<li>Agricultural genomics project</li>
-</ul>
-</section>
-<section id="biosample" class="level3">
-<h3 class="anchored" data-anchor-id="biosample">BioSample</h3>
-<p>BioSample records describe individual biological specimens.</p>
-<p>Examples:</p>
-<ul>
-<li>Stool sample</li>
-<li>Blood sample</li>
-<li>Tissue biopsy</li>
-</ul>
-</section>
-<section id="sequence-archives" class="level3">
-<h3 class="anchored" data-anchor-id="sequence-archives">Sequence Archives</h3>
-<p>Sequence archives store the raw sequencing data generated from samples.</p>
+<p>A dataset is not truly useful if it cannot be stored, organized, transferred, shared, and recovered reliably.</p>
+<p>As sequencing projects grow, data volumes often exceed the capacity of a single workstation. Cloud storage and transfer systems provide scalable solutions for managing large datasets while supporting collaboration and reproducibility.</p>
+<section id="why-cloud-storage-matters" class="level2">
+<h2 class="anchored" data-anchor-id="why-cloud-storage-matters">Why Cloud Storage Matters</h2>
+<p>Modern omics datasets can range from gigabytes to terabytes in size.</p>
 <p>Examples include:</p>
 <ul>
-<li>SRA (Sequence Read Archive)</li>
-<li>ENA (European Nucleotide Archive)</li>
-<li>DRA (DDBJ Sequence Read Archive)</li>
+<li>Large microbiome cohorts</li>
+<li>Population-scale sequencing studies</li>
+<li>RNA-Seq consortia</li>
+<li>Single-cell atlases</li>
+<li>Multi-omics projects</li>
 </ul>
+<p>Managing these datasets requires storage systems that are scalable, accessible, and resilient.</p>
 </section>
-<section id="functional-genomics-repositories" class="level3">
-<h3 class="anchored" data-anchor-id="functional-genomics-repositories">Functional Genomics Repositories</h3>
-<p>These repositories provide processed data and study-level information.</p>
+<section id="storage-options" class="level2">
+<h2 class="anchored" data-anchor-id="storage-options">Storage Options</h2>
+<section id="local-storage" class="level3">
+<h3 class="anchored" data-anchor-id="local-storage">Local Storage</h3>
 <p>Examples:</p>
 <ul>
-<li>GEO (Gene Expression Omnibus)</li>
-<li>ArrayExpress</li>
+<li>Laptops</li>
+<li>Workstations</li>
+<li>External drives</li>
 </ul>
-</section>
-</section>
-<section id="domain-specific-examples" class="level2">
-<h2 class="anchored" data-anchor-id="domain-specific-examples">Domain-Specific Examples</h2>
-<section id="microbiome" class="level3">
-<h3 class="anchored" data-anchor-id="microbiome">Microbiome</h3>
-<p>Common resources:</p>
+<p>Advantages:</p>
 <ul>
-<li>BioProject</li>
-<li>BioSample</li>
-<li>SRA</li>
-<li>MGnify</li>
+<li>Simple</li>
+<li>Immediate access</li>
 </ul>
-</section>
-<section id="rna-seq" class="level3">
-<h3 class="anchored" data-anchor-id="rna-seq">RNA-Seq</h3>
-<p>Common resources:</p>
+<p>Limitations:</p>
 <ul>
-<li>GEO</li>
-<li>SRA</li>
-<li>ENA</li>
+<li>Limited capacity</li>
+<li>Higher risk of data loss</li>
 </ul>
 </section>
-<section id="gwas" class="level3">
-<h3 class="anchored" data-anchor-id="gwas">GWAS</h3>
-<p>Common resources:</p>
+<section id="institutional-storage" class="level3">
+<h3 class="anchored" data-anchor-id="institutional-storage">Institutional Storage</h3>
+<p>Examples:</p>
 <ul>
-<li>GWAS Catalog</li>
-<li>dbGaP</li>
+<li>University servers</li>
+<li>Research clusters</li>
+<li>Shared file systems</li>
 </ul>
-</section>
-<section id="single-cell" class="level3">
-<h3 class="anchored" data-anchor-id="single-cell">Single-Cell</h3>
-<p>Common resources:</p>
+<p>Advantages:</p>
 <ul>
-<li>GEO</li>
-<li>SRA</li>
-<li>ArrayExpress</li>
+<li>Centralized management</li>
+<li>Collaboration support</li>
+</ul>
+</section>
+<section id="cloud-storage" class="level3">
+<h3 class="anchored" data-anchor-id="cloud-storage">Cloud Storage</h3>
+<p>Examples:</p>
+<ul>
+<li>AWS S3</li>
+<li>Google Cloud Storage</li>
+<li>Azure Blob Storage</li>
+</ul>
+<p>Advantages:</p>
+<ul>
+<li>Scalability</li>
+<li>Durability</li>
+<li>Global accessibility</li>
 </ul>
 </section>
 </section>
-<section id="a-first-look-at-repository-relationships" class="level2">
-<h2 class="anchored" data-anchor-id="a-first-look-at-repository-relationships">A First Look at Repository Relationships</h2>
-<p>A common relationship encountered in many public datasets is:</p>
+<section id="data-transfer-workflows" class="level2">
+<h2 class="anchored" data-anchor-id="data-transfer-workflows">Data Transfer Workflows</h2>
 <div class="cell" data-layout-align="default">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>flowchart LR</span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>BioProject --&gt; BioSample</span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>BioSample --&gt; Experiment</span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>Experiment --&gt; Run</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>flowchart TD</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>A[Public Repository]</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>--&gt; B[Download]</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>B --&gt; C[Validation]</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>C --&gt; D[Cloud Storage]</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>D --&gt; E[Analysis Environment]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output-display">
 <div>
 <p></p><figure class="figure"><p></p>
 <div>
-<pre class="mermaid mermaid-js">flowchart LR
+<pre class="mermaid mermaid-js">flowchart TD
 
-BioProject --&gt; BioSample
-BioSample --&gt; Experiment
-Experiment --&gt; Run
+A[Public Repository]
+--&gt; B[Download]
+
+B --&gt; C[Validation]
+
+C --&gt; D[Cloud Storage]
+
+D --&gt; E[Analysis Environment]
 </pre>
 </div>
 <p></p></figure><p></p>
 </div>
 </div>
 </div>
-<p>Understanding these relationships is essential for navigating accession systems, which are covered in a later chapter.</p>
+<p>Cloud storage often becomes the central hub connecting acquisition and analysis.</p>
+</section>
+<section id="organizing-cloud-data" class="level2">
+<h2 class="anchored" data-anchor-id="organizing-cloud-data">Organizing Cloud Data</h2>
+<p>A structured layout improves reproducibility.</p>
+<pre class="text"><code>project/
+├── metadata/
+├── raw-data/
+├── validated-data/
+├── reference-dataset/
+└── documentation/</code></pre>
+<p>Consistent organization simplifies navigation and collaboration.</p>
+</section>
+<section id="data-transfer-methods" class="level2">
+<h2 class="anchored" data-anchor-id="data-transfer-methods">Data Transfer Methods</h2>
+<p>Common approaches include:</p>
+<ul>
+<li>HTTPS</li>
+<li>FTP</li>
+<li>Aspera</li>
+<li>rsync</li>
+<li>Cloud synchronization tools</li>
+</ul>
+<p>The choice depends on data volume, infrastructure, and repository support.</p>
+</section>
+<section id="data-provenance" class="level2">
+<h2 class="anchored" data-anchor-id="data-provenance">Data Provenance</h2>
+<p>Every transfer should preserve provenance information.</p>
+<p>Important records include:</p>
+<ul>
+<li>Source repository</li>
+<li>Accessions</li>
+<li>Transfer date</li>
+<li>Validation status</li>
+<li>Storage location</li>
+</ul>
+<p>Provenance enables datasets to be traced and reconstructed.</p>
+</section>
+<section id="security-and-access-control" class="level2">
+<h2 class="anchored" data-anchor-id="security-and-access-control">Security and Access Control</h2>
+<p>Not all datasets are publicly accessible.</p>
+<p>Researchers may encounter:</p>
+<ul>
+<li>Controlled-access datasets</li>
+<li>Institutional permissions</li>
+<li>User authentication requirements</li>
+<li>Data use agreements</li>
+</ul>
+<p>Storage systems should support appropriate access controls.</p>
+</section>
+<section id="alphabiomics-example" class="level2">
+<h2 class="anchored" data-anchor-id="alphabiomics-example">AlphaBiomics Example</h2>
+<p>A healthy reference microbiome project may follow:</p>
+<pre class="text"><code>Public Repositories
+        ↓
+Metadata Filtering
+        ↓
+Validated Downloads
+        ↓
+Cloud Storage
+        ↓
+Reference Dataset Assembly</code></pre>
+<p>Cloud storage becomes the staging area where validated data are prepared for integration into a reference dataset.</p>
+</section>
+<section id="common-challenges" class="level2">
+<h2 class="anchored" data-anchor-id="common-challenges">Common Challenges</h2>
+<p>Researchers frequently encounter:</p>
+<ul>
+<li>Storage limits</li>
+<li>Transfer interruptions</li>
+<li>Version confusion</li>
+<li>Duplicate files</li>
+<li>Inconsistent folder structures</li>
+</ul>
+<p>Planning storage workflows early helps avoid these problems.</p>
 </section>
 <section id="looking-ahead" class="level2">
 <h2 class="anchored" data-anchor-id="looking-ahead">Looking Ahead</h2>
-<p>Understanding where public omics data reside is the first step in the data acquisition process. The next challenge is identifying studies that match a specific scientific objective.</p>
-<p>In the next chapter, we explore strategies for discovering relevant studies across public repositories.</p>
+<p>Once data have been downloaded, validated, and organized, the next challenge is combining them into a coherent and reproducible reference dataset.</p>
+<p>In the next chapter, we explore reference dataset assembly and the process of transforming acquired data into reusable analytical resources.</p>
 
 
 </section>
@@ -927,13 +911,13 @@ Experiment --&gt; Run
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./00-preface-and-overview.html" class="pagination-link" aria-label="Preface and Overview">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-title">Preface and Overview</span></span>
+      <a href="./06-data-validation-system.html" class="pagination-link" aria-label="Data Validation System">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-title">Data Validation System</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./02-study-discovery.html" class="pagination-link" aria-label="Study Discovery">
-        <span class="nav-page-text"><span class="chapter-title">Study Discovery</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./08-reference-dataset-assembly-system.html" class="pagination-link" aria-label="Reference Dataset Assembly">
+        <span class="nav-page-text"><span class="chapter-title">Reference Dataset Assembly</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

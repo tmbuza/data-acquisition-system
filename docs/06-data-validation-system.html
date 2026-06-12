@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Public Data Landscape – CDI Data Acquisition System</title>
+<title>Data Validation System – CDI Data Acquisition System</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -65,8 +65,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./02-study-discovery.html" rel="next">
-<link href="./00-preface-and-overview.html" rel="prev">
+<link href="./07-cloud-storage-and-transfer-system.html" rel="next">
+<link href="./05-data-download-system.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
@@ -123,7 +123,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./00-preface-and-overview.html">Foundations</a></li><li class="breadcrumb-item"><a href="./01-public-data-landscape.html"><span class="chapter-title">Public Data Landscape</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./04-metadata-acquisition.html">Acquisition Systems</a></li><li class="breadcrumb-item"><a href="./06-data-validation-system.html"><span class="chapter-title">Data Validation System</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -169,7 +169,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./01-public-data-landscape.html" class="sidebar-item-text sidebar-link active"><span class="chapter-title">Public Data Landscape</span></a>
+  <a href="./01-public-data-landscape.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Public Data Landscape</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -205,7 +205,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./06-data-validation-system.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Data Validation System</span></a>
+  <a href="./06-data-validation-system.html" class="sidebar-item-text sidebar-link active"><span class="chapter-title">Data Validation System</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -267,24 +267,35 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#why-public-repositories-matter" id="toc-why-public-repositories-matter" class="nav-link active" data-scroll-target="#why-public-repositories-matter">Why Public Repositories Matter</a></li>
-  <li><a href="#the-global-repository-ecosystem" id="toc-the-global-repository-ecosystem" class="nav-link" data-scroll-target="#the-global-repository-ecosystem">The Global Repository Ecosystem</a></li>
-  <li><a href="#the-international-nucleotide-sequence-database-collaboration" id="toc-the-international-nucleotide-sequence-database-collaboration" class="nav-link" data-scroll-target="#the-international-nucleotide-sequence-database-collaboration">The International Nucleotide Sequence Database Collaboration</a></li>
-  <li><a href="#major-repository-components" id="toc-major-repository-components" class="nav-link" data-scroll-target="#major-repository-components">Major Repository Components</a>
+  <li><a href="#why-data-validation-matters" id="toc-why-data-validation-matters" class="nav-link active" data-scroll-target="#why-data-validation-matters">Why Data Validation Matters</a></li>
+  <li><a href="#validation-across-the-acquisition-workflow" id="toc-validation-across-the-acquisition-workflow" class="nav-link" data-scroll-target="#validation-across-the-acquisition-workflow">Validation Across the Acquisition Workflow</a></li>
+  <li><a href="#repository-validation" id="toc-repository-validation" class="nav-link" data-scroll-target="#repository-validation">Repository Validation</a>
   <ul class="collapse">
-  <li><a href="#bioproject" id="toc-bioproject" class="nav-link" data-scroll-target="#bioproject">BioProject</a></li>
-  <li><a href="#biosample" id="toc-biosample" class="nav-link" data-scroll-target="#biosample">BioSample</a></li>
-  <li><a href="#sequence-archives" id="toc-sequence-archives" class="nav-link" data-scroll-target="#sequence-archives">Sequence Archives</a></li>
-  <li><a href="#functional-genomics-repositories" id="toc-functional-genomics-repositories" class="nav-link" data-scroll-target="#functional-genomics-repositories">Functional Genomics Repositories</a></li>
+  <li><a href="#repository-validation-results" id="toc-repository-validation-results" class="nav-link" data-scroll-target="#repository-validation-results">Repository Validation Results</a></li>
   </ul></li>
-  <li><a href="#domain-specific-examples" id="toc-domain-specific-examples" class="nav-link" data-scroll-target="#domain-specific-examples">Domain-Specific Examples</a>
+  <li><a href="#validation-framework" id="toc-validation-framework" class="nav-link" data-scroll-target="#validation-framework">Validation Framework</a></li>
+  <li><a href="#validation-project-structure" id="toc-validation-project-structure" class="nav-link" data-scroll-target="#validation-project-structure">Validation Project Structure</a></li>
+  <li><a href="#file-level-validation" id="toc-file-level-validation" class="nav-link" data-scroll-target="#file-level-validation">File-Level Validation</a>
   <ul class="collapse">
-  <li><a href="#microbiome" id="toc-microbiome" class="nav-link" data-scroll-target="#microbiome">Microbiome</a></li>
-  <li><a href="#rna-seq" id="toc-rna-seq" class="nav-link" data-scroll-target="#rna-seq">RNA-Seq</a></li>
-  <li><a href="#gwas" id="toc-gwas" class="nav-link" data-scroll-target="#gwas">GWAS</a></li>
-  <li><a href="#single-cell" id="toc-single-cell" class="nav-link" data-scroll-target="#single-cell">Single-Cell</a></li>
+  <li><a href="#verify-downloaded-file-count" id="toc-verify-downloaded-file-count" class="nav-link" data-scroll-target="#verify-downloaded-file-count">Verify Downloaded File Count</a></li>
   </ul></li>
-  <li><a href="#a-first-look-at-repository-relationships" id="toc-a-first-look-at-repository-relationships" class="nav-link" data-scroll-target="#a-first-look-at-repository-relationships">A First Look at Repository Relationships</a></li>
+  <li><a href="#checksum-verification" id="toc-checksum-verification" class="nav-link" data-scroll-target="#checksum-verification">Checksum Verification</a></li>
+  <li><a href="#compression-integrity-validation" id="toc-compression-integrity-validation" class="nav-link" data-scroll-target="#compression-integrity-validation">Compression Integrity Validation</a></li>
+  <li><a href="#sample-count-validation" id="toc-sample-count-validation" class="nav-link" data-scroll-target="#sample-count-validation">Sample Count Validation</a></li>
+  <li><a href="#metadata-consistency-checks" id="toc-metadata-consistency-checks" class="nav-link" data-scroll-target="#metadata-consistency-checks">Metadata Consistency Checks</a></li>
+  <li><a href="#duplicate-detection" id="toc-duplicate-detection" class="nav-link" data-scroll-target="#duplicate-detection">Duplicate Detection</a></li>
+  <li><a href="#fastq-structure-validation" id="toc-fastq-structure-validation" class="nav-link" data-scroll-target="#fastq-structure-validation">FASTQ Structure Validation</a></li>
+  <li><a href="#paired-end-validation" id="toc-paired-end-validation" class="nav-link" data-scroll-target="#paired-end-validation">Paired-End Validation</a></li>
+  <li><a href="#validation-of-file-formats" id="toc-validation-of-file-formats" class="nav-link" data-scroll-target="#validation-of-file-formats">Validation of File Formats</a></li>
+  <li><a href="#automated-validation-workflow" id="toc-automated-validation-workflow" class="nav-link" data-scroll-target="#automated-validation-workflow">Automated Validation Workflow</a></li>
+  <li><a href="#validation-documentation" id="toc-validation-documentation" class="nav-link" data-scroll-target="#validation-documentation">Validation Documentation</a></li>
+  <li><a href="#alphabiomics-example" id="toc-alphabiomics-example" class="nav-link" data-scroll-target="#alphabiomics-example">AlphaBiomics Example</a></li>
+  <li><a href="#common-validation-challenges" id="toc-common-validation-challenges" class="nav-link" data-scroll-target="#common-validation-challenges">Common Validation Challenges</a></li>
+  <li><a href="#validation-as-risk-reduction" id="toc-validation-as-risk-reduction" class="nav-link" data-scroll-target="#validation-as-risk-reduction">Validation as Risk Reduction</a>
+  <ul class="collapse">
+  <li><a href="#validation-report-example" id="toc-validation-report-example" class="nav-link" data-scroll-target="#validation-report-example">Validation Report Example</a></li>
+  </ul></li>
+  <li><a href="#summary" id="toc-summary" class="nav-link" data-scroll-target="#summary">Summary</a></li>
   <li><a href="#looking-ahead" id="toc-looking-ahead" class="nav-link" data-scroll-target="#looking-ahead">Looking Ahead</a></li>
   </ul>
 </nav>
@@ -292,9 +303,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./00-preface-and-overview.html">Foundations</a></li><li class="breadcrumb-item"><a href="./01-public-data-landscape.html"><span class="chapter-title">Public Data Landscape</span></a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./04-metadata-acquisition.html">Acquisition Systems</a></li><li class="breadcrumb-item"><a href="./06-data-validation-system.html"><span class="chapter-title">Data Validation System</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-title">Public Data Landscape</span></h1>
+<h1 class="title"><span class="chapter-title">Data Validation System</span></h1>
 </div>
 
 
@@ -319,206 +330,426 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <div class="cdi-message">
 <ul>
-<li><strong>ID:</strong> DAS-001</li>
+<li><strong>ID:</strong> DAS-006</li>
 <li><strong>Type:</strong> Foundations</li>
 <li><strong>Audience:</strong> Omics Data Scientists, Bioinformaticians, and Research Teams</li>
-<li><strong>Theme:</strong> Understanding the Public Omics Ecosystem</li>
+<li><strong>Theme:</strong> Ensuring Data Integrity and Completeness</li>
 </ul>
 </div>
-<p>A successful data acquisition workflow begins with understanding where public omics data reside. Modern sequencing projects generate enormous quantities of biological data that are deposited into public repositories for preservation, sharing, and reuse. These repositories form a global ecosystem that supports scientific discovery, reproducibility, education, and innovation.</p>
-<p>Before searching for studies or downloading files, it is important to understand the major repository systems, how they relate to one another, and what types of data they contain.</p>
-<section id="why-public-repositories-matter" class="level2">
-<h2 class="anchored" data-anchor-id="why-public-repositories-matter">Why Public Repositories Matter</h2>
-<p>Public repositories serve several important functions:</p>
+<p>Acquiring data is only one part of the data acquisition process. Before datasets can be used for analysis or reference dataset construction, researchers must verify that the downloaded files are complete, consistent, and aligned with project expectations.</p>
+<p>Data validation provides confidence that the acquired dataset accurately represents the intended studies and samples.</p>
+<section id="why-data-validation-matters" class="level2">
+<h2 class="anchored" data-anchor-id="why-data-validation-matters">Why Data Validation Matters</h2>
+<p>Even when data originate from reputable public repositories, validation remains essential.</p>
+<p>Potential issues include:</p>
 <ul>
-<li>Long-term data preservation</li>
-<li>Scientific transparency</li>
-<li>Reproducibility</li>
-<li>Data reuse</li>
-<li>Meta-analysis</li>
-<li>Benchmarking and method development</li>
+<li>Missing files</li>
+<li>Incomplete downloads</li>
+<li>Corrupted files</li>
+<li>Metadata mismatches</li>
+<li>Duplicate samples</li>
+<li>Unexpected sample counts</li>
 </ul>
-<p>Without these repositories, many large-scale biological discoveries would not be possible.</p>
+<p>Identifying these issues early prevents downstream problems and improves reproducibility.</p>
 </section>
-<section id="the-global-repository-ecosystem" class="level2">
-<h2 class="anchored" data-anchor-id="the-global-repository-ecosystem">The Global Repository Ecosystem</h2>
-<p>Most public omics data are distributed through a small number of major repository systems.</p>
+<section id="validation-across-the-acquisition-workflow" class="level2">
+<h2 class="anchored" data-anchor-id="validation-across-the-acquisition-workflow">Validation Across the Acquisition Workflow</h2>
 <div class="cell" data-layout-align="default">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>flowchart LR</span>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>flowchart TD</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>A[NCBI]</span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>B[EMBL-EBI]</span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>C[DDBJ]</span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>A &lt;--&gt; B</span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>B &lt;--&gt; C</span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>A &lt;--&gt; C</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>A[Data Download]</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>--&gt; B[Data Validation]</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>B --&gt; C[Quality Assessment]</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>C --&gt; D[Dataset Assembly]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output-display">
 <div>
 <p></p><figure class="figure"><p></p>
 <div>
-<pre class="mermaid mermaid-js">flowchart LR
+<pre class="mermaid mermaid-js">flowchart TD
 
-A[NCBI]
-B[EMBL-EBI]
-C[DDBJ]
+A[Data Download]
+--&gt; B[Data Validation]
 
-A &lt;--&gt; B
-B &lt;--&gt; C
-A &lt;--&gt; C
+B --&gt; C[Quality Assessment]
+
+C --&gt; D[Dataset Assembly]
 </pre>
 </div>
 <p></p></figure><p></p>
 </div>
 </div>
 </div>
-<p>Together these organizations support the global exchange of biological data.</p>
+<p>Validation acts as a checkpoint between data acquisition and dataset construction.</p>
 </section>
-<section id="the-international-nucleotide-sequence-database-collaboration" class="level2">
-<h2 class="anchored" data-anchor-id="the-international-nucleotide-sequence-database-collaboration">The International Nucleotide Sequence Database Collaboration</h2>
-<p>The International Nucleotide Sequence Database Collaboration (INSDC) is a long-standing partnership between three major organizations:</p>
-<table class="caption-top table">
-<thead>
-<tr class="header">
-<th>Organization</th>
-<th>Region</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>NCBI</td>
-<td>United States</td>
-</tr>
-<tr class="even">
-<td>EMBL-EBI</td>
-<td>Europe</td>
-</tr>
-<tr class="odd">
-<td>DDBJ</td>
-<td>Japan</td>
-</tr>
-</tbody>
-</table>
-<p>These repositories routinely exchange data, ensuring that submitted datasets become available throughout the international community.</p>
-</section>
-<section id="major-repository-components" class="level2">
-<h2 class="anchored" data-anchor-id="major-repository-components">Major Repository Components</h2>
-<p>The public data landscape consists of several interconnected resources.</p>
-<section id="bioproject" class="level3">
-<h3 class="anchored" data-anchor-id="bioproject">BioProject</h3>
-<p>A BioProject describes the overall research initiative.</p>
-<p>Examples:</p>
+<section id="repository-validation" class="level2">
+<h2 class="anchored" data-anchor-id="repository-validation">Repository Validation</h2>
+<p>Before initiating production downloads, the CDI Data Acquisition System validates repository workflows using a representative test manifest.</p>
+<pre class="text"><code>Test Manifest
+      ↓
+SRR7450741
+SRR7450738
+SRR7450759
+      ↓
+      ├── ENA Retrieval
+      │        ↓
+      │     6 FASTQ Files
+      │
+      └── NCBI Retrieval
+               ↓
+            6 FASTQ Files
+      ↓
+Repository Validation
+      ↓
+Production Readiness</code></pre>
+<p>The objective of repository validation is to confirm that:</p>
 <ul>
-<li>Human gut microbiome study</li>
-<li>RNA-Seq disease study</li>
-<li>Agricultural genomics project</li>
+<li>Download manifests are constructed correctly.</li>
+<li>Repository access is functioning as expected.</li>
+<li>FASTQ files can be retrieved successfully.</li>
+<li>Expected file counts match downloaded files.</li>
+<li>Multiple repository pathways produce consistent results.</li>
 </ul>
-</section>
-<section id="biosample" class="level3">
-<h3 class="anchored" data-anchor-id="biosample">BioSample</h3>
-<p>BioSample records describe individual biological specimens.</p>
-<p>Examples:</p>
-<ul>
-<li>Stool sample</li>
-<li>Blood sample</li>
-<li>Tissue biopsy</li>
-</ul>
-</section>
-<section id="sequence-archives" class="level3">
-<h3 class="anchored" data-anchor-id="sequence-archives">Sequence Archives</h3>
-<p>Sequence archives store the raw sequencing data generated from samples.</p>
-<p>Examples include:</p>
-<ul>
-<li>SRA (Sequence Read Archive)</li>
-<li>ENA (European Nucleotide Archive)</li>
-<li>DRA (DDBJ Sequence Read Archive)</li>
-</ul>
-</section>
-<section id="functional-genomics-repositories" class="level3">
-<h3 class="anchored" data-anchor-id="functional-genomics-repositories">Functional Genomics Repositories</h3>
-<p>These repositories provide processed data and study-level information.</p>
-<p>Examples:</p>
-<ul>
-<li>GEO (Gene Expression Omnibus)</li>
-<li>ArrayExpress</li>
-</ul>
+<section id="repository-validation-results" class="level3">
+<h3 class="anchored" data-anchor-id="repository-validation-results">Repository Validation Results</h3>
+<div class="sourceCode" id="cb3"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">find</span> data/raw/ena <span class="at">-name</span> <span class="st">"*.fastq.gz"</span> <span class="kw">|</span> <span class="fu">wc</span> <span class="at">-l</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Output:</p>
+<pre class="text"><code>6</code></pre>
+<div class="sourceCode" id="cb5"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">find</span> data/raw/ncbi <span class="at">-name</span> <span class="st">"*.fastq.gz"</span> <span class="kw">|</span> <span class="fu">wc</span> <span class="at">-l</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Output:</p>
+<pre class="text"><code>6</code></pre>
+<p>Validation summary:</p>
+<pre class="text"><code>Repository      Expected FASTQ Files    Downloaded FASTQ Files    Status
+
+ENA                     6                        6               PASS
+NCBI/SRA                6                        6               PASS</code></pre>
+<p>Overall result:</p>
+<pre class="text"><code>Repository Validation Status
+
+ENA: PASS
+NCBI/SRA: PASS
+
+READY FOR PRODUCTION DOWNLOAD</code></pre>
 </section>
 </section>
-<section id="domain-specific-examples" class="level2">
-<h2 class="anchored" data-anchor-id="domain-specific-examples">Domain-Specific Examples</h2>
-<section id="microbiome" class="level3">
-<h3 class="anchored" data-anchor-id="microbiome">Microbiome</h3>
-<p>Common resources:</p>
-<ul>
-<li>BioProject</li>
-<li>BioSample</li>
-<li>SRA</li>
-<li>MGnify</li>
-</ul>
-</section>
-<section id="rna-seq" class="level3">
-<h3 class="anchored" data-anchor-id="rna-seq">RNA-Seq</h3>
-<p>Common resources:</p>
-<ul>
-<li>GEO</li>
-<li>SRA</li>
-<li>ENA</li>
-</ul>
-</section>
-<section id="gwas" class="level3">
-<h3 class="anchored" data-anchor-id="gwas">GWAS</h3>
-<p>Common resources:</p>
-<ul>
-<li>GWAS Catalog</li>
-<li>dbGaP</li>
-</ul>
-</section>
-<section id="single-cell" class="level3">
-<h3 class="anchored" data-anchor-id="single-cell">Single-Cell</h3>
-<p>Common resources:</p>
-<ul>
-<li>GEO</li>
-<li>SRA</li>
-<li>ArrayExpress</li>
-</ul>
-</section>
-</section>
-<section id="a-first-look-at-repository-relationships" class="level2">
-<h2 class="anchored" data-anchor-id="a-first-look-at-repository-relationships">A First Look at Repository Relationships</h2>
-<p>A common relationship encountered in many public datasets is:</p>
+<section id="validation-framework" class="level2">
+<h2 class="anchored" data-anchor-id="validation-framework">Validation Framework</h2>
+<p>The CDI Data Acquisition System uses a multi-layer validation strategy.</p>
 <div class="cell" data-layout-align="default">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>flowchart LR</span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>BioProject --&gt; BioSample</span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>BioSample --&gt; Experiment</span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>Experiment --&gt; Run</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>flowchart TD</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>A[Repository Validation]</span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>--&gt; B[File Count Validation]</span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>B --&gt; C[Integrity Validation]</span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>C --&gt; D[Metadata Validation]</span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a>D --&gt; E[FASTQ Structure Validation]</span>
+<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a>E --&gt; F[Validation Report]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output-display">
 <div>
 <p></p><figure class="figure"><p></p>
 <div>
-<pre class="mermaid mermaid-js">flowchart LR
+<pre class="mermaid mermaid-js">flowchart TD
 
-BioProject --&gt; BioSample
-BioSample --&gt; Experiment
-Experiment --&gt; Run
+A[Repository Validation]
+--&gt; B[File Count Validation]
+
+B --&gt; C[Integrity Validation]
+
+C --&gt; D[Metadata Validation]
+
+D --&gt; E[FASTQ Structure Validation]
+
+E --&gt; F[Validation Report]
 </pre>
 </div>
 <p></p></figure><p></p>
 </div>
 </div>
 </div>
-<p>Understanding these relationships is essential for navigating accession systems, which are covered in a later chapter.</p>
+<p>Each validation layer addresses a different source of acquisition risk.</p>
+</section>
+<section id="validation-project-structure" class="level2">
+<h2 class="anchored" data-anchor-id="validation-project-structure">Validation Project Structure</h2>
+<pre class="text"><code>data/
+├── metadata/
+├── manifests/
+├── logs/
+├── raw/
+│   ├── ena/
+│   ├── ncbi/
+│   ├── sra/
+│   └── fastq/
+└── validation/
+    ├── repository-validation.tsv
+    ├── file-validation.tsv
+    ├── metadata-validation.tsv
+    └── validation-report.tsv</code></pre>
+<p>The validation directory stores outputs generated during the validation process.</p>
+</section>
+<section id="file-level-validation" class="level2">
+<h2 class="anchored" data-anchor-id="file-level-validation">File-Level Validation</h2>
+<p>File-level validation focuses on verifying the integrity of downloaded files.</p>
+<p>Common checks include:</p>
+<ul>
+<li>File existence</li>
+<li>File size</li>
+<li>File format</li>
+<li>Compression status</li>
+<li>Readability</li>
+</ul>
+<p>These checks help identify incomplete or damaged downloads.</p>
+<section id="verify-downloaded-file-count" class="level3">
+<h3 class="anchored" data-anchor-id="verify-downloaded-file-count">Verify Downloaded File Count</h3>
+<p>Repository validation example:</p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">find</span> data/raw/ena <span class="at">-name</span> <span class="st">"*.fastq.gz"</span> <span class="kw">|</span> <span class="fu">wc</span> <span class="at">-l</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="fu">find</span> data/raw/ncbi <span class="at">-name</span> <span class="st">"*.fastq.gz"</span> <span class="kw">|</span> <span class="fu">wc</span> <span class="at">-l</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Expected result:</p>
+<pre class="text"><code>ENA: 6
+NCBI/SRA: 6</code></pre>
+<p>Production validation example:</p>
+<div class="sourceCode" id="cb13"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">find</span> data/raw/fastq <span class="dt">\</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>-name <span class="st">"*.fastq.gz"</span> <span class="dt">\</span></span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a><span class="kw">|</span> <span class="fu">wc</span> <span class="at">-l</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Compare against:</p>
+<div class="sourceCode" id="cb14"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">wc</span> <span class="at">-l</span> data/manifests/ena-fastq-urls.txt</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Expected outcome:</p>
+<pre class="text"><code>Manifest Files = Downloaded Files</code></pre>
+</section>
+</section>
+<section id="checksum-verification" class="level2">
+<h2 class="anchored" data-anchor-id="checksum-verification">Checksum Verification</h2>
+<p>Many repositories provide checksums that can be used to verify file integrity.</p>
+<p>Common checksum methods include:</p>
+<ul>
+<li>MD5</li>
+<li>SHA-256</li>
+</ul>
+<p>Checksum validation helps confirm that downloaded files match repository records.</p>
+<p>Example:</p>
+<div class="sourceCode" id="cb16"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">md5sum</span> sample.fastq.gz</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="compression-integrity-validation" class="level2">
+<h2 class="anchored" data-anchor-id="compression-integrity-validation">Compression Integrity Validation</h2>
+<p>Most sequencing files are distributed as compressed archives.</p>
+<p>Before analysis, compressed files should be tested for corruption.</p>
+<div class="sourceCode" id="cb17"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="fu">gzip</span> <span class="at">-tv</span> data/raw/fastq/<span class="pp">*</span>.gz</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Expected output:</p>
+<pre class="text"><code>OK</code></pre>
+<p>Files failing this check should be re-downloaded.</p>
+</section>
+<section id="sample-count-validation" class="level2">
+<h2 class="anchored" data-anchor-id="sample-count-validation">Sample Count Validation</h2>
+<p>Researchers should verify that expected sample counts match downloaded data.</p>
+<p>Example:</p>
+<pre class="text"><code>Expected Samples: 850
+Downloaded Samples: 850
+Status: Pass</code></pre>
+<p>Discrepancies should be investigated before proceeding.</p>
+</section>
+<section id="metadata-consistency-checks" class="level2">
+<h2 class="anchored" data-anchor-id="metadata-consistency-checks">Metadata Consistency Checks</h2>
+<p>Validation should also compare downloaded files against metadata records.</p>
+<p>Questions to consider:</p>
+<ul>
+<li>Does every sample have metadata?</li>
+<li>Do metadata identifiers match downloaded files?</li>
+<li>Are required variables present?</li>
+<li>Are there unexpected missing values?</li>
+</ul>
+<p>Consistency between metadata and sequencing data is critical.</p>
+</section>
+<section id="duplicate-detection" class="level2">
+<h2 class="anchored" data-anchor-id="duplicate-detection">Duplicate Detection</h2>
+<p>Duplicate samples may occur when:</p>
+<ul>
+<li>Studies overlap</li>
+<li>Samples are submitted multiple times</li>
+<li>Metadata contain redundant entries</li>
+</ul>
+<p>Duplicate detection helps prevent inflated sample counts and biased analyses.</p>
+</section>
+<section id="fastq-structure-validation" class="level2">
+<h2 class="anchored" data-anchor-id="fastq-structure-validation">FASTQ Structure Validation</h2>
+<p>For sequencing projects, validating FASTQ structure is particularly important.</p>
+<p>Each FASTQ record should contain four lines:</p>
+<pre class="text"><code>@SEQ_ID
+SEQUENCE
++
+QUALITY</code></pre>
+<p>Quick inspection:</p>
+<div class="sourceCode" id="cb21"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="fu">zcat</span> sample.fastq.gz <span class="kw">|</span> <span class="fu">head</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>This confirms that the file can be decompressed and follows the expected FASTQ format.</p>
+</section>
+<section id="paired-end-validation" class="level2">
+<h2 class="anchored" data-anchor-id="paired-end-validation">Paired-End Validation</h2>
+<p>Many sequencing studies generate paired-end reads.</p>
+<p>Each sample should contain:</p>
+<pre class="text"><code>sample_1.fastq.gz
+sample_2.fastq.gz</code></pre>
+<p>Verify that forward and reverse files exist for every sample.</p>
+<div class="sourceCode" id="cb23"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ls</span> <span class="pp">*</span>_1.fastq.gz <span class="kw">|</span> <span class="fu">wc</span> <span class="at">-l</span></span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ls</span> <span class="pp">*</span>_2.fastq.gz <span class="kw">|</span> <span class="fu">wc</span> <span class="at">-l</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Expected outcome:</p>
+<pre class="text"><code>Forward Reads = Reverse Reads</code></pre>
+</section>
+<section id="validation-of-file-formats" class="level2">
+<h2 class="anchored" data-anchor-id="validation-of-file-formats">Validation of File Formats</h2>
+<p>Different repositories may provide data in various formats.</p>
+<p>Common examples include:</p>
+<ul>
+<li>FASTQ</li>
+<li>FASTA</li>
+<li>BAM</li>
+<li>CRAM</li>
+<li>TSV</li>
+<li>CSV</li>
+</ul>
+<p>Researchers should verify that files are in the expected format and can be successfully opened or parsed.</p>
+</section>
+<section id="automated-validation-workflow" class="level2">
+<h2 class="anchored" data-anchor-id="automated-validation-workflow">Automated Validation Workflow</h2>
+<p>To support reproducibility, validation should be automated whenever possible.</p>
+<p>Example system component:</p>
+<pre class="text"><code>scripts/bash/06-validate-downloads.sh</code></pre>
+<p>Workflow:</p>
+<pre class="text"><code>Repository Validation
+        ↓
+File Count Check
+        ↓
+Compression Check
+        ↓
+Metadata Check
+        ↓
+FASTQ Validation
+        ↓
+Validation Report</code></pre>
+<p>Automated validation minimizes manual errors and ensures consistency across projects.</p>
+</section>
+<section id="validation-documentation" class="level2">
+<h2 class="anchored" data-anchor-id="validation-documentation">Validation Documentation</h2>
+<p>Validation results should be recorded as part of the acquisition workflow.</p>
+<p>Recommended records include:</p>
+<ul>
+<li>Validation date</li>
+<li>Files checked</li>
+<li>Sample counts</li>
+<li>Missing files</li>
+<li>Detected issues</li>
+<li>Corrective actions</li>
+</ul>
+<p>Documentation improves transparency and reproducibility.</p>
+</section>
+<section id="alphabiomics-example" class="level2">
+<h2 class="anchored" data-anchor-id="alphabiomics-example">AlphaBiomics Example</h2>
+<p>Suppose a healthy reference microbiome project downloads data for 850 eligible samples.</p>
+<p>Validation may involve:</p>
+<pre class="text"><code>850 Expected Samples
+        ↓
+Verify Downloaded Files
+        ↓
+Check Metadata Consistency
+        ↓
+Check FASTQ Integrity
+        ↓
+Remove Duplicates
+        ↓
+Validated Dataset</code></pre>
+<p>Only after successful validation should samples be considered for reference dataset assembly.</p>
+</section>
+<section id="common-validation-challenges" class="level2">
+<h2 class="anchored" data-anchor-id="common-validation-challenges">Common Validation Challenges</h2>
+<p>Researchers frequently encounter:</p>
+<ul>
+<li>Missing metadata</li>
+<li>Corrupted files</li>
+<li>Inconsistent naming conventions</li>
+<li>Duplicate records</li>
+<li>Repository updates</li>
+</ul>
+<p>A structured validation workflow helps address these challenges systematically.</p>
+</section>
+<section id="validation-as-risk-reduction" class="level2">
+<h2 class="anchored" data-anchor-id="validation-as-risk-reduction">Validation as Risk Reduction</h2>
+<p>Data validation is not merely a technical exercise.</p>
+<p>It reduces the risk of:</p>
+<ul>
+<li>Incorrect analyses</li>
+<li>Missing samples</li>
+<li>Reproducibility failures</li>
+<li>Misleading conclusions</li>
+</ul>
+<p>Validation protects the integrity of downstream scientific work.</p>
+<section id="validation-report-example" class="level3">
+<h3 class="anchored" data-anchor-id="validation-report-example">Validation Report Example</h3>
+<p>The validation script generates a machine-readable report summarizing validation outcomes.</p>
+<p>Example execution:</p>
+<div class="sourceCode" id="cb28"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="fu">bash</span> scripts/bash/06-validate-download.sh data/raw/ena</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Output:</p>
+<pre class="text"><code>check   status  value
+fastq_file_count    PASS    6
+compression_validation  PASS    0
+paired_end_validation   PASS    3
+fastq_validation    PASS    data/raw/ena/SRR7450738_1.fastq.gz</code></pre>
+<p>Interpretation:</p>
+<pre class="text"><code>FASTQ File Count
+Expected: 6
+Observed: 6
+Status: PASS</code></pre>
+<pre class="text"><code>Compression Validation
+Failed Files: 0
+Status: PASS</code></pre>
+<pre class="text"><code>Paired-End Validation
+Forward Reads: 3
+Reverse Reads: 3
+Status: PASS</code></pre>
+<pre class="text"><code>FASTQ Validation
+Test File:
+SRR7450738_1.fastq.gz
+
+Status: PASS</code></pre>
+<p>Overall result:</p>
+<pre class="text"><code>Repository Validation: PASS
+File Validation: PASS
+Compression Validation: PASS
+Paired-End Validation: PASS
+FASTQ Validation: PASS
+
+Overall Status:
+VALIDATED</code></pre>
+<p>The validation report provides a reproducible record of dataset integrity and serves as the final quality gate before production-scale data acquisition and reference dataset assembly.</p>
+</section>
+</section>
+<section id="summary" class="level2">
+<h2 class="anchored" data-anchor-id="summary">Summary</h2>
+<p>Data validation transforms downloaded files into trusted analytical assets.</p>
+<pre class="text"><code>Repository Validation
+        ↓
+File Validation
+        ↓
+Compression Validation
+        ↓
+Metadata Validation
+        ↓
+FASTQ Validation
+        ↓
+Validated Dataset</code></pre>
+<p>A validated dataset provides confidence that acquisition objectives have been achieved and that downstream analyses are based on complete and reliable data.</p>
 </section>
 <section id="looking-ahead" class="level2">
 <h2 class="anchored" data-anchor-id="looking-ahead">Looking Ahead</h2>
-<p>Understanding where public omics data reside is the first step in the data acquisition process. The next challenge is identifying studies that match a specific scientific objective.</p>
-<p>In the next chapter, we explore strategies for discovering relevant studies across public repositories.</p>
+<p>Once datasets have been validated, the next challenge is managing storage, transfers, and scalable access to acquired data.</p>
+<p>In the next chapter, we explore cloud storage and data transfer strategies that support reproducible and collaborative data acquisition workflows while preserving the integrity of validated datasets.</p>
 
 
 </section>
@@ -927,13 +1158,13 @@ Experiment --&gt; Run
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./00-preface-and-overview.html" class="pagination-link" aria-label="Preface and Overview">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-title">Preface and Overview</span></span>
+      <a href="./05-data-download-system.html" class="pagination-link" aria-label="Data Download System">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-title">Data Download System</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./02-study-discovery.html" class="pagination-link" aria-label="Study Discovery">
-        <span class="nav-page-text"><span class="chapter-title">Study Discovery</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./07-cloud-storage-and-transfer-system.html" class="pagination-link" aria-label="Cloud Storage and Transfer">
+        <span class="nav-page-text"><span class="chapter-title">Cloud Storage and Transfer</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

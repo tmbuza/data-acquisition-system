@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Public Data Landscape – CDI Data Acquisition System</title>
+<title>AlphaBiomics Case Study – CDI Data Acquisition System</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -65,8 +65,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./02-study-discovery.html" rel="next">
-<link href="./00-preface-and-overview.html" rel="prev">
+<link href="./999-appendix.html" rel="next">
+<link href="./08-reference-dataset-assembly-system.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
@@ -123,7 +123,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./00-preface-and-overview.html">Foundations</a></li><li class="breadcrumb-item"><a href="./01-public-data-landscape.html"><span class="chapter-title">Public Data Landscape</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./09-end-to-end-case-study.html">Case Study</a></li><li class="breadcrumb-item"><a href="./09-end-to-end-case-study.html"><span class="chapter-title">AlphaBiomics Case Study</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -169,7 +169,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./01-public-data-landscape.html" class="sidebar-item-text sidebar-link active"><span class="chapter-title">Public Data Landscape</span></a>
+  <a href="./01-public-data-landscape.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Public Data Landscape</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -231,7 +231,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./09-end-to-end-case-study.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">AlphaBiomics Case Study</span></a>
+  <a href="./09-end-to-end-case-study.html" class="sidebar-item-text sidebar-link active"><span class="chapter-title">AlphaBiomics Case Study</span></a>
   </div>
 </li>
       </ul>
@@ -267,34 +267,32 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#why-public-repositories-matter" id="toc-why-public-repositories-matter" class="nav-link active" data-scroll-target="#why-public-repositories-matter">Why Public Repositories Matter</a></li>
-  <li><a href="#the-global-repository-ecosystem" id="toc-the-global-repository-ecosystem" class="nav-link" data-scroll-target="#the-global-repository-ecosystem">The Global Repository Ecosystem</a></li>
-  <li><a href="#the-international-nucleotide-sequence-database-collaboration" id="toc-the-international-nucleotide-sequence-database-collaboration" class="nav-link" data-scroll-target="#the-international-nucleotide-sequence-database-collaboration">The International Nucleotide Sequence Database Collaboration</a></li>
-  <li><a href="#major-repository-components" id="toc-major-repository-components" class="nav-link" data-scroll-target="#major-repository-components">Major Repository Components</a>
+  <li><a href="#project-objective" id="toc-project-objective" class="nav-link active" data-scroll-target="#project-objective">Project Objective</a></li>
+  <li><a href="#step-1-define-the-target-population" id="toc-step-1-define-the-target-population" class="nav-link" data-scroll-target="#step-1-define-the-target-population">Step 1: Define the Target Population</a>
   <ul class="collapse">
-  <li><a href="#bioproject" id="toc-bioproject" class="nav-link" data-scroll-target="#bioproject">BioProject</a></li>
-  <li><a href="#biosample" id="toc-biosample" class="nav-link" data-scroll-target="#biosample">BioSample</a></li>
-  <li><a href="#sequence-archives" id="toc-sequence-archives" class="nav-link" data-scroll-target="#sequence-archives">Sequence Archives</a></li>
-  <li><a href="#functional-genomics-repositories" id="toc-functional-genomics-repositories" class="nav-link" data-scroll-target="#functional-genomics-repositories">Functional Genomics Repositories</a></li>
+  <li><a href="#inclusion-criteria" id="toc-inclusion-criteria" class="nav-link" data-scroll-target="#inclusion-criteria">Inclusion Criteria</a></li>
+  <li><a href="#exclusion-criteria" id="toc-exclusion-criteria" class="nav-link" data-scroll-target="#exclusion-criteria">Exclusion Criteria</a></li>
   </ul></li>
-  <li><a href="#domain-specific-examples" id="toc-domain-specific-examples" class="nav-link" data-scroll-target="#domain-specific-examples">Domain-Specific Examples</a>
-  <ul class="collapse">
-  <li><a href="#microbiome" id="toc-microbiome" class="nav-link" data-scroll-target="#microbiome">Microbiome</a></li>
-  <li><a href="#rna-seq" id="toc-rna-seq" class="nav-link" data-scroll-target="#rna-seq">RNA-Seq</a></li>
-  <li><a href="#gwas" id="toc-gwas" class="nav-link" data-scroll-target="#gwas">GWAS</a></li>
-  <li><a href="#single-cell" id="toc-single-cell" class="nav-link" data-scroll-target="#single-cell">Single-Cell</a></li>
-  </ul></li>
-  <li><a href="#a-first-look-at-repository-relationships" id="toc-a-first-look-at-repository-relationships" class="nav-link" data-scroll-target="#a-first-look-at-repository-relationships">A First Look at Repository Relationships</a></li>
-  <li><a href="#looking-ahead" id="toc-looking-ahead" class="nav-link" data-scroll-target="#looking-ahead">Looking Ahead</a></li>
+  <li><a href="#step-2-study-discovery" id="toc-step-2-study-discovery" class="nav-link" data-scroll-target="#step-2-study-discovery">Step 2: Study Discovery</a></li>
+  <li><a href="#step-3-accession-retrieval" id="toc-step-3-accession-retrieval" class="nav-link" data-scroll-target="#step-3-accession-retrieval">Step 3: Accession Retrieval</a></li>
+  <li><a href="#step-4-metadata-acquisition" id="toc-step-4-metadata-acquisition" class="nav-link" data-scroll-target="#step-4-metadata-acquisition">Step 4: Metadata Acquisition</a></li>
+  <li><a href="#step-5-sample-filtering" id="toc-step-5-sample-filtering" class="nav-link" data-scroll-target="#step-5-sample-filtering">Step 5: Sample Filtering</a></li>
+  <li><a href="#step-6-data-download" id="toc-step-6-data-download" class="nav-link" data-scroll-target="#step-6-data-download">Step 6: Data Download</a></li>
+  <li><a href="#step-7-data-validation" id="toc-step-7-data-validation" class="nav-link" data-scroll-target="#step-7-data-validation">Step 7: Data Validation</a></li>
+  <li><a href="#step-8-reference-dataset-assembly" id="toc-step-8-reference-dataset-assembly" class="nav-link" data-scroll-target="#step-8-reference-dataset-assembly">Step 8: Reference Dataset Assembly</a></li>
+  <li><a href="#final-dataset" id="toc-final-dataset" class="nav-link" data-scroll-target="#final-dataset">Final Dataset</a></li>
+  <li><a href="#lessons-learned" id="toc-lessons-learned" class="nav-link" data-scroll-target="#lessons-learned">Lessons Learned</a></li>
+  <li><a href="#cdi-data-acquisition-system-summary" id="toc-cdi-data-acquisition-system-summary" class="nav-link" data-scroll-target="#cdi-data-acquisition-system-summary">CDI Data Acquisition System Summary</a></li>
+  <li><a href="#next-steps" id="toc-next-steps" class="nav-link" data-scroll-target="#next-steps">Next Steps</a></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./00-preface-and-overview.html">Foundations</a></li><li class="breadcrumb-item"><a href="./01-public-data-landscape.html"><span class="chapter-title">Public Data Landscape</span></a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./09-end-to-end-case-study.html">Case Study</a></li><li class="breadcrumb-item"><a href="./09-end-to-end-case-study.html"><span class="chapter-title">AlphaBiomics Case Study</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-title">Public Data Landscape</span></h1>
+<h1 class="title"><span class="chapter-title">AlphaBiomics Case Study</span></h1>
 </div>
 
 
@@ -319,206 +317,324 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <div class="cdi-message">
 <ul>
-<li><strong>ID:</strong> DAS-001</li>
-<li><strong>Type:</strong> Foundations</li>
+<li><strong>ID:</strong> DAS-009</li>
+<li><strong>Type:</strong> Case Study</li>
 <li><strong>Audience:</strong> Omics Data Scientists, Bioinformaticians, and Research Teams</li>
-<li><strong>Theme:</strong> Understanding the Public Omics Ecosystem</li>
+<li><strong>Theme:</strong> Building a Healthy Reference Microbiome from Public Data</li>
 </ul>
 </div>
-<p>A successful data acquisition workflow begins with understanding where public omics data reside. Modern sequencing projects generate enormous quantities of biological data that are deposited into public repositories for preservation, sharing, and reuse. These repositories form a global ecosystem that supports scientific discovery, reproducibility, education, and innovation.</p>
-<p>Before searching for studies or downloading files, it is important to understand the major repository systems, how they relate to one another, and what types of data they contain.</p>
-<section id="why-public-repositories-matter" class="level2">
-<h2 class="anchored" data-anchor-id="why-public-repositories-matter">Why Public Repositories Matter</h2>
-<p>Public repositories serve several important functions:</p>
+<p>Throughout this guide, we explored the major components of a reproducible data acquisition workflow, including study discovery, accession systems, metadata acquisition, data download, validation, cloud storage, and reference dataset assembly.</p>
+<p>This chapter integrates those components through a practical case study inspired by a common challenge in microbiome research:</p>
+<blockquote class="blockquote">
+<p>How can we build a healthy reference microbiome dataset from public repositories?</p>
+</blockquote>
+<p>The objective is not to perform downstream microbiome analysis, but to demonstrate the acquisition workflow required to construct a reusable reference dataset.</p>
+<section id="project-objective" class="level2">
+<h2 class="anchored" data-anchor-id="project-objective">Project Objective</h2>
+<p>The goal is to assemble a healthy human gut microbiome reference dataset suitable for future comparative analyses.</p>
+<p>Potential applications include:</p>
 <ul>
-<li>Long-term data preservation</li>
-<li>Scientific transparency</li>
-<li>Reproducibility</li>
-<li>Data reuse</li>
-<li>Meta-analysis</li>
-<li>Benchmarking and method development</li>
+<li>Population benchmarking</li>
+<li>Health reference construction</li>
+<li>Method development</li>
+<li>Educational workflows</li>
+<li>Commercial microbiome products</li>
 </ul>
-<p>Without these repositories, many large-scale biological discoveries would not be possible.</p>
 </section>
-<section id="the-global-repository-ecosystem" class="level2">
-<h2 class="anchored" data-anchor-id="the-global-repository-ecosystem">The Global Repository Ecosystem</h2>
-<p>Most public omics data are distributed through a small number of major repository systems.</p>
+<section id="step-1-define-the-target-population" class="level2">
+<h2 class="anchored" data-anchor-id="step-1-define-the-target-population">Step 1: Define the Target Population</h2>
+<p>Before searching repositories, define the target cohort.</p>
+<section id="inclusion-criteria" class="level3">
+<h3 class="anchored" data-anchor-id="inclusion-criteria">Inclusion Criteria</h3>
+<ul>
+<li>Human samples</li>
+<li>Healthy individuals</li>
+<li>Stool samples</li>
+<li>Publicly available metadata</li>
+<li>Publicly available sequencing data</li>
+</ul>
+</section>
+<section id="exclusion-criteria" class="level3">
+<h3 class="anchored" data-anchor-id="exclusion-criteria">Exclusion Criteria</h3>
+<ul>
+<li>Disease cohorts</li>
+<li>Antibiotic-treated individuals</li>
+<li>Unknown health status</li>
+<li>Non-human samples</li>
+<li>Missing metadata</li>
+</ul>
+<p>These criteria establish the scope of the reference dataset.</p>
+</section>
+</section>
+<section id="step-2-study-discovery" class="level2">
+<h2 class="anchored" data-anchor-id="step-2-study-discovery">Step 2: Study Discovery</h2>
+<p>The next step is identifying candidate studies.</p>
 <div class="cell" data-layout-align="default">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>flowchart LR</span>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>flowchart TD</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>A[NCBI]</span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>B[EMBL-EBI]</span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>C[DDBJ]</span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>A &lt;--&gt; B</span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>B &lt;--&gt; C</span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>A &lt;--&gt; C</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>A[Healthy Reference Objective]</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>--&gt; B[Repository Search]</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>B --&gt; C[Candidate Studies]</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>C --&gt; D[Study Evaluation]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output-display">
 <div>
 <p></p><figure class="figure"><p></p>
 <div>
-<pre class="mermaid mermaid-js">flowchart LR
+<pre class="mermaid mermaid-js">flowchart TD
 
-A[NCBI]
-B[EMBL-EBI]
-C[DDBJ]
+A[Healthy Reference Objective]
+--&gt; B[Repository Search]
 
-A &lt;--&gt; B
-B &lt;--&gt; C
-A &lt;--&gt; C
+B --&gt; C[Candidate Studies]
+
+C --&gt; D[Study Evaluation]
 </pre>
 </div>
 <p></p></figure><p></p>
 </div>
 </div>
 </div>
-<p>Together these organizations support the global exchange of biological data.</p>
+<p>Potential repositories include:</p>
+<ul>
+<li>NCBI</li>
+<li>ENA</li>
+<li>MGnify</li>
+<li>GEO</li>
+</ul>
+<p>At this stage, the objective is to identify studies that may contain eligible samples.</p>
 </section>
-<section id="the-international-nucleotide-sequence-database-collaboration" class="level2">
-<h2 class="anchored" data-anchor-id="the-international-nucleotide-sequence-database-collaboration">The International Nucleotide Sequence Database Collaboration</h2>
-<p>The International Nucleotide Sequence Database Collaboration (INSDC) is a long-standing partnership between three major organizations:</p>
+<section id="step-3-accession-retrieval" class="level2">
+<h2 class="anchored" data-anchor-id="step-3-accession-retrieval">Step 3: Accession Retrieval</h2>
+<p>For each candidate study:</p>
+<div class="cell" data-layout-align="default">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>flowchart TD</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>A[BioProject]</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>--&gt; B[BioSamples]</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>B --&gt; C[Experiments]</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>C --&gt; D[Runs]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<div>
+<p></p><figure class="figure"><p></p>
+<div>
+<pre class="mermaid mermaid-js">flowchart TD
+
+A[BioProject]
+--&gt; B[BioSamples]
+
+B --&gt; C[Experiments]
+
+C --&gt; D[Runs]
+</pre>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
+<p>Accession identifiers provide the link between studies, samples, metadata, and downloadable sequencing data.</p>
+</section>
+<section id="step-4-metadata-acquisition" class="level2">
+<h2 class="anchored" data-anchor-id="step-4-metadata-acquisition">Step 4: Metadata Acquisition</h2>
+<p>Metadata determine whether samples satisfy project requirements.</p>
 <table class="caption-top table">
 <thead>
 <tr class="header">
-<th>Organization</th>
-<th>Region</th>
+<th>Variable</th>
+<th>Example</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td>NCBI</td>
-<td>United States</td>
+<td>Health Status</td>
+<td>Healthy</td>
 </tr>
 <tr class="even">
-<td>EMBL-EBI</td>
-<td>Europe</td>
+<td>Body Site</td>
+<td>Stool</td>
 </tr>
 <tr class="odd">
-<td>DDBJ</td>
-<td>Japan</td>
+<td>Age</td>
+<td>Adult</td>
+</tr>
+<tr class="even">
+<td>Antibiotic Use</td>
+<td>No</td>
+</tr>
+<tr class="odd">
+<td>Host</td>
+<td>Human</td>
 </tr>
 </tbody>
 </table>
-<p>These repositories routinely exchange data, ensuring that submitted datasets become available throughout the international community.</p>
+<p>Metadata acquisition often becomes the most time-consuming stage of the workflow.</p>
 </section>
-<section id="major-repository-components" class="level2">
-<h2 class="anchored" data-anchor-id="major-repository-components">Major Repository Components</h2>
-<p>The public data landscape consists of several interconnected resources.</p>
-<section id="bioproject" class="level3">
-<h3 class="anchored" data-anchor-id="bioproject">BioProject</h3>
-<p>A BioProject describes the overall research initiative.</p>
-<p>Examples:</p>
+<section id="step-5-sample-filtering" class="level2">
+<h2 class="anchored" data-anchor-id="step-5-sample-filtering">Step 5: Sample Filtering</h2>
+<p>A typical filtering process may resemble:</p>
+<pre class="text"><code>2,000 Samples
+        ↓
+Remove Disease Samples
+        ↓
+Remove Antibiotic-Treated Samples
+        ↓
+Remove Missing Metadata
+        ↓
+850 Eligible Samples</code></pre>
+<p>Filtering transforms candidate studies into a defined cohort.</p>
+</section>
+<section id="step-6-data-download" class="level2">
+<h2 class="anchored" data-anchor-id="step-6-data-download">Step 6: Data Download</h2>
+<p>Once eligible samples are identified:</p>
+<pre class="text"><code>Eligible Samples
+        ↓
+Retrieve Run Accessions
+        ↓
+Download Data
+        ↓
+Organize Files</code></pre>
+<p>Downloaded data should be stored using a reproducible directory structure.</p>
+</section>
+<section id="step-7-data-validation" class="level2">
+<h2 class="anchored" data-anchor-id="step-7-data-validation">Step 7: Data Validation</h2>
+<p>Validation confirms:</p>
 <ul>
-<li>Human gut microbiome study</li>
-<li>RNA-Seq disease study</li>
-<li>Agricultural genomics project</li>
+<li>Expected sample counts</li>
+<li>File integrity</li>
+<li>Metadata consistency</li>
+<li>Absence of duplicates</li>
 </ul>
+<p>Only validated samples should proceed to dataset assembly.</p>
 </section>
-<section id="biosample" class="level3">
-<h3 class="anchored" data-anchor-id="biosample">BioSample</h3>
-<p>BioSample records describe individual biological specimens.</p>
-<p>Examples:</p>
-<ul>
-<li>Stool sample</li>
-<li>Blood sample</li>
-<li>Tissue biopsy</li>
-</ul>
-</section>
-<section id="sequence-archives" class="level3">
-<h3 class="anchored" data-anchor-id="sequence-archives">Sequence Archives</h3>
-<p>Sequence archives store the raw sequencing data generated from samples.</p>
-<p>Examples include:</p>
-<ul>
-<li>SRA (Sequence Read Archive)</li>
-<li>ENA (European Nucleotide Archive)</li>
-<li>DRA (DDBJ Sequence Read Archive)</li>
-</ul>
-</section>
-<section id="functional-genomics-repositories" class="level3">
-<h3 class="anchored" data-anchor-id="functional-genomics-repositories">Functional Genomics Repositories</h3>
-<p>These repositories provide processed data and study-level information.</p>
-<p>Examples:</p>
-<ul>
-<li>GEO (Gene Expression Omnibus)</li>
-<li>ArrayExpress</li>
-</ul>
-</section>
-</section>
-<section id="domain-specific-examples" class="level2">
-<h2 class="anchored" data-anchor-id="domain-specific-examples">Domain-Specific Examples</h2>
-<section id="microbiome" class="level3">
-<h3 class="anchored" data-anchor-id="microbiome">Microbiome</h3>
-<p>Common resources:</p>
-<ul>
-<li>BioProject</li>
-<li>BioSample</li>
-<li>SRA</li>
-<li>MGnify</li>
-</ul>
-</section>
-<section id="rna-seq" class="level3">
-<h3 class="anchored" data-anchor-id="rna-seq">RNA-Seq</h3>
-<p>Common resources:</p>
-<ul>
-<li>GEO</li>
-<li>SRA</li>
-<li>ENA</li>
-</ul>
-</section>
-<section id="gwas" class="level3">
-<h3 class="anchored" data-anchor-id="gwas">GWAS</h3>
-<p>Common resources:</p>
-<ul>
-<li>GWAS Catalog</li>
-<li>dbGaP</li>
-</ul>
-</section>
-<section id="single-cell" class="level3">
-<h3 class="anchored" data-anchor-id="single-cell">Single-Cell</h3>
-<p>Common resources:</p>
-<ul>
-<li>GEO</li>
-<li>SRA</li>
-<li>ArrayExpress</li>
-</ul>
-</section>
-</section>
-<section id="a-first-look-at-repository-relationships" class="level2">
-<h2 class="anchored" data-anchor-id="a-first-look-at-repository-relationships">A First Look at Repository Relationships</h2>
-<p>A common relationship encountered in many public datasets is:</p>
+<section id="step-8-reference-dataset-assembly" class="level2">
+<h2 class="anchored" data-anchor-id="step-8-reference-dataset-assembly">Step 8: Reference Dataset Assembly</h2>
+<p>Validated samples are combined into a unified resource.</p>
 <div class="cell" data-layout-align="default">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>flowchart LR</span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>BioProject --&gt; BioSample</span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>BioSample --&gt; Experiment</span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>Experiment --&gt; Run</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>flowchart TD</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>A[Validated Study 1]</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>--&gt; D[Reference Dataset]</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>B[Validated Study 2]</span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>--&gt; D</span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>C[Validated Study 3]</span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>--&gt; D</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output-display">
 <div>
 <p></p><figure class="figure"><p></p>
 <div>
-<pre class="mermaid mermaid-js">flowchart LR
+<pre class="mermaid mermaid-js">flowchart TD
 
-BioProject --&gt; BioSample
-BioSample --&gt; Experiment
-Experiment --&gt; Run
+A[Validated Study 1]
+--&gt; D[Reference Dataset]
+
+B[Validated Study 2]
+--&gt; D
+
+C[Validated Study 3]
+--&gt; D
 </pre>
 </div>
 <p></p></figure><p></p>
 </div>
 </div>
 </div>
-<p>Understanding these relationships is essential for navigating accession systems, which are covered in a later chapter.</p>
+<p>Metadata are harmonized and provenance information is preserved.</p>
 </section>
-<section id="looking-ahead" class="level2">
-<h2 class="anchored" data-anchor-id="looking-ahead">Looking Ahead</h2>
-<p>Understanding where public omics data reside is the first step in the data acquisition process. The next challenge is identifying studies that match a specific scientific objective.</p>
-<p>In the next chapter, we explore strategies for discovering relevant studies across public repositories.</p>
+<section id="final-dataset" class="level2">
+<h2 class="anchored" data-anchor-id="final-dataset">Final Dataset</h2>
+<p>The resulting dataset contains:</p>
+<ul>
+<li>Selected studies</li>
+<li>Harmonized metadata</li>
+<li>Validated sequencing data</li>
+<li>Documentation</li>
+<li>Provenance records</li>
+</ul>
+<p>The dataset is now suitable for downstream analysis and interpretation.</p>
+</section>
+<section id="lessons-learned" class="level2">
+<h2 class="anchored" data-anchor-id="lessons-learned">Lessons Learned</h2>
+<p>This case study highlights several important principles:</p>
+<ol type="1">
+<li>Public data are not automatically reference datasets.</li>
+<li>Metadata often determine dataset quality.</li>
+<li>Validation is essential.</li>
+<li>Reproducibility should be considered throughout the workflow.</li>
+<li>Reference datasets are constructed, not simply downloaded.</li>
+</ol>
+</section>
+<section id="cdi-data-acquisition-system-summary" class="level2">
+<h2 class="anchored" data-anchor-id="cdi-data-acquisition-system-summary">CDI Data Acquisition System Summary</h2>
+<div class="cell" data-layout-align="default">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>flowchart TD</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>A[Public Data Landscape]</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>--&gt; B[Study Discovery]</span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>B --&gt; C[Accession Systems]</span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>C --&gt; D[Metadata Acquisition]</span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>D --&gt; E[Data Download]</span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a>E --&gt; F[Data Validation]</span>
+<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a>F --&gt; G[Cloud Storage and Transfer]</span>
+<span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-16"><a href="#cb6-16" aria-hidden="true" tabindex="-1"></a>G --&gt; H[Reference Dataset Assembly]</span>
+<span id="cb6-17"><a href="#cb6-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-18"><a href="#cb6-18" aria-hidden="true" tabindex="-1"></a>H --&gt; I[Healthy Reference Dataset]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<div>
+<p></p><figure class="figure"><p></p>
+<div>
+<pre class="mermaid mermaid-js">flowchart TD
+
+A[Public Data Landscape]
+--&gt; B[Study Discovery]
+
+B --&gt; C[Accession Systems]
+
+C --&gt; D[Metadata Acquisition]
+
+D --&gt; E[Data Download]
+
+E --&gt; F[Data Validation]
+
+F --&gt; G[Cloud Storage and Transfer]
+
+G --&gt; H[Reference Dataset Assembly]
+
+H --&gt; I[Healthy Reference Dataset]
+</pre>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
+<p>The AlphaBiomics case study demonstrates how each component of the CDI Data Acquisition System contributes to the creation of a reproducible reference dataset.</p>
+</section>
+<section id="next-steps" class="level2">
+<h2 class="anchored" data-anchor-id="next-steps">Next Steps</h2>
+<p>The workflow presented in this guide provides a foundation for many downstream activities, including microbiome analysis, RNA-Seq studies, benchmarking projects, clinical evidence generation, and commercial product development.</p>
+<p>The acquisition process is complete. The resulting reference dataset is now ready to support the next stage of scientific investigation.</p>
 
 
 </section>
@@ -927,13 +1043,13 @@ Experiment --&gt; Run
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./00-preface-and-overview.html" class="pagination-link" aria-label="Preface and Overview">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-title">Preface and Overview</span></span>
+      <a href="./08-reference-dataset-assembly-system.html" class="pagination-link" aria-label="Reference Dataset Assembly">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-title">Reference Dataset Assembly</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./02-study-discovery.html" class="pagination-link" aria-label="Study Discovery">
-        <span class="nav-page-text"><span class="chapter-title">Study Discovery</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./999-appendix.html" class="pagination-link" aria-label="Data Acquisition References">
+        <span class="nav-page-text"><span class="chapter-title">Data Acquisition References</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

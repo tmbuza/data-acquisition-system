@@ -1,3 +1,152 @@
-# 01-public-data-landscape
+# Public Data Landscape
 
-Content goes here.
+:::cdi-message
+- **ID:** DAS-001
+- **Type:** Foundations
+- **Audience:** Omics Data Scientists, Bioinformaticians, and Research Teams
+- **Theme:** Understanding the Public Omics Ecosystem
+:::
+
+A successful data acquisition workflow begins with understanding where public omics data reside. Modern sequencing projects generate enormous quantities of biological data that are deposited into public repositories for preservation, sharing, and reuse. These repositories form a global ecosystem that supports scientific discovery, reproducibility, education, and innovation.
+
+Before searching for studies or downloading files, it is important to understand the major repository systems, how they relate to one another, and what types of data they contain.
+
+## Why Public Repositories Matter
+
+Public repositories serve several important functions:
+
+- Long-term data preservation
+- Scientific transparency
+- Reproducibility
+- Data reuse
+- Meta-analysis
+- Benchmarking and method development
+
+Without these repositories, many large-scale biological discoveries would not be possible.
+
+## The Global Repository Ecosystem
+
+Most public omics data are distributed through a small number of major repository systems.
+
+```{mermaid}
+flowchart LR
+
+A[NCBI]
+B[EMBL-EBI]
+C[DDBJ]
+
+A <--> B
+B <--> C
+A <--> C
+```
+
+Together these organizations support the global exchange of biological data.
+
+## The International Nucleotide Sequence Database Collaboration
+
+The International Nucleotide Sequence Database Collaboration (INSDC) is a long-standing partnership between three major organizations:
+
+| Organization | Region |
+|-------------|----------|
+| NCBI | United States |
+| EMBL-EBI | Europe |
+| DDBJ | Japan |
+
+These repositories routinely exchange data, ensuring that submitted datasets become available throughout the international community.
+
+## Major Repository Components
+
+The public data landscape consists of several interconnected resources.
+
+### BioProject
+
+A BioProject describes the overall research initiative.
+
+Examples:
+
+- Human gut microbiome study
+- RNA-Seq disease study
+- Agricultural genomics project
+
+### BioSample
+
+BioSample records describe individual biological specimens.
+
+Examples:
+
+- Stool sample
+- Blood sample
+- Tissue biopsy
+
+### Sequence Archives
+
+Sequence archives store the raw sequencing data generated from samples.
+
+Examples include:
+
+- SRA (Sequence Read Archive)
+- ENA (European Nucleotide Archive)
+- DRA (DDBJ Sequence Read Archive)
+
+### Functional Genomics Repositories
+
+These repositories provide processed data and study-level information.
+
+Examples:
+
+- GEO (Gene Expression Omnibus)
+- ArrayExpress
+
+## Domain-Specific Examples
+
+### Microbiome
+
+Common resources:
+
+- BioProject
+- BioSample
+- SRA
+- MGnify
+
+### RNA-Seq
+
+Common resources:
+
+- GEO
+- SRA
+- ENA
+
+### GWAS
+
+Common resources:
+
+- GWAS Catalog
+- dbGaP
+
+### Single-Cell
+
+Common resources:
+
+- GEO
+- SRA
+- ArrayExpress
+
+## A First Look at Repository Relationships
+
+A common relationship encountered in many public datasets is:
+
+```{mermaid}
+flowchart LR
+
+BioProject --> BioSample
+BioSample --> Experiment
+Experiment --> Run
+```
+
+Understanding these relationships is essential for navigating accession systems, which are covered in a later chapter.
+
+## Looking Ahead
+
+Understanding where public omics data reside is the first step in the data acquisition process. The next challenge is identifying studies that match a specific scientific objective.
+
+In the next chapter, we explore strategies for discovering relevant studies across public repositories.

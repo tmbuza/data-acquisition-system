@@ -1,0 +1,32 @@
+# Data Acquisition References
+
+This guide draws upon public repository documentation, metadata standards, reproducibility frameworks, and data-sharing initiatives that support modern omics data acquisition workflows.
+
+The references cited throughout this guide are maintained in the bibliography database (library/references.bib) and are included automatically during book generation.
+
+## Suggested Citation Keys
+
+The following citation keys are commonly used throughout the CDI Data Acquisition System:
+
+- [@Leinonen2011]
+- [@Kodama2012]
+- [@Barrett2013]
+- [@Arita2021]
+- [@Brazma2001]
+- [@Yilmaz2011]
+- [@Wilkinson2016]
+- [@Sandve2013]
+- [@Mitchell2020]
+- [@Knight2018]
+
+## Major Public Data Resources
+
+- NCBI: https://www.ncbi.nlm.nih.gov [@NCBI]
+- Sequence Read Archive (SRA): https://www.ncbi.nlm.nih.gov/sra [@SRA]
+- BioProject: https://www.ncbi.nlm.nih.gov/bioproject [@BioProject]
+- BioSample: https://www.ncbi.nlm.nih.gov/biosample [@BioSample]
+- Gene Expression Omnibus (GEO): https://www.ncbi.nlm.nih.gov/geo [@GEO]
+- European Nucleotide Archive (ENA): https://www.ebi.ac.uk/ena [@ENA]
+- MGnify: https://www.ebi.ac.uk/metagenomics [@MGnify]
+- GWAS Catalog: https://www.ebi.ac.uk/gwas [@GWASCatalog]
+- DNA Data Bank of Japan (DDBJ): https://www.ddbj.nig.ac.jp [@DDBJ]

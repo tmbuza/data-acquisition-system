@@ -1,3 +1,108 @@
-# 02-study-discovery
+# Study Discovery
 
-Content goes here.
+:::cdi-message
+- **ID:** DAS-002
+- **Type:** Foundations
+- **Audience:** Omics Data Scientists, Bioinformaticians, and Research Teams
+- **Theme:** Finding Studies That Match Your Question
+:::
+
+Public repositories contain millions of samples and thousands of studies spanning a wide range of biological questions, populations, technologies, and experimental designs. The challenge is rarely the lack of data. Instead, the challenge is identifying studies that are relevant, trustworthy, and suitable for a specific objective.
+
+Study discovery is the process of transforming a research objective into a set of candidate studies that can support downstream analysis. Before any data are downloaded, researchers must determine which studies are most appropriate for their intended purpose.
+
+## Why Study Discovery Matters
+
+Effective data acquisition begins with selecting the right studies.
+
+For example, a project focused on constructing a healthy reference microbiome cannot rely on a simple keyword search alone. Researchers must determine:
+
+- Which studies contain healthy individuals?
+- Which samples are human?
+- Which body sites are relevant?
+- Which metadata fields are available?
+- Which studies satisfy project-specific criteria?
+
+The quality of study discovery directly influences the quality of the resulting dataset.
+
+## From Question to Search Strategy
+
+Every study discovery process begins with a clearly defined objective.
+
+```{mermaid}
+flowchart LR
+A[Research Objective] --> B[Search Strategy]
+B --> C[Study Discovery]
+C --> D[Study Evaluation]
+```
+
+## Defining Inclusion Criteria
+
+### Healthy Reference Microbiome Example
+
+Include:
+
+- Human samples
+- Healthy individuals
+- Stool samples
+- Adequate metadata
+- Publicly available sequencing data
+
+## Defining Exclusion Criteria
+
+Examples of exclusion criteria include:
+
+- Disease cohorts
+- Antibiotic-treated individuals
+- Animal samples
+- Missing phenotype information
+- Incomplete metadata
+- Poor documentation
+
+## Repository Search Interfaces
+
+| Repository | Typical Use |
+|------------|------------|
+| NCBI | Broad study discovery |
+| GEO | Functional genomics |
+| ENA | Sequence archives |
+| MGnify | Microbiome studies |
+| GWAS Catalog | Variant studies |
+
+## Metadata-Driven Discovery
+
+Relevant metadata may include:
+
+- Disease status
+- Age
+- Sex
+- Geography
+- Body site
+- Treatment status
+- Sequencing platform
+
+## Study Evaluation Checklist
+
+- Does the study address the target population?
+- Is metadata available and sufficiently detailed?
+- Are raw sequencing data available?
+- Is the sample size adequate?
+- Is study documentation complete?
+- Can the study support the intended analysis?
+
+## AlphaBiomics Example
+
+> Build a healthy reference gut microbiome.
+
+```{mermaid}
+flowchart TD
+A[Healthy Reference Goal] --> B[Search Public Repositories]
+B --> C[Identify Candidate Studies]
+C --> D[Review Metadata]
+D --> E[Apply Inclusion and Exclusion Criteria]
+E --> F[Shortlist Studies]
+```
+
+## Looking Ahead
+
+In the next chapter, we examine accession systems and the relationships between BioProjects, BioSamples, Experiments, and Runs.

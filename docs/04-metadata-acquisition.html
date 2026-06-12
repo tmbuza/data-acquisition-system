@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>04-metadata-acquisition – CDI Data Acquisition System</title>
+<title>Metadata Acquisition – CDI Data Acquisition System</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,6 +20,41 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -30,7 +65,7 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./05-data-download.html" rel="next">
+<link href="./05-data-download-system.html" rel="next">
 <link href="./03-accession-systems.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
@@ -84,7 +119,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./04-metadata-acquisition.html"><span class="chapter-title">04-metadata-acquisition</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./04-metadata-acquisition.html">Acquisition Systems</a></li><li class="breadcrumb-item"><a href="./04-metadata-acquisition.html"><span class="chapter-title">Metadata Acquisition</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -114,75 +149,182 @@ ul.task-list li input[type="checkbox"] {
   <a href="./index.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">index.html</span></a>
   </div>
 </li>
-        <li class="sidebar-item">
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
+ <span class="menu-text">Foundations</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./00-preface-and-overview.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">00-preface-and-overview</span></a>
+  <a href="./00-preface-and-overview.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Preface and Overview</span></a>
   </div>
 </li>
-        <li class="sidebar-item">
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./01-public-data-landscape.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">01-public-data-landscape</span></a>
+  <a href="./01-public-data-landscape.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Public Data Landscape</span></a>
   </div>
 </li>
-        <li class="sidebar-item">
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./02-study-discovery.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">02-study-discovery</span></a>
+  <a href="./02-study-discovery.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Study Discovery</span></a>
   </div>
 </li>
-        <li class="sidebar-item">
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./03-accession-systems.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">03-accession-systems</span></a>
+  <a href="./03-accession-systems.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Accession Systems</span></a>
   </div>
 </li>
-        <li class="sidebar-item">
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
+ <span class="menu-text">Acquisition Systems</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./04-metadata-acquisition.html" class="sidebar-item-text sidebar-link active"><span class="chapter-title">04-metadata-acquisition</span></a>
+  <a href="./04-metadata-acquisition.html" class="sidebar-item-text sidebar-link active"><span class="chapter-title">Metadata Acquisition</span></a>
   </div>
 </li>
-        <li class="sidebar-item">
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./05-data-download.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">05-data-download</span></a>
+  <a href="./05-data-download-system.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Data Download System</span></a>
   </div>
 </li>
-        <li class="sidebar-item">
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./06-data-validation.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">06-data-validation</span></a>
+  <a href="./06-data-validation-system.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Data Validation System</span></a>
   </div>
 </li>
-        <li class="sidebar-item">
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./07-cloud-storage-and-transfer.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">07-cloud-storage-and-transfer</span></a>
+  <a href="./07-cloud-storage-and-transfer-system.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Cloud Storage and Transfer</span></a>
   </div>
 </li>
-        <li class="sidebar-item">
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./08-reference-dataset-assembly.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">08-reference-dataset-assembly</span></a>
+  <a href="./08-reference-dataset-assembly-system.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Reference Dataset Assembly</span></a>
   </div>
 </li>
-        <li class="sidebar-item">
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true">
+ <span class="menu-text">Case Study</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./09-case-study-alphabiomics.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">09-case-study-alphabiomics</span></a>
+  <a href="./09-end-to-end-case-study.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">AlphaBiomics Case Study</span></a>
   </div>
 </li>
-        <li class="sidebar-item">
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true">
+ <span class="menu-text">Appendices</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./999-references.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">999-references</span></a>
+  <a href="./999-appendix.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Data Acquisition References</span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./999-references.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">References</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
     </ul>
     </div>
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction">Introduction</a></li>
+  <li><a href="#what-is-metadata" id="toc-what-is-metadata" class="nav-link" data-scroll-target="#what-is-metadata">What Is Metadata?</a></li>
+  <li><a href="#why-metadata-matter" id="toc-why-metadata-matter" class="nav-link" data-scroll-target="#why-metadata-matter">Why Metadata Matter?</a></li>
+  <li><a href="#metadata-across-the-data-acquisition-lifecycle" id="toc-metadata-across-the-data-acquisition-lifecycle" class="nav-link" data-scroll-target="#metadata-across-the-data-acquisition-lifecycle">Metadata Across the Data Acquisition Lifecycle</a></li>
+  <li><a href="#metadata-categories" id="toc-metadata-categories" class="nav-link" data-scroll-target="#metadata-categories">Metadata Categories</a>
+  <ul class="collapse">
+  <li><a href="#study-metadata" id="toc-study-metadata" class="nav-link" data-scroll-target="#study-metadata">Study Metadata</a></li>
+  <li><a href="#sample-metadata" id="toc-sample-metadata" class="nav-link" data-scroll-target="#sample-metadata">Sample Metadata</a></li>
+  <li><a href="#experiment-metadata" id="toc-experiment-metadata" class="nav-link" data-scroll-target="#experiment-metadata">Experiment Metadata</a></li>
+  <li><a href="#run-metadata" id="toc-run-metadata" class="nav-link" data-scroll-target="#run-metadata">Run Metadata</a></li>
+  <li><a href="#file-metadata" id="toc-file-metadata" class="nav-link" data-scroll-target="#file-metadata">File Metadata</a></li>
+  </ul></li>
+  <li><a href="#metadata-sources" id="toc-metadata-sources" class="nav-link" data-scroll-target="#metadata-sources">Metadata Sources</a>
+  <ul class="collapse">
+  <li><a href="#repository-metadata" id="toc-repository-metadata" class="nav-link" data-scroll-target="#repository-metadata">Repository Metadata</a></li>
+  <li><a href="#publication-metadata" id="toc-publication-metadata" class="nav-link" data-scroll-target="#publication-metadata">Publication Metadata</a></li>
+  <li><a href="#supplementary-metadata" id="toc-supplementary-metadata" class="nav-link" data-scroll-target="#supplementary-metadata">Supplementary Metadata</a></li>
+  <li><a href="#curated-metadata" id="toc-curated-metadata" class="nav-link" data-scroll-target="#curated-metadata">Curated Metadata</a></li>
+  </ul></li>
+  <li><a href="#metadata-completeness" id="toc-metadata-completeness" class="nav-link" data-scroll-target="#metadata-completeness">Metadata Completeness</a></li>
+  <li><a href="#inclusion-and-exclusion-criteria" id="toc-inclusion-and-exclusion-criteria" class="nav-link" data-scroll-target="#inclusion-and-exclusion-criteria">Inclusion and Exclusion Criteria</a>
+  <ul class="collapse">
+  <li><a href="#healthy-reference-microbiome-example" id="toc-healthy-reference-microbiome-example" class="nav-link" data-scroll-target="#healthy-reference-microbiome-example">Healthy Reference Microbiome Example</a></li>
+  </ul></li>
+  <li><a href="#metadata-challenges" id="toc-metadata-challenges" class="nav-link" data-scroll-target="#metadata-challenges">Metadata Challenges</a></li>
+  <li><a href="#metadata-as-a-scientific-asset" id="toc-metadata-as-a-scientific-asset" class="nav-link" data-scroll-target="#metadata-as-a-scientific-asset">Metadata as a Scientific Asset</a>
+  <ul class="collapse">
+  <li><a href="#alphabiomics-example" id="toc-alphabiomics-example" class="nav-link" data-scroll-target="#alphabiomics-example">AlphaBiomics Example</a></li>
+  </ul></li>
+  <li><a href="#installing-entrez-direct-edirect" id="toc-installing-entrez-direct-edirect" class="nav-link" data-scroll-target="#installing-entrez-direct-edirect">Installing Entrez Direct (EDirect)</a>
+  <ul class="collapse">
+  <li><a href="#environment-setup" id="toc-environment-setup" class="nav-link" data-scroll-target="#environment-setup">Environment Setup</a></li>
+  <li><a href="#verification" id="toc-verification" class="nav-link" data-scroll-target="#verification">Verification</a></li>
+  </ul></li>
+  <li><a href="#worked-example-from-bioproject-to-download-manifest" id="toc-worked-example-from-bioproject-to-download-manifest" class="nav-link" data-scroll-target="#worked-example-from-bioproject-to-download-manifest">Worked Example: From BioProject to Download Manifest</a>
+  <ul class="collapse">
+  <li><a href="#retrieve-run-metadata" id="toc-retrieve-run-metadata" class="nav-link" data-scroll-target="#retrieve-run-metadata">Retrieve Run Metadata</a></li>
+  <li><a href="#validate-metadata" id="toc-validate-metadata" class="nav-link" data-scroll-target="#validate-metadata">Validate Metadata</a></li>
+  <li><a href="#extract-run-accessions" id="toc-extract-run-accessions" class="nav-link" data-scroll-target="#extract-run-accessions">Extract Run Accessions</a></li>
+  <li><a href="#create-download-manifest" id="toc-create-download-manifest" class="nav-link" data-scroll-target="#create-download-manifest">Create Download Manifest</a></li>
+  </ul></li>
+  <li><a href="#metadata-validation" id="toc-metadata-validation" class="nav-link" data-scroll-target="#metadata-validation">Metadata Validation</a></li>
+  <li><a href="#metadata-acquisition-beyond-ncbi" id="toc-metadata-acquisition-beyond-ncbi" class="nav-link" data-scroll-target="#metadata-acquisition-beyond-ncbi">Metadata Acquisition Beyond NCBI</a>
+  <ul class="collapse">
+  <li><a href="#the-insdc-ecosystem" id="toc-the-insdc-ecosystem" class="nav-link" data-scroll-target="#the-insdc-ecosystem">The INSDC Ecosystem</a></li>
+  <li><a href="#ena-example" id="toc-ena-example" class="nav-link" data-scroll-target="#ena-example">ENA Example</a></li>
+  <li><a href="#validation" id="toc-validation" class="nav-link" data-scroll-target="#validation">Validation</a></li>
+  <li><a href="#ncbi-versus-ena" id="toc-ncbi-versus-ena" class="nav-link" data-scroll-target="#ncbi-versus-ena">NCBI Versus ENA</a></li>
+  <li><a href="#repository-selection-strategy" id="toc-repository-selection-strategy" class="nav-link" data-scroll-target="#repository-selection-strategy">Repository Selection Strategy</a></li>
+  </ul></li>
+  <li><a href="#metadata-acquisition-outputs" id="toc-metadata-acquisition-outputs" class="nav-link" data-scroll-target="#metadata-acquisition-outputs">Metadata Acquisition Outputs</a></li>
+  <li><a href="#summary" id="toc-summary" class="nav-link" data-scroll-target="#summary">Summary</a></li>
+  <li><a href="#looking-ahead" id="toc-looking-ahead" class="nav-link" data-scroll-target="#looking-ahead">Looking Ahead</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default">
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./04-metadata-acquisition.html">Acquisition Systems</a></li><li class="breadcrumb-item"><a href="./04-metadata-acquisition.html"><span class="chapter-title">Metadata Acquisition</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-title">04-metadata-acquisition</span></h1>
+<h1 class="title"><span class="chapter-title">Metadata Acquisition</span></h1>
 </div>
 
 
@@ -205,9 +347,550 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p>Content goes here.</p>
+<section id="introduction" class="level2">
+<h2 class="anchored" data-anchor-id="introduction">Introduction</h2>
+<p>Once relevant studies have been discovered and their accession systems understood, the next step is metadata acquisition.</p>
+<p>Metadata provide the context needed to understand biological samples, sequencing experiments, and associated data files. They help researchers determine whether a study is relevant to a particular objective and whether individual samples should be included or excluded from downstream analyses.</p>
+<p>Without metadata, sequencing files become difficult to interpret, compare, validate, or integrate into a reproducible dataset.</p>
+<p>Metadata acquisition is the process of discovering, retrieving, validating, evaluating, and organizing information that describes sequencing studies, samples, experiments, sequencing runs, and associated files.</p>
+<p>Before any sequencing data are downloaded, metadata provide the information needed to understand:</p>
+<ul>
+<li>What was studied</li>
+<li>Which samples were collected</li>
+<li>How sequencing was performed</li>
+<li>Which sequencing runs are available</li>
+<li>Which files can be downloaded</li>
+<li>Whether a dataset meets project requirements</li>
+</ul>
+<p>For many projects, metadata acquisition is the most important stage of the data acquisition workflow because it determines which data ultimately enter the analysis pipeline.</p>
+</section>
+<section id="what-is-metadata" class="level2">
+<h2 class="anchored" data-anchor-id="what-is-metadata">What Is Metadata?</h2>
+<p>Metadata are data about data.</p>
+<p>In public sequencing repositories, metadata describe the context surrounding biological data rather than the sequencing reads themselves.</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Data</th>
+<th>Metadata</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>FASTQ file</td>
+<td>File size, sequencing platform, run accession</td>
+</tr>
+<tr class="even">
+<td>Sequencing run</td>
+<td>Run date, read count, instrument model</td>
+</tr>
+<tr class="odd">
+<td>Biological sample</td>
+<td>Organism, body site, disease status</td>
+</tr>
+<tr class="even">
+<td>Study</td>
+<td>Title, description, publication</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="why-metadata-matter" class="level2">
+<h2 class="anchored" data-anchor-id="why-metadata-matter">Why Metadata Matter?</h2>
+<p>Metadata support:</p>
+<ul>
+<li>Study discovery</li>
+<li>Sample selection</li>
+<li>Quality assessment</li>
+<li>Download planning</li>
+<li>Dataset assembly</li>
+<li>Reproducible research</li>
+</ul>
+</section>
+<section id="metadata-across-the-data-acquisition-lifecycle" class="level2">
+<h2 class="anchored" data-anchor-id="metadata-across-the-data-acquisition-lifecycle">Metadata Across the Data Acquisition Lifecycle</h2>
+<pre class="text"><code>Study Discovery
+      ↓
+Metadata Acquisition
+      ↓
+Metadata Evaluation
+      ↓
+Download Planning
+      ↓
+Data Download
+      ↓
+Reference Dataset Assembly</code></pre>
+</section>
+<section id="metadata-categories" class="level2">
+<h2 class="anchored" data-anchor-id="metadata-categories">Metadata Categories</h2>
+<section id="study-metadata" class="level3">
+<h3 class="anchored" data-anchor-id="study-metadata">Study Metadata</h3>
+<p>Examples:</p>
+<ul>
+<li>BioProject accession</li>
+<li>Study title</li>
+<li>Study description</li>
+<li>Associated publication</li>
+</ul>
+</section>
+<section id="sample-metadata" class="level3">
+<h3 class="anchored" data-anchor-id="sample-metadata">Sample Metadata</h3>
+<p>Examples:</p>
+<ul>
+<li>BioSample accession</li>
+<li>Organism</li>
+<li>Body site</li>
+<li>Disease status</li>
+<li>Geographic location</li>
+</ul>
+</section>
+<section id="experiment-metadata" class="level3">
+<h3 class="anchored" data-anchor-id="experiment-metadata">Experiment Metadata</h3>
+<p>Examples:</p>
+<ul>
+<li>Library strategy</li>
+<li>Library source</li>
+<li>Library selection</li>
+<li>Sequencing platform</li>
+</ul>
+</section>
+<section id="run-metadata" class="level3">
+<h3 class="anchored" data-anchor-id="run-metadata">Run Metadata</h3>
+<p>Examples:</p>
+<ul>
+<li>Run accession</li>
+<li>Read counts</li>
+<li>Base counts</li>
+<li>Instrument model</li>
+</ul>
+</section>
+<section id="file-metadata" class="level3">
+<h3 class="anchored" data-anchor-id="file-metadata">File Metadata</h3>
+<p>Examples:</p>
+<ul>
+<li>FASTQ locations</li>
+<li>File sizes</li>
+<li>MD5 checksums</li>
+<li>Download URLs</li>
+</ul>
+</section>
+</section>
+<section id="metadata-sources" class="level2">
+<h2 class="anchored" data-anchor-id="metadata-sources">Metadata Sources</h2>
+<section id="repository-metadata" class="level3">
+<h3 class="anchored" data-anchor-id="repository-metadata">Repository Metadata</h3>
+<ul>
+<li>NCBI</li>
+<li>ENA</li>
+<li>DDBJ</li>
+</ul>
+</section>
+<section id="publication-metadata" class="level3">
+<h3 class="anchored" data-anchor-id="publication-metadata">Publication Metadata</h3>
+<ul>
+<li>Study objectives</li>
+<li>Experimental design</li>
+<li>Cohort descriptions</li>
+</ul>
+</section>
+<section id="supplementary-metadata" class="level3">
+<h3 class="anchored" data-anchor-id="supplementary-metadata">Supplementary Metadata</h3>
+<ul>
+<li>Sample sheets</li>
+<li>Metadata spreadsheets</li>
+<li>Clinical annotation tables</li>
+</ul>
+</section>
+<section id="curated-metadata" class="level3">
+<h3 class="anchored" data-anchor-id="curated-metadata">Curated Metadata</h3>
+<ul>
+<li>Download manifests</li>
+<li>Integrated metadata tables</li>
+<li>Project inventories</li>
+</ul>
+</section>
+</section>
+<section id="metadata-completeness" class="level2">
+<h2 class="anchored" data-anchor-id="metadata-completeness">Metadata Completeness</h2>
+<p>Not all studies provide the same level of metadata.</p>
+<p>Rich metadata may include:</p>
+<ul>
+<li>Age</li>
+<li>Sex</li>
+<li>Disease status</li>
+<li>Treatment information</li>
+<li>Body site</li>
+<li>Collection date</li>
+</ul>
+<p>Limited metadata may include only accession identifiers and basic sequencing information.</p>
+<p>Metadata completeness often determines whether a dataset can be reused for a particular analysis.</p>
+</section>
+<section id="inclusion-and-exclusion-criteria" class="level2">
+<h2 class="anchored" data-anchor-id="inclusion-and-exclusion-criteria">Inclusion and Exclusion Criteria</h2>
+<p>Metadata are frequently used to decide which samples should enter a project.</p>
+<p>Examples of inclusion criteria:</p>
+<ul>
+<li>Healthy individuals</li>
+<li>Human gut microbiome samples</li>
+<li>Shotgun metagenomic sequencing</li>
+</ul>
+<p>Examples of exclusion criteria:</p>
+<ul>
+<li>Disease cohorts</li>
+<li>Intervention studies</li>
+<li>Incomplete metadata</li>
+</ul>
+<section id="healthy-reference-microbiome-example" class="level3">
+<h3 class="anchored" data-anchor-id="healthy-reference-microbiome-example">Healthy Reference Microbiome Example</h3>
+<p>Building a healthy reference microbiome dataset requires careful metadata review before any sequencing files are downloaded.</p>
+<p>Samples may be excluded because of:</p>
+<ul>
+<li>Disease status</li>
+<li>Antibiotic exposure</li>
+<li>Missing metadata</li>
+<li>Inappropriate sample types</li>
+</ul>
+</section>
+</section>
+<section id="metadata-challenges" class="level2">
+<h2 class="anchored" data-anchor-id="metadata-challenges">Metadata Challenges</h2>
+<p>Common metadata challenges include:</p>
+<ul>
+<li>Missing metadata</li>
+<li>Inconsistent terminology</li>
+<li>Ambiguous sample descriptions</li>
+<li>Repository-specific differences</li>
+<li>Incomplete publications</li>
+</ul>
+<p>These challenges often require manual review and curation.</p>
+</section>
+<section id="metadata-as-a-scientific-asset" class="level2">
+<h2 class="anchored" data-anchor-id="metadata-as-a-scientific-asset">Metadata as a Scientific Asset</h2>
+<p>Metadata are not merely supporting information.</p>
+<p>Well-curated metadata become scientific assets that:</p>
+<ul>
+<li>Enable reproducible research</li>
+<li>Support dataset integration</li>
+<li>Improve study interpretation</li>
+<li>Facilitate downstream analyses</li>
+</ul>
+<section id="alphabiomics-example" class="level3">
+<h3 class="anchored" data-anchor-id="alphabiomics-example">AlphaBiomics Example</h3>
+<p>In projects such as healthy reference microbiome construction, metadata become the foundation for:</p>
+<ul>
+<li>Study selection</li>
+<li>Sample selection</li>
+<li>Dataset integration</li>
+<li>Reference dataset assembly</li>
+</ul>
+</section>
+</section>
+<section id="installing-entrez-direct-edirect" class="level2">
+<h2 class="anchored" data-anchor-id="installing-entrez-direct-edirect">Installing Entrez Direct (EDirect)</h2>
+<p>EDirect provides command-line access to NCBI databases and is widely used for metadata retrieval from BioProject, BioSample, SRA, and PubMed.</p>
+<p>Throughout this chapter we use three core commands:</p>
+<ul>
+<li><code>esearch</code> — search NCBI databases</li>
+<li><code>efetch</code> — retrieve records</li>
+<li><code>xtract</code> — extract fields from structured outputs</li>
+</ul>
+<section id="environment-setup" class="level3">
+<h3 class="anchored" data-anchor-id="environment-setup">Environment Setup</h3>
+<p>Create an <code>environment.yml</code> file containing the required metadata acquisition tools.</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">name</span><span class="kw">:</span><span class="at"> cdi-data-acquisition</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="fu">channels</span><span class="kw">:</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="kw">-</span><span class="at"> conda-forge</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="kw">-</span><span class="at"> bioconda</span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="fu">dependencies</span><span class="kw">:</span></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="kw">-</span><span class="at"> entrez-direct</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Create the environment:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="ex">mamba</span> env create <span class="at">-f</span> environment.yml</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Activate the environment:</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="ex">conda</span> activate cdi-data-acquisition</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="verification" class="level3">
+<h3 class="anchored" data-anchor-id="verification">Verification</h3>
+<p>Confirm that EDirect tools are available:</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">which</span> esearch</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="fu">which</span> efetch</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="fu">which</span> xtract</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Example output:</p>
+<pre class="text"><code>/Users/tmbmacbookair/anaconda3/envs/cdi-data-acquisition/bin/esearch
+/Users/tmbmacbookair/anaconda3/envs/cdi-data-acquisition/bin/efetch
+/Users/tmbmacbookair/anaconda3/envs/cdi-data-acquisition/bin/xtract</code></pre>
+<p>Next, test communication with NCBI:</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="ex">esearch</span> <span class="at">-db</span> sra <span class="dt">\</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>-query <span class="st">"PRJNA477349[bioproject]"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Example output:</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode xml code-with-copy"><code class="sourceCode xml"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>&lt;<span class="kw">ENTREZ_DIRECT</span>&gt;</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>  &lt;<span class="kw">Db</span>&gt;sra&lt;/<span class="kw">Db</span>&gt;</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>  &lt;<span class="kw">WebEnv</span>&gt;MCID_6a292bec9551de53c901708f&lt;/<span class="kw">WebEnv</span>&gt;</span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>  &lt;<span class="kw">QueryKey</span>&gt;1&lt;/<span class="kw">QueryKey</span>&gt;</span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>  &lt;<span class="kw">Count</span>&gt;133&lt;/<span class="kw">Count</span>&gt;</span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>  &lt;<span class="kw">Step</span>&gt;1&lt;/<span class="kw">Step</span>&gt;</span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>  &lt;<span class="kw">Elapsed</span>&gt;3&lt;/<span class="kw">Elapsed</span>&gt;</span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a>&lt;/<span class="kw">ENTREZ_DIRECT</span>&gt;</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Interpretation:</p>
+<ul>
+<li><code>Db</code> indicates the database queried (<code>sra</code>).</li>
+<li><code>WebEnv</code> is an NCBI session identifier used internally by EDirect.</li>
+<li><code>QueryKey</code> identifies the result set within the session.</li>
+<li><code>Count</code> reports the number of matching records (133 sequencing runs for this BioProject). Later, when retrieving the RunInfo table, you should expect 134 lines in total: 133 sequencing runs plus 1 header row.</li>
+<li><code>Step</code> indicates the workflow step executed by EDirect.</li>
+<li><code>Elapsed</code> reports the query execution time in seconds.</li>
+</ul>
+<p>A successful query confirms that EDirect is installed correctly and can communicate with NCBI. The result count also provides a useful first validation of the dataset before retrieving detailed metadata.</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Using an environment file ensures that metadata acquisition workflows remain reproducible and portable across systems.</p>
+</div>
+</div>
+</section>
+</section>
+<section id="worked-example-from-bioproject-to-download-manifest" class="level2">
+<h2 class="anchored" data-anchor-id="worked-example-from-bioproject-to-download-manifest">Worked Example: From BioProject to Download Manifest</h2>
+<p>BioProject:</p>
+<pre class="text"><code>PRJNA477349</code></pre>
+<section id="retrieve-run-metadata" class="level3">
+<h3 class="anchored" data-anchor-id="retrieve-run-metadata">Retrieve Run Metadata</h3>
+<div class="sourceCode" id="cb10"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="ex">esearch</span> <span class="at">-db</span> sra <span class="dt">\</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>-query <span class="st">'PRJNA477349[bioproject]'</span> <span class="dt">\</span></span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="kw">|</span> <span class="ex">efetch</span> <span class="at">-format</span> runinfo <span class="dt">\</span></span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a><span class="op">&gt;</span> data/metadata/runinfo-prjna477349.csv</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="validate-metadata" class="level3">
+<h3 class="anchored" data-anchor-id="validate-metadata">Validate Metadata</h3>
+<div class="sourceCode" id="cb11"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">wc</span> <span class="at">-l</span> data/metadata/runinfo-prjna477349.csv</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Expected:</p>
+<pre class="text"><code>134</code></pre>
+<p>133 sequencing runs plus one header row.</p>
+</section>
+<section id="extract-run-accessions" class="level3">
+<h3 class="anchored" data-anchor-id="extract-run-accessions">Extract Run Accessions</h3>
+<div class="sourceCode" id="cb13"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cut</span> <span class="at">-d</span><span class="st">','</span> <span class="at">-f1</span> data/metadata/runinfo-prjna477349.csv <span class="kw">|</span> <span class="fu">head</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Explanation:</p>
+<ul>
+<li><code>-d','</code> specifies comma-delimited fields.</li>
+<li><code>-f1</code> extracts the first column.</li>
+</ul>
+<p>Remove the header:</p>
+<div class="sourceCode" id="cb14"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tail</span> <span class="at">-n</span> +2 data/metadata/runinfo-prjna477349.csv <span class="kw">|</span> <span class="fu">wc</span> <span class="at">-l</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="create-download-manifest" class="level3">
+<h3 class="anchored" data-anchor-id="create-download-manifest">Create Download Manifest</h3>
+<div class="sourceCode" id="cb15"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cut</span> <span class="at">-d</span><span class="st">','</span> <span class="at">-f1</span> data/metadata/runinfo-prjna477349.csv <span class="dt">\</span></span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="kw">|</span> <span class="fu">tail</span> <span class="at">-n</span> +2 <span class="dt">\</span></span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a><span class="op">&gt;</span> data/metadata/srr-accessions.txt</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+</section>
+<section id="metadata-validation" class="level2">
+<h2 class="anchored" data-anchor-id="metadata-validation">Metadata Validation</h2>
+<p>Validation activities include:</p>
+<ul>
+<li>Record counts</li>
+<li>Accession completeness</li>
+<li>Field verification</li>
+<li>Manifest generation</li>
+</ul>
+<p>Outputs:</p>
+<ul>
+<li>runinfo-prjna477349.csv</li>
+<li>srr-accessions.txt</li>
+</ul>
+</section>
+<section id="metadata-acquisition-beyond-ncbi" class="level2">
+<h2 class="anchored" data-anchor-id="metadata-acquisition-beyond-ncbi">Metadata Acquisition Beyond NCBI</h2>
+<section id="the-insdc-ecosystem" class="level3">
+<h3 class="anchored" data-anchor-id="the-insdc-ecosystem">The INSDC Ecosystem</h3>
+<p>Public sequencing metadata are distributed across the International Nucleotide Sequence Database Collaboration (INSDC), a partnership between three major repositories:</p>
+<pre class="text"><code>INSDC
+│
+├── NCBI (USA)
+├── ENA  (Europe)
+└── DDBJ (Japan)</code></pre>
+<p>These repositories regularly exchange records and often contain the same underlying studies, samples, and sequencing runs.</p>
+</section>
+<section id="ena-example" class="level3">
+<h3 class="anchored" data-anchor-id="ena-example">ENA Example</h3>
+<p>In addition to NCBI, metadata can be retrieved directly from the European Nucleotide Archive (ENA).</p>
+<div class="sourceCode" id="cb17"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="ex">curl</span> <span class="at">-o</span> data/metadata/ena-prjna477349.tsv <span class="dt">\</span></span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a><span class="st">"https://www.ebi.ac.uk/ena/portal/api/filereport?accession=PRJNA477349&amp;result=read_run"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Example output:</p>
+<pre class="text"><code>100 33717    0 33717    0     0  12205      0 --:--:--  0:00:02 --:--:-- 12203</code></pre>
+<p>Interpretation:</p>
+<ul>
+<li><code>100</code> indicates that the download completed successfully.</li>
+<li><code>33717</code> bytes of metadata were downloaded.</li>
+<li>The metadata were saved to:</li>
+</ul>
+<pre class="text"><code>data/metadata/ena-prjna477349.tsv</code></pre>
+</section>
+<section id="validation" class="level3">
+<h3 class="anchored" data-anchor-id="validation">Validation</h3>
+<p>Confirm that the metadata file was created successfully:</p>
+<div class="sourceCode" id="cb20"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="fu">wc</span> <span class="at">-l</span> data/metadata/ena-prjna477349.tsv</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Example output:</p>
+<pre class="text"><code>134</code></pre>
+<p>Interpretation:</p>
+<p>The ENA file contains:</p>
+<ul>
+<li>133 sequencing run records</li>
+<li>1 header row</li>
+</ul>
+<p>This matches the NCBI metadata retrieval results obtained earlier.</p>
+</section>
+<section id="ncbi-versus-ena" class="level3">
+<h3 class="anchored" data-anchor-id="ncbi-versus-ena">NCBI Versus ENA</h3>
+<p>The same BioProject can often be accessed through both NCBI and ENA.</p>
+<p>For BioProject <code>PRJNA477349</code>:</p>
+<pre class="text"><code>EDirect Search
+      ↓
+Count = 133
+
+NCBI RunInfo
+      ↓
+133 records
+
+ENA File Report
+      ↓
+133 records</code></pre>
+<p>The agreement between NCBI and ENA provides confidence that metadata retrieval was successful and complete.</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 40%">
+<col style="width: 60%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Repository</th>
+<th>Primary Strength</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>NCBI</td>
+<td>Metadata discovery, accession relationships, and repository navigation</td>
+</tr>
+<tr class="even">
+<td>ENA</td>
+<td>Download metadata, FASTQ locations, file sizes, and checksums</td>
+</tr>
+<tr class="odd">
+<td>DDBJ</td>
+<td>Alternative INSDC access point</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="repository-selection-strategy" class="level3">
+<h3 class="anchored" data-anchor-id="repository-selection-strategy">Repository Selection Strategy</h3>
+<p>A practical metadata acquisition workflow often combines NCBI and ENA.</p>
+<pre class="text"><code>Study Discovery
+      ↓
+NCBI
+      ↓
+Metadata Validation
+      ↓
+ENA
+      ↓
+Download Planning
+      ↓
+Data Download</code></pre>
+<p>In this workflow:</p>
+<ul>
+<li>NCBI is used to discover studies and retrieve metadata.</li>
+<li>ENA is used to obtain download-oriented metadata such as FASTQ locations, file sizes, and MD5 checksums.</li>
+<li>DDBJ serves as an additional access point within the INSDC ecosystem when needed.</li>
+</ul>
+</section>
+</section>
+<section id="metadata-acquisition-outputs" class="level2">
+<h2 class="anchored" data-anchor-id="metadata-acquisition-outputs">Metadata Acquisition Outputs</h2>
+<p>The workflows presented in this chapter generate reusable metadata assets that support downstream data acquisition activities.</p>
+<pre class="text"><code>data/
+└── metadata/
+    ├── runinfo-prjna477349.csv
+    ├── ena-prjna477349.tsv
+    └── srr-accessions.txt</code></pre>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 44%">
+<col style="width: 55%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>File</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>runinfo-prjna477349.csv</code></td>
+<td>Run-level metadata retrieved from NCBI SRA</td>
+</tr>
+<tr class="even">
+<td><code>ena-prjna477349.tsv</code></td>
+<td>Download-oriented metadata retrieved from ENA</td>
+</tr>
+<tr class="odd">
+<td><code>srr-accessions.txt</code></td>
+<td>Download manifest containing sequencing run accessions</td>
+</tr>
+</tbody>
+</table>
+<p>Together, these assets provide the foundation for reproducible data download and dataset assembly workflows.</p>
+</section>
+<section id="summary" class="level2">
+<h2 class="anchored" data-anchor-id="summary">Summary</h2>
+<p>In this chapter, we transformed a study accession into validated metadata assets suitable for downstream analysis.</p>
+<pre class="text"><code>Study Accession
+      ↓
+Metadata Discovery
+      ↓
+Metadata Retrieval
+      ↓
+Metadata Validation
+      ↓
+Metadata Evaluation
+      ↓
+Download Manifest</code></pre>
+<p>Along the way, we explored:</p>
+<ul>
+<li>Metadata categories and sources</li>
+<li>Metadata completeness and quality</li>
+<li>Inclusion and exclusion criteria</li>
+<li>NCBI metadata retrieval using EDirect</li>
+<li>ENA metadata retrieval using the ENA API</li>
+<li>Validation and manifest generation</li>
+<li>Metadata as a scientific asset</li>
+</ul>
+<p>The resulting metadata assets provide the information needed to identify relevant samples, plan downloads, and support reproducible dataset construction.</p>
+</section>
+<section id="looking-ahead" class="level2">
+<h2 class="anchored" data-anchor-id="looking-ahead">Looking Ahead</h2>
+<p>Metadata acquisition determines <strong>what</strong> data should be downloaded.</p>
+<p>The next stage of the Data Acquisition System focuses on <strong>retrieving the data themselves</strong>.</p>
+<p>In Chapter 05, we use the download manifest generated here to acquire sequencing data from public repositories, validate downloaded files, and prepare them for downstream analysis.</p>
+<pre class="text"><code>Metadata Acquisition
+      ↓
+Download Manifest
+      ↓
+Data Download
+      ↓
+FASTQ Files</code></pre>
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -613,13 +1296,13 @@ ul.task-list li input[type="checkbox"] {
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./03-accession-systems.html" class="pagination-link" aria-label="03-accession-systems">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-title">03-accession-systems</span></span>
+      <a href="./03-accession-systems.html" class="pagination-link" aria-label="Accession Systems">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-title">Accession Systems</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./05-data-download.html" class="pagination-link" aria-label="05-data-download">
-        <span class="nav-page-text"><span class="chapter-title">05-data-download</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./05-data-download-system.html" class="pagination-link" aria-label="Data Download System">
+        <span class="nav-page-text"><span class="chapter-title">Data Download System</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

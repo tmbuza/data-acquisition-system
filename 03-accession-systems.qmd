@@ -1,3 +1,193 @@
-# 03-accession-systems
+# Accession Systems
 
-Content goes here.
+:::cdi-message
+- **ID:** DAS-003
+- **Type:** Foundations
+- **Audience:** Omics Data Scientists, Bioinformaticians, and Research Teams
+- **Theme:** Understanding How Public Data Are Organized
+:::
+
+Public repositories contain enormous amounts of biological data, but locating the correct files often requires navigating multiple layers of identifiers and accession systems.
+
+A single study may contain hundreds or thousands of samples, multiple experiments, and numerous sequencing runs. Understanding how these entities relate to one another is essential for efficient data acquisition and reproducible dataset assembly.
+
+This chapter introduces the accession systems commonly encountered in public omics repositories and explains how they connect different components of a study.
+
+## Why Accession Systems Matter
+
+Accession identifiers provide a structured way to organize, track, retrieve, and reference biological data.
+
+They help researchers answer questions such as:
+
+- Which project generated these data?
+- Which sample produced these sequences?
+- Which experiment was performed?
+- Which files should be downloaded?
+
+Without accession systems, large-scale public repositories would be difficult to navigate and maintain.
+
+## The Study Hierarchy
+
+A common hierarchy used by major sequence repositories is:
+
+```{mermaid}
+flowchart TD
+
+A[BioProject]
+--> B[BioSample]
+
+B --> C[Experiment]
+
+C --> D[Run]
+```
+
+Each level describes a different aspect of the data acquisition process.
+
+## Common Accession Prefixes
+
+| Level | Description | Example Prefix |
+|---------|---------|---------|
+| BioProject | Research project | PRJNA |
+| BioSample | Biological specimen | SAMN |
+| Experiment | Sequencing experiment | SRX |
+| Run | Sequencing output | SRR |
+
+## BioProject
+
+A BioProject represents the overall research initiative.
+
+Examples:
+
+- Healthy gut microbiome study
+- RNA-Seq cancer study
+- Agricultural genomics project
+
+Common accession prefix:
+
+```text
+PRJNA123456
+```
+
+## BioSample
+
+A BioSample describes an individual biological specimen.
+
+Examples:
+
+- Stool sample
+- Blood sample
+- Tissue biopsy
+
+BioSample records often contain valuable metadata such as age, sex, disease status, body site, and geographic origin.
+
+Common accession prefix:
+
+```text
+SAMN12345678
+```
+
+## Experiment
+
+An Experiment describes how a sample was processed and sequenced.
+
+Examples include:
+
+- 16S rRNA sequencing
+- Shotgun metagenomics
+- RNA-Seq
+- Single-cell sequencing
+
+Common accession prefix:
+
+```text
+SRX1234567
+```
+
+## Run
+
+A Run represents the actual sequencing output generated from an experiment.
+
+Runs typically correspond to downloadable sequence files.
+
+Common accession prefix:
+
+```text
+SRR12345678
+```
+
+## Following the Breadcrumbs
+
+Researchers often begin with a BioProject and progressively navigate toward downloadable sequencing files.
+
+```{mermaid}
+flowchart LR
+
+PRJNA[BioProject]
+--> SAMN[BioSamples]
+
+SAMN --> SRX[Experiments]
+
+SRX --> SRR[Runs]
+
+SRR --> FASTQ[FASTQ Files]
+```
+
+This progression is common across many public repositories.
+
+## Repository Variations
+
+Although accession systems differ slightly between repositories, the underlying concepts are similar.
+
+| Repository | Study | Sample | Data |
+|------------|------------|------------|------------|
+| NCBI | BioProject | BioSample | SRA |
+| GEO | GSE | GSM | Supplementary Files |
+| ENA | Project | Sample | Runs |
+| DDBJ | BioProject | BioSample | DRA |
+
+## Example Workflow
+
+Suppose we identify a microbiome study relevant to our project.
+
+```{mermaid}
+flowchart TD
+
+A[BioProject]
+--> B[BioSample Metadata]
+
+B --> C[Experiment]
+
+C --> D[Run Accessions]
+
+D --> E[Data Download]
+```
+
+Researchers often begin with a BioProject and work downward toward downloadable run files.
+
+## AlphaBiomics Example
+
+A healthy reference microbiome workflow may proceed as follows:
+
+```text
+Healthy Reference Objective
+        ↓
+Identify BioProject
+        ↓
+Retrieve BioSamples
+        ↓
+Review Metadata
+        ↓
+Select Eligible Samples
+        ↓
+Collect Run Accessions
+        ↓
+Download Data
+```
+
+This process illustrates why accession systems are central to reproducible data acquisition.
+
+## Looking Ahead
+
+Accession systems tell us where data reside, but metadata tell us whether those data are suitable for our objective.
+
+In the next chapter, we explore metadata acquisition and how metadata drive study selection, sample filtering, and reference dataset construction.

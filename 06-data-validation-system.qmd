@@ -1,0 +1,521 @@
+# Data Validation System
+
+:::cdi-message
+- **ID:** DAS-006
+- **Type:** Foundations
+- **Audience:** Omics Data Scientists, Bioinformaticians, and Research Teams
+- **Theme:** Ensuring Data Integrity and Completeness
+:::
+
+Acquiring data is only one part of the data acquisition process. Before datasets can be used for analysis or reference dataset construction, researchers must verify that the downloaded files are complete, consistent, and aligned with project expectations.
+
+Data validation provides confidence that the acquired dataset accurately represents the intended studies and samples.
+
+## Why Data Validation Matters
+
+Even when data originate from reputable public repositories, validation remains essential.
+
+Potential issues include:
+
+- Missing files
+- Incomplete downloads
+- Corrupted files
+- Metadata mismatches
+- Duplicate samples
+- Unexpected sample counts
+
+Identifying these issues early prevents downstream problems and improves reproducibility.
+
+## Validation Across the Acquisition Workflow
+
+```{mermaid}
+flowchart TD
+
+A[Data Download]
+--> B[Data Validation]
+
+B --> C[Quality Assessment]
+
+C --> D[Dataset Assembly]
+```
+
+Validation acts as a checkpoint between data acquisition and dataset construction.
+
+## Repository Validation
+
+Before initiating production downloads, the CDI Data Acquisition System validates repository workflows using a representative test manifest.
+
+```text
+Test Manifest
+      ↓
+SRR7450741
+SRR7450738
+SRR7450759
+      ↓
+      ├── ENA Retrieval
+      │        ↓
+      │     6 FASTQ Files
+      │
+      └── NCBI Retrieval
+               ↓
+            6 FASTQ Files
+      ↓
+Repository Validation
+      ↓
+Production Readiness
+```
+
+The objective of repository validation is to confirm that:
+
+- Download manifests are constructed correctly.
+- Repository access is functioning as expected.
+- FASTQ files can be retrieved successfully.
+- Expected file counts match downloaded files.
+- Multiple repository pathways produce consistent results.
+
+### Repository Validation Results
+
+```bash
+find data/raw/ena -name "*.fastq.gz" | wc -l
+```
+
+Output:
+
+```text
+6
+```
+
+```bash
+find data/raw/ncbi -name "*.fastq.gz" | wc -l
+```
+
+Output:
+
+```text
+6
+```
+
+Validation summary:
+
+```text
+Repository      Expected FASTQ Files    Downloaded FASTQ Files    Status
+
+ENA                     6                        6               PASS
+NCBI/SRA                6                        6               PASS
+```
+
+Overall result:
+
+```text
+Repository Validation Status
+
+ENA: PASS
+NCBI/SRA: PASS
+
+READY FOR PRODUCTION DOWNLOAD
+```
+
+## Validation Framework
+
+The CDI Data Acquisition System uses a multi-layer validation strategy.
+
+```{mermaid}
+flowchart TD
+
+A[Repository Validation]
+--> B[File Count Validation]
+
+B --> C[Integrity Validation]
+
+C --> D[Metadata Validation]
+
+D --> E[FASTQ Structure Validation]
+
+E --> F[Validation Report]
+```
+
+Each validation layer addresses a different source of acquisition risk.
+
+## Validation Project Structure
+
+```text
+data/
+├── metadata/
+├── manifests/
+├── logs/
+├── raw/
+│   ├── ena/
+│   ├── ncbi/
+│   ├── sra/
+│   └── fastq/
+└── validation/
+    ├── repository-validation.tsv
+    ├── file-validation.tsv
+    ├── metadata-validation.tsv
+    └── validation-report.tsv
+```
+
+The validation directory stores outputs generated during the validation process.
+
+## File-Level Validation
+
+File-level validation focuses on verifying the integrity of downloaded files.
+
+Common checks include:
+
+- File existence
+- File size
+- File format
+- Compression status
+- Readability
+
+These checks help identify incomplete or damaged downloads.
+
+### Verify Downloaded File Count
+
+Repository validation example:
+
+```bash
+find data/raw/ena -name "*.fastq.gz" | wc -l
+find data/raw/ncbi -name "*.fastq.gz" | wc -l
+```
+
+Expected result:
+
+```text
+ENA: 6
+NCBI/SRA: 6
+```
+
+Production validation example:
+
+```bash
+find data/raw/fastq \
+-name "*.fastq.gz" \
+| wc -l
+```
+
+Compare against:
+
+```bash
+wc -l data/manifests/ena-fastq-urls.txt
+```
+
+Expected outcome:
+
+```text
+Manifest Files = Downloaded Files
+```
+
+## Checksum Verification
+
+Many repositories provide checksums that can be used to verify file integrity.
+
+Common checksum methods include:
+
+- MD5
+- SHA-256
+
+Checksum validation helps confirm that downloaded files match repository records.
+
+Example:
+
+```bash
+md5sum sample.fastq.gz
+```
+
+## Compression Integrity Validation
+
+Most sequencing files are distributed as compressed archives.
+
+Before analysis, compressed files should be tested for corruption.
+
+```bash
+gzip -tv data/raw/fastq/*.gz
+```
+
+Expected output:
+
+```text
+OK
+```
+
+Files failing this check should be re-downloaded.
+
+## Sample Count Validation
+
+Researchers should verify that expected sample counts match downloaded data.
+
+Example:
+
+```text
+Expected Samples: 850
+Downloaded Samples: 850
+Status: Pass
+```
+
+Discrepancies should be investigated before proceeding.
+
+## Metadata Consistency Checks
+
+Validation should also compare downloaded files against metadata records.
+
+Questions to consider:
+
+- Does every sample have metadata?
+- Do metadata identifiers match downloaded files?
+- Are required variables present?
+- Are there unexpected missing values?
+
+Consistency between metadata and sequencing data is critical.
+
+## Duplicate Detection
+
+Duplicate samples may occur when:
+
+- Studies overlap
+- Samples are submitted multiple times
+- Metadata contain redundant entries
+
+Duplicate detection helps prevent inflated sample counts and biased analyses.
+
+## FASTQ Structure Validation
+
+For sequencing projects, validating FASTQ structure is particularly important.
+
+Each FASTQ record should contain four lines:
+
+```text
+@SEQ_ID
+SEQUENCE
++
+QUALITY
+```
+
+Quick inspection:
+
+```bash
+zcat sample.fastq.gz | head
+```
+
+This confirms that the file can be decompressed and follows the expected FASTQ format.
+
+## Paired-End Validation
+
+Many sequencing studies generate paired-end reads.
+
+Each sample should contain:
+
+```text
+sample_1.fastq.gz
+sample_2.fastq.gz
+```
+
+Verify that forward and reverse files exist for every sample.
+
+```bash
+ls *_1.fastq.gz | wc -l
+ls *_2.fastq.gz | wc -l
+```
+
+Expected outcome:
+
+```text
+Forward Reads = Reverse Reads
+```
+
+## Validation of File Formats
+
+Different repositories may provide data in various formats.
+
+Common examples include:
+
+- FASTQ
+- FASTA
+- BAM
+- CRAM
+- TSV
+- CSV
+
+Researchers should verify that files are in the expected format and can be successfully opened or parsed.
+
+## Automated Validation Workflow
+
+To support reproducibility, validation should be automated whenever possible.
+
+Example system component:
+
+```text
+scripts/bash/06-validate-downloads.sh
+```
+
+Workflow:
+
+```text
+Repository Validation
+        ↓
+File Count Check
+        ↓
+Compression Check
+        ↓
+Metadata Check
+        ↓
+FASTQ Validation
+        ↓
+Validation Report
+```
+
+Automated validation minimizes manual errors and ensures consistency across projects.
+
+## Validation Documentation
+
+Validation results should be recorded as part of the acquisition workflow.
+
+Recommended records include:
+
+- Validation date
+- Files checked
+- Sample counts
+- Missing files
+- Detected issues
+- Corrective actions
+
+Documentation improves transparency and reproducibility.
+
+## AlphaBiomics Example
+
+Suppose a healthy reference microbiome project downloads data for 850 eligible samples.
+
+Validation may involve:
+
+```text
+850 Expected Samples
+        ↓
+Verify Downloaded Files
+        ↓
+Check Metadata Consistency
+        ↓
+Check FASTQ Integrity
+        ↓
+Remove Duplicates
+        ↓
+Validated Dataset
+```
+
+Only after successful validation should samples be considered for reference dataset assembly.
+
+## Common Validation Challenges
+
+Researchers frequently encounter:
+
+- Missing metadata
+- Corrupted files
+- Inconsistent naming conventions
+- Duplicate records
+- Repository updates
+
+A structured validation workflow helps address these challenges systematically.
+
+## Validation as Risk Reduction
+
+Data validation is not merely a technical exercise.
+
+It reduces the risk of:
+
+- Incorrect analyses
+- Missing samples
+- Reproducibility failures
+- Misleading conclusions
+
+Validation protects the integrity of downstream scientific work.
+
+### Validation Report Example
+
+The validation script generates a machine-readable report summarizing validation outcomes.
+
+Example execution:
+
+```bash
+bash scripts/bash/06-validate-download.sh data/raw/ena
+```
+
+Output:
+
+```text
+check	status	value
+fastq_file_count	PASS	6
+compression_validation	PASS	0
+paired_end_validation	PASS	3
+fastq_validation	PASS	data/raw/ena/SRR7450738_1.fastq.gz
+```
+
+Interpretation:
+
+```text
+FASTQ File Count
+Expected: 6
+Observed: 6
+Status: PASS
+```
+
+```text
+Compression Validation
+Failed Files: 0
+Status: PASS
+```
+
+```text
+Paired-End Validation
+Forward Reads: 3
+Reverse Reads: 3
+Status: PASS
+```
+
+```text
+FASTQ Validation
+Test File:
+SRR7450738_1.fastq.gz
+
+Status: PASS
+```
+
+Overall result:
+
+```text
+Repository Validation: PASS
+File Validation: PASS
+Compression Validation: PASS
+Paired-End Validation: PASS
+FASTQ Validation: PASS
+
+Overall Status:
+VALIDATED
+```
+
+The validation report provides a reproducible record of dataset integrity and serves as the final quality gate before production-scale data acquisition and reference dataset assembly.
+
+## Summary
+
+Data validation transforms downloaded files into trusted analytical assets.
+
+```text
+Repository Validation
+        ↓
+File Validation
+        ↓
+Compression Validation
+        ↓
+Metadata Validation
+        ↓
+FASTQ Validation
+        ↓
+Validated Dataset
+```
+
+A validated dataset provides confidence that acquisition objectives have been achieved and that downstream analyses are based on complete and reliable data.
+
+## Looking Ahead
+
+Once datasets have been validated, the next challenge is managing storage, transfers, and scalable access to acquired data.
+
+In the next chapter, we explore cloud storage and data transfer strategies that support reproducible and collaborative data acquisition workflows while preserving the integrity of validated datasets.

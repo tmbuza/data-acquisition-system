@@ -1,0 +1,899 @@
+# Data Download System
+
+:::cdi-message
+- **ID:** DAS-005
+- **Type:** Acquisition Systems
+- **Audience:** Omics Data Scientists, Bioinformaticians, and Research Teams
+- **Theme:** From Download Manifests to Verified FASTQ Assets
+:::
+
+Once studies have been identified, accession systems understood, and metadata evaluated, the next step is acquiring the sequencing data.
+
+Data download transforms study selection and metadata assets into locally accessible sequencing files that can be validated, organized, transferred, and assembled into downstream reference datasets. A reproducible acquisition workflow requires more than simply downloading files. Researchers must understand where files reside, how they are accessed, how downloads can be resumed, and how file integrity can be verified.
+
+## Learning Objectives
+
+By the end of this chapter, you will be able to:
+
+- Select appropriate repositories for sequencing data download.
+- Reuse the CDI data acquisition Conda environment.
+- Install and verify SRA Toolkit commands.
+- Build download manifests from metadata assets.
+- Retrieve sequencing files through ENA and NCBI workflows.
+- Organize downloaded files into a reproducible project structure.
+- Verify file presence, file size, checksums, and sample counts.
+- Generate FASTQ inventories for downstream validation.
+
+## Why a Data Download System Matters
+
+Metadata acquisition tells us what data exist.
+
+The Data Download System retrieves the actual sequencing files required for downstream analysis.
+
+```text
+Metadata Assets
+      ↓
+Download Manifest
+      ↓
+Repository Selection
+      ↓
+Download Execution
+      ↓
+Integrity Verification
+      ↓
+FASTQ Inventory
+      ↓
+Data Validation System
+```
+
+The quality of downstream analyses depends on the quality and completeness of acquired data. A successful download workflow should ensure that:
+
+- The correct files are retrieved.
+- Files are complete.
+- Downloads are reproducible.
+- Data provenance is preserved.
+- Acquisition steps can be repeated when necessary.
+
+## Data Download System Architecture
+
+```{mermaid}
+flowchart TD
+
+A[Metadata Assets]
+--> B[Download Manifest]
+
+B --> C[Repository Selection]
+
+C --> D[Download Execution]
+
+D --> E[Integrity Verification]
+
+E --> F[FASTQ Inventory]
+
+F --> G[Data Validation System]
+```
+
+The Data Download System begins with metadata assets generated in Chapter 04 and ends with a documented inventory of downloaded files.
+
+## Environment Reuse
+
+The CDI Data Acquisition System uses a single Conda environment throughout the workflow.
+
+```bash
+conda activate cdi-data-acquisition
+```
+
+This avoids unnecessary environment switching and ensures that metadata acquisition, data download, validation, and dataset assembly operate within a consistent software environment.
+
+## CDI Data Acquisition Environment
+
+The environment used throughout this book is defined as:
+
+```yaml
+name: cdi-data-acquisition
+
+channels:
+  - conda-forge
+  - bioconda
+
+dependencies:
+  - entrez-direct
+  - pysradb
+  - sra-tools
+  - wget
+  - curl
+  - seqkit
+  - csvtk
+  - jq
+  - parallel
+  - pigz
+  - python
+  ```
+
+---
+
+## Environment Verification
+
+Verify the key tools required by the Data Download System.
+
+```bash
+python --version
+
+prefetch --version
+fasterq-dump --version
+vdb-validate --version
+
+pysradb --help
+
+seqkit version
+csvtk version
+
+jq --version
+parallel --version
+
+which esearch
+```
+
+Successful execution confirms that the shared CDI data acquisition environment is ready for metadata acquisition, data download, and data validation workflows.
+
+## Common Sources of Downloadable Data
+
+Public repositories provide access to a variety of downloadable file types.
+
+| Repository | Typical Data | Common Role in This System |
+|------------|--------------|-----------------------------|
+| SRA | Raw sequencing reads | Run accession source and SRA Toolkit download |
+| ENA | Raw sequencing reads and FASTQ URLs | Direct FASTQ retrieval and checksum validation |
+| GEO | Processed and supplementary data | Study-level context and supplementary files |
+| MGnify | Processed microbiome outputs | Processed microbiome reference outputs |
+| GWAS Catalog | Summary statistics and study information | Association study discovery and summary statistics |
+
+For large public sequencing datasets, the two most important download sources are usually **ENA** and **NCBI SRA**.
+
+## Common Download Formats
+
+Researchers frequently encounter:
+
+- FASTQ
+- FASTA
+- BAM
+- CRAM
+- TSV
+- CSV
+- Metadata spreadsheets
+
+For raw sequencing acquisition, the most common target output is FASTQ. In microbiome, RNA-seq, metagenomics, and many other NGS workflows, FASTQ files serve as the starting point for downstream quality control and analysis.
+
+## Metadata Assets as Inputs
+
+The Data Download System consumes metadata assets generated during metadata acquisition.
+
+```text
+data/
+└── metadata/
+    ├── runinfo-prjna477349.csv
+    ├── ena-prjna477349.tsv
+    └── srr-accessions.txt
+```
+
+These files provide accession identifiers, sample-level metadata, and potential download locations required for data retrieval.
+
+The most important handoff from Chapter 04 is the run accession list:
+
+```text
+SRR accession list
+      ↓
+Download manifest
+      ↓
+FASTQ retrieval
+```
+
+## Download Manifest
+
+A download manifest represents the authoritative list of files or accessions to retrieve.
+
+A simple accession-only manifest may look like this:
+
+```text
+SRR1234567
+SRR1234568
+SRR1234569
+```
+
+A richer manifest may include repository links and checksums:
+
+```text
+run_accession    fastq_ftp                         fastq_md5
+SRR1234567       ftp.sra.ebi.ac.uk/.../file_1.gz   abc123...
+SRR1234568       ftp.sra.ebi.ac.uk/.../file_1.gz   def456...
+```
+
+Recommended output location:
+
+```text
+data/
+└── manifests/
+    └── download-manifest.tsv
+```
+
+The manifest becomes the system contract: it defines what should be downloaded, from where, and how completeness will later be checked.
+
+## Download Strategy
+
+The CDI Data Acquisition System uses a staged download strategy that validates repository workflows before initiating large-scale data retrieval.
+
+```text
+Build Manifest
+      ↓
+Create Test Manifest
+      ↓
+Validate Repository Workflows
+      ├── ENA
+      └── NCBI/SRA
+      ↓
+Production Download
+```
+
+This approach reduces risk by ensuring that:
+
+- Metadata have been translated correctly into download manifests.
+- Repository access is functioning as expected.
+- Download scripts operate correctly.
+- Retrieved files can be validated before large-scale acquisition.
+- Bandwidth and storage resources are used efficiently.
+
+The test manifest generated from the full download manifest serves as a representative subset for repository validation.
+
+```text
+download-manifest.tsv
+        ↓
+test-manifest.tsv
+        ↓
+Repository Validation
+        ↓
+Production Download
+```
+
+Successful test downloads provide confidence that the acquisition workflow is functioning correctly before scaling to the complete dataset.
+
+Only after successful repository validation should production downloads be initiated.
+
+## Download Tools
+
+Several tools are commonly used to retrieve public omics datasets.
+
+### SRA Toolkit
+
+The SRA Toolkit is commonly used for retrieving sequencing data from the NCBI Sequence Read Archive.
+
+| Tool | Purpose |
+|--------|----------|
+| `prefetch` | Download SRA files |
+| `fasterq-dump` | Convert SRA files to FASTQ |
+| `vdb-validate` | Validate downloaded SRA files |
+
+### FTP and HTTPS Utilities
+
+ENA and other repositories often expose direct file links that can be retrieved with common command-line tools.
+
+| Tool | Purpose |
+|------|---------|
+| `wget` | Download files from HTTP, HTTPS, or FTP links |
+| `curl` | Retrieve files and web resources |
+| `md5sum` | Verify MD5 checksums on Linux |
+| `md5` | Verify MD5 checksums on macOS |
+
+### Cloud-Based Access
+
+Some repositories also provide access through cloud infrastructure and object storage systems. Cloud transfer workflows are introduced later in the book, after local download and validation concepts are established.
+
+## Installing SRA Toolkit
+
+Activate the shared CDI data acquisition environment:
+
+```bash
+conda activate cdi-data-acquisition
+```
+
+Install SRA Toolkit:
+
+```bash
+conda install -c bioconda sra-tools
+```
+
+Verify installation:
+
+```bash
+prefetch --version
+fasterq-dump --version
+vdb-validate --version
+```
+
+If the commands return version information, the toolkit is available in the active environment.
+
+## Checking Download Utilities
+
+Many systems already include `curl`. Some may require `wget` installation.
+
+```bash
+curl --version
+wget --version
+```
+
+If `wget` is missing, install it in the same environment:
+
+```bash
+conda install -c conda-forge wget
+```
+
+For checksum verification, Linux commonly uses:
+
+```bash
+md5sum --version
+```
+
+On macOS, use:
+
+```bash
+md5 --version
+```
+
+The exact checksum command can differ by operating system, but the purpose is the same: confirm that downloaded files match the expected repository checksums.
+
+## Recommended Directory Structure
+
+Downloaded files should be organized systematically.
+
+Recommended structure:
+
+```text
+data/
+├── metadata/
+│   ├── runinfo-prjna477349.csv
+│   ├── ena-prjna477349.tsv
+│   └── srr-accessions.txt
+│
+├── manifests/
+│   └── download-manifest.tsv
+│
+├── raw/
+│   ├── sra/
+│   └── fastq/
+│
+├── logs/
+│   ├── download-ena.log
+│   ├── download-ncbi.log
+│   └── checksum.log
+│
+└── inventory/
+    └── fastq-inventory.tsv
+```
+
+A consistent structure improves reproducibility, simplifies validation, and provides a clear handoff between chapters.
+
+Create the directories:
+
+```bash
+mkdir -p data/manifests
+mkdir -p data/raw/sra
+mkdir -p data/raw/fastq
+mkdir -p data/logs
+mkdir -p data/inventory
+```
+
+## Building a Download Manifest
+
+A minimal accession manifest can be copied from the Chapter 04 output:
+
+```bash
+cp data/metadata/srr-accessions.txt data/manifests/download-manifest.tsv
+```
+
+Preview the manifest:
+
+```bash
+head data/manifests/download-manifest.tsv
+```
+
+Count accessions:
+
+```bash
+wc -l data/manifests/download-manifest.tsv
+```
+
+The expected count becomes one of the first validation checks after download.
+
+## System Scripts
+
+The CDI Data Download System is implemented through a set of reusable Bash scripts.
+
+```text
+scripts/bash/
+├── 05a-build-download-manifest.sh
+│   └── Create production and test manifests
+│
+├── 05b-download-ena-fastq.sh
+│   └── Download FASTQ files from ENA
+│
+├── 05c-download-ncbi-sra.sh
+│   └── Download and convert SRA accessions
+│
+├── 05d-verify-downloads.sh
+│   └── Verify downloaded FASTQ assets
+│
+└── 05e-build-fastq-inventory.sh
+    └── Generate FASTQ inventory reports
+```
+
+These scripts operate on the directory structure and manifest created in the previous sections and provide a reproducible implementation of the Data Download System.
+
+Before executing the full workflow, it is good practice to validate the environment, directory structure, and download process using a single accession. The following section demonstrates this verification step before scaling to larger manifests and automated script execution.
+
+
+## Testing and Verifying the Download System
+
+Before downloading an entire dataset, it is good practice to validate the workflow using a single accession from the download manifest.
+
+Preview the first accession:
+
+```bash
+head -n 1 data/manifests/download-manifest.tsv
+```
+
+Output:
+
+```text
+SRR7450741
+```
+
+Download the accession using SRA Toolkit:
+
+```bash
+prefetch SRR7450741 \
+  --output-directory data/raw/sra
+```
+
+Successful execution created:
+
+```text
+data/raw/sra/
+└── SRR7450741/
+    └── SRR7450741.sra
+```
+
+Verify the downloaded file:
+
+```bash
+find data/raw/sra -type f
+```
+
+Output:
+
+```text
+data/raw/sra/SRR7450741/SRR7450741.sra
+```
+
+Convert the SRA file to FASTQ:
+
+```bash
+fasterq-dump \
+  data/raw/sra/SRR7450741/SRR7450741.sra \
+  --outdir data/raw/fastq
+```
+
+Output:
+
+```text
+spots read      : 79,065
+reads read      : 158,130
+reads written   : 158,130
+```
+
+Inspect the generated FASTQ files:
+
+```bash
+ls -lh data/raw/fastq
+```
+
+Output:
+
+```text
+total 115344
+-rw-r--r--@ 1 tmbmacbookair  staff    28M Jun 11 15:35 SRR7450741_1.fastq
+-rw-r--r--@ 1 tmbmacbookair  staff    28M Jun 11 15:35 SRR7450741_2.fastq
+```
+
+The presence of two FASTQ files indicates that this sequencing run is paired-end.
+
+Perform a preliminary validation using SeqKit:
+
+```bash
+seqkit stats data/raw/fastq/*.fastq
+```
+
+Output:
+
+```text
+file                               format  type  num_seqs     sum_len  min_len  avg_len  max_len
+data/raw/fastq/SRR7450741_1.fastq  FASTQ   DNA     79,065  11,938,815      151      151      151
+data/raw/fastq/SRR7450741_2.fastq  FASTQ   DNA     79,065  11,938,815      151      151      151
+```
+
+### Verification Results
+
+This simple test confirms that:
+
+- The download manifest is valid.
+- SRA Toolkit successfully retrieved the sequencing run.
+- FASTQ conversion completed without errors.
+- The run is paired-end, producing two FASTQ files.
+- Both FASTQ files contain the same number of reads (79,065).
+- Read counts are consistent with the reported number of sequencing spots.
+- Read length is uniform at 151 bp across both files.
+- SeqKit successfully parsed both FASTQ files.
+- No obvious truncation or corruption is detected.
+
+At this stage we have demonstrated:
+
+```text
+Metadata Assets
+        ↓
+Download Manifest
+        ↓
+SRA Download
+        ↓
+FASTQ Generation
+        ↓
+Basic Validation
+```
+
+This preliminary verification provides confidence that the acquisition workflow is functioning correctly.
+
+Rather than immediately downloading hundreds of sequencing runs, validating the workflow on a single accession helps confirm that repository access, directory structure, software installation, FASTQ conversion, and basic file inspection are all functioning as expected.
+
+Once the workflow has been verified, the same approach can be scaled to the complete download manifest through the CDI Data Download System scripts.
+
+The following sections describe two common strategies for large-scale data acquisition: direct FASTQ retrieval from ENA and SRA-based retrieval using the NCBI SRA Toolkit. Rather than executing individual commands manually, these workflows are implemented through the reusable Bash scripts introduced above.
+
+
+## Repository Selection Strategy
+
+The recommended strategy is to use NCBI for study discovery and accession resolution, then use ENA for direct FASTQ download when suitable links and checksums are available.
+
+```text
+Study Discovery
+      ↓
+NCBI
+      ↓
+Metadata Acquisition
+      ↓
+ENA
+      ↓
+Download Planning
+      ↓
+Data Download
+```
+
+| Scenario | Preferred Repository |
+|-----------|----------------------|
+| Metadata discovery | NCBI |
+| FASTQ download with direct URLs | ENA |
+| Missing FASTQ URLs | NCBI SRA Toolkit |
+| Need SRA-native retrieval | NCBI SRA Toolkit |
+| Controlled-access data | Repository-specific process |
+| Supplementary processed files | GEO, ENA, project archive, or journal supplement |
+
+This strategy avoids treating all repositories as interchangeable. Each repository contributes differently to the acquisition system.
+
+
+## Download Workflow 1: ENA Direct FASTQ Download
+
+ENA is often preferred when direct FASTQ links and MD5 checksums are available.
+
+```text
+ENA Metadata
+      ↓
+FASTQ URLs
+      ↓
+wget or curl
+      ↓
+FASTQ Files
+      ↓
+Checksum Verification
+```
+
+The ENA metadata file may contain columns such as:
+
+- `run_accession`
+- `fastq_ftp`
+- `fastq_md5`
+- `fastq_bytes`
+
+The exact column names should be inspected before writing download commands:
+
+```bash
+head -n 1 data/metadata/ena-prjna477349.tsv
+```
+
+The ENA download workflow is implemented by:
+
+```bash
+bash scripts/bash/05b-download-ena-fastq.sh
+```
+
+This script extracts FASTQ URLs from the ENA metadata file, writes them to:
+
+```text
+data/manifests/ena-fastq-urls.txt
+```
+
+and downloads the files into:
+
+```text
+data/raw/fastq/
+```
+
+Download logs are written to:
+
+```text
+data/logs/download-ena.log
+```
+
+The script uses `wget --continue`, which allows interrupted downloads to resume when possible.
+
+## Download Workflow 2: NCBI SRA Retrieval
+
+When direct FASTQ links are unavailable, the SRA Toolkit workflow can be used.
+
+```text
+SRR Accessions
+      ↓
+prefetch
+      ↓
+SRA Files
+      ↓
+fasterq-dump
+      ↓
+FASTQ Files
+```
+
+The NCBI SRA workflow is implemented by:
+
+```bash
+bash scripts/bash/05c-download-ncbi-sra.sh
+```
+
+By default, this script uses the small test manifest:
+
+```text
+data/manifests/test-manifest.tsv
+```
+
+This makes the workflow safe for testing and book development.
+
+To run the workflow on the full dataset, provide the full manifest explicitly:
+
+```bash
+bash scripts/bash/05c-download-ncbi-sra.sh \
+  data/manifests/download-manifest.tsv
+```
+
+The script performs three steps:
+
+```text
+Download SRA files
+      ↓
+Convert SRA to FASTQ
+      ↓
+Compress FASTQ files
+```
+
+Outputs are written to:
+
+```text
+data/raw/sra/
+data/raw/fastq/
+data/logs/download-ncbi.log
+```
+
+This test-first pattern prevents accidentally launching a full dataset download before the workflow has been validated.
+
+For large datasets, compression can take time. Faster alternatives such as `pigz` can be used when parallel compression is required.
+
+The previous single-accession test demonstrated that the download workflow is functioning correctly on a representative sequencing run. After scaling to the complete download manifest, additional checks should be performed to confirm file integrity and completeness before proceeding to downstream validation.
+
+Common post-download checks include:
+
+- Expected file counts
+- Checksum validation
+- Metadata consistency
+- Sample completeness
+
+The following section focuses on checksum verification, one of the most important safeguards against incomplete or corrupted downloads.
+
+## Checksum Verification
+
+If ENA provides MD5 checksums, they should be used to verify that downloaded FASTQ files match the files distributed by the repository.
+
+A checksum file may look like this:
+
+```text
+abc123...  SRR1234567_1.fastq.gz
+def456...  SRR1234567_2.fastq.gz
+```
+
+On Linux:
+
+```bash
+cd data/raw/fastq
+md5sum -c ../../manifests/ena-md5.txt | tee ../../logs/checksum.log
+cd -
+```
+
+On macOS, checksum verification may require a slightly different command or installing GNU coreutils.
+
+The important principle is that expected checksums from the repository should match the local downloaded files.
+
+## FASTQ Inventory Generation
+
+A FASTQ inventory records the sequencing files acquired during the download process and provides a reproducible record of downloaded assets.
+
+Recommended output:
+
+```text
+data/
+└── inventory/
+    └── fastq-inventory.tsv
+```
+
+The inventory workflow is implemented through:
+
+```bash
+bash scripts/bash/05e-build-fastq-inventory.sh
+```
+
+This script scans the FASTQ directory and generates an inventory containing file names and file sizes.
+
+Preview the inventory:
+
+```bash
+head data/inventory/fastq-inventory.tsv
+```
+
+Count inventory records:
+
+```bash
+wc -l data/inventory/fastq-inventory.tsv
+```
+
+Example output:
+
+```text
+file	size_bytes
+data/raw/fastq/SRR7450741_1.fastq.gz	12123456
+data/raw/fastq/SRR7450741_2.fastq.gz	12098765
+```
+
+The inventory provides a concise summary of acquired sequencing assets and supports:
+
+- FASTQ file counting
+- Storage estimation
+- Download completeness assessment
+- Sample tracking
+- Dataset auditing
+
+The expected number of FASTQ files, total storage requirements, and sample coverage can all be assessed from the inventory before formal validation begins.
+
+The inventory becomes a key input to the Data Validation System introduced in Chapter 06.
+
+## End-to-End Download Example
+
+Suppose a healthy reference microbiome project identifies 850 eligible samples.
+
+The workflow proceeds as follows:
+
+```text
+850 Eligible Samples
+        ↓
+Metadata Acquisition
+        ↓
+Download Manifest
+        ↓
+Single-Accession Test
+        ↓
+Workflow Verification
+        ↓
+ENA or NCBI Download Workflow
+        ↓
+Download Verification
+        ↓
+FASTQ Inventory
+        ↓
+Data Validation System
+```
+
+At this stage, the objective is not analysis. The objective is to acquire a complete and reproducible sequencing dataset suitable for downstream validation and reference dataset assembly.
+
+## Common Challenges
+
+Researchers frequently encounter:
+
+- Interrupted downloads
+- Missing files
+- Incomplete metadata
+- Repository-specific formats
+- Storage limitations
+- Slow transfer speeds
+- Inconsistent file naming
+- Paired-end files split across multiple URLs
+
+Planning for these challenges improves acquisition reliability.
+
+## Reproducible Download Workflows
+
+Every download process should be documented.
+
+Important records include:
+
+- Repository source
+- Accessions used
+- Download date
+- Commands executed
+- File counts
+- Checksum results
+- Validation results
+
+The goal is not only to download files, but to make the download process auditable and repeatable.
+
+## Summary
+
+The Data Download System converts metadata assets into verified sequencing files.
+
+```text
+Metadata Assets
+      ↓
+Download Manifest
+      ↓
+Single-Accession Test
+      ↓
+Workflow Verification
+      ↓
+ENA or NCBI Download Workflow
+      ↓
+Download Verification
+      ↓
+FASTQ Inventory
+      ↓
+Data Validation System
+```
+
+A reliable download system should answer five questions:
+
+- What should be downloaded?
+- Where should it be downloaded from?
+- Has the download workflow been validated?
+- How can downloaded files be verified?
+- What inventory records the final acquired files?
+
+:::cdi-message
+### System Validation
+
+The CDI Data Download System was validated using both ENA and NCBI acquisition workflows.
+
+Validation included:
+
+- Manifest generation (133 accessions)
+- Test manifest generation (3 accessions)
+- ENA direct FASTQ download
+- NCBI SRA download and FASTQ conversion
+- FASTQ verification using SeqKit
+- FASTQ inventory generation
+
+The validation workflow successfully generated sequencing files, verification reports, and inventory records from publicly available microbiome sequencing datasets.
+:::
+
+## Looking Ahead
+
+After sequencing files have been downloaded, verified, and inventoried, the next challenge is determining whether the acquired dataset is complete, internally consistent, and suitable for downstream analysis.
+
+In the next chapter, we implement the Data Validation System to evaluate file integrity, sample completeness, metadata consistency, and overall dataset readiness before reference dataset assembly and analysis.

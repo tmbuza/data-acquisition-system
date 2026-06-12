@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>02-study-discovery – CDI Data Acquisition System</title>
+<title>Study Discovery – CDI Data Acquisition System</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -19,6 +19,41 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -70,6 +105,10 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 <style>html{ scroll-behavior: smooth; }</style>
+<meta name="mermaid-theme" content="forest">
+<script src="site_libs/quarto-diagram/mermaid.min.js"></script>
+<script src="site_libs/quarto-diagram/mermaid-init.js"></script>
+<link href="site_libs/quarto-diagram/mermaid.css" rel="stylesheet">
 
 
 <link rel="stylesheet" href="assets/css/cdi.css">
@@ -84,7 +123,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./02-study-discovery.html"><span class="chapter-title">02-study-discovery</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./00-preface-and-overview.html">Foundations</a></li><li class="breadcrumb-item"><a href="./02-study-discovery.html"><span class="chapter-title">Study Discovery</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -114,75 +153,141 @@ ul.task-list li input[type="checkbox"] {
   <a href="./index.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">index.html</span></a>
   </div>
 </li>
-        <li class="sidebar-item">
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
+ <span class="menu-text">Foundations</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./00-preface-and-overview.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">00-preface-and-overview</span></a>
+  <a href="./00-preface-and-overview.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Preface and Overview</span></a>
   </div>
 </li>
-        <li class="sidebar-item">
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./01-public-data-landscape.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">01-public-data-landscape</span></a>
+  <a href="./01-public-data-landscape.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Public Data Landscape</span></a>
   </div>
 </li>
-        <li class="sidebar-item">
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./02-study-discovery.html" class="sidebar-item-text sidebar-link active"><span class="chapter-title">02-study-discovery</span></a>
+  <a href="./02-study-discovery.html" class="sidebar-item-text sidebar-link active"><span class="chapter-title">Study Discovery</span></a>
   </div>
 </li>
-        <li class="sidebar-item">
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./03-accession-systems.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">03-accession-systems</span></a>
+  <a href="./03-accession-systems.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Accession Systems</span></a>
   </div>
 </li>
-        <li class="sidebar-item">
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
+ <span class="menu-text">Acquisition Systems</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./04-metadata-acquisition.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">04-metadata-acquisition</span></a>
+  <a href="./04-metadata-acquisition.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Metadata Acquisition</span></a>
   </div>
 </li>
-        <li class="sidebar-item">
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./05-data-download.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">05-data-download</span></a>
+  <a href="./05-data-download-system.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Data Download System</span></a>
   </div>
 </li>
-        <li class="sidebar-item">
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./06-data-validation.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">06-data-validation</span></a>
+  <a href="./06-data-validation-system.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Data Validation System</span></a>
   </div>
 </li>
-        <li class="sidebar-item">
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./07-cloud-storage-and-transfer.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">07-cloud-storage-and-transfer</span></a>
+  <a href="./07-cloud-storage-and-transfer-system.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Cloud Storage and Transfer</span></a>
   </div>
 </li>
-        <li class="sidebar-item">
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./08-reference-dataset-assembly.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">08-reference-dataset-assembly</span></a>
+  <a href="./08-reference-dataset-assembly-system.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Reference Dataset Assembly</span></a>
   </div>
 </li>
-        <li class="sidebar-item">
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true">
+ <span class="menu-text">Case Study</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./09-case-study-alphabiomics.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">09-case-study-alphabiomics</span></a>
+  <a href="./09-end-to-end-case-study.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">AlphaBiomics Case Study</span></a>
   </div>
 </li>
-        <li class="sidebar-item">
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true">
+ <span class="menu-text">Appendices</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./999-references.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">999-references</span></a>
+  <a href="./999-appendix.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Data Acquisition References</span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./999-references.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">References</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
     </ul>
     </div>
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#why-study-discovery-matters" id="toc-why-study-discovery-matters" class="nav-link active" data-scroll-target="#why-study-discovery-matters">Why Study Discovery Matters</a></li>
+  <li><a href="#from-question-to-search-strategy" id="toc-from-question-to-search-strategy" class="nav-link" data-scroll-target="#from-question-to-search-strategy">From Question to Search Strategy</a></li>
+  <li><a href="#defining-inclusion-criteria" id="toc-defining-inclusion-criteria" class="nav-link" data-scroll-target="#defining-inclusion-criteria">Defining Inclusion Criteria</a>
+  <ul class="collapse">
+  <li><a href="#healthy-reference-microbiome-example" id="toc-healthy-reference-microbiome-example" class="nav-link" data-scroll-target="#healthy-reference-microbiome-example">Healthy Reference Microbiome Example</a></li>
+  </ul></li>
+  <li><a href="#defining-exclusion-criteria" id="toc-defining-exclusion-criteria" class="nav-link" data-scroll-target="#defining-exclusion-criteria">Defining Exclusion Criteria</a></li>
+  <li><a href="#repository-search-interfaces" id="toc-repository-search-interfaces" class="nav-link" data-scroll-target="#repository-search-interfaces">Repository Search Interfaces</a></li>
+  <li><a href="#metadata-driven-discovery" id="toc-metadata-driven-discovery" class="nav-link" data-scroll-target="#metadata-driven-discovery">Metadata-Driven Discovery</a></li>
+  <li><a href="#study-evaluation-checklist" id="toc-study-evaluation-checklist" class="nav-link" data-scroll-target="#study-evaluation-checklist">Study Evaluation Checklist</a></li>
+  <li><a href="#alphabiomics-example" id="toc-alphabiomics-example" class="nav-link" data-scroll-target="#alphabiomics-example">AlphaBiomics Example</a></li>
+  <li><a href="#looking-ahead" id="toc-looking-ahead" class="nav-link" data-scroll-target="#looking-ahead">Looking Ahead</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default">
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./00-preface-and-overview.html">Foundations</a></li><li class="breadcrumb-item"><a href="./02-study-discovery.html"><span class="chapter-title">Study Discovery</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-title">02-study-discovery</span></h1>
+<h1 class="title"><span class="chapter-title">Study Discovery</span></h1>
 </div>
 
 
@@ -205,9 +310,176 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p>Content goes here.</p>
+<div class="cdi-message">
+<ul>
+<li><strong>ID:</strong> DAS-002</li>
+<li><strong>Type:</strong> Foundations</li>
+<li><strong>Audience:</strong> Omics Data Scientists, Bioinformaticians, and Research Teams</li>
+<li><strong>Theme:</strong> Finding Studies That Match Your Question</li>
+</ul>
+</div>
+<p>Public repositories contain millions of samples and thousands of studies spanning a wide range of biological questions, populations, technologies, and experimental designs. The challenge is rarely the lack of data. Instead, the challenge is identifying studies that are relevant, trustworthy, and suitable for a specific objective.</p>
+<p>Study discovery is the process of transforming a research objective into a set of candidate studies that can support downstream analysis. Before any data are downloaded, researchers must determine which studies are most appropriate for their intended purpose.</p>
+<section id="why-study-discovery-matters" class="level2">
+<h2 class="anchored" data-anchor-id="why-study-discovery-matters">Why Study Discovery Matters</h2>
+<p>Effective data acquisition begins with selecting the right studies.</p>
+<p>For example, a project focused on constructing a healthy reference microbiome cannot rely on a simple keyword search alone. Researchers must determine:</p>
+<ul>
+<li>Which studies contain healthy individuals?</li>
+<li>Which samples are human?</li>
+<li>Which body sites are relevant?</li>
+<li>Which metadata fields are available?</li>
+<li>Which studies satisfy project-specific criteria?</li>
+</ul>
+<p>The quality of study discovery directly influences the quality of the resulting dataset.</p>
+</section>
+<section id="from-question-to-search-strategy" class="level2">
+<h2 class="anchored" data-anchor-id="from-question-to-search-strategy">From Question to Search Strategy</h2>
+<p>Every study discovery process begins with a clearly defined objective.</p>
+<div class="cell" data-layout-align="default">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>flowchart LR</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>A[Research Objective] --&gt; B[Search Strategy]</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>B --&gt; C[Study Discovery]</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>C --&gt; D[Study Evaluation]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<div>
+<p></p><figure class="figure"><p></p>
+<div>
+<pre class="mermaid mermaid-js">flowchart LR
+A[Research Objective] --&gt; B[Search Strategy]
+B --&gt; C[Study Discovery]
+C --&gt; D[Study Evaluation]
+</pre>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
+</section>
+<section id="defining-inclusion-criteria" class="level2">
+<h2 class="anchored" data-anchor-id="defining-inclusion-criteria">Defining Inclusion Criteria</h2>
+<section id="healthy-reference-microbiome-example" class="level3">
+<h3 class="anchored" data-anchor-id="healthy-reference-microbiome-example">Healthy Reference Microbiome Example</h3>
+<p>Include:</p>
+<ul>
+<li>Human samples</li>
+<li>Healthy individuals</li>
+<li>Stool samples</li>
+<li>Adequate metadata</li>
+<li>Publicly available sequencing data</li>
+</ul>
+</section>
+</section>
+<section id="defining-exclusion-criteria" class="level2">
+<h2 class="anchored" data-anchor-id="defining-exclusion-criteria">Defining Exclusion Criteria</h2>
+<p>Examples of exclusion criteria include:</p>
+<ul>
+<li>Disease cohorts</li>
+<li>Antibiotic-treated individuals</li>
+<li>Animal samples</li>
+<li>Missing phenotype information</li>
+<li>Incomplete metadata</li>
+<li>Poor documentation</li>
+</ul>
+</section>
+<section id="repository-search-interfaces" class="level2">
+<h2 class="anchored" data-anchor-id="repository-search-interfaces">Repository Search Interfaces</h2>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Repository</th>
+<th>Typical Use</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>NCBI</td>
+<td>Broad study discovery</td>
+</tr>
+<tr class="even">
+<td>GEO</td>
+<td>Functional genomics</td>
+</tr>
+<tr class="odd">
+<td>ENA</td>
+<td>Sequence archives</td>
+</tr>
+<tr class="even">
+<td>MGnify</td>
+<td>Microbiome studies</td>
+</tr>
+<tr class="odd">
+<td>GWAS Catalog</td>
+<td>Variant studies</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="metadata-driven-discovery" class="level2">
+<h2 class="anchored" data-anchor-id="metadata-driven-discovery">Metadata-Driven Discovery</h2>
+<p>Relevant metadata may include:</p>
+<ul>
+<li>Disease status</li>
+<li>Age</li>
+<li>Sex</li>
+<li>Geography</li>
+<li>Body site</li>
+<li>Treatment status</li>
+<li>Sequencing platform</li>
+</ul>
+</section>
+<section id="study-evaluation-checklist" class="level2">
+<h2 class="anchored" data-anchor-id="study-evaluation-checklist">Study Evaluation Checklist</h2>
+<ul>
+<li>Does the study address the target population?</li>
+<li>Is metadata available and sufficiently detailed?</li>
+<li>Are raw sequencing data available?</li>
+<li>Is the sample size adequate?</li>
+<li>Is study documentation complete?</li>
+<li>Can the study support the intended analysis?</li>
+</ul>
+</section>
+<section id="alphabiomics-example" class="level2">
+<h2 class="anchored" data-anchor-id="alphabiomics-example">AlphaBiomics Example</h2>
+<blockquote class="blockquote">
+<p>Build a healthy reference gut microbiome.</p>
+</blockquote>
+<div class="cell" data-layout-align="default">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>flowchart TD</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>A[Healthy Reference Goal] --&gt; B[Search Public Repositories]</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>B --&gt; C[Identify Candidate Studies]</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>C --&gt; D[Review Metadata]</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>D --&gt; E[Apply Inclusion and Exclusion Criteria]</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>E --&gt; F[Shortlist Studies]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<div>
+<p></p><figure class="figure"><p></p>
+<div>
+<pre class="mermaid mermaid-js">flowchart TD
+A[Healthy Reference Goal] --&gt; B[Search Public Repositories]
+B --&gt; C[Identify Candidate Studies]
+C --&gt; D[Review Metadata]
+D --&gt; E[Apply Inclusion and Exclusion Criteria]
+E --&gt; F[Shortlist Studies]
+</pre>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
+</section>
+<section id="looking-ahead" class="level2">
+<h2 class="anchored" data-anchor-id="looking-ahead">Looking Ahead</h2>
+<p>In the next chapter, we examine accession systems and the relationships between BioProjects, BioSamples, Experiments, and Runs.</p>
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -613,13 +885,13 @@ ul.task-list li input[type="checkbox"] {
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./01-public-data-landscape.html" class="pagination-link" aria-label="01-public-data-landscape">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-title">01-public-data-landscape</span></span>
+      <a href="./01-public-data-landscape.html" class="pagination-link" aria-label="Public Data Landscape">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-title">Public Data Landscape</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./03-accession-systems.html" class="pagination-link" aria-label="03-accession-systems">
-        <span class="nav-page-text"><span class="chapter-title">03-accession-systems</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./03-accession-systems.html" class="pagination-link" aria-label="Accession Systems">
+        <span class="nav-page-text"><span class="chapter-title">Accession Systems</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

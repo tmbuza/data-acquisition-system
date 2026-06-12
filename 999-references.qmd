@@ -1,3 +1,4 @@
-# 999-references
+# References
 
-Content goes here.
+::: {#refs}
+:::
