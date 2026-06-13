@@ -1,8 +1,151 @@
-# Data Acquisition References
+# CDI Data Acquisition System Overview
 
-This guide draws upon public repository documentation, metadata standards, reproducibility frameworks, and data-sharing initiatives that support modern omics data acquisition workflows.
+The CDI Data Acquisition System consists of a series of interconnected systems that transform public omics data into reusable reference datasets.
 
-The references cited throughout this guide are maintained in the bibliography database (library/references.bib) and are included automatically during book generation.
+```text
+Study Discovery
+        ↓
+Metadata Acquisition
+        ↓
+Data Download
+        ↓
+Data Validation
+        ↓
+Cloud Storage and Transfer
+        ↓
+Reference Dataset Assembly
+```
+
+## Repository Accession Reference
+
+Common accession types encountered during data acquisition:
+
+| Resource | Example |
+|-----------|-----------|
+| BioProject | PRJNA477349 |
+| BioSample | SAMN12345678 |
+| SRA Run | SRR12345678 |
+| GEO Series | GSE123456 |
+| ENA Study | ERP123456 |
+
+## Directory Structure Reference
+
+Example CDI Data Acquisition System project structure:
+
+```text
+project/
+├── data/
+│   ├── metadata/
+│   ├── manifests/
+│   ├── inventory/
+│   ├── raw/
+│   └── validation/
+├── scripts/
+│   └── bash/
+├── library/
+├── docs/
+└── environment.yml
+```
+
+## Bash Scripts Reference
+
+The following scripts are developed throughout this guide.
+
+```text
+scripts/bash/
+├── 05a-build-download-manifest.sh
+├── 05b-download-ena-fastq.sh
+├── 05c-download-ncbi-sra.sh
+├── 05d-verify-downloads.sh
+├── 05e-build-fastq-inventory.sh
+├── 06-validate-download.sh
+└── 07-transfer-to-cloud.sh
+```
+
+## Common Repository Tools
+
+### Metadata Acquisition
+
+```text
+EDirect
+pysradb
+curl
+wget
+```
+
+### Data Download
+
+```text
+SRA Toolkit
+wget
+curl
+```
+
+### Validation
+
+```text
+gzip
+seqkit
+csvtk
+```
+
+### Cloud Storage
+
+```text
+AWS CLI
+rsync
+Aspera
+```
+
+## Conda Environment
+
+Example environment:
+
+```bash
+conda env create -f environment.yml
+
+conda activate cdi-data-acquisition
+```
+
+## Recommended Workflow
+
+```text
+Research Question
+        ↓
+Study Discovery
+        ↓
+Metadata Acquisition
+        ↓
+Metadata Review
+        ↓
+Data Download
+        ↓
+Data Validation
+        ↓
+Cloud Storage
+        ↓
+Reference Dataset Assembly
+        ↓
+Dataset Release
+```
+
+## Key Principles
+
+The CDI Data Acquisition System is built upon the following principles:
+
+- Reproducibility
+- Transparency
+- Metadata-first design
+- Validation before analysis
+- Provenance preservation
+- Cloud-ready workflows
+- Reusable reference datasets
+
+## Bibliography and Resources
+
+The references cited throughout this guide are maintained in the bibliography database (`library/references.bib`) and are included automatically during book generation.
+
+This appendix also provides a quick reference to commonly cited resources and repositories used throughout the CDI Data Acquisition System.
 
 ## Suggested Citation Keys
 
@@ -21,12 +164,12 @@ The following citation keys are commonly used throughout the CDI Data Acquisitio
 
 ## Major Public Data Resources
 
-- NCBI: https://www.ncbi.nlm.nih.gov [@NCBI]
-- Sequence Read Archive (SRA): https://www.ncbi.nlm.nih.gov/sra [@SRA]
-- BioProject: https://www.ncbi.nlm.nih.gov/bioproject [@BioProject]
-- BioSample: https://www.ncbi.nlm.nih.gov/biosample [@BioSample]
-- Gene Expression Omnibus (GEO): https://www.ncbi.nlm.nih.gov/geo [@GEO]
-- European Nucleotide Archive (ENA): https://www.ebi.ac.uk/ena [@ENA]
-- MGnify: https://www.ebi.ac.uk/metagenomics [@MGnify]
-- GWAS Catalog: https://www.ebi.ac.uk/gwas [@GWASCatalog]
-- DNA Data Bank of Japan (DDBJ): https://www.ddbj.nig.ac.jp [@DDBJ]
+- **NCBI** — https://www.ncbi.nlm.nih.gov [@NCBI]
+- **Sequence Read Archive (SRA)** — https://www.ncbi.nlm.nih.gov/sra [@SRA]
+- **BioProject** — https://www.ncbi.nlm.nih.gov/bioproject [@BioProject]
+- **BioSample** — https://www.ncbi.nlm.nih.gov/biosample [@BioSample]
+- **Gene Expression Omnibus (GEO)** — https://www.ncbi.nlm.nih.gov/geo [@GEO]
+- **European Nucleotide Archive (ENA)** — https://www.ebi.ac.uk/ena [@ENA]
+- **MGnify** — https://www.ebi.ac.uk/metagenomics [@MGnify]
+- **GWAS Catalog** — https://www.ebi.ac.uk/gwas [@GWASCatalog]
+- **DNA Data Bank of Japan (DDBJ)** — https://www.ddbj.nig.ac.jp [@DDBJ]

@@ -4,219 +4,441 @@
 - **ID:** DAS-009
 - **Type:** Case Study
 - **Audience:** Omics Data Scientists, Bioinformaticians, and Research Teams
-- **Theme:** Building a Healthy Reference Microbiome from Public Data
+- **Theme:** Applying the CDI Data Acquisition System from Study Discovery to Reference Dataset Assembly
 :::
 
-Throughout this guide, we explored the major components of a reproducible data acquisition workflow, including study discovery, accession systems, metadata acquisition, data download, validation, cloud storage, and reference dataset assembly.
+The previous chapters introduced the individual components of the CDI Data Acquisition System. This chapter demonstrates how these components work together as a complete end-to-end workflow.
 
-This chapter integrates those components through a practical case study inspired by a common challenge in microbiome research:
+The objective is to illustrate how publicly available sequencing studies can be transformed into a validated and reproducible reference dataset.
 
-> How can we build a healthy reference microbiome dataset from public repositories?
+Rather than focusing on a specific organization or project, this case study presents a generalized workflow that can be adapted to a wide range of omics data acquisition scenarios.
 
-The objective is not to perform downstream microbiome analysis, but to demonstrate the acquisition workflow required to construct a reusable reference dataset.
+## Case Study Objective
 
-## Project Objective
+Objective:
 
-The goal is to assemble a healthy human gut microbiome reference dataset suitable for future comparative analyses.
+> Build a healthy reference gut microbiome dataset from publicly available sequencing studies.
 
-Potential applications include:
+The goal is to demonstrate how the CDI Data Acquisition System can transform public repository data into a curated analytical resource.
 
-- Population benchmarking
-- Health reference construction
-- Method development
-- Educational workflows
-- Commercial microbiome products
+Expected outputs include:
 
-## Step 1: Define the Target Population
+- Metadata assets
+- Download manifests
+- Sequencing files
+- Validation reports
+- Cloud storage assets
+- Reference dataset components
 
-Before searching repositories, define the target cohort.
+## End-to-End System Workflow
 
-### Inclusion Criteria
+```{mermaid}
+flowchart TD
+
+A[Study Discovery]
+--> B[Metadata Acquisition]
+
+B --> C[Data Download]
+
+C --> D[Data Validation]
+
+D --> E[Cloud Storage and Transfer]
+
+E --> F[Reference Dataset Assembly]
+
+F --> G[Reference Dataset Release]
+```
+
+Each stage contributes a reproducible component to the final dataset.
+
+## Step 1: Study Discovery
+
+The process begins by identifying candidate studies relevant to the dataset objective.
+
+Example workflow:
+
+```text
+Literature Review
+        ↓
+Public Repositories
+        ↓
+Candidate Studies
+```
+
+Example candidate studies:
+
+```text
+PRJNA477349
+PRJNA802976
+PRJNA322554
+```
+
+Key activities:
+
+- Review scientific literature
+- Identify relevant studies
+- Evaluate study eligibility
+- Record accession information
+
+Output:
+
+```text
+Candidate Studies
+```
+
+## Step 2: Metadata Acquisition
+
+Once studies have been identified, metadata are retrieved from public repositories.
+
+Example workflow:
+
+```text
+BioProject
+        ↓
+Run Metadata
+        ↓
+ENA Metadata
+        ↓
+Sample Inventory
+```
+
+Example outputs:
+
+```text
+data/metadata/
+├── runinfo-prjna477349.csv
+├── ena-prjna477349.tsv
+└── srr-accessions.txt
+```
+
+Metadata acquisition provides the foundation for downstream filtering and sample selection.
+
+Output:
+
+```text
+Metadata Assets
+```
+
+## Step 3: Metadata Review and Sample Selection
+
+Metadata are reviewed against predefined inclusion and exclusion criteria.
+
+Example inclusion criteria:
 
 - Human samples
 - Healthy individuals
-- Stool samples
-- Publicly available metadata
+- Stool specimens
 - Publicly available sequencing data
 
-### Exclusion Criteria
+Example exclusion criteria:
 
-- Disease cohorts
-- Antibiotic-treated individuals
-- Unknown health status
-- Non-human samples
+- Disease status unknown
 - Missing metadata
+- Incomplete records
+- Duplicate samples
 
-These criteria establish the scope of the reference dataset.
-
-## Step 2: Study Discovery
-
-The next step is identifying candidate studies.
-
-```{mermaid}
-flowchart TD
-
-A[Healthy Reference Objective]
---> B[Repository Search]
-
-B --> C[Candidate Studies]
-
-C --> D[Study Evaluation]
-```
-
-Potential repositories include:
-
-- NCBI
-- ENA
-- MGnify
-- GEO
-
-At this stage, the objective is to identify studies that may contain eligible samples.
-
-## Step 3: Accession Retrieval
-
-For each candidate study:
-
-```{mermaid}
-flowchart TD
-
-A[BioProject]
---> B[BioSamples]
-
-B --> C[Experiments]
-
-C --> D[Runs]
-```
-
-Accession identifiers provide the link between studies, samples, metadata, and downloadable sequencing data.
-
-## Step 4: Metadata Acquisition
-
-Metadata determine whether samples satisfy project requirements.
-
-| Variable | Example |
-|-----------|-----------|
-| Health Status | Healthy |
-| Body Site | Stool |
-| Age | Adult |
-| Antibiotic Use | No |
-| Host | Human |
-
-Metadata acquisition often becomes the most time-consuming stage of the workflow.
-
-## Step 5: Sample Filtering
-
-A typical filtering process may resemble:
+Workflow:
 
 ```text
-2,000 Samples
+Metadata Assets
         ↓
-Remove Disease Samples
+Inclusion Criteria
         ↓
-Remove Antibiotic-Treated Samples
+Exclusion Criteria
         ↓
-Remove Missing Metadata
-        ↓
-850 Eligible Samples
-```
-
-Filtering transforms candidate studies into a defined cohort.
-
-## Step 6: Data Download
-
-Once eligible samples are identified:
-
-```text
 Eligible Samples
-        ↓
-Retrieve Run Accessions
-        ↓
-Download Data
-        ↓
-Organize Files
 ```
 
-Downloaded data should be stored using a reproducible directory structure.
+Output:
 
-## Step 7: Data Validation
+```text
+Download Manifest
+```
 
-Validation confirms:
+## Step 4: Data Download
 
-- Expected sample counts
-- File integrity
-- Metadata consistency
-- Absence of duplicates
+Validated metadata are used to retrieve sequencing data.
 
-Only validated samples should proceed to dataset assembly.
+Example workflows:
+
+### ENA Retrieval
+
+```bash
+bash scripts/bash/05b-download-ena-fastq.sh
+```
+
+### NCBI Retrieval
+
+```bash
+bash scripts/bash/05c-download-ncbi-sra.sh
+```
+
+Example outputs:
+
+```text
+data/raw/
+├── ena/
+└── ncbi/
+```
+
+Workflow:
+
+```text
+Download Manifest
+        ↓
+Repository Retrieval
+        ↓
+FASTQ Files
+```
+
+Output:
+
+```text
+Sequencing Data
+```
+
+## Step 5: Download Verification
+
+Downloaded files are verified against repository expectations.
+
+Verification activities:
+
+- File count verification
+- Download completeness
+- Inventory generation
+- Repository reconciliation
+
+Example:
+
+```bash
+bash scripts/bash/05d-verify-downloads.sh
+```
+
+Inventory generation:
+
+```bash
+bash scripts/bash/05e-build-fastq-inventory.sh
+```
+
+Output:
+
+```text
+FASTQ Inventory
+```
+
+## Step 6: Data Validation
+
+Downloaded files undergo systematic validation before being used for downstream analysis.
+
+Example:
+
+```bash
+bash scripts/bash/06-validate-download.sh
+```
+
+Validation workflow:
+
+```text
+Repository Validation
+        ↓
+File Validation
+        ↓
+Compression Validation
+        ↓
+Paired-End Validation
+        ↓
+FASTQ Validation
+```
+
+Example output:
+
+```text
+check	status	value
+fastq_file_count	PASS	6
+compression_validation	PASS	0
+paired_end_validation	PASS	3
+fastq_validation	PASS
+```
+
+Output:
+
+```text
+Validated Dataset
+```
+
+## Step 7: Cloud Storage and Transfer
+
+Validated datasets are transferred to durable storage.
+
+Example:
+
+```bash
+bash scripts/bash/07-transfer-to-cloud.sh \
+  data \
+  my-reference-datasets
+```
+
+Example storage structure:
+
+```text
+s3://my-reference-datasets/
+├── metadata/
+├── manifests/
+├── inventory/
+├── raw/
+└── validation/
+```
+
+Workflow:
+
+```text
+Validated Dataset
+        ↓
+Cloud Transfer
+        ↓
+Cloud Storage
+```
+
+Output:
+
+```text
+Cloud Repository
+```
 
 ## Step 8: Reference Dataset Assembly
 
-Validated samples are combined into a unified resource.
+Validated data and metadata are integrated into a coherent reference dataset.
 
-```{mermaid}
-flowchart TD
+Workflow:
 
-A[Validated Study 1]
---> D[Reference Dataset]
-
-B[Validated Study 2]
---> D
-
-C[Validated Study 3]
---> D
+```text
+Validated Samples
+        ↓
+Metadata Harmonization
+        ↓
+Dataset Integration
+        ↓
+Reference Dataset
 ```
 
-Metadata are harmonized and provenance information is preserved.
+Example structure:
 
-## Final Dataset
+```text
+reference-dataset/
+├── metadata/
+├── harmonized-metadata/
+├── documentation/
+└── dataset-release/
+```
 
-The resulting dataset contains:
+Key activities:
 
-- Selected studies
-- Harmonized metadata
-- Validated sequencing data
+- Metadata harmonization
+- Sample integration
+- Provenance preservation
 - Documentation
-- Provenance records
 
-The dataset is now suitable for downstream analysis and interpretation.
+Output:
 
-## Lessons Learned
-
-This case study highlights several important principles:
-
-1. Public data are not automatically reference datasets.
-2. Metadata often determine dataset quality.
-3. Validation is essential.
-4. Reproducibility should be considered throughout the workflow.
-5. Reference datasets are constructed, not simply downloaded.
-
-## CDI Data Acquisition System Summary
-
-```{mermaid}
-flowchart TD
-
-A[Public Data Landscape]
---> B[Study Discovery]
-
-B --> C[Accession Systems]
-
-C --> D[Metadata Acquisition]
-
-D --> E[Data Download]
-
-E --> F[Data Validation]
-
-F --> G[Cloud Storage and Transfer]
-
-G --> H[Reference Dataset Assembly]
-
-H --> I[Healthy Reference Dataset]
+```text
+Reference Dataset
 ```
 
-The AlphaBiomics case study demonstrates how each component of the CDI Data Acquisition System contributes to the creation of a reproducible reference dataset.
+## Final Deliverables
 
-## Next Steps
+The completed reference dataset consists of multiple components.
 
-The workflow presented in this guide provides a foundation for many downstream activities, including microbiome analysis, RNA-Seq studies, benchmarking projects, clinical evidence generation, and commercial product development.
+Example:
 
-The acquisition process is complete. The resulting reference dataset is now ready to support the next stage of scientific investigation.
+```text
+Reference Dataset
+├── Sequencing Data
+├── Metadata
+├── Download Manifests
+├── Validation Reports
+├── Inventory Files
+├── Provenance Records
+└── Documentation
+```
+
+These assets provide a complete and reproducible dataset package.
+
+## System Outputs
+
+The CDI Data Acquisition System transforms public repository data into reusable analytical resources.
+
+```text
+Study Discovery
+        ↓
+Metadata Acquisition
+        ↓
+Data Download
+        ↓
+Data Validation
+        ↓
+Cloud Storage
+        ↓
+Reference Dataset Assembly
+        ↓
+Reusable Reference Dataset
+```
+
+Each stage contributes traceable and reproducible outputs.
+
+## Reproducibility Considerations
+
+A reproducible reference dataset should preserve:
+
+- Source repositories
+- Study accessions
+- Sample identifiers
+- Download manifests
+- Validation reports
+- Storage locations
+- Dataset documentation
+
+These records enable future users to reconstruct and verify the dataset.
+
+## Common Challenges
+
+Researchers frequently encounter:
+
+- Missing metadata
+- Inconsistent annotations
+- Duplicate samples
+- Repository updates
+- Large file transfers
+- Incomplete downloads
+- Storage limitations
+
+The CDI Data Acquisition System provides a structured framework for addressing these challenges.
+
+## Summary
+
+The End-to-End Case Study demonstrates how the CDI Data Acquisition System transforms public omics data into a validated and reusable reference dataset.
+
+```text
+Public Repository Data
+        ↓
+Metadata Acquisition
+        ↓
+Data Download
+        ↓
+Data Validation
+        ↓
+Cloud Storage
+        ↓
+Reference Dataset Assembly
+        ↓
+Reusable Analytical Resource
+```
+
+By combining structured workflows, validation procedures, provenance tracking, and reproducible documentation, researchers can construct high-quality reference datasets suitable for downstream biological analysis.
+
+## Concluding Remarks
+
+The CDI Data Acquisition System provides a reproducible framework for discovering, acquiring, validating, storing, and assembling public omics datasets.
+
+Although the examples presented throughout this guide focus primarily on microbiome sequencing studies, the same principles can be applied across a broad range of omics domains including RNA-Seq, single-cell sequencing, genomics, and multi-omics integration.
+
+The combination of systematic study discovery, metadata-driven sample selection, validated data acquisition, cloud-based storage, and reference dataset assembly creates a foundation for reproducible biological research and data-driven discovery.

@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Reference Dataset Assembly – CDI Data Acquisition System</title>
+<title>Reference Dataset Assembly System – CDI Data Acquisition System</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -123,7 +123,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./04-metadata-acquisition.html">Acquisition Systems</a></li><li class="breadcrumb-item"><a href="./08-reference-dataset-assembly-system.html"><span class="chapter-title">Reference Dataset Assembly</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./04-metadata-acquisition.html">Acquisition Systems</a></li><li class="breadcrumb-item"><a href="./08-reference-dataset-assembly-system.html"><span class="chapter-title">Reference Dataset Assembly System</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -215,7 +215,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./08-reference-dataset-assembly-system.html" class="sidebar-item-text sidebar-link active"><span class="chapter-title">Reference Dataset Assembly</span></a>
+  <a href="./08-reference-dataset-assembly-system.html" class="sidebar-item-text sidebar-link active"><span class="chapter-title">Reference Dataset Assembly System</span></a>
   </div>
 </li>
       </ul>
@@ -247,7 +247,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./999-appendix.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Data Acquisition References</span></a>
+  <a href="./999-appendix.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">CDI Data Acquisition System Overview</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -269,19 +269,24 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <ul>
   <li><a href="#what-is-a-reference-dataset" id="toc-what-is-a-reference-dataset" class="nav-link active" data-scroll-target="#what-is-a-reference-dataset">What Is a Reference Dataset?</a></li>
   <li><a href="#why-reference-dataset-assembly-matters" id="toc-why-reference-dataset-assembly-matters" class="nav-link" data-scroll-target="#why-reference-dataset-assembly-matters">Why Reference Dataset Assembly Matters</a></li>
-  <li><a href="#from-acquisition-to-assembly" id="toc-from-acquisition-to-assembly" class="nav-link" data-scroll-target="#from-acquisition-to-assembly">From Acquisition to Assembly</a></li>
-  <li><a href="#defining-the-objective" id="toc-defining-the-objective" class="nav-link" data-scroll-target="#defining-the-objective">Defining the Objective</a></li>
-  <li><a href="#sample-selection" id="toc-sample-selection" class="nav-link" data-scroll-target="#sample-selection">Sample Selection</a>
+  <li><a href="#reference-dataset-assembly-in-the-cdi-data-acquisition-system" id="toc-reference-dataset-assembly-in-the-cdi-data-acquisition-system" class="nav-link" data-scroll-target="#reference-dataset-assembly-in-the-cdi-data-acquisition-system">Reference Dataset Assembly in the CDI Data Acquisition System</a></li>
+  <li><a href="#define-the-dataset-objective" id="toc-define-the-dataset-objective" class="nav-link" data-scroll-target="#define-the-dataset-objective">Define the Dataset Objective</a></li>
+  <li><a href="#sample-selection-framework" id="toc-sample-selection-framework" class="nav-link" data-scroll-target="#sample-selection-framework">Sample Selection Framework</a>
   <ul class="collapse">
   <li><a href="#inclusion-examples" id="toc-inclusion-examples" class="nav-link" data-scroll-target="#inclusion-examples">Inclusion Examples</a></li>
   <li><a href="#exclusion-examples" id="toc-exclusion-examples" class="nav-link" data-scroll-target="#exclusion-examples">Exclusion Examples</a></li>
   </ul></li>
   <li><a href="#metadata-harmonization" id="toc-metadata-harmonization" class="nav-link" data-scroll-target="#metadata-harmonization">Metadata Harmonization</a></li>
   <li><a href="#dataset-integration" id="toc-dataset-integration" class="nav-link" data-scroll-target="#dataset-integration">Dataset Integration</a></li>
-  <li><a href="#provenance-tracking" id="toc-provenance-tracking" class="nav-link" data-scroll-target="#provenance-tracking">Provenance Tracking</a></li>
-  <li><a href="#dataset-documentation" id="toc-dataset-documentation" class="nav-link" data-scroll-target="#dataset-documentation">Dataset Documentation</a></li>
-  <li><a href="#alphabiomics-example" id="toc-alphabiomics-example" class="nav-link" data-scroll-target="#alphabiomics-example">AlphaBiomics Example</a></li>
+  <li><a href="#provenance-preservation" id="toc-provenance-preservation" class="nav-link" data-scroll-target="#provenance-preservation">Provenance Preservation</a></li>
+  <li><a href="#reference-dataset-project-structure" id="toc-reference-dataset-project-structure" class="nav-link" data-scroll-target="#reference-dataset-project-structure">Reference Dataset Project Structure</a></li>
+  <li><a href="#reference-dataset-assembly-workflow" id="toc-reference-dataset-assembly-workflow" class="nav-link" data-scroll-target="#reference-dataset-assembly-workflow">Reference Dataset Assembly Workflow</a></li>
+  <li><a href="#reference-dataset-documentation" id="toc-reference-dataset-documentation" class="nav-link" data-scroll-target="#reference-dataset-documentation">Reference Dataset Documentation</a></li>
+  <li><a href="#reference-dataset-readiness-checklist" id="toc-reference-dataset-readiness-checklist" class="nav-link" data-scroll-target="#reference-dataset-readiness-checklist">Reference Dataset Readiness Checklist</a></li>
+  <li><a href="#healthy-reference-microbiome-example" id="toc-healthy-reference-microbiome-example" class="nav-link" data-scroll-target="#healthy-reference-microbiome-example">Healthy Reference Microbiome Example</a></li>
   <li><a href="#characteristics-of-a-high-quality-reference-dataset" id="toc-characteristics-of-a-high-quality-reference-dataset" class="nav-link" data-scroll-target="#characteristics-of-a-high-quality-reference-dataset">Characteristics of a High-Quality Reference Dataset</a></li>
+  <li><a href="#common-challenges" id="toc-common-challenges" class="nav-link" data-scroll-target="#common-challenges">Common Challenges</a></li>
+  <li><a href="#summary" id="toc-summary" class="nav-link" data-scroll-target="#summary">Summary</a></li>
   <li><a href="#looking-ahead" id="toc-looking-ahead" class="nav-link" data-scroll-target="#looking-ahead">Looking Ahead</a></li>
   </ul>
 </nav>
@@ -289,9 +294,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./04-metadata-acquisition.html">Acquisition Systems</a></li><li class="breadcrumb-item"><a href="./08-reference-dataset-assembly-system.html"><span class="chapter-title">Reference Dataset Assembly</span></a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./04-metadata-acquisition.html">Acquisition Systems</a></li><li class="breadcrumb-item"><a href="./08-reference-dataset-assembly-system.html"><span class="chapter-title">Reference Dataset Assembly System</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-title">Reference Dataset Assembly</span></h1>
+<h1 class="title"><span class="chapter-title">Reference Dataset Assembly System</span></h1>
 </div>
 
 
@@ -319,14 +324,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li><strong>ID:</strong> DAS-008</li>
 <li><strong>Type:</strong> Foundations</li>
 <li><strong>Audience:</strong> Omics Data Scientists, Bioinformaticians, and Research Teams</li>
-<li><strong>Theme:</strong> Transforming Acquired Data into Reusable Resources</li>
+<li><strong>Theme:</strong> Transforming Validated Data into Reusable Analytical Resources</li>
 </ul>
 </div>
-<p>Acquiring data is only the beginning of the data acquisition process. The ultimate objective is to construct a reference dataset that is organized, reproducible, and aligned with a clearly defined purpose.</p>
-<p>Reference dataset assembly is the process of integrating studies, metadata, and sequencing data into a coherent resource that can support downstream analysis, benchmarking, interpretation, and decision-making.</p>
+<p>Acquiring, validating, and storing data are essential steps in the data acquisition lifecycle. However, the ultimate objective is to transform these assets into a reference dataset that can support downstream analysis, benchmarking, interpretation, and decision-making.</p>
+<p>The Reference Dataset Assembly System integrates validated sequencing data, metadata, inventories, and provenance records into a coherent and reproducible analytical resource.</p>
 <section id="what-is-a-reference-dataset" class="level2">
 <h2 class="anchored" data-anchor-id="what-is-a-reference-dataset">What Is a Reference Dataset?</h2>
-<p>A reference dataset is a curated collection of samples and associated metadata assembled for a specific purpose.</p>
+<p>A reference dataset is a curated collection of samples and associated metadata assembled for a specific scientific objective.</p>
 <p>Examples include:</p>
 <ul>
 <li>Healthy gut microbiome references</li>
@@ -335,36 +340,38 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li>Single-cell reference atlases</li>
 <li>Population genomics resources</li>
 </ul>
-<p>Unlike raw public repository data, reference datasets are intentionally constructed and documented.</p>
+<p>Unlike raw repository data, reference datasets are intentionally constructed, documented, validated, and maintained.</p>
 </section>
 <section id="why-reference-dataset-assembly-matters" class="level2">
 <h2 class="anchored" data-anchor-id="why-reference-dataset-assembly-matters">Why Reference Dataset Assembly Matters</h2>
-<p>Public repositories contain data from many studies, populations, and experimental designs.</p>
+<p>Public repositories contain data generated by different studies, laboratories, populations, and experimental designs.</p>
 <p>Simply combining datasets without careful evaluation can introduce:</p>
 <ul>
 <li>Bias</li>
-<li>Duplicates</li>
+<li>Duplicate samples</li>
 <li>Inconsistent metadata</li>
 <li>Confounding variables</li>
 <li>Reproducibility challenges</li>
 </ul>
-<p>Reference dataset assembly helps ensure that data are appropriate for the intended objective.</p>
+<p>Reference dataset assembly helps ensure that the final dataset is appropriate for its intended objective.</p>
 </section>
-<section id="from-acquisition-to-assembly" class="level2">
-<h2 class="anchored" data-anchor-id="from-acquisition-to-assembly">From Acquisition to Assembly</h2>
+<section id="reference-dataset-assembly-in-the-cdi-data-acquisition-system" class="level2">
+<h2 class="anchored" data-anchor-id="reference-dataset-assembly-in-the-cdi-data-acquisition-system">Reference Dataset Assembly in the CDI Data Acquisition System</h2>
 <div class="cell" data-layout-align="default">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>flowchart TD</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>A[Study Discovery]</span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>--&gt; B[Metadata Acquisition]</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>A[Metadata Acquisition System]</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>--&gt; B[Data Download System]</span>
 <span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>B --&gt; C[Data Download]</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>B --&gt; C[Data Validation System]</span>
 <span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>C --&gt; D[Data Validation]</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>C --&gt; D[Cloud Storage and Transfer System]</span>
 <span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>D --&gt; E[Reference Dataset Assembly]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>D --&gt; E[Reference Dataset Assembly System]</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>E --&gt; F[Reusable Reference Dataset]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output-display">
 <div>
@@ -372,25 +379,28 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div>
 <pre class="mermaid mermaid-js">flowchart TD
 
-A[Study Discovery]
---&gt; B[Metadata Acquisition]
+A[Metadata Acquisition System]
+--&gt; B[Data Download System]
 
-B --&gt; C[Data Download]
+B --&gt; C[Data Validation System]
 
-C --&gt; D[Data Validation]
+C --&gt; D[Cloud Storage and Transfer System]
 
-D --&gt; E[Reference Dataset Assembly]
+D --&gt; E[Reference Dataset Assembly System]
+
+E --&gt; F[Reusable Reference Dataset]
 </pre>
 </div>
 <p></p></figure><p></p>
 </div>
 </div>
 </div>
-<p>Dataset assembly builds directly on the outputs of previous acquisition stages.</p>
+<p>The Reference Dataset Assembly System integrates outputs from previous acquisition stages into a reusable analytical resource.</p>
 </section>
-<section id="defining-the-objective" class="level2">
-<h2 class="anchored" data-anchor-id="defining-the-objective">Defining the Objective</h2>
+<section id="define-the-dataset-objective" class="level2">
+<h2 class="anchored" data-anchor-id="define-the-dataset-objective">Define the Dataset Objective</h2>
 <p>Every reference dataset should begin with a clearly defined objective.</p>
+<p>Examples:</p>
 <table class="caption-top table">
 <thead>
 <tr class="header">
@@ -415,12 +425,23 @@ D --&gt; E[Reference Dataset Assembly]
 <td>Single-Cell Atlas</td>
 <td>Cell-state reference</td>
 </tr>
+<tr class="odd">
+<td>Population Genomics Resource</td>
+<td>Population reference</td>
+</tr>
 </tbody>
 </table>
-<p>The objective determines which samples are included and how they are organized.</p>
+<p>The objective determines:</p>
+<ul>
+<li>Which studies are included</li>
+<li>Which samples are eligible</li>
+<li>Which metadata fields are required</li>
+<li>Which exclusion criteria are applied</li>
+</ul>
+<p>A clearly defined objective provides the foundation for dataset assembly.</p>
 </section>
-<section id="sample-selection" class="level2">
-<h2 class="anchored" data-anchor-id="sample-selection">Sample Selection</h2>
+<section id="sample-selection-framework" class="level2">
+<h2 class="anchored" data-anchor-id="sample-selection-framework">Sample Selection Framework</h2>
 <p>Reference datasets should be constructed using predefined inclusion and exclusion criteria.</p>
 <section id="inclusion-examples" class="level3">
 <h3 class="anchored" data-anchor-id="inclusion-examples">Inclusion Examples</h3>
@@ -429,46 +450,59 @@ D --&gt; E[Reference Dataset Assembly]
 <li>Healthy individuals</li>
 <li>Stool specimens</li>
 <li>Publicly available metadata</li>
+<li>Available sequencing files</li>
 </ul>
 </section>
 <section id="exclusion-examples" class="level3">
 <h3 class="anchored" data-anchor-id="exclusion-examples">Exclusion Examples</h3>
 <ul>
 <li>Missing metadata</li>
-<li>Disease status unknown</li>
+<li>Unknown disease status</li>
 <li>Duplicate samples</li>
-<li>Poor-quality data</li>
+<li>Incomplete sequencing files</li>
+<li>Failed validation checks</li>
 </ul>
-<p>Consistent criteria improve reproducibility.</p>
+<p>Consistent criteria improve transparency and reproducibility.</p>
 </section>
 </section>
 <section id="metadata-harmonization" class="level2">
 <h2 class="anchored" data-anchor-id="metadata-harmonization">Metadata Harmonization</h2>
-<p>Studies often use different terminology.</p>
+<p>Studies often use different terminology to describe the same concepts.</p>
+<p>Example:</p>
 <table class="caption-top table">
 <thead>
 <tr class="header">
 <th>Study A</th>
 <th>Study B</th>
+<th>Harmonized Value</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
 <td>Healthy</td>
 <td>Control</td>
+<td>Healthy</td>
 </tr>
 <tr class="even">
 <td>Male</td>
 <td>M</td>
+<td>Male</td>
 </tr>
 <tr class="odd">
 <td>Female</td>
 <td>F</td>
+<td>Female</td>
 </tr>
 </tbody>
 </table>
 <p>Metadata harmonization creates a common representation across studies.</p>
-<p>This process improves integration and comparability.</p>
+<p>This process improves:</p>
+<ul>
+<li>Dataset integration</li>
+<li>Comparability</li>
+<li>Reproducibility</li>
+<li>Downstream analysis</li>
+</ul>
 </section>
 <section id="dataset-integration" class="level2">
 <h2 class="anchored" data-anchor-id="dataset-integration">Dataset Integration</h2>
@@ -507,36 +541,111 @@ C[Study 3]
 </div>
 </div>
 </div>
-<p>Integration combines validated samples while preserving provenance information.</p>
+<p>Dataset integration combines validated samples while preserving study-level provenance information.</p>
 </section>
-<section id="provenance-tracking" class="level2">
-<h2 class="anchored" data-anchor-id="provenance-tracking">Provenance Tracking</h2>
+<section id="provenance-preservation" class="level2">
+<h2 class="anchored" data-anchor-id="provenance-preservation">Provenance Preservation</h2>
 <p>Reference datasets should retain information about:</p>
 <ul>
 <li>Source studies</li>
 <li>BioProjects</li>
 <li>BioSamples</li>
+<li>Run accessions</li>
 <li>Download dates</li>
 <li>Validation status</li>
+<li>Storage locations</li>
 </ul>
-<p>Provenance ensures transparency and reproducibility.</p>
+<p>Provenance enables datasets to be traced, verified, and reconstructed throughout their lifecycle.</p>
+<p>Example provenance chain:</p>
+<pre class="text"><code>Public Repository
+        ↓
+Metadata Acquisition
+        ↓
+Download Manifest
+        ↓
+Validation Report
+        ↓
+Reference Dataset</code></pre>
+<p>Maintaining provenance records supports transparency, auditing, and reproducibility.</p>
 </section>
-<section id="dataset-documentation" class="level2">
-<h2 class="anchored" data-anchor-id="dataset-documentation">Dataset Documentation</h2>
+<section id="reference-dataset-project-structure" class="level2">
+<h2 class="anchored" data-anchor-id="reference-dataset-project-structure">Reference Dataset Project Structure</h2>
+<p>A reference dataset should preserve all components required for reproducibility.</p>
+<p>Example:</p>
+<pre class="text"><code>reference-dataset/
+├── metadata/
+├── manifests/
+├── inventory/
+├── raw/
+├── validation/
+├── harmonized-metadata/
+├── inclusion-exclusion/
+├── documentation/
+└── dataset-release/</code></pre>
+<p>This structure separates acquisition assets from dataset-specific assembly outputs.</p>
+</section>
+<section id="reference-dataset-assembly-workflow" class="level2">
+<h2 class="anchored" data-anchor-id="reference-dataset-assembly-workflow">Reference Dataset Assembly Workflow</h2>
+<p>Reference dataset assembly transforms validated acquisition outputs into a curated analytical resource.</p>
+<pre class="text"><code>Candidate Studies
+        ↓
+Metadata Review
+        ↓
+Inclusion Criteria
+        ↓
+Exclusion Criteria
+        ↓
+Validated Samples
+        ↓
+Metadata Harmonization
+        ↓
+Dataset Integration
+        ↓
+Reference Dataset</code></pre>
+<p>Each step contributes to the quality and reproducibility of the final dataset.</p>
+</section>
+<section id="reference-dataset-documentation" class="level2">
+<h2 class="anchored" data-anchor-id="reference-dataset-documentation">Reference Dataset Documentation</h2>
 <p>Every reference dataset should include documentation describing:</p>
 <ul>
-<li>Purpose</li>
+<li>Dataset objective</li>
 <li>Data sources</li>
 <li>Inclusion criteria</li>
 <li>Exclusion criteria</li>
 <li>Metadata fields</li>
 <li>Validation procedures</li>
+<li>Harmonization methods</li>
 <li>Known limitations</li>
 </ul>
-<p>Documentation allows others to understand and reuse the dataset.</p>
+<p>Documentation enables others to understand, evaluate, and reuse the dataset.</p>
 </section>
-<section id="alphabiomics-example" class="level2">
-<h2 class="anchored" data-anchor-id="alphabiomics-example">AlphaBiomics Example</h2>
+<section id="reference-dataset-readiness-checklist" class="level2">
+<h2 class="anchored" data-anchor-id="reference-dataset-readiness-checklist">Reference Dataset Readiness Checklist</h2>
+<p>Before releasing a reference dataset, verify that:</p>
+<ul>
+<li>Study selection criteria are documented.</li>
+<li>Metadata have been harmonized.</li>
+<li>Validation checks have passed.</li>
+<li>Duplicate samples have been removed.</li>
+<li>Provenance records are preserved.</li>
+<li>Dataset documentation is complete.</li>
+<li>Inclusion and exclusion criteria are recorded.</li>
+<li>Dataset version information is assigned.</li>
+</ul>
+<p>Checklist workflow:</p>
+<pre class="text"><code>Validated Data
+        ↓
+Harmonization
+        ↓
+Integration
+        ↓
+Documentation
+        ↓
+Reference Dataset Release</code></pre>
+<p>Completing these checks helps ensure that the released dataset is reproducible and suitable for downstream analysis.</p>
+</section>
+<section id="healthy-reference-microbiome-example" class="level2">
+<h2 class="anchored" data-anchor-id="healthy-reference-microbiome-example">Healthy Reference Microbiome Example</h2>
 <p>Suppose the objective is:</p>
 <blockquote class="blockquote">
 <p>Build a healthy reference gut microbiome dataset.</p>
@@ -555,7 +664,7 @@ Validate Samples
 Harmonize Metadata
         ↓
 Reference Dataset</code></pre>
-<p>The final dataset is no longer simply a collection of downloaded files. It becomes a curated analytical resource.</p>
+<p>The final dataset is no longer simply a collection of downloaded files. It becomes a curated analytical resource suitable for benchmarking, comparison, and interpretation.</p>
 </section>
 <section id="characteristics-of-a-high-quality-reference-dataset" class="level2">
 <h2 class="anchored" data-anchor-id="characteristics-of-a-high-quality-reference-dataset">Characteristics of a High-Quality Reference Dataset</h2>
@@ -569,12 +678,41 @@ Reference Dataset</code></pre>
 <li>Traceable</li>
 <li>Reusable</li>
 </ul>
-<p>These characteristics increase confidence in downstream analyses.</p>
+<p>These characteristics increase confidence in downstream analyses and facilitate long-term reuse.</p>
+</section>
+<section id="common-challenges" class="level2">
+<h2 class="anchored" data-anchor-id="common-challenges">Common Challenges</h2>
+<p>Researchers frequently encounter:</p>
+<ul>
+<li>Incomplete metadata</li>
+<li>Conflicting sample annotations</li>
+<li>Duplicate samples</li>
+<li>Inconsistent terminology</li>
+<li>Study-specific biases</li>
+<li>Repository updates</li>
+</ul>
+<p>A structured assembly workflow helps address these challenges systematically.</p>
+</section>
+<section id="summary" class="level2">
+<h2 class="anchored" data-anchor-id="summary">Summary</h2>
+<p>The Reference Dataset Assembly System transforms validated acquisition outputs into reusable analytical resources.</p>
+<pre class="text"><code>Metadata Acquisition
+        ↓
+Data Download
+        ↓
+Data Validation
+        ↓
+Cloud Storage
+        ↓
+Reference Dataset Assembly
+        ↓
+Reusable Reference Dataset</code></pre>
+<p>By combining structured sample selection, metadata harmonization, provenance preservation, and rigorous documentation, researchers can construct reference datasets that support reproducible biological research.</p>
 </section>
 <section id="looking-ahead" class="level2">
 <h2 class="anchored" data-anchor-id="looking-ahead">Looking Ahead</h2>
-<p>The previous chapters described the individual components of a data acquisition workflow. The final chapter brings these components together through a complete case study focused on constructing a healthy reference microbiome dataset from public repositories.</p>
-<p>In the next chapter, we walk through the AlphaBiomics-inspired workflow from study discovery to reference dataset assembly.</p>
+<p>The previous chapters described the individual components of the CDI Data Acquisition System.</p>
+<p>In the next chapter, we bring these components together through an end-to-end case study that demonstrates the complete workflow from study discovery to reference dataset assembly.</p>
 
 
 </section>

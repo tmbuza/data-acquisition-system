@@ -215,7 +215,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./08-reference-dataset-assembly-system.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Reference Dataset Assembly</span></a>
+  <a href="./08-reference-dataset-assembly-system.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Reference Dataset Assembly System</span></a>
   </div>
 </li>
       </ul>
@@ -247,7 +247,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./999-appendix.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Data Acquisition References</span></a>
+  <a href="./999-appendix.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">CDI Data Acquisition System Overview</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -267,23 +267,26 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#project-objective" id="toc-project-objective" class="nav-link active" data-scroll-target="#project-objective">Project Objective</a></li>
-  <li><a href="#step-1-define-the-target-population" id="toc-step-1-define-the-target-population" class="nav-link" data-scroll-target="#step-1-define-the-target-population">Step 1: Define the Target Population</a>
+  <li><a href="#case-study-objective" id="toc-case-study-objective" class="nav-link active" data-scroll-target="#case-study-objective">Case Study Objective</a></li>
+  <li><a href="#end-to-end-system-workflow" id="toc-end-to-end-system-workflow" class="nav-link" data-scroll-target="#end-to-end-system-workflow">End-to-End System Workflow</a></li>
+  <li><a href="#step-1-study-discovery" id="toc-step-1-study-discovery" class="nav-link" data-scroll-target="#step-1-study-discovery">Step 1: Study Discovery</a></li>
+  <li><a href="#step-2-metadata-acquisition" id="toc-step-2-metadata-acquisition" class="nav-link" data-scroll-target="#step-2-metadata-acquisition">Step 2: Metadata Acquisition</a></li>
+  <li><a href="#step-3-metadata-review-and-sample-selection" id="toc-step-3-metadata-review-and-sample-selection" class="nav-link" data-scroll-target="#step-3-metadata-review-and-sample-selection">Step 3: Metadata Review and Sample Selection</a></li>
+  <li><a href="#step-4-data-download" id="toc-step-4-data-download" class="nav-link" data-scroll-target="#step-4-data-download">Step 4: Data Download</a>
   <ul class="collapse">
-  <li><a href="#inclusion-criteria" id="toc-inclusion-criteria" class="nav-link" data-scroll-target="#inclusion-criteria">Inclusion Criteria</a></li>
-  <li><a href="#exclusion-criteria" id="toc-exclusion-criteria" class="nav-link" data-scroll-target="#exclusion-criteria">Exclusion Criteria</a></li>
+  <li><a href="#ena-retrieval" id="toc-ena-retrieval" class="nav-link" data-scroll-target="#ena-retrieval">ENA Retrieval</a></li>
+  <li><a href="#ncbi-retrieval" id="toc-ncbi-retrieval" class="nav-link" data-scroll-target="#ncbi-retrieval">NCBI Retrieval</a></li>
   </ul></li>
-  <li><a href="#step-2-study-discovery" id="toc-step-2-study-discovery" class="nav-link" data-scroll-target="#step-2-study-discovery">Step 2: Study Discovery</a></li>
-  <li><a href="#step-3-accession-retrieval" id="toc-step-3-accession-retrieval" class="nav-link" data-scroll-target="#step-3-accession-retrieval">Step 3: Accession Retrieval</a></li>
-  <li><a href="#step-4-metadata-acquisition" id="toc-step-4-metadata-acquisition" class="nav-link" data-scroll-target="#step-4-metadata-acquisition">Step 4: Metadata Acquisition</a></li>
-  <li><a href="#step-5-sample-filtering" id="toc-step-5-sample-filtering" class="nav-link" data-scroll-target="#step-5-sample-filtering">Step 5: Sample Filtering</a></li>
-  <li><a href="#step-6-data-download" id="toc-step-6-data-download" class="nav-link" data-scroll-target="#step-6-data-download">Step 6: Data Download</a></li>
-  <li><a href="#step-7-data-validation" id="toc-step-7-data-validation" class="nav-link" data-scroll-target="#step-7-data-validation">Step 7: Data Validation</a></li>
+  <li><a href="#step-5-download-verification" id="toc-step-5-download-verification" class="nav-link" data-scroll-target="#step-5-download-verification">Step 5: Download Verification</a></li>
+  <li><a href="#step-6-data-validation" id="toc-step-6-data-validation" class="nav-link" data-scroll-target="#step-6-data-validation">Step 6: Data Validation</a></li>
+  <li><a href="#step-7-cloud-storage-and-transfer" id="toc-step-7-cloud-storage-and-transfer" class="nav-link" data-scroll-target="#step-7-cloud-storage-and-transfer">Step 7: Cloud Storage and Transfer</a></li>
   <li><a href="#step-8-reference-dataset-assembly" id="toc-step-8-reference-dataset-assembly" class="nav-link" data-scroll-target="#step-8-reference-dataset-assembly">Step 8: Reference Dataset Assembly</a></li>
-  <li><a href="#final-dataset" id="toc-final-dataset" class="nav-link" data-scroll-target="#final-dataset">Final Dataset</a></li>
-  <li><a href="#lessons-learned" id="toc-lessons-learned" class="nav-link" data-scroll-target="#lessons-learned">Lessons Learned</a></li>
-  <li><a href="#cdi-data-acquisition-system-summary" id="toc-cdi-data-acquisition-system-summary" class="nav-link" data-scroll-target="#cdi-data-acquisition-system-summary">CDI Data Acquisition System Summary</a></li>
-  <li><a href="#next-steps" id="toc-next-steps" class="nav-link" data-scroll-target="#next-steps">Next Steps</a></li>
+  <li><a href="#final-deliverables" id="toc-final-deliverables" class="nav-link" data-scroll-target="#final-deliverables">Final Deliverables</a></li>
+  <li><a href="#system-outputs" id="toc-system-outputs" class="nav-link" data-scroll-target="#system-outputs">System Outputs</a></li>
+  <li><a href="#reproducibility-considerations" id="toc-reproducibility-considerations" class="nav-link" data-scroll-target="#reproducibility-considerations">Reproducibility Considerations</a></li>
+  <li><a href="#common-challenges" id="toc-common-challenges" class="nav-link" data-scroll-target="#common-challenges">Common Challenges</a></li>
+  <li><a href="#summary" id="toc-summary" class="nav-link" data-scroll-target="#summary">Summary</a></li>
+  <li><a href="#concluding-remarks" id="toc-concluding-remarks" class="nav-link" data-scroll-target="#concluding-remarks">Concluding Remarks</a></li>
   </ul>
 </nav>
     </div>
@@ -320,66 +323,48 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li><strong>ID:</strong> DAS-009</li>
 <li><strong>Type:</strong> Case Study</li>
 <li><strong>Audience:</strong> Omics Data Scientists, Bioinformaticians, and Research Teams</li>
-<li><strong>Theme:</strong> Building a Healthy Reference Microbiome from Public Data</li>
+<li><strong>Theme:</strong> Applying the CDI Data Acquisition System from Study Discovery to Reference Dataset Assembly</li>
 </ul>
 </div>
-<p>Throughout this guide, we explored the major components of a reproducible data acquisition workflow, including study discovery, accession systems, metadata acquisition, data download, validation, cloud storage, and reference dataset assembly.</p>
-<p>This chapter integrates those components through a practical case study inspired by a common challenge in microbiome research:</p>
+<p>The previous chapters introduced the individual components of the CDI Data Acquisition System. This chapter demonstrates how these components work together as a complete end-to-end workflow.</p>
+<p>The objective is to illustrate how publicly available sequencing studies can be transformed into a validated and reproducible reference dataset.</p>
+<p>Rather than focusing on a specific organization or project, this case study presents a generalized workflow that can be adapted to a wide range of omics data acquisition scenarios.</p>
+<section id="case-study-objective" class="level2">
+<h2 class="anchored" data-anchor-id="case-study-objective">Case Study Objective</h2>
+<p>Objective:</p>
 <blockquote class="blockquote">
-<p>How can we build a healthy reference microbiome dataset from public repositories?</p>
+<p>Build a healthy reference gut microbiome dataset from publicly available sequencing studies.</p>
 </blockquote>
-<p>The objective is not to perform downstream microbiome analysis, but to demonstrate the acquisition workflow required to construct a reusable reference dataset.</p>
-<section id="project-objective" class="level2">
-<h2 class="anchored" data-anchor-id="project-objective">Project Objective</h2>
-<p>The goal is to assemble a healthy human gut microbiome reference dataset suitable for future comparative analyses.</p>
-<p>Potential applications include:</p>
+<p>The goal is to demonstrate how the CDI Data Acquisition System can transform public repository data into a curated analytical resource.</p>
+<p>Expected outputs include:</p>
 <ul>
-<li>Population benchmarking</li>
-<li>Health reference construction</li>
-<li>Method development</li>
-<li>Educational workflows</li>
-<li>Commercial microbiome products</li>
+<li>Metadata assets</li>
+<li>Download manifests</li>
+<li>Sequencing files</li>
+<li>Validation reports</li>
+<li>Cloud storage assets</li>
+<li>Reference dataset components</li>
 </ul>
 </section>
-<section id="step-1-define-the-target-population" class="level2">
-<h2 class="anchored" data-anchor-id="step-1-define-the-target-population">Step 1: Define the Target Population</h2>
-<p>Before searching repositories, define the target cohort.</p>
-<section id="inclusion-criteria" class="level3">
-<h3 class="anchored" data-anchor-id="inclusion-criteria">Inclusion Criteria</h3>
-<ul>
-<li>Human samples</li>
-<li>Healthy individuals</li>
-<li>Stool samples</li>
-<li>Publicly available metadata</li>
-<li>Publicly available sequencing data</li>
-</ul>
-</section>
-<section id="exclusion-criteria" class="level3">
-<h3 class="anchored" data-anchor-id="exclusion-criteria">Exclusion Criteria</h3>
-<ul>
-<li>Disease cohorts</li>
-<li>Antibiotic-treated individuals</li>
-<li>Unknown health status</li>
-<li>Non-human samples</li>
-<li>Missing metadata</li>
-</ul>
-<p>These criteria establish the scope of the reference dataset.</p>
-</section>
-</section>
-<section id="step-2-study-discovery" class="level2">
-<h2 class="anchored" data-anchor-id="step-2-study-discovery">Step 2: Study Discovery</h2>
-<p>The next step is identifying candidate studies.</p>
+<section id="end-to-end-system-workflow" class="level2">
+<h2 class="anchored" data-anchor-id="end-to-end-system-workflow">End-to-End System Workflow</h2>
 <div class="cell" data-layout-align="default">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>flowchart TD</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>A[Healthy Reference Objective]</span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>--&gt; B[Repository Search]</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>A[Study Discovery]</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>--&gt; B[Metadata Acquisition]</span>
 <span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>B --&gt; C[Candidate Studies]</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>B --&gt; C[Data Download]</span>
 <span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>C --&gt; D[Study Evaluation]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>C --&gt; D[Data Validation]</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>D --&gt; E[Cloud Storage and Transfer]</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>E --&gt; F[Reference Dataset Assembly]</span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>F --&gt; G[Reference Dataset Release]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output-display">
 <div>
@@ -387,254 +372,296 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div>
 <pre class="mermaid mermaid-js">flowchart TD
 
-A[Healthy Reference Objective]
---&gt; B[Repository Search]
+A[Study Discovery]
+--&gt; B[Metadata Acquisition]
 
-B --&gt; C[Candidate Studies]
+B --&gt; C[Data Download]
 
-C --&gt; D[Study Evaluation]
+C --&gt; D[Data Validation]
+
+D --&gt; E[Cloud Storage and Transfer]
+
+E --&gt; F[Reference Dataset Assembly]
+
+F --&gt; G[Reference Dataset Release]
 </pre>
 </div>
 <p></p></figure><p></p>
 </div>
 </div>
 </div>
-<p>Potential repositories include:</p>
+<p>Each stage contributes a reproducible component to the final dataset.</p>
+</section>
+<section id="step-1-study-discovery" class="level2">
+<h2 class="anchored" data-anchor-id="step-1-study-discovery">Step 1: Study Discovery</h2>
+<p>The process begins by identifying candidate studies relevant to the dataset objective.</p>
+<p>Example workflow:</p>
+<pre class="text"><code>Literature Review
+        ↓
+Public Repositories
+        ↓
+Candidate Studies</code></pre>
+<p>Example candidate studies:</p>
+<pre class="text"><code>PRJNA477349
+PRJNA802976
+PRJNA322554</code></pre>
+<p>Key activities:</p>
 <ul>
-<li>NCBI</li>
-<li>ENA</li>
-<li>MGnify</li>
-<li>GEO</li>
+<li>Review scientific literature</li>
+<li>Identify relevant studies</li>
+<li>Evaluate study eligibility</li>
+<li>Record accession information</li>
 </ul>
-<p>At this stage, the objective is to identify studies that may contain eligible samples.</p>
+<p>Output:</p>
+<pre class="text"><code>Candidate Studies</code></pre>
 </section>
-<section id="step-3-accession-retrieval" class="level2">
-<h2 class="anchored" data-anchor-id="step-3-accession-retrieval">Step 3: Accession Retrieval</h2>
-<p>For each candidate study:</p>
-<div class="cell" data-layout-align="default">
-<details class="code-fold">
-<summary>Code</summary>
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>flowchart TD</span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>A[BioProject]</span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>--&gt; B[BioSamples]</span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>B --&gt; C[Experiments]</span>
-<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>C --&gt; D[Runs]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
-<div class="cell-output-display">
-<div>
-<p></p><figure class="figure"><p></p>
-<div>
-<pre class="mermaid mermaid-js">flowchart TD
-
-A[BioProject]
---&gt; B[BioSamples]
-
-B --&gt; C[Experiments]
-
-C --&gt; D[Runs]
-</pre>
-</div>
-<p></p></figure><p></p>
-</div>
-</div>
-</div>
-<p>Accession identifiers provide the link between studies, samples, metadata, and downloadable sequencing data.</p>
+<section id="step-2-metadata-acquisition" class="level2">
+<h2 class="anchored" data-anchor-id="step-2-metadata-acquisition">Step 2: Metadata Acquisition</h2>
+<p>Once studies have been identified, metadata are retrieved from public repositories.</p>
+<p>Example workflow:</p>
+<pre class="text"><code>BioProject
+        ↓
+Run Metadata
+        ↓
+ENA Metadata
+        ↓
+Sample Inventory</code></pre>
+<p>Example outputs:</p>
+<pre class="text"><code>data/metadata/
+├── runinfo-prjna477349.csv
+├── ena-prjna477349.tsv
+└── srr-accessions.txt</code></pre>
+<p>Metadata acquisition provides the foundation for downstream filtering and sample selection.</p>
+<p>Output:</p>
+<pre class="text"><code>Metadata Assets</code></pre>
 </section>
-<section id="step-4-metadata-acquisition" class="level2">
-<h2 class="anchored" data-anchor-id="step-4-metadata-acquisition">Step 4: Metadata Acquisition</h2>
-<p>Metadata determine whether samples satisfy project requirements.</p>
-<table class="caption-top table">
-<thead>
-<tr class="header">
-<th>Variable</th>
-<th>Example</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>Health Status</td>
-<td>Healthy</td>
-</tr>
-<tr class="even">
-<td>Body Site</td>
-<td>Stool</td>
-</tr>
-<tr class="odd">
-<td>Age</td>
-<td>Adult</td>
-</tr>
-<tr class="even">
-<td>Antibiotic Use</td>
-<td>No</td>
-</tr>
-<tr class="odd">
-<td>Host</td>
-<td>Human</td>
-</tr>
-</tbody>
-</table>
-<p>Metadata acquisition often becomes the most time-consuming stage of the workflow.</p>
-</section>
-<section id="step-5-sample-filtering" class="level2">
-<h2 class="anchored" data-anchor-id="step-5-sample-filtering">Step 5: Sample Filtering</h2>
-<p>A typical filtering process may resemble:</p>
-<pre class="text"><code>2,000 Samples
-        ↓
-Remove Disease Samples
-        ↓
-Remove Antibiotic-Treated Samples
-        ↓
-Remove Missing Metadata
-        ↓
-850 Eligible Samples</code></pre>
-<p>Filtering transforms candidate studies into a defined cohort.</p>
-</section>
-<section id="step-6-data-download" class="level2">
-<h2 class="anchored" data-anchor-id="step-6-data-download">Step 6: Data Download</h2>
-<p>Once eligible samples are identified:</p>
-<pre class="text"><code>Eligible Samples
-        ↓
-Retrieve Run Accessions
-        ↓
-Download Data
-        ↓
-Organize Files</code></pre>
-<p>Downloaded data should be stored using a reproducible directory structure.</p>
-</section>
-<section id="step-7-data-validation" class="level2">
-<h2 class="anchored" data-anchor-id="step-7-data-validation">Step 7: Data Validation</h2>
-<p>Validation confirms:</p>
+<section id="step-3-metadata-review-and-sample-selection" class="level2">
+<h2 class="anchored" data-anchor-id="step-3-metadata-review-and-sample-selection">Step 3: Metadata Review and Sample Selection</h2>
+<p>Metadata are reviewed against predefined inclusion and exclusion criteria.</p>
+<p>Example inclusion criteria:</p>
 <ul>
-<li>Expected sample counts</li>
-<li>File integrity</li>
-<li>Metadata consistency</li>
-<li>Absence of duplicates</li>
+<li>Human samples</li>
+<li>Healthy individuals</li>
+<li>Stool specimens</li>
+<li>Publicly available sequencing data</li>
 </ul>
-<p>Only validated samples should proceed to dataset assembly.</p>
+<p>Example exclusion criteria:</p>
+<ul>
+<li>Disease status unknown</li>
+<li>Missing metadata</li>
+<li>Incomplete records</li>
+<li>Duplicate samples</li>
+</ul>
+<p>Workflow:</p>
+<pre class="text"><code>Metadata Assets
+        ↓
+Inclusion Criteria
+        ↓
+Exclusion Criteria
+        ↓
+Eligible Samples</code></pre>
+<p>Output:</p>
+<pre class="text"><code>Download Manifest</code></pre>
+</section>
+<section id="step-4-data-download" class="level2">
+<h2 class="anchored" data-anchor-id="step-4-data-download">Step 4: Data Download</h2>
+<p>Validated metadata are used to retrieve sequencing data.</p>
+<p>Example workflows:</p>
+<section id="ena-retrieval" class="level3">
+<h3 class="anchored" data-anchor-id="ena-retrieval">ENA Retrieval</h3>
+<div class="sourceCode" id="cb10"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">bash</span> scripts/bash/05b-download-ena-fastq.sh</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="ncbi-retrieval" class="level3">
+<h3 class="anchored" data-anchor-id="ncbi-retrieval">NCBI Retrieval</h3>
+<div class="sourceCode" id="cb11"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">bash</span> scripts/bash/05c-download-ncbi-sra.sh</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Example outputs:</p>
+<pre class="text"><code>data/raw/
+├── ena/
+└── ncbi/</code></pre>
+<p>Workflow:</p>
+<pre class="text"><code>Download Manifest
+        ↓
+Repository Retrieval
+        ↓
+FASTQ Files</code></pre>
+<p>Output:</p>
+<pre class="text"><code>Sequencing Data</code></pre>
+</section>
+</section>
+<section id="step-5-download-verification" class="level2">
+<h2 class="anchored" data-anchor-id="step-5-download-verification">Step 5: Download Verification</h2>
+<p>Downloaded files are verified against repository expectations.</p>
+<p>Verification activities:</p>
+<ul>
+<li>File count verification</li>
+<li>Download completeness</li>
+<li>Inventory generation</li>
+<li>Repository reconciliation</li>
+</ul>
+<p>Example:</p>
+<div class="sourceCode" id="cb15"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">bash</span> scripts/bash/05d-verify-downloads.sh</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Inventory generation:</p>
+<div class="sourceCode" id="cb16"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">bash</span> scripts/bash/05e-build-fastq-inventory.sh</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Output:</p>
+<pre class="text"><code>FASTQ Inventory</code></pre>
+</section>
+<section id="step-6-data-validation" class="level2">
+<h2 class="anchored" data-anchor-id="step-6-data-validation">Step 6: Data Validation</h2>
+<p>Downloaded files undergo systematic validation before being used for downstream analysis.</p>
+<p>Example:</p>
+<div class="sourceCode" id="cb18"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="fu">bash</span> scripts/bash/06-validate-download.sh</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Validation workflow:</p>
+<pre class="text"><code>Repository Validation
+        ↓
+File Validation
+        ↓
+Compression Validation
+        ↓
+Paired-End Validation
+        ↓
+FASTQ Validation</code></pre>
+<p>Example output:</p>
+<pre class="text"><code>check   status  value
+fastq_file_count    PASS    6
+compression_validation  PASS    0
+paired_end_validation   PASS    3
+fastq_validation    PASS</code></pre>
+<p>Output:</p>
+<pre class="text"><code>Validated Dataset</code></pre>
+</section>
+<section id="step-7-cloud-storage-and-transfer" class="level2">
+<h2 class="anchored" data-anchor-id="step-7-cloud-storage-and-transfer">Step 7: Cloud Storage and Transfer</h2>
+<p>Validated datasets are transferred to durable storage.</p>
+<p>Example:</p>
+<div class="sourceCode" id="cb22"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="fu">bash</span> scripts/bash/07-transfer-to-cloud.sh <span class="dt">\</span></span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>  data <span class="dt">\</span></span>
+<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a>  my-reference-datasets</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Example storage structure:</p>
+<pre class="text"><code>s3://my-reference-datasets/
+├── metadata/
+├── manifests/
+├── inventory/
+├── raw/
+└── validation/</code></pre>
+<p>Workflow:</p>
+<pre class="text"><code>Validated Dataset
+        ↓
+Cloud Transfer
+        ↓
+Cloud Storage</code></pre>
+<p>Output:</p>
+<pre class="text"><code>Cloud Repository</code></pre>
 </section>
 <section id="step-8-reference-dataset-assembly" class="level2">
 <h2 class="anchored" data-anchor-id="step-8-reference-dataset-assembly">Step 8: Reference Dataset Assembly</h2>
-<p>Validated samples are combined into a unified resource.</p>
-<div class="cell" data-layout-align="default">
-<details class="code-fold">
-<summary>Code</summary>
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>flowchart TD</span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>A[Validated Study 1]</span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>--&gt; D[Reference Dataset]</span>
-<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>B[Validated Study 2]</span>
-<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>--&gt; D</span>
-<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>C[Validated Study 3]</span>
-<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>--&gt; D</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
-<div class="cell-output-display">
-<div>
-<p></p><figure class="figure"><p></p>
-<div>
-<pre class="mermaid mermaid-js">flowchart TD
-
-A[Validated Study 1]
---&gt; D[Reference Dataset]
-
-B[Validated Study 2]
---&gt; D
-
-C[Validated Study 3]
---&gt; D
-</pre>
-</div>
-<p></p></figure><p></p>
-</div>
-</div>
-</div>
-<p>Metadata are harmonized and provenance information is preserved.</p>
-</section>
-<section id="final-dataset" class="level2">
-<h2 class="anchored" data-anchor-id="final-dataset">Final Dataset</h2>
-<p>The resulting dataset contains:</p>
+<p>Validated data and metadata are integrated into a coherent reference dataset.</p>
+<p>Workflow:</p>
+<pre class="text"><code>Validated Samples
+        ↓
+Metadata Harmonization
+        ↓
+Dataset Integration
+        ↓
+Reference Dataset</code></pre>
+<p>Example structure:</p>
+<pre class="text"><code>reference-dataset/
+├── metadata/
+├── harmonized-metadata/
+├── documentation/
+└── dataset-release/</code></pre>
+<p>Key activities:</p>
 <ul>
-<li>Selected studies</li>
-<li>Harmonized metadata</li>
-<li>Validated sequencing data</li>
+<li>Metadata harmonization</li>
+<li>Sample integration</li>
+<li>Provenance preservation</li>
 <li>Documentation</li>
-<li>Provenance records</li>
 </ul>
-<p>The dataset is now suitable for downstream analysis and interpretation.</p>
+<p>Output:</p>
+<pre class="text"><code>Reference Dataset</code></pre>
 </section>
-<section id="lessons-learned" class="level2">
-<h2 class="anchored" data-anchor-id="lessons-learned">Lessons Learned</h2>
-<p>This case study highlights several important principles:</p>
-<ol type="1">
-<li>Public data are not automatically reference datasets.</li>
-<li>Metadata often determine dataset quality.</li>
-<li>Validation is essential.</li>
-<li>Reproducibility should be considered throughout the workflow.</li>
-<li>Reference datasets are constructed, not simply downloaded.</li>
-</ol>
+<section id="final-deliverables" class="level2">
+<h2 class="anchored" data-anchor-id="final-deliverables">Final Deliverables</h2>
+<p>The completed reference dataset consists of multiple components.</p>
+<p>Example:</p>
+<pre class="text"><code>Reference Dataset
+├── Sequencing Data
+├── Metadata
+├── Download Manifests
+├── Validation Reports
+├── Inventory Files
+├── Provenance Records
+└── Documentation</code></pre>
+<p>These assets provide a complete and reproducible dataset package.</p>
 </section>
-<section id="cdi-data-acquisition-system-summary" class="level2">
-<h2 class="anchored" data-anchor-id="cdi-data-acquisition-system-summary">CDI Data Acquisition System Summary</h2>
-<div class="cell" data-layout-align="default">
-<details class="code-fold">
-<summary>Code</summary>
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>flowchart TD</span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>A[Public Data Landscape]</span>
-<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>--&gt; B[Study Discovery]</span>
-<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>B --&gt; C[Accession Systems]</span>
-<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>C --&gt; D[Metadata Acquisition]</span>
-<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>D --&gt; E[Data Download]</span>
-<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a>E --&gt; F[Data Validation]</span>
-<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a>F --&gt; G[Cloud Storage and Transfer]</span>
-<span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-16"><a href="#cb6-16" aria-hidden="true" tabindex="-1"></a>G --&gt; H[Reference Dataset Assembly]</span>
-<span id="cb6-17"><a href="#cb6-17" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-18"><a href="#cb6-18" aria-hidden="true" tabindex="-1"></a>H --&gt; I[Healthy Reference Dataset]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
-<div class="cell-output-display">
-<div>
-<p></p><figure class="figure"><p></p>
-<div>
-<pre class="mermaid mermaid-js">flowchart TD
-
-A[Public Data Landscape]
---&gt; B[Study Discovery]
-
-B --&gt; C[Accession Systems]
-
-C --&gt; D[Metadata Acquisition]
-
-D --&gt; E[Data Download]
-
-E --&gt; F[Data Validation]
-
-F --&gt; G[Cloud Storage and Transfer]
-
-G --&gt; H[Reference Dataset Assembly]
-
-H --&gt; I[Healthy Reference Dataset]
-</pre>
-</div>
-<p></p></figure><p></p>
-</div>
-</div>
-</div>
-<p>The AlphaBiomics case study demonstrates how each component of the CDI Data Acquisition System contributes to the creation of a reproducible reference dataset.</p>
+<section id="system-outputs" class="level2">
+<h2 class="anchored" data-anchor-id="system-outputs">System Outputs</h2>
+<p>The CDI Data Acquisition System transforms public repository data into reusable analytical resources.</p>
+<pre class="text"><code>Study Discovery
+        ↓
+Metadata Acquisition
+        ↓
+Data Download
+        ↓
+Data Validation
+        ↓
+Cloud Storage
+        ↓
+Reference Dataset Assembly
+        ↓
+Reusable Reference Dataset</code></pre>
+<p>Each stage contributes traceable and reproducible outputs.</p>
 </section>
-<section id="next-steps" class="level2">
-<h2 class="anchored" data-anchor-id="next-steps">Next Steps</h2>
-<p>The workflow presented in this guide provides a foundation for many downstream activities, including microbiome analysis, RNA-Seq studies, benchmarking projects, clinical evidence generation, and commercial product development.</p>
-<p>The acquisition process is complete. The resulting reference dataset is now ready to support the next stage of scientific investigation.</p>
+<section id="reproducibility-considerations" class="level2">
+<h2 class="anchored" data-anchor-id="reproducibility-considerations">Reproducibility Considerations</h2>
+<p>A reproducible reference dataset should preserve:</p>
+<ul>
+<li>Source repositories</li>
+<li>Study accessions</li>
+<li>Sample identifiers</li>
+<li>Download manifests</li>
+<li>Validation reports</li>
+<li>Storage locations</li>
+<li>Dataset documentation</li>
+</ul>
+<p>These records enable future users to reconstruct and verify the dataset.</p>
+</section>
+<section id="common-challenges" class="level2">
+<h2 class="anchored" data-anchor-id="common-challenges">Common Challenges</h2>
+<p>Researchers frequently encounter:</p>
+<ul>
+<li>Missing metadata</li>
+<li>Inconsistent annotations</li>
+<li>Duplicate samples</li>
+<li>Repository updates</li>
+<li>Large file transfers</li>
+<li>Incomplete downloads</li>
+<li>Storage limitations</li>
+</ul>
+<p>The CDI Data Acquisition System provides a structured framework for addressing these challenges.</p>
+</section>
+<section id="summary" class="level2">
+<h2 class="anchored" data-anchor-id="summary">Summary</h2>
+<p>The End-to-End Case Study demonstrates how the CDI Data Acquisition System transforms public omics data into a validated and reusable reference dataset.</p>
+<pre class="text"><code>Public Repository Data
+        ↓
+Metadata Acquisition
+        ↓
+Data Download
+        ↓
+Data Validation
+        ↓
+Cloud Storage
+        ↓
+Reference Dataset Assembly
+        ↓
+Reusable Analytical Resource</code></pre>
+<p>By combining structured workflows, validation procedures, provenance tracking, and reproducible documentation, researchers can construct high-quality reference datasets suitable for downstream biological analysis.</p>
+</section>
+<section id="concluding-remarks" class="level2">
+<h2 class="anchored" data-anchor-id="concluding-remarks">Concluding Remarks</h2>
+<p>The CDI Data Acquisition System provides a reproducible framework for discovering, acquiring, validating, storing, and assembling public omics datasets.</p>
+<p>Although the examples presented throughout this guide focus primarily on microbiome sequencing studies, the same principles can be applied across a broad range of omics domains including RNA-Seq, single-cell sequencing, genomics, and multi-omics integration.</p>
+<p>The combination of systematic study discovery, metadata-driven sample selection, validated data acquisition, cloud-based storage, and reference dataset assembly creates a foundation for reproducible biological research and data-driven discovery.</p>
 
 
 </section>
@@ -1043,13 +1070,13 @@ H --&gt; I[Healthy Reference Dataset]
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./08-reference-dataset-assembly-system.html" class="pagination-link" aria-label="Reference Dataset Assembly">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-title">Reference Dataset Assembly</span></span>
+      <a href="./08-reference-dataset-assembly-system.html" class="pagination-link" aria-label="Reference Dataset Assembly System">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-title">Reference Dataset Assembly System</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./999-appendix.html" class="pagination-link" aria-label="Data Acquisition References">
-        <span class="nav-page-text"><span class="chapter-title">Data Acquisition References</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./999-appendix.html" class="pagination-link" aria-label="CDI Data Acquisition System Overview">
+        <span class="nav-page-text"><span class="chapter-title">CDI Data Acquisition System Overview</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

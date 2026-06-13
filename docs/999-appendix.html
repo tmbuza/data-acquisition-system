@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Appendix A — Data Acquisition References – CDI Data Acquisition System</title>
+<title>Appendix A — CDI Data Acquisition System Overview – CDI Data Acquisition System</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -19,6 +19,41 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 /* CSS for citations */
 div.csl-bib-body { }
@@ -104,7 +139,7 @@ div.csl-indent {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./999-appendix.html">Appendices</a></li><li class="breadcrumb-item"><a href="./999-appendix.html"><span class="chapter-title">Data Acquisition References</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./999-appendix.html">Appendices</a></li><li class="breadcrumb-item"><a href="./999-appendix.html"><span class="chapter-title">CDI Data Acquisition System Overview</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -196,7 +231,7 @@ div.csl-indent {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./08-reference-dataset-assembly-system.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Reference Dataset Assembly</span></a>
+  <a href="./08-reference-dataset-assembly-system.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Reference Dataset Assembly System</span></a>
   </div>
 </li>
       </ul>
@@ -228,7 +263,7 @@ div.csl-indent {
       <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./999-appendix.html" class="sidebar-item-text sidebar-link active"><span class="chapter-title">Data Acquisition References</span></a>
+  <a href="./999-appendix.html" class="sidebar-item-text sidebar-link active"><span class="chapter-title">CDI Data Acquisition System Overview</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -248,7 +283,21 @@ div.csl-indent {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#suggested-citation-keys" id="toc-suggested-citation-keys" class="nav-link active" data-scroll-target="#suggested-citation-keys">Suggested Citation Keys</a></li>
+  <li><a href="#repository-accession-reference" id="toc-repository-accession-reference" class="nav-link active" data-scroll-target="#repository-accession-reference">Repository Accession Reference</a></li>
+  <li><a href="#directory-structure-reference" id="toc-directory-structure-reference" class="nav-link" data-scroll-target="#directory-structure-reference">Directory Structure Reference</a></li>
+  <li><a href="#bash-scripts-reference" id="toc-bash-scripts-reference" class="nav-link" data-scroll-target="#bash-scripts-reference">Bash Scripts Reference</a></li>
+  <li><a href="#common-repository-tools" id="toc-common-repository-tools" class="nav-link" data-scroll-target="#common-repository-tools">Common Repository Tools</a>
+  <ul class="collapse">
+  <li><a href="#metadata-acquisition" id="toc-metadata-acquisition" class="nav-link" data-scroll-target="#metadata-acquisition">Metadata Acquisition</a></li>
+  <li><a href="#data-download" id="toc-data-download" class="nav-link" data-scroll-target="#data-download">Data Download</a></li>
+  <li><a href="#validation" id="toc-validation" class="nav-link" data-scroll-target="#validation">Validation</a></li>
+  <li><a href="#cloud-storage" id="toc-cloud-storage" class="nav-link" data-scroll-target="#cloud-storage">Cloud Storage</a></li>
+  </ul></li>
+  <li><a href="#conda-environment" id="toc-conda-environment" class="nav-link" data-scroll-target="#conda-environment">Conda Environment</a></li>
+  <li><a href="#recommended-workflow" id="toc-recommended-workflow" class="nav-link" data-scroll-target="#recommended-workflow">Recommended Workflow</a></li>
+  <li><a href="#key-principles" id="toc-key-principles" class="nav-link" data-scroll-target="#key-principles">Key Principles</a></li>
+  <li><a href="#bibliography-and-resources" id="toc-bibliography-and-resources" class="nav-link" data-scroll-target="#bibliography-and-resources">Bibliography and Resources</a></li>
+  <li><a href="#suggested-citation-keys" id="toc-suggested-citation-keys" class="nav-link" data-scroll-target="#suggested-citation-keys">Suggested Citation Keys</a></li>
   <li><a href="#major-public-data-resources" id="toc-major-public-data-resources" class="nav-link" data-scroll-target="#major-public-data-resources">Major Public Data Resources</a></li>
   </ul>
 </nav>
@@ -256,9 +305,9 @@ div.csl-indent {
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./999-appendix.html">Appendices</a></li><li class="breadcrumb-item"><a href="./999-appendix.html"><span class="chapter-title">Data Acquisition References</span></a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./999-appendix.html">Appendices</a></li><li class="breadcrumb-item"><a href="./999-appendix.html"><span class="chapter-title">CDI Data Acquisition System Overview</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">Appendix A — Data Acquisition References</h1>
+<h1 class="title">Appendix A — CDI Data Acquisition System Overview</h1>
 </div>
 
 
@@ -281,8 +330,153 @@ div.csl-indent {
 </header>
 
 
-<p>This guide draws upon public repository documentation, metadata standards, reproducibility frameworks, and data-sharing initiatives that support modern omics data acquisition workflows.</p>
-<p>The references cited throughout this guide are maintained in the bibliography database (library/references.bib) and are included automatically during book generation.</p>
+<p>The CDI Data Acquisition System consists of a series of interconnected systems that transform public omics data into reusable reference datasets.</p>
+<pre class="text"><code>Study Discovery
+        ↓
+Metadata Acquisition
+        ↓
+Data Download
+        ↓
+Data Validation
+        ↓
+Cloud Storage and Transfer
+        ↓
+Reference Dataset Assembly</code></pre>
+<section id="repository-accession-reference" class="level2">
+<h2 class="anchored" data-anchor-id="repository-accession-reference">Repository Accession Reference</h2>
+<p>Common accession types encountered during data acquisition:</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Resource</th>
+<th>Example</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>BioProject</td>
+<td>PRJNA477349</td>
+</tr>
+<tr class="even">
+<td>BioSample</td>
+<td>SAMN12345678</td>
+</tr>
+<tr class="odd">
+<td>SRA Run</td>
+<td>SRR12345678</td>
+</tr>
+<tr class="even">
+<td>GEO Series</td>
+<td>GSE123456</td>
+</tr>
+<tr class="odd">
+<td>ENA Study</td>
+<td>ERP123456</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="directory-structure-reference" class="level2">
+<h2 class="anchored" data-anchor-id="directory-structure-reference">Directory Structure Reference</h2>
+<p>Example CDI Data Acquisition System project structure:</p>
+<pre class="text"><code>project/
+├── data/
+│   ├── metadata/
+│   ├── manifests/
+│   ├── inventory/
+│   ├── raw/
+│   └── validation/
+├── scripts/
+│   └── bash/
+├── library/
+├── docs/
+└── environment.yml</code></pre>
+</section>
+<section id="bash-scripts-reference" class="level2">
+<h2 class="anchored" data-anchor-id="bash-scripts-reference">Bash Scripts Reference</h2>
+<p>The following scripts are developed throughout this guide.</p>
+<pre class="text"><code>scripts/bash/
+├── 05a-build-download-manifest.sh
+├── 05b-download-ena-fastq.sh
+├── 05c-download-ncbi-sra.sh
+├── 05d-verify-downloads.sh
+├── 05e-build-fastq-inventory.sh
+├── 06-validate-download.sh
+└── 07-transfer-to-cloud.sh</code></pre>
+</section>
+<section id="common-repository-tools" class="level2">
+<h2 class="anchored" data-anchor-id="common-repository-tools">Common Repository Tools</h2>
+<section id="metadata-acquisition" class="level3">
+<h3 class="anchored" data-anchor-id="metadata-acquisition">Metadata Acquisition</h3>
+<pre class="text"><code>EDirect
+pysradb
+curl
+wget</code></pre>
+</section>
+<section id="data-download" class="level3">
+<h3 class="anchored" data-anchor-id="data-download">Data Download</h3>
+<pre class="text"><code>SRA Toolkit
+wget
+curl</code></pre>
+</section>
+<section id="validation" class="level3">
+<h3 class="anchored" data-anchor-id="validation">Validation</h3>
+<pre class="text"><code>gzip
+seqkit
+csvtk</code></pre>
+</section>
+<section id="cloud-storage" class="level3">
+<h3 class="anchored" data-anchor-id="cloud-storage">Cloud Storage</h3>
+<pre class="text"><code>AWS CLI
+rsync
+Aspera</code></pre>
+</section>
+</section>
+<section id="conda-environment" class="level2">
+<h2 class="anchored" data-anchor-id="conda-environment">Conda Environment</h2>
+<p>Example environment:</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="ex">conda</span> env create <span class="at">-f</span> environment.yml</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="ex">conda</span> activate cdi-data-acquisition</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="recommended-workflow" class="level2">
+<h2 class="anchored" data-anchor-id="recommended-workflow">Recommended Workflow</h2>
+<pre class="text"><code>Research Question
+        ↓
+Study Discovery
+        ↓
+Metadata Acquisition
+        ↓
+Metadata Review
+        ↓
+Data Download
+        ↓
+Data Validation
+        ↓
+Cloud Storage
+        ↓
+Reference Dataset Assembly
+        ↓
+Dataset Release</code></pre>
+</section>
+<section id="key-principles" class="level2">
+<h2 class="anchored" data-anchor-id="key-principles">Key Principles</h2>
+<p>The CDI Data Acquisition System is built upon the following principles:</p>
+<ul>
+<li>Reproducibility</li>
+<li>Transparency</li>
+<li>Metadata-first design</li>
+<li>Validation before analysis</li>
+<li>Provenance preservation</li>
+<li>Cloud-ready workflows</li>
+<li>Reusable reference datasets</li>
+</ul>
+</section>
+<section id="bibliography-and-resources" class="level2">
+<h2 class="anchored" data-anchor-id="bibliography-and-resources">Bibliography and Resources</h2>
+<p>The references cited throughout this guide are maintained in the bibliography database (<code>library/references.bib</code>) and are included automatically during book generation.</p>
+<p>This appendix also provides a quick reference to commonly cited resources and repositories used throughout the CDI Data Acquisition System.</p>
+</section>
 <section id="suggested-citation-keys" class="level2">
 <h2 class="anchored" data-anchor-id="suggested-citation-keys">Suggested Citation Keys</h2>
 <p>The following citation keys are commonly used throughout the CDI Data Acquisition System:</p>
@@ -302,15 +496,15 @@ div.csl-indent {
 <section id="major-public-data-resources" class="level2">
 <h2 class="anchored" data-anchor-id="major-public-data-resources">Major Public Data Resources</h2>
 <ul>
-<li>NCBI: https://www.ncbi.nlm.nih.gov <span class="citation" data-cites="NCBI">(<a href="999-references.html#ref-NCBI" role="doc-biblioref">National Center for Biotechnology Information 2026d</a>)</span></li>
-<li>Sequence Read Archive (SRA): https://www.ncbi.nlm.nih.gov/sra <span class="citation" data-cites="SRA">(<a href="999-references.html#ref-SRA" role="doc-biblioref">National Center for Biotechnology Information 2026e</a>)</span></li>
-<li>BioProject: https://www.ncbi.nlm.nih.gov/bioproject <span class="citation" data-cites="BioProject">(<a href="999-references.html#ref-BioProject" role="doc-biblioref">National Center for Biotechnology Information 2026a</a>)</span></li>
-<li>BioSample: https://www.ncbi.nlm.nih.gov/biosample <span class="citation" data-cites="BioSample">(<a href="999-references.html#ref-BioSample" role="doc-biblioref">National Center for Biotechnology Information 2026b</a>)</span></li>
-<li>Gene Expression Omnibus (GEO): https://www.ncbi.nlm.nih.gov/geo <span class="citation" data-cites="GEO">(<a href="999-references.html#ref-GEO" role="doc-biblioref">National Center for Biotechnology Information 2026c</a>)</span></li>
-<li>European Nucleotide Archive (ENA): https://www.ebi.ac.uk/ena <span class="citation" data-cites="ENA">(<a href="999-references.html#ref-ENA" role="doc-biblioref">European Nucleotide Archive 2026</a>)</span></li>
-<li>MGnify: https://www.ebi.ac.uk/metagenomics <span class="citation" data-cites="MGnify">(<a href="999-references.html#ref-MGnify" role="doc-biblioref">European Bioinformatics Institute 2026b</a>)</span></li>
-<li>GWAS Catalog: https://www.ebi.ac.uk/gwas <span class="citation" data-cites="GWASCatalog">(<a href="999-references.html#ref-GWASCatalog" role="doc-biblioref">European Bioinformatics Institute 2026a</a>)</span></li>
-<li>DNA Data Bank of Japan (DDBJ): https://www.ddbj.nig.ac.jp <span class="citation" data-cites="DDBJ">(<a href="999-references.html#ref-DDBJ" role="doc-biblioref">DNA Data Bank of Japan 2026</a>)</span></li>
+<li><strong>NCBI</strong> — https://www.ncbi.nlm.nih.gov <span class="citation" data-cites="NCBI">(<a href="999-references.html#ref-NCBI" role="doc-biblioref">National Center for Biotechnology Information 2026d</a>)</span></li>
+<li><strong>Sequence Read Archive (SRA)</strong> — https://www.ncbi.nlm.nih.gov/sra <span class="citation" data-cites="SRA">(<a href="999-references.html#ref-SRA" role="doc-biblioref">National Center for Biotechnology Information 2026e</a>)</span></li>
+<li><strong>BioProject</strong> — https://www.ncbi.nlm.nih.gov/bioproject <span class="citation" data-cites="BioProject">(<a href="999-references.html#ref-BioProject" role="doc-biblioref">National Center for Biotechnology Information 2026a</a>)</span></li>
+<li><strong>BioSample</strong> — https://www.ncbi.nlm.nih.gov/biosample <span class="citation" data-cites="BioSample">(<a href="999-references.html#ref-BioSample" role="doc-biblioref">National Center for Biotechnology Information 2026b</a>)</span></li>
+<li><strong>Gene Expression Omnibus (GEO)</strong> — https://www.ncbi.nlm.nih.gov/geo <span class="citation" data-cites="GEO">(<a href="999-references.html#ref-GEO" role="doc-biblioref">National Center for Biotechnology Information 2026c</a>)</span></li>
+<li><strong>European Nucleotide Archive (ENA)</strong> — https://www.ebi.ac.uk/ena <span class="citation" data-cites="ENA">(<a href="999-references.html#ref-ENA" role="doc-biblioref">European Nucleotide Archive 2026</a>)</span></li>
+<li><strong>MGnify</strong> — https://www.ebi.ac.uk/metagenomics <span class="citation" data-cites="MGnify">(<a href="999-references.html#ref-MGnify" role="doc-biblioref">European Bioinformatics Institute 2026b</a>)</span></li>
+<li><strong>GWAS Catalog</strong> — https://www.ebi.ac.uk/gwas <span class="citation" data-cites="GWASCatalog">(<a href="999-references.html#ref-GWASCatalog" role="doc-biblioref">European Bioinformatics Institute 2026a</a>)</span></li>
+<li><strong>DNA Data Bank of Japan (DDBJ)</strong> — https://www.ddbj.nig.ac.jp <span class="citation" data-cites="DDBJ">(<a href="999-references.html#ref-DDBJ" role="doc-biblioref">DNA Data Bank of Japan 2026</a>)</span></li>
 </ul>
 
 
