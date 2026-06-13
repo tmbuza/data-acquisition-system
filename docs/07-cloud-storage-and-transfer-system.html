@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Cloud Storage and Transfer – CDI Data Acquisition System</title>
+<title>Cloud Storage and Transfer System – CDI Data Acquisition System</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -123,7 +123,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./04-metadata-acquisition.html">Acquisition Systems</a></li><li class="breadcrumb-item"><a href="./07-cloud-storage-and-transfer-system.html"><span class="chapter-title">Cloud Storage and Transfer</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./04-metadata-acquisition.html">Acquisition Systems</a></li><li class="breadcrumb-item"><a href="./07-cloud-storage-and-transfer-system.html"><span class="chapter-title">Cloud Storage and Transfer System</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -210,7 +210,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./07-cloud-storage-and-transfer-system.html" class="sidebar-item-text sidebar-link active"><span class="chapter-title">Cloud Storage and Transfer</span></a>
+  <a href="./07-cloud-storage-and-transfer-system.html" class="sidebar-item-text sidebar-link active"><span class="chapter-title">Cloud Storage and Transfer System</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -231,7 +231,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./09-end-to-end-case-study.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">AlphaBiomics Case Study</span></a>
+  <a href="./09-end-to-end-case-study.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">End-to-End Case Study</span></a>
   </div>
 </li>
       </ul>
@@ -274,13 +274,16 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#institutional-storage" id="toc-institutional-storage" class="nav-link" data-scroll-target="#institutional-storage">Institutional Storage</a></li>
   <li><a href="#cloud-storage" id="toc-cloud-storage" class="nav-link" data-scroll-target="#cloud-storage">Cloud Storage</a></li>
   </ul></li>
-  <li><a href="#data-transfer-workflows" id="toc-data-transfer-workflows" class="nav-link" data-scroll-target="#data-transfer-workflows">Data Transfer Workflows</a></li>
+  <li><a href="#cloud-storage-in-the-cdi-data-acquisition-system" id="toc-cloud-storage-in-the-cdi-data-acquisition-system" class="nav-link" data-scroll-target="#cloud-storage-in-the-cdi-data-acquisition-system">Cloud Storage in the CDI Data Acquisition System</a></li>
   <li><a href="#organizing-cloud-data" id="toc-organizing-cloud-data" class="nav-link" data-scroll-target="#organizing-cloud-data">Organizing Cloud Data</a></li>
   <li><a href="#data-transfer-methods" id="toc-data-transfer-methods" class="nav-link" data-scroll-target="#data-transfer-methods">Data Transfer Methods</a></li>
+  <li><a href="#cloud-transfer-implementation" id="toc-cloud-transfer-implementation" class="nav-link" data-scroll-target="#cloud-transfer-implementation">Cloud Transfer Implementation</a></li>
   <li><a href="#data-provenance" id="toc-data-provenance" class="nav-link" data-scroll-target="#data-provenance">Data Provenance</a></li>
   <li><a href="#security-and-access-control" id="toc-security-and-access-control" class="nav-link" data-scroll-target="#security-and-access-control">Security and Access Control</a></li>
-  <li><a href="#alphabiomics-example" id="toc-alphabiomics-example" class="nav-link" data-scroll-target="#alphabiomics-example">AlphaBiomics Example</a></li>
+  <li><a href="#reference-dataset-example" id="toc-reference-dataset-example" class="nav-link" data-scroll-target="#reference-dataset-example">Reference Dataset Example</a></li>
   <li><a href="#common-challenges" id="toc-common-challenges" class="nav-link" data-scroll-target="#common-challenges">Common Challenges</a></li>
+  <li><a href="#transfer-readiness-checklist" id="toc-transfer-readiness-checklist" class="nav-link" data-scroll-target="#transfer-readiness-checklist">Transfer Readiness Checklist</a></li>
+  <li><a href="#summary" id="toc-summary" class="nav-link" data-scroll-target="#summary">Summary</a></li>
   <li><a href="#looking-ahead" id="toc-looking-ahead" class="nav-link" data-scroll-target="#looking-ahead">Looking Ahead</a></li>
   </ul>
 </nav>
@@ -288,9 +291,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./04-metadata-acquisition.html">Acquisition Systems</a></li><li class="breadcrumb-item"><a href="./07-cloud-storage-and-transfer-system.html"><span class="chapter-title">Cloud Storage and Transfer</span></a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./04-metadata-acquisition.html">Acquisition Systems</a></li><li class="breadcrumb-item"><a href="./07-cloud-storage-and-transfer-system.html"><span class="chapter-title">Cloud Storage and Transfer System</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-title">Cloud Storage and Transfer</span></h1>
+<h1 class="title"><span class="chapter-title">Cloud Storage and Transfer System</span></h1>
 </div>
 
 
@@ -318,11 +321,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li><strong>ID:</strong> DAS-007</li>
 <li><strong>Type:</strong> Foundations</li>
 <li><strong>Audience:</strong> Omics Data Scientists, Bioinformaticians, and Research Teams</li>
-<li><strong>Theme:</strong> Managing Data Beyond the Local Computer</li>
+<li><strong>Theme:</strong> Moving Validated Data into Durable and Collaborative Storage Systems</li>
 </ul>
 </div>
-<p>A dataset is not truly useful if it cannot be stored, organized, transferred, shared, and recovered reliably.</p>
-<p>As sequencing projects grow, data volumes often exceed the capacity of a single workstation. Cloud storage and transfer systems provide scalable solutions for managing large datasets while supporting collaboration and reproducibility.</p>
+<p>Acquiring and validating data are only part of the data acquisition lifecycle. Once datasets have been validated, they must be stored, transferred, organized, and shared in a manner that supports reproducibility, collaboration, and long-term accessibility.</p>
+<p>The Cloud Storage and Transfer System provides the infrastructure layer connecting validated datasets to downstream analytical workflows and reference dataset assembly.</p>
 <section id="why-cloud-storage-matters" class="level2">
 <h2 class="anchored" data-anchor-id="why-cloud-storage-matters">Why Cloud Storage Matters</h2>
 <p>Modern omics datasets can range from gigabytes to terabytes in size.</p>
@@ -387,21 +390,21 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </ul>
 </section>
 </section>
-<section id="data-transfer-workflows" class="level2">
-<h2 class="anchored" data-anchor-id="data-transfer-workflows">Data Transfer Workflows</h2>
+<section id="cloud-storage-in-the-cdi-data-acquisition-system" class="level2">
+<h2 class="anchored" data-anchor-id="cloud-storage-in-the-cdi-data-acquisition-system">Cloud Storage in the CDI Data Acquisition System</h2>
 <div class="cell" data-layout-align="default">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>flowchart TD</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>A[Public Repository]</span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>--&gt; B[Download]</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>A[Metadata Acquisition System]</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>--&gt; B[Data Download System]</span>
 <span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>B --&gt; C[Validation]</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>B --&gt; C[Data Validation System]</span>
 <span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>C --&gt; D[Cloud Storage]</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>C --&gt; D[Cloud Storage and Transfer System]</span>
 <span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>D --&gt; E[Analysis Environment]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>D --&gt; E[Reference Dataset Assembly System]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output-display">
 <div>
@@ -409,35 +412,57 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div>
 <pre class="mermaid mermaid-js">flowchart TD
 
-A[Public Repository]
---&gt; B[Download]
+A[Metadata Acquisition System]
+--&gt; B[Data Download System]
 
-B --&gt; C[Validation]
+B --&gt; C[Data Validation System]
 
-C --&gt; D[Cloud Storage]
+C --&gt; D[Cloud Storage and Transfer System]
 
-D --&gt; E[Analysis Environment]
+D --&gt; E[Reference Dataset Assembly System]
 </pre>
 </div>
 <p></p></figure><p></p>
 </div>
 </div>
 </div>
-<p>Cloud storage often becomes the central hub connecting acquisition and analysis.</p>
+<p>Cloud storage serves as the bridge between validated acquisition outputs and downstream analytical workflows.</p>
 </section>
 <section id="organizing-cloud-data" class="level2">
 <h2 class="anchored" data-anchor-id="organizing-cloud-data">Organizing Cloud Data</h2>
-<p>A structured layout improves reproducibility.</p>
+<p>A structured storage layout improves reproducibility, traceability, and collaboration.</p>
+<p>The Cloud Storage and Transfer System should preserve the outputs generated during metadata acquisition, download, and validation.</p>
+<p>Local project structure:</p>
 <pre class="text"><code>project/
 ├── metadata/
-├── raw-data/
-├── validated-data/
-├── reference-dataset/
-└── documentation/</code></pre>
-<p>Consistent organization simplifies navigation and collaboration.</p>
+│   ├── runinfo-prjna477349.csv
+│   ├── ena-prjna477349.tsv
+│   └── srr-accessions.txt
+├── manifests/
+│   ├── download-manifest.tsv
+│   └── test-manifest.tsv
+├── inventory/
+│   └── fastq-inventory.tsv
+├── raw/
+│   ├── ena/
+│   └── ncbi/
+├── validation/
+│   └── validation-report.tsv
+└── reference-dataset/</code></pre>
+<p>After transfer, the same structure can be preserved in cloud storage.</p>
+<p>Example S3 layout:</p>
+<pre class="text"><code>s3://my-reference-datasets/
+├── metadata/
+├── manifests/
+├── inventory/
+├── raw/
+└── validation/</code></pre>
+<p>Preserving directory structure during transfer ensures that metadata, manifests, inventories, validation reports, and sequencing files remain linked throughout the data lifecycle.</p>
+<p>Consistent organization simplifies data transfer, collaboration, auditing, and long-term dataset management.</p>
 </section>
 <section id="data-transfer-methods" class="level2">
 <h2 class="anchored" data-anchor-id="data-transfer-methods">Data Transfer Methods</h2>
+<p>Cloud storage systems support a variety of data transfer mechanisms.</p>
 <p>Common approaches include:</p>
 <ul>
 <li>HTTPS</li>
@@ -446,7 +471,32 @@ D --&gt; E[Analysis Environment]
 <li>rsync</li>
 <li>Cloud synchronization tools</li>
 </ul>
-<p>The choice depends on data volume, infrastructure, and repository support.</p>
+<p>The choice depends on data volume, infrastructure, transfer speed requirements, and repository support.</p>
+<p>For large sequencing datasets, cloud-native transfer tools and object storage services are often preferred because they provide scalability, fault tolerance, and efficient handling of large file collections.</p>
+<p>Typical workflow:</p>
+<pre class="text"><code>Validated Dataset
+        ↓
+Transfer Tool
+        ↓
+Cloud Storage
+        ↓
+Analysis Environment</code></pre>
+<p>Reliable transfer methods help ensure that validated datasets remain complete and accessible throughout the data lifecycle.</p>
+</section>
+<section id="cloud-transfer-implementation" class="level2">
+<h2 class="anchored" data-anchor-id="cloud-transfer-implementation">Cloud Transfer Implementation</h2>
+<p>After datasets have passed validation, they can be transferred to cloud storage for long-term preservation and collaboration.</p>
+<p>Example:</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">bash</span> scripts/bash/07a-sync-to-s3.sh   data   my-reference-datasets</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Workflow:</p>
+<pre class="text"><code>Validated Dataset
+        ↓
+Cloud Transfer
+        ↓
+Cloud Storage
+        ↓
+Reference Dataset Repository</code></pre>
+<p>Cloud transfer scripts automate the movement of validated datasets while preserving directory structure and supporting reproducible storage workflows.</p>
 </section>
 <section id="data-provenance" class="level2">
 <h2 class="anchored" data-anchor-id="data-provenance">Data Provenance</h2>
@@ -454,12 +504,25 @@ D --&gt; E[Analysis Environment]
 <p>Important records include:</p>
 <ul>
 <li>Source repository</li>
-<li>Accessions</li>
+<li>Study accession</li>
+<li>Sample accession</li>
+<li>Run accession</li>
 <li>Transfer date</li>
 <li>Validation status</li>
 <li>Storage location</li>
 </ul>
-<p>Provenance enables datasets to be traced and reconstructed.</p>
+<p>Provenance enables datasets to be traced, verified, and reconstructed throughout their lifecycle.</p>
+<p>Example provenance chain:</p>
+<pre class="text"><code>Public Repository
+        ↓
+Metadata Acquisition
+        ↓
+Download Manifest
+        ↓
+Validation Report
+        ↓
+Cloud Storage</code></pre>
+<p>Maintaining provenance records supports reproducibility, auditing, collaboration, and long-term dataset management.</p>
 </section>
 <section id="security-and-access-control" class="level2">
 <h2 class="anchored" data-anchor-id="security-and-access-control">Security and Access Control</h2>
@@ -471,11 +534,20 @@ D --&gt; E[Analysis Environment]
 <li>User authentication requirements</li>
 <li>Data use agreements</li>
 </ul>
-<p>Storage systems should support appropriate access controls.</p>
+<p>Storage systems should support appropriate access controls to ensure that datasets are accessed only by authorized users and handled according to applicable policies and agreements.</p>
+<p>Common mechanisms include:</p>
+<ul>
+<li>User authentication</li>
+<li>Role-based permissions</li>
+<li>Shared access groups</li>
+<li>Audit logs</li>
+<li>Secure data transfer protocols</li>
+</ul>
+<p>Although many public omics datasets are openly available, secure storage and access management become increasingly important when working with controlled-access or collaborative research projects.</p>
 </section>
-<section id="alphabiomics-example" class="level2">
-<h2 class="anchored" data-anchor-id="alphabiomics-example">AlphaBiomics Example</h2>
-<p>A healthy reference microbiome project may follow:</p>
+<section id="reference-dataset-example" class="level2">
+<h2 class="anchored" data-anchor-id="reference-dataset-example">Reference Dataset Example</h2>
+<p>A reference dataset project may follow:</p>
 <pre class="text"><code>Public Repositories
         ↓
 Metadata Filtering
@@ -485,7 +557,7 @@ Validated Downloads
 Cloud Storage
         ↓
 Reference Dataset Assembly</code></pre>
-<p>Cloud storage becomes the staging area where validated data are prepared for integration into a reference dataset.</p>
+<p>Cloud storage becomes the staging area where validated datasets are organized, preserved, and prepared for integration into a reference dataset.</p>
 </section>
 <section id="common-challenges" class="level2">
 <h2 class="anchored" data-anchor-id="common-challenges">Common Challenges</h2>
@@ -499,10 +571,49 @@ Reference Dataset Assembly</code></pre>
 </ul>
 <p>Planning storage workflows early helps avoid these problems.</p>
 </section>
+<section id="transfer-readiness-checklist" class="level2">
+<h2 class="anchored" data-anchor-id="transfer-readiness-checklist">Transfer Readiness Checklist</h2>
+<p>Before transferring data to cloud storage, verify that:</p>
+<ul>
+<li>Metadata acquisition has been completed.</li>
+<li>Download manifests have been generated.</li>
+<li>FASTQ files have been downloaded successfully.</li>
+<li>Validation checks have passed.</li>
+<li>Inventory files have been created.</li>
+<li>Cloud storage destination is available.</li>
+<li>Access permissions have been verified.</li>
+<li>Transfer logging is enabled.</li>
+</ul>
+<p>Checklist workflow:</p>
+<pre class="text"><code>Metadata
+      ↓
+Downloads
+      ↓
+Validation
+      ↓
+Inventory
+      ↓
+Cloud Transfer</code></pre>
+<p>Completing these checks helps ensure that only validated and reproducible datasets are transferred to long-term storage.</p>
+</section>
+<section id="summary" class="level2">
+<h2 class="anchored" data-anchor-id="summary">Summary</h2>
+<p>The Cloud Storage and Transfer System extends the CDI Data Acquisition System beyond the local workstation.</p>
+<pre class="text"><code>Validated Dataset
+        ↓
+Cloud Transfer
+        ↓
+Cloud Storage
+        ↓
+Collaborative Access
+        ↓
+Reference Dataset Assembly</code></pre>
+<p>By combining structured storage, reliable transfer methods, provenance tracking, and appropriate access controls, researchers can create durable and reproducible datasets suitable for long-term analysis and collaboration.</p>
+</section>
 <section id="looking-ahead" class="level2">
 <h2 class="anchored" data-anchor-id="looking-ahead">Looking Ahead</h2>
-<p>Once data have been downloaded, validated, and organized, the next challenge is combining them into a coherent and reproducible reference dataset.</p>
-<p>In the next chapter, we explore reference dataset assembly and the process of transforming acquired data into reusable analytical resources.</p>
+<p>Once datasets have been acquired, validated, transferred, and organized, the next challenge is transforming them into coherent and reusable reference datasets.</p>
+<p>In the next chapter, we explore the Reference Dataset Assembly System and the process of integrating validated data into analytical resources that support reproducible biological research.</p>
 
 
 </section>

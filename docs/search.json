@@ -1123,122 +1123,155 @@
   {
     "objectID": "07-cloud-storage-and-transfer-system.html",
     "href": "07-cloud-storage-and-transfer-system.html",
-    "title": "Cloud Storage and Transfer",
+    "title": "Cloud Storage and Transfer System",
     "section": "",
-    "text": "Why Cloud Storage Matters\nA dataset is not truly useful if it cannot be stored, organized, transferred, shared, and recovered reliably.\nAs sequencing projects grow, data volumes often exceed the capacity of a single workstation. Cloud storage and transfer systems provide scalable solutions for managing large datasets while supporting collaboration and reproducibility.\nModern omics datasets can range from gigabytes to terabytes in size.\nExamples include:\nManaging these datasets requires storage systems that are scalable, accessible, and resilient.",
+    "text": "Why Cloud Storage Matters\nAcquiring and validating data are only part of the data acquisition lifecycle. Once datasets have been validated, they must be stored, transferred, organized, and shared in a manner that supports reproducibility, collaboration, and long-term accessibility.\nThe Cloud Storage and Transfer System provides the infrastructure layer connecting validated datasets to downstream analytical workflows and reference dataset assembly.\nModern omics datasets can range from gigabytes to terabytes in size.\nExamples include:\nManaging these datasets requires storage systems that are scalable, accessible, and resilient.",
     "crumbs": [
       "Acquisition Systems",
-      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Cloud Storage and Transfer</span>"
+      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Cloud Storage and Transfer System</span>"
     ]
   },
   {
     "objectID": "07-cloud-storage-and-transfer-system.html#why-cloud-storage-matters",
     "href": "07-cloud-storage-and-transfer-system.html#why-cloud-storage-matters",
-    "title": "Cloud Storage and Transfer",
+    "title": "Cloud Storage and Transfer System",
     "section": "",
     "text": "Large microbiome cohorts\nPopulation-scale sequencing studies\nRNA-Seq consortia\nSingle-cell atlases\nMulti-omics projects",
     "crumbs": [
       "Acquisition Systems",
-      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Cloud Storage and Transfer</span>"
+      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Cloud Storage and Transfer System</span>"
     ]
   },
   {
     "objectID": "07-cloud-storage-and-transfer-system.html#storage-options",
     "href": "07-cloud-storage-and-transfer-system.html#storage-options",
-    "title": "Cloud Storage and Transfer",
+    "title": "Cloud Storage and Transfer System",
     "section": "Storage Options",
     "text": "Storage Options\n\nLocal Storage\nExamples:\n\nLaptops\nWorkstations\nExternal drives\n\nAdvantages:\n\nSimple\nImmediate access\n\nLimitations:\n\nLimited capacity\nHigher risk of data loss\n\n\n\nInstitutional Storage\nExamples:\n\nUniversity servers\nResearch clusters\nShared file systems\n\nAdvantages:\n\nCentralized management\nCollaboration support\n\n\n\nCloud Storage\nExamples:\n\nAWS S3\nGoogle Cloud Storage\nAzure Blob Storage\n\nAdvantages:\n\nScalability\nDurability\nGlobal accessibility",
     "crumbs": [
       "Acquisition Systems",
-      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Cloud Storage and Transfer</span>"
+      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Cloud Storage and Transfer System</span>"
     ]
   },
   {
-    "objectID": "07-cloud-storage-and-transfer-system.html#data-transfer-workflows",
-    "href": "07-cloud-storage-and-transfer-system.html#data-transfer-workflows",
-    "title": "Cloud Storage and Transfer",
-    "section": "Data Transfer Workflows",
-    "text": "Data Transfer Workflows\n\n\nCode\nflowchart TD\n\nA[Public Repository]\n--&gt; B[Download]\n\nB --&gt; C[Validation]\n\nC --&gt; D[Cloud Storage]\n\nD --&gt; E[Analysis Environment]\n\n\n\n\n\nflowchart TD\n\nA[Public Repository]\n--&gt; B[Download]\n\nB --&gt; C[Validation]\n\nC --&gt; D[Cloud Storage]\n\nD --&gt; E[Analysis Environment]\n\n\n\n\n\n\nCloud storage often becomes the central hub connecting acquisition and analysis.",
+    "objectID": "07-cloud-storage-and-transfer-system.html#cloud-storage-in-the-cdi-data-acquisition-system",
+    "href": "07-cloud-storage-and-transfer-system.html#cloud-storage-in-the-cdi-data-acquisition-system",
+    "title": "Cloud Storage and Transfer System",
+    "section": "Cloud Storage in the CDI Data Acquisition System",
+    "text": "Cloud Storage in the CDI Data Acquisition System\n\n\nCode\nflowchart TD\n\nA[Metadata Acquisition System]\n--&gt; B[Data Download System]\n\nB --&gt; C[Data Validation System]\n\nC --&gt; D[Cloud Storage and Transfer System]\n\nD --&gt; E[Reference Dataset Assembly System]\n\n\n\n\n\nflowchart TD\n\nA[Metadata Acquisition System]\n--&gt; B[Data Download System]\n\nB --&gt; C[Data Validation System]\n\nC --&gt; D[Cloud Storage and Transfer System]\n\nD --&gt; E[Reference Dataset Assembly System]\n\n\n\n\n\n\nCloud storage serves as the bridge between validated acquisition outputs and downstream analytical workflows.",
     "crumbs": [
       "Acquisition Systems",
-      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Cloud Storage and Transfer</span>"
+      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Cloud Storage and Transfer System</span>"
     ]
   },
   {
     "objectID": "07-cloud-storage-and-transfer-system.html#organizing-cloud-data",
     "href": "07-cloud-storage-and-transfer-system.html#organizing-cloud-data",
-    "title": "Cloud Storage and Transfer",
+    "title": "Cloud Storage and Transfer System",
     "section": "Organizing Cloud Data",
-    "text": "Organizing Cloud Data\nA structured layout improves reproducibility.\nproject/\n├── metadata/\n├── raw-data/\n├── validated-data/\n├── reference-dataset/\n└── documentation/\nConsistent organization simplifies navigation and collaboration.",
+    "text": "Organizing Cloud Data\nA structured storage layout improves reproducibility, traceability, and collaboration.\nThe Cloud Storage and Transfer System should preserve the outputs generated during metadata acquisition, download, and validation.\nLocal project structure:\nproject/\n├── metadata/\n│   ├── runinfo-prjna477349.csv\n│   ├── ena-prjna477349.tsv\n│   └── srr-accessions.txt\n├── manifests/\n│   ├── download-manifest.tsv\n│   └── test-manifest.tsv\n├── inventory/\n│   └── fastq-inventory.tsv\n├── raw/\n│   ├── ena/\n│   └── ncbi/\n├── validation/\n│   └── validation-report.tsv\n└── reference-dataset/\nAfter transfer, the same structure can be preserved in cloud storage.\nExample S3 layout:\ns3://my-reference-datasets/\n├── metadata/\n├── manifests/\n├── inventory/\n├── raw/\n└── validation/\nPreserving directory structure during transfer ensures that metadata, manifests, inventories, validation reports, and sequencing files remain linked throughout the data lifecycle.\nConsistent organization simplifies data transfer, collaboration, auditing, and long-term dataset management.",
     "crumbs": [
       "Acquisition Systems",
-      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Cloud Storage and Transfer</span>"
+      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Cloud Storage and Transfer System</span>"
     ]
   },
   {
     "objectID": "07-cloud-storage-and-transfer-system.html#data-transfer-methods",
     "href": "07-cloud-storage-and-transfer-system.html#data-transfer-methods",
-    "title": "Cloud Storage and Transfer",
+    "title": "Cloud Storage and Transfer System",
     "section": "Data Transfer Methods",
-    "text": "Data Transfer Methods\nCommon approaches include:\n\nHTTPS\nFTP\nAspera\nrsync\nCloud synchronization tools\n\nThe choice depends on data volume, infrastructure, and repository support.",
+    "text": "Data Transfer Methods\nCloud storage systems support a variety of data transfer mechanisms.\nCommon approaches include:\n\nHTTPS\nFTP\nAspera\nrsync\nCloud synchronization tools\n\nThe choice depends on data volume, infrastructure, transfer speed requirements, and repository support.\nFor large sequencing datasets, cloud-native transfer tools and object storage services are often preferred because they provide scalability, fault tolerance, and efficient handling of large file collections.\nTypical workflow:\nValidated Dataset\n        ↓\nTransfer Tool\n        ↓\nCloud Storage\n        ↓\nAnalysis Environment\nReliable transfer methods help ensure that validated datasets remain complete and accessible throughout the data lifecycle.",
     "crumbs": [
       "Acquisition Systems",
-      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Cloud Storage and Transfer</span>"
+      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Cloud Storage and Transfer System</span>"
+    ]
+  },
+  {
+    "objectID": "07-cloud-storage-and-transfer-system.html#cloud-transfer-implementation",
+    "href": "07-cloud-storage-and-transfer-system.html#cloud-transfer-implementation",
+    "title": "Cloud Storage and Transfer System",
+    "section": "Cloud Transfer Implementation",
+    "text": "Cloud Transfer Implementation\nAfter datasets have passed validation, they can be transferred to cloud storage for long-term preservation and collaboration.\nExample:\nbash scripts/bash/07a-sync-to-s3.sh   data   my-reference-datasets\nWorkflow:\nValidated Dataset\n        ↓\nCloud Transfer\n        ↓\nCloud Storage\n        ↓\nReference Dataset Repository\nCloud transfer scripts automate the movement of validated datasets while preserving directory structure and supporting reproducible storage workflows.",
+    "crumbs": [
+      "Acquisition Systems",
+      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Cloud Storage and Transfer System</span>"
     ]
   },
   {
     "objectID": "07-cloud-storage-and-transfer-system.html#data-provenance",
     "href": "07-cloud-storage-and-transfer-system.html#data-provenance",
-    "title": "Cloud Storage and Transfer",
+    "title": "Cloud Storage and Transfer System",
     "section": "Data Provenance",
-    "text": "Data Provenance\nEvery transfer should preserve provenance information.\nImportant records include:\n\nSource repository\nAccessions\nTransfer date\nValidation status\nStorage location\n\nProvenance enables datasets to be traced and reconstructed.",
+    "text": "Data Provenance\nEvery transfer should preserve provenance information.\nImportant records include:\n\nSource repository\nStudy accession\nSample accession\nRun accession\nTransfer date\nValidation status\nStorage location\n\nProvenance enables datasets to be traced, verified, and reconstructed throughout their lifecycle.\nExample provenance chain:\nPublic Repository\n        ↓\nMetadata Acquisition\n        ↓\nDownload Manifest\n        ↓\nValidation Report\n        ↓\nCloud Storage\nMaintaining provenance records supports reproducibility, auditing, collaboration, and long-term dataset management.",
     "crumbs": [
       "Acquisition Systems",
-      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Cloud Storage and Transfer</span>"
+      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Cloud Storage and Transfer System</span>"
     ]
   },
   {
     "objectID": "07-cloud-storage-and-transfer-system.html#security-and-access-control",
     "href": "07-cloud-storage-and-transfer-system.html#security-and-access-control",
-    "title": "Cloud Storage and Transfer",
+    "title": "Cloud Storage and Transfer System",
     "section": "Security and Access Control",
-    "text": "Security and Access Control\nNot all datasets are publicly accessible.\nResearchers may encounter:\n\nControlled-access datasets\nInstitutional permissions\nUser authentication requirements\nData use agreements\n\nStorage systems should support appropriate access controls.",
+    "text": "Security and Access Control\nNot all datasets are publicly accessible.\nResearchers may encounter:\n\nControlled-access datasets\nInstitutional permissions\nUser authentication requirements\nData use agreements\n\nStorage systems should support appropriate access controls to ensure that datasets are accessed only by authorized users and handled according to applicable policies and agreements.\nCommon mechanisms include:\n\nUser authentication\nRole-based permissions\nShared access groups\nAudit logs\nSecure data transfer protocols\n\nAlthough many public omics datasets are openly available, secure storage and access management become increasingly important when working with controlled-access or collaborative research projects.",
     "crumbs": [
       "Acquisition Systems",
-      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Cloud Storage and Transfer</span>"
+      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Cloud Storage and Transfer System</span>"
     ]
   },
   {
-    "objectID": "07-cloud-storage-and-transfer-system.html#alphabiomics-example",
-    "href": "07-cloud-storage-and-transfer-system.html#alphabiomics-example",
-    "title": "Cloud Storage and Transfer",
-    "section": "AlphaBiomics Example",
-    "text": "AlphaBiomics Example\nA healthy reference microbiome project may follow:\nPublic Repositories\n        ↓\nMetadata Filtering\n        ↓\nValidated Downloads\n        ↓\nCloud Storage\n        ↓\nReference Dataset Assembly\nCloud storage becomes the staging area where validated data are prepared for integration into a reference dataset.",
+    "objectID": "07-cloud-storage-and-transfer-system.html#reference-dataset-example",
+    "href": "07-cloud-storage-and-transfer-system.html#reference-dataset-example",
+    "title": "Cloud Storage and Transfer System",
+    "section": "Reference Dataset Example",
+    "text": "Reference Dataset Example\nA reference dataset project may follow:\nPublic Repositories\n        ↓\nMetadata Filtering\n        ↓\nValidated Downloads\n        ↓\nCloud Storage\n        ↓\nReference Dataset Assembly\nCloud storage becomes the staging area where validated datasets are organized, preserved, and prepared for integration into a reference dataset.",
     "crumbs": [
       "Acquisition Systems",
-      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Cloud Storage and Transfer</span>"
+      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Cloud Storage and Transfer System</span>"
     ]
   },
   {
     "objectID": "07-cloud-storage-and-transfer-system.html#common-challenges",
     "href": "07-cloud-storage-and-transfer-system.html#common-challenges",
-    "title": "Cloud Storage and Transfer",
+    "title": "Cloud Storage and Transfer System",
     "section": "Common Challenges",
     "text": "Common Challenges\nResearchers frequently encounter:\n\nStorage limits\nTransfer interruptions\nVersion confusion\nDuplicate files\nInconsistent folder structures\n\nPlanning storage workflows early helps avoid these problems.",
     "crumbs": [
       "Acquisition Systems",
-      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Cloud Storage and Transfer</span>"
+      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Cloud Storage and Transfer System</span>"
+    ]
+  },
+  {
+    "objectID": "07-cloud-storage-and-transfer-system.html#transfer-readiness-checklist",
+    "href": "07-cloud-storage-and-transfer-system.html#transfer-readiness-checklist",
+    "title": "Cloud Storage and Transfer System",
+    "section": "Transfer Readiness Checklist",
+    "text": "Transfer Readiness Checklist\nBefore transferring data to cloud storage, verify that:\n\nMetadata acquisition has been completed.\nDownload manifests have been generated.\nFASTQ files have been downloaded successfully.\nValidation checks have passed.\nInventory files have been created.\nCloud storage destination is available.\nAccess permissions have been verified.\nTransfer logging is enabled.\n\nChecklist workflow:\nMetadata\n      ↓\nDownloads\n      ↓\nValidation\n      ↓\nInventory\n      ↓\nCloud Transfer\nCompleting these checks helps ensure that only validated and reproducible datasets are transferred to long-term storage.",
+    "crumbs": [
+      "Acquisition Systems",
+      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Cloud Storage and Transfer System</span>"
+    ]
+  },
+  {
+    "objectID": "07-cloud-storage-and-transfer-system.html#summary",
+    "href": "07-cloud-storage-and-transfer-system.html#summary",
+    "title": "Cloud Storage and Transfer System",
+    "section": "Summary",
+    "text": "Summary\nThe Cloud Storage and Transfer System extends the CDI Data Acquisition System beyond the local workstation.\nValidated Dataset\n        ↓\nCloud Transfer\n        ↓\nCloud Storage\n        ↓\nCollaborative Access\n        ↓\nReference Dataset Assembly\nBy combining structured storage, reliable transfer methods, provenance tracking, and appropriate access controls, researchers can create durable and reproducible datasets suitable for long-term analysis and collaboration.",
+    "crumbs": [
+      "Acquisition Systems",
+      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Cloud Storage and Transfer System</span>"
     ]
   },
   {
     "objectID": "07-cloud-storage-and-transfer-system.html#looking-ahead",
     "href": "07-cloud-storage-and-transfer-system.html#looking-ahead",
-    "title": "Cloud Storage and Transfer",
+    "title": "Cloud Storage and Transfer System",
     "section": "Looking Ahead",
-    "text": "Looking Ahead\nOnce data have been downloaded, validated, and organized, the next challenge is combining them into a coherent and reproducible reference dataset.\nIn the next chapter, we explore reference dataset assembly and the process of transforming acquired data into reusable analytical resources.",
+    "text": "Looking Ahead\nOnce datasets have been acquired, validated, transferred, and organized, the next challenge is transforming them into coherent and reusable reference datasets.\nIn the next chapter, we explore the Reference Dataset Assembly System and the process of integrating validated data into analytical resources that support reproducible biological research.",
     "crumbs": [
       "Acquisition Systems",
-      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Cloud Storage and Transfer</span>"
+      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Cloud Storage and Transfer System</span>"
     ]
   },
   {
@@ -1387,155 +1420,155 @@
   {
     "objectID": "09-end-to-end-case-study.html",
     "href": "09-end-to-end-case-study.html",
-    "title": "AlphaBiomics Case Study",
+    "title": "End-to-End Case Study",
     "section": "",
     "text": "Project Objective\nThroughout this guide, we explored the major components of a reproducible data acquisition workflow, including study discovery, accession systems, metadata acquisition, data download, validation, cloud storage, and reference dataset assembly.\nThis chapter integrates those components through a practical case study inspired by a common challenge in microbiome research:\nThe objective is not to perform downstream microbiome analysis, but to demonstrate the acquisition workflow required to construct a reusable reference dataset.\nThe goal is to assemble a healthy human gut microbiome reference dataset suitable for future comparative analyses.\nPotential applications include:",
     "crumbs": [
       "Case Study",
-      "<span class='chapter-number'>11</span>  <span class='chapter-title'>AlphaBiomics Case Study</span>"
+      "<span class='chapter-number'>11</span>  <span class='chapter-title'>End-to-End Case Study</span>"
     ]
   },
   {
     "objectID": "09-end-to-end-case-study.html#project-objective",
     "href": "09-end-to-end-case-study.html#project-objective",
-    "title": "AlphaBiomics Case Study",
+    "title": "End-to-End Case Study",
     "section": "",
     "text": "Population benchmarking\nHealth reference construction\nMethod development\nEducational workflows\nCommercial microbiome products",
     "crumbs": [
       "Case Study",
-      "<span class='chapter-number'>11</span>  <span class='chapter-title'>AlphaBiomics Case Study</span>"
+      "<span class='chapter-number'>11</span>  <span class='chapter-title'>End-to-End Case Study</span>"
     ]
   },
   {
     "objectID": "09-end-to-end-case-study.html#step-1-define-the-target-population",
     "href": "09-end-to-end-case-study.html#step-1-define-the-target-population",
-    "title": "AlphaBiomics Case Study",
+    "title": "End-to-End Case Study",
     "section": "Step 1: Define the Target Population",
     "text": "Step 1: Define the Target Population\nBefore searching repositories, define the target cohort.\n\nInclusion Criteria\n\nHuman samples\nHealthy individuals\nStool samples\nPublicly available metadata\nPublicly available sequencing data\n\n\n\nExclusion Criteria\n\nDisease cohorts\nAntibiotic-treated individuals\nUnknown health status\nNon-human samples\nMissing metadata\n\nThese criteria establish the scope of the reference dataset.",
     "crumbs": [
       "Case Study",
-      "<span class='chapter-number'>11</span>  <span class='chapter-title'>AlphaBiomics Case Study</span>"
+      "<span class='chapter-number'>11</span>  <span class='chapter-title'>End-to-End Case Study</span>"
     ]
   },
   {
     "objectID": "09-end-to-end-case-study.html#step-2-study-discovery",
     "href": "09-end-to-end-case-study.html#step-2-study-discovery",
-    "title": "AlphaBiomics Case Study",
+    "title": "End-to-End Case Study",
     "section": "Step 2: Study Discovery",
     "text": "Step 2: Study Discovery\nThe next step is identifying candidate studies.\n\n\nCode\nflowchart TD\n\nA[Healthy Reference Objective]\n--&gt; B[Repository Search]\n\nB --&gt; C[Candidate Studies]\n\nC --&gt; D[Study Evaluation]\n\n\n\n\n\nflowchart TD\n\nA[Healthy Reference Objective]\n--&gt; B[Repository Search]\n\nB --&gt; C[Candidate Studies]\n\nC --&gt; D[Study Evaluation]\n\n\n\n\n\n\nPotential repositories include:\n\nNCBI\nENA\nMGnify\nGEO\n\nAt this stage, the objective is to identify studies that may contain eligible samples.",
     "crumbs": [
       "Case Study",
-      "<span class='chapter-number'>11</span>  <span class='chapter-title'>AlphaBiomics Case Study</span>"
+      "<span class='chapter-number'>11</span>  <span class='chapter-title'>End-to-End Case Study</span>"
     ]
   },
   {
     "objectID": "09-end-to-end-case-study.html#step-3-accession-retrieval",
     "href": "09-end-to-end-case-study.html#step-3-accession-retrieval",
-    "title": "AlphaBiomics Case Study",
+    "title": "End-to-End Case Study",
     "section": "Step 3: Accession Retrieval",
     "text": "Step 3: Accession Retrieval\nFor each candidate study:\n\n\nCode\nflowchart TD\n\nA[BioProject]\n--&gt; B[BioSamples]\n\nB --&gt; C[Experiments]\n\nC --&gt; D[Runs]\n\n\n\n\n\nflowchart TD\n\nA[BioProject]\n--&gt; B[BioSamples]\n\nB --&gt; C[Experiments]\n\nC --&gt; D[Runs]\n\n\n\n\n\n\nAccession identifiers provide the link between studies, samples, metadata, and downloadable sequencing data.",
     "crumbs": [
       "Case Study",
-      "<span class='chapter-number'>11</span>  <span class='chapter-title'>AlphaBiomics Case Study</span>"
+      "<span class='chapter-number'>11</span>  <span class='chapter-title'>End-to-End Case Study</span>"
     ]
   },
   {
     "objectID": "09-end-to-end-case-study.html#step-4-metadata-acquisition",
     "href": "09-end-to-end-case-study.html#step-4-metadata-acquisition",
-    "title": "AlphaBiomics Case Study",
+    "title": "End-to-End Case Study",
     "section": "Step 4: Metadata Acquisition",
     "text": "Step 4: Metadata Acquisition\nMetadata determine whether samples satisfy project requirements.\n\n\n\nVariable\nExample\n\n\n\n\nHealth Status\nHealthy\n\n\nBody Site\nStool\n\n\nAge\nAdult\n\n\nAntibiotic Use\nNo\n\n\nHost\nHuman\n\n\n\nMetadata acquisition often becomes the most time-consuming stage of the workflow.",
     "crumbs": [
       "Case Study",
-      "<span class='chapter-number'>11</span>  <span class='chapter-title'>AlphaBiomics Case Study</span>"
+      "<span class='chapter-number'>11</span>  <span class='chapter-title'>End-to-End Case Study</span>"
     ]
   },
   {
     "objectID": "09-end-to-end-case-study.html#step-5-sample-filtering",
     "href": "09-end-to-end-case-study.html#step-5-sample-filtering",
-    "title": "AlphaBiomics Case Study",
+    "title": "End-to-End Case Study",
     "section": "Step 5: Sample Filtering",
     "text": "Step 5: Sample Filtering\nA typical filtering process may resemble:\n2,000 Samples\n        ↓\nRemove Disease Samples\n        ↓\nRemove Antibiotic-Treated Samples\n        ↓\nRemove Missing Metadata\n        ↓\n850 Eligible Samples\nFiltering transforms candidate studies into a defined cohort.",
     "crumbs": [
       "Case Study",
-      "<span class='chapter-number'>11</span>  <span class='chapter-title'>AlphaBiomics Case Study</span>"
+      "<span class='chapter-number'>11</span>  <span class='chapter-title'>End-to-End Case Study</span>"
     ]
   },
   {
     "objectID": "09-end-to-end-case-study.html#step-6-data-download",
     "href": "09-end-to-end-case-study.html#step-6-data-download",
-    "title": "AlphaBiomics Case Study",
+    "title": "End-to-End Case Study",
     "section": "Step 6: Data Download",
     "text": "Step 6: Data Download\nOnce eligible samples are identified:\nEligible Samples\n        ↓\nRetrieve Run Accessions\n        ↓\nDownload Data\n        ↓\nOrganize Files\nDownloaded data should be stored using a reproducible directory structure.",
     "crumbs": [
       "Case Study",
-      "<span class='chapter-number'>11</span>  <span class='chapter-title'>AlphaBiomics Case Study</span>"
+      "<span class='chapter-number'>11</span>  <span class='chapter-title'>End-to-End Case Study</span>"
     ]
   },
   {
     "objectID": "09-end-to-end-case-study.html#step-7-data-validation",
     "href": "09-end-to-end-case-study.html#step-7-data-validation",
-    "title": "AlphaBiomics Case Study",
+    "title": "End-to-End Case Study",
     "section": "Step 7: Data Validation",
     "text": "Step 7: Data Validation\nValidation confirms:\n\nExpected sample counts\nFile integrity\nMetadata consistency\nAbsence of duplicates\n\nOnly validated samples should proceed to dataset assembly.",
     "crumbs": [
       "Case Study",
-      "<span class='chapter-number'>11</span>  <span class='chapter-title'>AlphaBiomics Case Study</span>"
+      "<span class='chapter-number'>11</span>  <span class='chapter-title'>End-to-End Case Study</span>"
     ]
   },
   {
     "objectID": "09-end-to-end-case-study.html#step-8-reference-dataset-assembly",
     "href": "09-end-to-end-case-study.html#step-8-reference-dataset-assembly",
-    "title": "AlphaBiomics Case Study",
+    "title": "End-to-End Case Study",
     "section": "Step 8: Reference Dataset Assembly",
     "text": "Step 8: Reference Dataset Assembly\nValidated samples are combined into a unified resource.\n\n\nCode\nflowchart TD\n\nA[Validated Study 1]\n--&gt; D[Reference Dataset]\n\nB[Validated Study 2]\n--&gt; D\n\nC[Validated Study 3]\n--&gt; D\n\n\n\n\n\nflowchart TD\n\nA[Validated Study 1]\n--&gt; D[Reference Dataset]\n\nB[Validated Study 2]\n--&gt; D\n\nC[Validated Study 3]\n--&gt; D\n\n\n\n\n\n\nMetadata are harmonized and provenance information is preserved.",
     "crumbs": [
       "Case Study",
-      "<span class='chapter-number'>11</span>  <span class='chapter-title'>AlphaBiomics Case Study</span>"
+      "<span class='chapter-number'>11</span>  <span class='chapter-title'>End-to-End Case Study</span>"
     ]
   },
   {
     "objectID": "09-end-to-end-case-study.html#final-dataset",
     "href": "09-end-to-end-case-study.html#final-dataset",
-    "title": "AlphaBiomics Case Study",
+    "title": "End-to-End Case Study",
     "section": "Final Dataset",
     "text": "Final Dataset\nThe resulting dataset contains:\n\nSelected studies\nHarmonized metadata\nValidated sequencing data\nDocumentation\nProvenance records\n\nThe dataset is now suitable for downstream analysis and interpretation.",
     "crumbs": [
       "Case Study",
-      "<span class='chapter-number'>11</span>  <span class='chapter-title'>AlphaBiomics Case Study</span>"
+      "<span class='chapter-number'>11</span>  <span class='chapter-title'>End-to-End Case Study</span>"
     ]
   },
   {
     "objectID": "09-end-to-end-case-study.html#lessons-learned",
     "href": "09-end-to-end-case-study.html#lessons-learned",
-    "title": "AlphaBiomics Case Study",
+    "title": "End-to-End Case Study",
     "section": "Lessons Learned",
     "text": "Lessons Learned\nThis case study highlights several important principles:\n\nPublic data are not automatically reference datasets.\nMetadata often determine dataset quality.\nValidation is essential.\nReproducibility should be considered throughout the workflow.\nReference datasets are constructed, not simply downloaded.",
     "crumbs": [
       "Case Study",
-      "<span class='chapter-number'>11</span>  <span class='chapter-title'>AlphaBiomics Case Study</span>"
+      "<span class='chapter-number'>11</span>  <span class='chapter-title'>End-to-End Case Study</span>"
     ]
   },
   {
     "objectID": "09-end-to-end-case-study.html#cdi-data-acquisition-system-summary",
     "href": "09-end-to-end-case-study.html#cdi-data-acquisition-system-summary",
-    "title": "AlphaBiomics Case Study",
+    "title": "End-to-End Case Study",
     "section": "CDI Data Acquisition System Summary",
     "text": "CDI Data Acquisition System Summary\n\n\nCode\nflowchart TD\n\nA[Public Data Landscape]\n--&gt; B[Study Discovery]\n\nB --&gt; C[Accession Systems]\n\nC --&gt; D[Metadata Acquisition]\n\nD --&gt; E[Data Download]\n\nE --&gt; F[Data Validation]\n\nF --&gt; G[Cloud Storage and Transfer]\n\nG --&gt; H[Reference Dataset Assembly]\n\nH --&gt; I[Healthy Reference Dataset]\n\n\n\n\n\nflowchart TD\n\nA[Public Data Landscape]\n--&gt; B[Study Discovery]\n\nB --&gt; C[Accession Systems]\n\nC --&gt; D[Metadata Acquisition]\n\nD --&gt; E[Data Download]\n\nE --&gt; F[Data Validation]\n\nF --&gt; G[Cloud Storage and Transfer]\n\nG --&gt; H[Reference Dataset Assembly]\n\nH --&gt; I[Healthy Reference Dataset]\n\n\n\n\n\n\nThe AlphaBiomics case study demonstrates how each component of the CDI Data Acquisition System contributes to the creation of a reproducible reference dataset.",
     "crumbs": [
       "Case Study",
-      "<span class='chapter-number'>11</span>  <span class='chapter-title'>AlphaBiomics Case Study</span>"
+      "<span class='chapter-number'>11</span>  <span class='chapter-title'>End-to-End Case Study</span>"
     ]
   },
   {
     "objectID": "09-end-to-end-case-study.html#next-steps",
     "href": "09-end-to-end-case-study.html#next-steps",
-    "title": "AlphaBiomics Case Study",
+    "title": "End-to-End Case Study",
     "section": "Next Steps",
     "text": "Next Steps\nThe workflow presented in this guide provides a foundation for many downstream activities, including microbiome analysis, RNA-Seq studies, benchmarking projects, clinical evidence generation, and commercial product development.\nThe acquisition process is complete. The resulting reference dataset is now ready to support the next stage of scientific investigation.",
     "crumbs": [
       "Case Study",
-      "<span class='chapter-number'>11</span>  <span class='chapter-title'>AlphaBiomics Case Study</span>"
+      "<span class='chapter-number'>11</span>  <span class='chapter-title'>End-to-End Case Study</span>"
     ]
   },
   {

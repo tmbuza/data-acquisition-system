@@ -1,15 +1,15 @@
-# Cloud Storage and Transfer
+# Cloud Storage and Transfer System
 
 :::cdi-message
 - **ID:** DAS-007
 - **Type:** Foundations
 - **Audience:** Omics Data Scientists, Bioinformaticians, and Research Teams
-- **Theme:** Managing Data Beyond the Local Computer
+- **Theme:** Moving Validated Data into Durable and Collaborative Storage Systems
 :::
 
-A dataset is not truly useful if it cannot be stored, organized, transferred, shared, and recovered reliably.
+Acquiring and validating data are only part of the data acquisition lifecycle. Once datasets have been validated, they must be stored, transferred, organized, and shared in a manner that supports reproducibility, collaboration, and long-term accessibility.
 
-As sequencing projects grow, data volumes often exceed the capacity of a single workstation. Cloud storage and transfer systems provide scalable solutions for managing large datasets while supporting collaboration and reproducibility.
+The Cloud Storage and Transfer System provides the infrastructure layer connecting validated datasets to downstream analytical workflows and reference dataset assembly.
 
 ## Why Cloud Storage Matters
 
@@ -72,39 +72,70 @@ Advantages:
 - Durability
 - Global accessibility
 
-## Data Transfer Workflows
+## Cloud Storage in the CDI Data Acquisition System
 
 ```{mermaid}
 flowchart TD
 
-A[Public Repository]
---> B[Download]
+A[Metadata Acquisition System]
+--> B[Data Download System]
 
-B --> C[Validation]
+B --> C[Data Validation System]
 
-C --> D[Cloud Storage]
+C --> D[Cloud Storage and Transfer System]
 
-D --> E[Analysis Environment]
+D --> E[Reference Dataset Assembly System]
 ```
 
-Cloud storage often becomes the central hub connecting acquisition and analysis.
+Cloud storage serves as the bridge between validated acquisition outputs and downstream analytical workflows.
 
 ## Organizing Cloud Data
 
-A structured layout improves reproducibility.
+A structured storage layout improves reproducibility, traceability, and collaboration.
+
+The Cloud Storage and Transfer System should preserve the outputs generated during metadata acquisition, download, and validation.
+
+Local project structure:
 
 ```text
 project/
 ├── metadata/
-├── raw-data/
-├── validated-data/
-├── reference-dataset/
-└── documentation/
+│   ├── runinfo-prjna477349.csv
+│   ├── ena-prjna477349.tsv
+│   └── srr-accessions.txt
+├── manifests/
+│   ├── download-manifest.tsv
+│   └── test-manifest.tsv
+├── inventory/
+│   └── fastq-inventory.tsv
+├── raw/
+│   ├── ena/
+│   └── ncbi/
+├── validation/
+│   └── validation-report.tsv
+└── reference-dataset/
 ```
 
-Consistent organization simplifies navigation and collaboration.
+After transfer, the same structure can be preserved in cloud storage.
+
+Example S3 layout:
+
+```text
+s3://my-reference-datasets/
+├── metadata/
+├── manifests/
+├── inventory/
+├── raw/
+└── validation/
+```
+
+Preserving directory structure during transfer ensures that metadata, manifests, inventories, validation reports, and sequencing files remain linked throughout the data lifecycle.
+
+Consistent organization simplifies data transfer, collaboration, auditing, and long-term dataset management.
 
 ## Data Transfer Methods
+
+Cloud storage systems support a variety of data transfer mechanisms.
 
 Common approaches include:
 
@@ -114,7 +145,47 @@ Common approaches include:
 - rsync
 - Cloud synchronization tools
 
-The choice depends on data volume, infrastructure, and repository support.
+The choice depends on data volume, infrastructure, transfer speed requirements, and repository support.
+
+For large sequencing datasets, cloud-native transfer tools and object storage services are often preferred because they provide scalability, fault tolerance, and efficient handling of large file collections.
+
+Typical workflow:
+
+```text
+Validated Dataset
+        ↓
+Transfer Tool
+        ↓
+Cloud Storage
+        ↓
+Analysis Environment
+```
+
+Reliable transfer methods help ensure that validated datasets remain complete and accessible throughout the data lifecycle.
+
+## Cloud Transfer Implementation
+
+After datasets have passed validation, they can be transferred to cloud storage for long-term preservation and collaboration.
+
+Example:
+
+```bash
+bash scripts/bash/07a-sync-to-s3.sh   data   my-reference-datasets
+```
+
+Workflow:
+
+```text
+Validated Dataset
+        ↓
+Cloud Transfer
+        ↓
+Cloud Storage
+        ↓
+Reference Dataset Repository
+```
+
+Cloud transfer scripts automate the movement of validated datasets while preserving directory structure and supporting reproducible storage workflows.
 
 ## Data Provenance
 
@@ -123,12 +194,30 @@ Every transfer should preserve provenance information.
 Important records include:
 
 - Source repository
-- Accessions
+- Study accession
+- Sample accession
+- Run accession
 - Transfer date
 - Validation status
 - Storage location
 
-Provenance enables datasets to be traced and reconstructed.
+Provenance enables datasets to be traced, verified, and reconstructed throughout their lifecycle.
+
+Example provenance chain:
+
+```text
+Public Repository
+        ↓
+Metadata Acquisition
+        ↓
+Download Manifest
+        ↓
+Validation Report
+        ↓
+Cloud Storage
+```
+
+Maintaining provenance records supports reproducibility, auditing, collaboration, and long-term dataset management.
 
 ## Security and Access Control
 
@@ -141,11 +230,21 @@ Researchers may encounter:
 - User authentication requirements
 - Data use agreements
 
-Storage systems should support appropriate access controls.
+Storage systems should support appropriate access controls to ensure that datasets are accessed only by authorized users and handled according to applicable policies and agreements.
 
-## AlphaBiomics Example
+Common mechanisms include:
 
-A healthy reference microbiome project may follow:
+- User authentication
+- Role-based permissions
+- Shared access groups
+- Audit logs
+- Secure data transfer protocols
+
+Although many public omics datasets are openly available, secure storage and access management become increasingly important when working with controlled-access or collaborative research projects.
+
+## Reference Dataset Example
+
+A reference dataset project may follow:
 
 ```text
 Public Repositories
@@ -159,7 +258,7 @@ Cloud Storage
 Reference Dataset Assembly
 ```
 
-Cloud storage becomes the staging area where validated data are prepared for integration into a reference dataset.
+Cloud storage becomes the staging area where validated datasets are organized, preserved, and prepared for integration into a reference dataset.
 
 ## Common Challenges
 
@@ -173,8 +272,55 @@ Researchers frequently encounter:
 
 Planning storage workflows early helps avoid these problems.
 
+## Transfer Readiness Checklist
+
+Before transferring data to cloud storage, verify that:
+
+- Metadata acquisition has been completed.
+- Download manifests have been generated.
+- FASTQ files have been downloaded successfully.
+- Validation checks have passed.
+- Inventory files have been created.
+- Cloud storage destination is available.
+- Access permissions have been verified.
+- Transfer logging is enabled.
+
+Checklist workflow:
+
+```text
+Metadata
+      ↓
+Downloads
+      ↓
+Validation
+      ↓
+Inventory
+      ↓
+Cloud Transfer
+```
+
+Completing these checks helps ensure that only validated and reproducible datasets are transferred to long-term storage.
+
+## Summary
+
+The Cloud Storage and Transfer System extends the CDI Data Acquisition System beyond the local workstation.
+
+```text
+Validated Dataset
+        ↓
+Cloud Transfer
+        ↓
+Cloud Storage
+        ↓
+Collaborative Access
+        ↓
+Reference Dataset Assembly
+```
+
+By combining structured storage, reliable transfer methods, provenance tracking, and appropriate access controls, researchers can create durable and reproducible datasets suitable for long-term analysis and collaboration.
+
 ## Looking Ahead
 
-Once data have been downloaded, validated, and organized, the next challenge is combining them into a coherent and reproducible reference dataset.
+Once datasets have been acquired, validated, transferred, and organized, the next challenge is transforming them into coherent and reusable reference datasets.
 
-In the next chapter, we explore reference dataset assembly and the process of transforming acquired data into reusable analytical resources.
+In the next chapter, we explore the Reference Dataset Assembly System and the process of integrating validated data into analytical resources that support reproducible biological research.

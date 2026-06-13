@@ -1,4 +1,4 @@
-# AlphaBiomics Case Study
+# End-to-End Case Study
 
 :::cdi-message
 - **ID:** DAS-009
