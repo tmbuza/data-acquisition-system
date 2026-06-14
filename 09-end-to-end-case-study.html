@@ -1,0 +1,1089 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.7.32">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>End-to-End Case Study – CDI Data Acquisition System</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./999-appendix.html" rel="next">
+<link href="./08-reference-dataset-assembly-system.html" rel="prev">
+<script src="site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-37eea08aefeeee20ff55810ff984fec1.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap-231ef2f9d4ce3268f31ef752336c15d2.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<style>html{ scroll-behavior: smooth; }</style>
+<meta name="mermaid-theme" content="forest">
+<script src="site_libs/quarto-diagram/mermaid.min.js"></script>
+<script src="site_libs/quarto-diagram/mermaid-init.js"></script>
+<link href="site_libs/quarto-diagram/mermaid.css" rel="stylesheet">
+
+
+<link rel="stylesheet" href="assets/css/cdi.css">
+</head>
+
+<body class="nav-sidebar floating quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./09-end-to-end-case-study.html">Case Study</a></li><li class="breadcrumb-item"><a href="./09-end-to-end-case-study.html"><span class="chapter-title">End-to-End Case Study</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">CDI Data Acquisition System</a> 
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">index.html</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
+ <span class="menu-text">Foundations</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./00-preface-and-overview.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Preface and Overview</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./01-public-data-landscape.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Public Data Landscape</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./02-study-discovery.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Study Discovery</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./03-accession-systems.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Accession Systems</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
+ <span class="menu-text">Acquisition Systems</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./04-metadata-acquisition.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Metadata Acquisition</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./05-data-download-system.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Data Download System</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./06-data-validation-system.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Data Validation System</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./07-cloud-storage-and-transfer-system.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Cloud Storage and Transfer System</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./08-reference-dataset-assembly-system.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Reference Dataset Assembly System</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true">
+ <span class="menu-text">Case Study</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./09-end-to-end-case-study.html" class="sidebar-item-text sidebar-link active"><span class="chapter-title">End-to-End Case Study</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true">
+ <span class="menu-text">Appendices</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./999-appendix.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">CDI Data Acquisition System Overview</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./999-references.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">References</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#case-study-objective" id="toc-case-study-objective" class="nav-link active" data-scroll-target="#case-study-objective">Case Study Objective</a></li>
+  <li><a href="#end-to-end-system-workflow" id="toc-end-to-end-system-workflow" class="nav-link" data-scroll-target="#end-to-end-system-workflow">End-to-End System Workflow</a></li>
+  <li><a href="#step-1-study-discovery" id="toc-step-1-study-discovery" class="nav-link" data-scroll-target="#step-1-study-discovery">Step 1: Study Discovery</a></li>
+  <li><a href="#step-2-metadata-acquisition" id="toc-step-2-metadata-acquisition" class="nav-link" data-scroll-target="#step-2-metadata-acquisition">Step 2: Metadata Acquisition</a></li>
+  <li><a href="#step-3-metadata-review-and-sample-selection" id="toc-step-3-metadata-review-and-sample-selection" class="nav-link" data-scroll-target="#step-3-metadata-review-and-sample-selection">Step 3: Metadata Review and Sample Selection</a></li>
+  <li><a href="#step-4-data-download" id="toc-step-4-data-download" class="nav-link" data-scroll-target="#step-4-data-download">Step 4: Data Download</a>
+  <ul class="collapse">
+  <li><a href="#ena-retrieval" id="toc-ena-retrieval" class="nav-link" data-scroll-target="#ena-retrieval">ENA Retrieval</a></li>
+  <li><a href="#ncbi-retrieval" id="toc-ncbi-retrieval" class="nav-link" data-scroll-target="#ncbi-retrieval">NCBI Retrieval</a></li>
+  </ul></li>
+  <li><a href="#step-5-download-verification" id="toc-step-5-download-verification" class="nav-link" data-scroll-target="#step-5-download-verification">Step 5: Download Verification</a></li>
+  <li><a href="#step-6-data-validation" id="toc-step-6-data-validation" class="nav-link" data-scroll-target="#step-6-data-validation">Step 6: Data Validation</a></li>
+  <li><a href="#step-7-cloud-storage-and-transfer" id="toc-step-7-cloud-storage-and-transfer" class="nav-link" data-scroll-target="#step-7-cloud-storage-and-transfer">Step 7: Cloud Storage and Transfer</a></li>
+  <li><a href="#step-8-reference-dataset-assembly" id="toc-step-8-reference-dataset-assembly" class="nav-link" data-scroll-target="#step-8-reference-dataset-assembly">Step 8: Reference Dataset Assembly</a></li>
+  <li><a href="#final-deliverables" id="toc-final-deliverables" class="nav-link" data-scroll-target="#final-deliverables">Final Deliverables</a></li>
+  <li><a href="#system-outputs" id="toc-system-outputs" class="nav-link" data-scroll-target="#system-outputs">System Outputs</a></li>
+  <li><a href="#reproducibility-considerations" id="toc-reproducibility-considerations" class="nav-link" data-scroll-target="#reproducibility-considerations">Reproducibility Considerations</a></li>
+  <li><a href="#common-challenges" id="toc-common-challenges" class="nav-link" data-scroll-target="#common-challenges">Common Challenges</a></li>
+  <li><a href="#summary" id="toc-summary" class="nav-link" data-scroll-target="#summary">Summary</a></li>
+  <li><a href="#concluding-remarks" id="toc-concluding-remarks" class="nav-link" data-scroll-target="#concluding-remarks">Concluding Remarks</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./09-end-to-end-case-study.html">Case Study</a></li><li class="breadcrumb-item"><a href="./09-end-to-end-case-study.html"><span class="chapter-title">End-to-End Case Study</span></a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title"><span class="chapter-title">End-to-End Case Study</span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">Jun 2026</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<div class="cdi-message">
+<ul>
+<li><strong>ID:</strong> DAS-009</li>
+<li><strong>Type:</strong> Case Study</li>
+<li><strong>Audience:</strong> Omics Data Scientists, Bioinformaticians, and Research Teams</li>
+<li><strong>Theme:</strong> Applying the CDI Data Acquisition System from Study Discovery to Reference Dataset Assembly</li>
+</ul>
+</div>
+<p>The previous chapters introduced the individual components of the CDI Data Acquisition System. This chapter demonstrates how these components work together as a complete end-to-end workflow.</p>
+<p>The objective is to illustrate how publicly available sequencing studies can be transformed into a validated and reproducible reference dataset.</p>
+<p>Rather than focusing on a specific organization or project, this case study presents a generalized workflow that can be adapted to a wide range of omics data acquisition scenarios.</p>
+<section id="case-study-objective" class="level2">
+<h2 class="anchored" data-anchor-id="case-study-objective">Case Study Objective</h2>
+<p>Objective:</p>
+<blockquote class="blockquote">
+<p>Build a healthy reference gut microbiome dataset from publicly available sequencing studies.</p>
+</blockquote>
+<p>The goal is to demonstrate how the CDI Data Acquisition System can transform public repository data into a curated analytical resource.</p>
+<p>Expected outputs include:</p>
+<ul>
+<li>Metadata assets</li>
+<li>Download manifests</li>
+<li>Sequencing files</li>
+<li>Validation reports</li>
+<li>Cloud storage assets</li>
+<li>Reference dataset components</li>
+</ul>
+</section>
+<section id="end-to-end-system-workflow" class="level2">
+<h2 class="anchored" data-anchor-id="end-to-end-system-workflow">End-to-End System Workflow</h2>
+<div class="cell" data-layout-align="default">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>flowchart TD</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>A[Study Discovery]</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>--&gt; B[Metadata Acquisition]</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>B --&gt; C[Data Download]</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>C --&gt; D[Data Validation]</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>D --&gt; E[Cloud Storage and Transfer]</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>E --&gt; F[Reference Dataset Assembly]</span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>F --&gt; G[Reference Dataset Release]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<div>
+<p></p><figure class="figure"><p></p>
+<div>
+<pre class="mermaid mermaid-js">flowchart TD
+
+A[Study Discovery]
+--&gt; B[Metadata Acquisition]
+
+B --&gt; C[Data Download]
+
+C --&gt; D[Data Validation]
+
+D --&gt; E[Cloud Storage and Transfer]
+
+E --&gt; F[Reference Dataset Assembly]
+
+F --&gt; G[Reference Dataset Release]
+</pre>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
+<p>Each stage contributes a reproducible component to the final dataset.</p>
+</section>
+<section id="step-1-study-discovery" class="level2">
+<h2 class="anchored" data-anchor-id="step-1-study-discovery">Step 1: Study Discovery</h2>
+<p>The process begins by identifying candidate studies relevant to the dataset objective.</p>
+<p>Example workflow:</p>
+<pre class="text"><code>Literature Review
+        ↓
+Public Repositories
+        ↓
+Candidate Studies</code></pre>
+<p>Example candidate studies:</p>
+<pre class="text"><code>PRJNA477349
+PRJNA802976
+PRJNA322554</code></pre>
+<p>Key activities:</p>
+<ul>
+<li>Review scientific literature</li>
+<li>Identify relevant studies</li>
+<li>Evaluate study eligibility</li>
+<li>Record accession information</li>
+</ul>
+<p>Output:</p>
+<pre class="text"><code>Candidate Studies</code></pre>
+</section>
+<section id="step-2-metadata-acquisition" class="level2">
+<h2 class="anchored" data-anchor-id="step-2-metadata-acquisition">Step 2: Metadata Acquisition</h2>
+<p>Once studies have been identified, metadata are retrieved from public repositories.</p>
+<p>Example workflow:</p>
+<pre class="text"><code>BioProject
+        ↓
+Run Metadata
+        ↓
+ENA Metadata
+        ↓
+Sample Inventory</code></pre>
+<p>Example outputs:</p>
+<pre class="text"><code>data/metadata/
+├── runinfo-prjna477349.csv
+├── ena-prjna477349.tsv
+└── srr-accessions.txt</code></pre>
+<p>Metadata acquisition provides the foundation for downstream filtering and sample selection.</p>
+<p>Output:</p>
+<pre class="text"><code>Metadata Assets</code></pre>
+</section>
+<section id="step-3-metadata-review-and-sample-selection" class="level2">
+<h2 class="anchored" data-anchor-id="step-3-metadata-review-and-sample-selection">Step 3: Metadata Review and Sample Selection</h2>
+<p>Metadata are reviewed against predefined inclusion and exclusion criteria.</p>
+<p>Example inclusion criteria:</p>
+<ul>
+<li>Human samples</li>
+<li>Healthy individuals</li>
+<li>Stool specimens</li>
+<li>Publicly available sequencing data</li>
+</ul>
+<p>Example exclusion criteria:</p>
+<ul>
+<li>Disease status unknown</li>
+<li>Missing metadata</li>
+<li>Incomplete records</li>
+<li>Duplicate samples</li>
+</ul>
+<p>Workflow:</p>
+<pre class="text"><code>Metadata Assets
+        ↓
+Inclusion Criteria
+        ↓
+Exclusion Criteria
+        ↓
+Eligible Samples</code></pre>
+<p>Output:</p>
+<pre class="text"><code>Download Manifest</code></pre>
+</section>
+<section id="step-4-data-download" class="level2">
+<h2 class="anchored" data-anchor-id="step-4-data-download">Step 4: Data Download</h2>
+<p>Validated metadata are used to retrieve sequencing data.</p>
+<p>Example workflows:</p>
+<section id="ena-retrieval" class="level3">
+<h3 class="anchored" data-anchor-id="ena-retrieval">ENA Retrieval</h3>
+<div class="sourceCode" id="cb10"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">bash</span> scripts/bash/05b-download-ena-fastq.sh</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="ncbi-retrieval" class="level3">
+<h3 class="anchored" data-anchor-id="ncbi-retrieval">NCBI Retrieval</h3>
+<div class="sourceCode" id="cb11"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">bash</span> scripts/bash/05c-download-ncbi-sra.sh</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Example outputs:</p>
+<pre class="text"><code>data/raw/
+├── ena/
+└── ncbi/</code></pre>
+<p>Workflow:</p>
+<pre class="text"><code>Download Manifest
+        ↓
+Repository Retrieval
+        ↓
+FASTQ Files</code></pre>
+<p>Output:</p>
+<pre class="text"><code>Sequencing Data</code></pre>
+</section>
+</section>
+<section id="step-5-download-verification" class="level2">
+<h2 class="anchored" data-anchor-id="step-5-download-verification">Step 5: Download Verification</h2>
+<p>Downloaded files are verified against repository expectations.</p>
+<p>Verification activities:</p>
+<ul>
+<li>File count verification</li>
+<li>Download completeness</li>
+<li>Inventory generation</li>
+<li>Repository reconciliation</li>
+</ul>
+<p>Example:</p>
+<div class="sourceCode" id="cb15"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">bash</span> scripts/bash/05d-verify-downloads.sh</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Inventory generation:</p>
+<div class="sourceCode" id="cb16"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">bash</span> scripts/bash/05e-build-fastq-inventory.sh</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Output:</p>
+<pre class="text"><code>FASTQ Inventory</code></pre>
+</section>
+<section id="step-6-data-validation" class="level2">
+<h2 class="anchored" data-anchor-id="step-6-data-validation">Step 6: Data Validation</h2>
+<p>Downloaded files undergo systematic validation before being used for downstream analysis.</p>
+<p>Example:</p>
+<div class="sourceCode" id="cb18"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="fu">bash</span> scripts/bash/06-validate-download.sh</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Validation workflow:</p>
+<pre class="text"><code>Repository Validation
+        ↓
+File Validation
+        ↓
+Compression Validation
+        ↓
+Paired-End Validation
+        ↓
+FASTQ Validation</code></pre>
+<p>Example output:</p>
+<pre class="text"><code>check   status  value
+fastq_file_count    PASS    6
+compression_validation  PASS    0
+paired_end_validation   PASS    3
+fastq_validation    PASS</code></pre>
+<p>Output:</p>
+<pre class="text"><code>Validated Dataset</code></pre>
+</section>
+<section id="step-7-cloud-storage-and-transfer" class="level2">
+<h2 class="anchored" data-anchor-id="step-7-cloud-storage-and-transfer">Step 7: Cloud Storage and Transfer</h2>
+<p>Validated datasets are transferred to durable storage.</p>
+<p>Example:</p>
+<div class="sourceCode" id="cb22"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="fu">bash</span> scripts/bash/07-transfer-to-cloud.sh <span class="dt">\</span></span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>  data <span class="dt">\</span></span>
+<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a>  my-reference-datasets</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Example storage structure:</p>
+<pre class="text"><code>s3://my-reference-datasets/
+├── metadata/
+├── manifests/
+├── inventory/
+├── raw/
+└── validation/</code></pre>
+<p>Workflow:</p>
+<pre class="text"><code>Validated Dataset
+        ↓
+Cloud Transfer
+        ↓
+Cloud Storage</code></pre>
+<p>Output:</p>
+<pre class="text"><code>Cloud Repository</code></pre>
+</section>
+<section id="step-8-reference-dataset-assembly" class="level2">
+<h2 class="anchored" data-anchor-id="step-8-reference-dataset-assembly">Step 8: Reference Dataset Assembly</h2>
+<p>Validated data and metadata are integrated into a coherent reference dataset.</p>
+<p>Workflow:</p>
+<pre class="text"><code>Validated Samples
+        ↓
+Metadata Harmonization
+        ↓
+Dataset Integration
+        ↓
+Reference Dataset</code></pre>
+<p>Example structure:</p>
+<pre class="text"><code>reference-dataset/
+├── metadata/
+├── harmonized-metadata/
+├── documentation/
+└── dataset-release/</code></pre>
+<p>Key activities:</p>
+<ul>
+<li>Metadata harmonization</li>
+<li>Sample integration</li>
+<li>Provenance preservation</li>
+<li>Documentation</li>
+</ul>
+<p>Output:</p>
+<pre class="text"><code>Reference Dataset</code></pre>
+</section>
+<section id="final-deliverables" class="level2">
+<h2 class="anchored" data-anchor-id="final-deliverables">Final Deliverables</h2>
+<p>The completed reference dataset consists of multiple components.</p>
+<p>Example:</p>
+<pre class="text"><code>Reference Dataset
+├── Sequencing Data
+├── Metadata
+├── Download Manifests
+├── Validation Reports
+├── Inventory Files
+├── Provenance Records
+└── Documentation</code></pre>
+<p>These assets provide a complete and reproducible dataset package.</p>
+</section>
+<section id="system-outputs" class="level2">
+<h2 class="anchored" data-anchor-id="system-outputs">System Outputs</h2>
+<p>The CDI Data Acquisition System transforms public repository data into reusable analytical resources.</p>
+<pre class="text"><code>Study Discovery
+        ↓
+Metadata Acquisition
+        ↓
+Data Download
+        ↓
+Data Validation
+        ↓
+Cloud Storage
+        ↓
+Reference Dataset Assembly
+        ↓
+Reusable Reference Dataset</code></pre>
+<p>Each stage contributes traceable and reproducible outputs.</p>
+</section>
+<section id="reproducibility-considerations" class="level2">
+<h2 class="anchored" data-anchor-id="reproducibility-considerations">Reproducibility Considerations</h2>
+<p>A reproducible reference dataset should preserve:</p>
+<ul>
+<li>Source repositories</li>
+<li>Study accessions</li>
+<li>Sample identifiers</li>
+<li>Download manifests</li>
+<li>Validation reports</li>
+<li>Storage locations</li>
+<li>Dataset documentation</li>
+</ul>
+<p>These records enable future users to reconstruct and verify the dataset.</p>
+</section>
+<section id="common-challenges" class="level2">
+<h2 class="anchored" data-anchor-id="common-challenges">Common Challenges</h2>
+<p>Researchers frequently encounter:</p>
+<ul>
+<li>Missing metadata</li>
+<li>Inconsistent annotations</li>
+<li>Duplicate samples</li>
+<li>Repository updates</li>
+<li>Large file transfers</li>
+<li>Incomplete downloads</li>
+<li>Storage limitations</li>
+</ul>
+<p>The CDI Data Acquisition System provides a structured framework for addressing these challenges.</p>
+</section>
+<section id="summary" class="level2">
+<h2 class="anchored" data-anchor-id="summary">Summary</h2>
+<p>The End-to-End Case Study demonstrates how the CDI Data Acquisition System transforms public omics data into a validated and reusable reference dataset.</p>
+<pre class="text"><code>Public Repository Data
+        ↓
+Metadata Acquisition
+        ↓
+Data Download
+        ↓
+Data Validation
+        ↓
+Cloud Storage
+        ↓
+Reference Dataset Assembly
+        ↓
+Reusable Analytical Resource</code></pre>
+<p>By combining structured workflows, validation procedures, provenance tracking, and reproducible documentation, researchers can construct high-quality reference datasets suitable for downstream biological analysis.</p>
+</section>
+<section id="concluding-remarks" class="level2">
+<h2 class="anchored" data-anchor-id="concluding-remarks">Concluding Remarks</h2>
+<p>The CDI Data Acquisition System provides a reproducible framework for discovering, acquiring, validating, storing, and assembling public omics datasets.</p>
+<p>Although the examples presented throughout this guide focus primarily on microbiome sequencing studies, the same principles can be applied across a broad range of omics domains including RNA-Seq, single-cell sequencing, genomics, and multi-omics integration.</p>
+<p>The combination of systematic study discovery, metadata-driven sample selection, validated data acquisition, cloud-based storage, and reference dataset assembly creates a foundation for reproducible biological research and data-driven discovery.</p>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+        const codeEl = trigger.previousElementSibling.cloneNode(true);
+        for (const childEl of codeEl.children) {
+          if (isCodeAnnotation(childEl)) {
+            childEl.remove();
+          }
+        }
+        return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+            // default icon
+            link.classList.add("external");
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="./08-reference-dataset-assembly-system.html" class="pagination-link" aria-label="Reference Dataset Assembly System">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-title">Reference Dataset Assembly System</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="./999-appendix.html" class="pagination-link" aria-label="CDI Data Acquisition System Overview">
+        <span class="nav-page-text"><span class="chapter-title">CDI Data Acquisition System Overview</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+
+<script src="site_libs/quarto-html/zenscroll-min.js"></script>
+</body></html>

@@ -1,0 +1,1794 @@
+[
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "CDI Data Acquisition System",
+    "section": "",
+    "text": "Data Acquisition System: Updated Jun 2026",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>index.html</span>"
+    ]
+  },
+  {
+    "objectID": "00-preface-and-overview.html",
+    "href": "00-preface-and-overview.html",
+    "title": "Preface and Overview",
+    "section": "",
+    "text": "CDI Data Acquisition System\nThe journey from public omics repositories to a usable reference dataset is often longer and more complex than the downstream analysis itself. Study discovery, metadata curation, validation, and reproducible organization are not administrative tasks; they are foundational scientific activities that determine the quality and credibility of subsequent analyses.\nThe CDI Data Acquisition System presents data acquisition as a reproducible workflow, helping researchers move from public data discovery to reference dataset assembly through a structured and transparent process.\nWhether the goal is educational, scientific, clinical, or commercial, the ability to identify, evaluate, acquire, and organize public datasets is an essential skill for modern omics research.\nMany omics analysis guides begin with a dataset that is already available and ready for analysis. In practice, however, obtaining a suitable dataset is often one of the most challenging stages of a project.\nResearchers, analysts, and organizations routinely spend substantial time searching public repositories, evaluating studies, collecting metadata, validating files, and assembling reference datasets before any statistical analysis can begin.\nThe CDI Data Acquisition System was developed to provide a structured framework for this process.\nRather than focusing on a specific omics domain, this guide focuses on the common activities required to transform publicly available data into reproducible datasets suitable for downstream analysis.",
+    "crumbs": [
+      "Foundations",
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Preface and Overview</span>"
+    ]
+  },
+  {
+    "objectID": "01-public-data-landscape.html",
+    "href": "01-public-data-landscape.html",
+    "title": "Public Data Landscape",
+    "section": "",
+    "text": "Why Public Repositories Matter\nA successful data acquisition workflow begins with understanding where public omics data reside. Modern sequencing projects generate enormous quantities of biological data that are deposited into public repositories for preservation, sharing, and reuse. These repositories form a global ecosystem that supports scientific discovery, reproducibility, education, and innovation.\nBefore searching for studies or downloading files, it is important to understand the major repository systems, how they relate to one another, and what types of data they contain.\nPublic repositories serve several important functions:\nWithout these repositories, many large-scale biological discoveries would not be possible.",
+    "crumbs": [
+      "Foundations",
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Public Data Landscape</span>"
+    ]
+  },
+  {
+    "objectID": "01-public-data-landscape.html#why-public-repositories-matter",
+    "href": "01-public-data-landscape.html#why-public-repositories-matter",
+    "title": "Public Data Landscape",
+    "section": "",
+    "text": "Long-term data preservation\nScientific transparency\nReproducibility\nData reuse\nMeta-analysis\nBenchmarking and method development",
+    "crumbs": [
+      "Foundations",
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Public Data Landscape</span>"
+    ]
+  },
+  {
+    "objectID": "01-public-data-landscape.html#the-global-repository-ecosystem",
+    "href": "01-public-data-landscape.html#the-global-repository-ecosystem",
+    "title": "Public Data Landscape",
+    "section": "The Global Repository Ecosystem",
+    "text": "The Global Repository Ecosystem\nMost public omics data are distributed through a small number of major repository systems.\n\n\nCode\nflowchart LR\n\nA[NCBI]\nB[EMBL-EBI]\nC[DDBJ]\n\nA &lt;--&gt; B\nB &lt;--&gt; C\nA &lt;--&gt; C\n\n\n\n\n\nflowchart LR\n\nA[NCBI]\nB[EMBL-EBI]\nC[DDBJ]\n\nA &lt;--&gt; B\nB &lt;--&gt; C\nA &lt;--&gt; C\n\n\n\n\n\n\nTogether these organizations support the global exchange of biological data.",
+    "crumbs": [
+      "Foundations",
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Public Data Landscape</span>"
+    ]
+  },
+  {
+    "objectID": "01-public-data-landscape.html#the-international-nucleotide-sequence-database-collaboration",
+    "href": "01-public-data-landscape.html#the-international-nucleotide-sequence-database-collaboration",
+    "title": "Public Data Landscape",
+    "section": "The International Nucleotide Sequence Database Collaboration",
+    "text": "The International Nucleotide Sequence Database Collaboration\nThe International Nucleotide Sequence Database Collaboration (INSDC) is a long-standing partnership between three major organizations:\n\n\n\nOrganization\nRegion\n\n\n\n\nNCBI\nUnited States\n\n\nEMBL-EBI\nEurope\n\n\nDDBJ\nJapan\n\n\n\nThese repositories routinely exchange data, ensuring that submitted datasets become available throughout the international community.",
+    "crumbs": [
+      "Foundations",
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Public Data Landscape</span>"
+    ]
+  },
+  {
+    "objectID": "01-public-data-landscape.html#major-repository-components",
+    "href": "01-public-data-landscape.html#major-repository-components",
+    "title": "Public Data Landscape",
+    "section": "Major Repository Components",
+    "text": "Major Repository Components\nThe public data landscape consists of several interconnected resources.\n\nBioProject\nA BioProject describes the overall research initiative.\nExamples:\n\nHuman gut microbiome study\nRNA-Seq disease study\nAgricultural genomics project\n\n\n\nBioSample\nBioSample records describe individual biological specimens.\nExamples:\n\nStool sample\nBlood sample\nTissue biopsy\n\n\n\nSequence Archives\nSequence archives store the raw sequencing data generated from samples.\nExamples include:\n\nSRA (Sequence Read Archive)\nENA (European Nucleotide Archive)\nDRA (DDBJ Sequence Read Archive)\n\n\n\nFunctional Genomics Repositories\nThese repositories provide processed data and study-level information.\nExamples:\n\nGEO (Gene Expression Omnibus)\nArrayExpress",
+    "crumbs": [
+      "Foundations",
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Public Data Landscape</span>"
+    ]
+  },
+  {
+    "objectID": "01-public-data-landscape.html#domain-specific-examples",
+    "href": "01-public-data-landscape.html#domain-specific-examples",
+    "title": "Public Data Landscape",
+    "section": "Domain-Specific Examples",
+    "text": "Domain-Specific Examples\n\nMicrobiome\nCommon resources:\n\nBioProject\nBioSample\nSRA\nMGnify\n\n\n\nRNA-Seq\nCommon resources:\n\nGEO\nSRA\nENA\n\n\n\nGWAS\nCommon resources:\n\nGWAS Catalog\ndbGaP\n\n\n\nSingle-Cell\nCommon resources:\n\nGEO\nSRA\nArrayExpress",
+    "crumbs": [
+      "Foundations",
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Public Data Landscape</span>"
+    ]
+  },
+  {
+    "objectID": "01-public-data-landscape.html#a-first-look-at-repository-relationships",
+    "href": "01-public-data-landscape.html#a-first-look-at-repository-relationships",
+    "title": "Public Data Landscape",
+    "section": "A First Look at Repository Relationships",
+    "text": "A First Look at Repository Relationships\nA common relationship encountered in many public datasets is:\n\n\nCode\nflowchart LR\n\nBioProject --&gt; BioSample\nBioSample --&gt; Experiment\nExperiment --&gt; Run\n\n\n\n\n\nflowchart LR\n\nBioProject --&gt; BioSample\nBioSample --&gt; Experiment\nExperiment --&gt; Run\n\n\n\n\n\n\nUnderstanding these relationships is essential for navigating accession systems, which are covered in a later chapter.",
+    "crumbs": [
+      "Foundations",
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Public Data Landscape</span>"
+    ]
+  },
+  {
+    "objectID": "01-public-data-landscape.html#looking-ahead",
+    "href": "01-public-data-landscape.html#looking-ahead",
+    "title": "Public Data Landscape",
+    "section": "Looking Ahead",
+    "text": "Looking Ahead\nUnderstanding where public omics data reside is the first step in the data acquisition process. The next challenge is identifying studies that match a specific scientific objective.\nIn the next chapter, we explore strategies for discovering relevant studies across public repositories.",
+    "crumbs": [
+      "Foundations",
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Public Data Landscape</span>"
+    ]
+  },
+  {
+    "objectID": "02-study-discovery.html",
+    "href": "02-study-discovery.html",
+    "title": "Study Discovery",
+    "section": "",
+    "text": "Why Study Discovery Matters\nPublic repositories contain millions of samples and thousands of studies spanning a wide range of biological questions, populations, technologies, and experimental designs. The challenge is rarely the lack of data. Instead, the challenge is identifying studies that are relevant, trustworthy, and suitable for a specific objective.\nStudy discovery is the process of transforming a research objective into a set of candidate studies that can support downstream analysis. Before any data are downloaded, researchers must determine which studies are most appropriate for their intended purpose.\nEffective data acquisition begins with selecting the right studies.\nFor example, a project focused on constructing a healthy reference microbiome cannot rely on a simple keyword search alone. Researchers must determine:\nThe quality of study discovery directly influences the quality of the resulting dataset.",
+    "crumbs": [
+      "Foundations",
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Study Discovery</span>"
+    ]
+  },
+  {
+    "objectID": "02-study-discovery.html#why-study-discovery-matters",
+    "href": "02-study-discovery.html#why-study-discovery-matters",
+    "title": "Study Discovery",
+    "section": "",
+    "text": "Which studies contain healthy individuals?\nWhich samples are human?\nWhich body sites are relevant?\nWhich metadata fields are available?\nWhich studies satisfy project-specific criteria?",
+    "crumbs": [
+      "Foundations",
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Study Discovery</span>"
+    ]
+  },
+  {
+    "objectID": "02-study-discovery.html#from-question-to-search-strategy",
+    "href": "02-study-discovery.html#from-question-to-search-strategy",
+    "title": "Study Discovery",
+    "section": "From Question to Search Strategy",
+    "text": "From Question to Search Strategy\nEvery study discovery process begins with a clearly defined objective.\n\n\nCode\nflowchart LR\nA[Research Objective] --&gt; B[Search Strategy]\nB --&gt; C[Study Discovery]\nC --&gt; D[Study Evaluation]\n\n\n\n\n\nflowchart LR\nA[Research Objective] --&gt; B[Search Strategy]\nB --&gt; C[Study Discovery]\nC --&gt; D[Study Evaluation]",
+    "crumbs": [
+      "Foundations",
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Study Discovery</span>"
+    ]
+  },
+  {
+    "objectID": "02-study-discovery.html#defining-inclusion-criteria",
+    "href": "02-study-discovery.html#defining-inclusion-criteria",
+    "title": "Study Discovery",
+    "section": "Defining Inclusion Criteria",
+    "text": "Defining Inclusion Criteria\n\nHealthy Reference Microbiome Example\nInclude:\n\nHuman samples\nHealthy individuals\nStool samples\nAdequate metadata\nPublicly available sequencing data",
+    "crumbs": [
+      "Foundations",
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Study Discovery</span>"
+    ]
+  },
+  {
+    "objectID": "02-study-discovery.html#defining-exclusion-criteria",
+    "href": "02-study-discovery.html#defining-exclusion-criteria",
+    "title": "Study Discovery",
+    "section": "Defining Exclusion Criteria",
+    "text": "Defining Exclusion Criteria\nExamples of exclusion criteria include:\n\nDisease cohorts\nAntibiotic-treated individuals\nAnimal samples\nMissing phenotype information\nIncomplete metadata\nPoor documentation",
+    "crumbs": [
+      "Foundations",
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Study Discovery</span>"
+    ]
+  },
+  {
+    "objectID": "02-study-discovery.html#repository-search-interfaces",
+    "href": "02-study-discovery.html#repository-search-interfaces",
+    "title": "Study Discovery",
+    "section": "Repository Search Interfaces",
+    "text": "Repository Search Interfaces\n\n\n\nRepository\nTypical Use\n\n\n\n\nNCBI\nBroad study discovery\n\n\nGEO\nFunctional genomics\n\n\nENA\nSequence archives\n\n\nMGnify\nMicrobiome studies\n\n\nGWAS Catalog\nVariant studies",
+    "crumbs": [
+      "Foundations",
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Study Discovery</span>"
+    ]
+  },
+  {
+    "objectID": "02-study-discovery.html#metadata-driven-discovery",
+    "href": "02-study-discovery.html#metadata-driven-discovery",
+    "title": "Study Discovery",
+    "section": "Metadata-Driven Discovery",
+    "text": "Metadata-Driven Discovery\nRelevant metadata may include:\n\nDisease status\nAge\nSex\nGeography\nBody site\nTreatment status\nSequencing platform",
+    "crumbs": [
+      "Foundations",
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Study Discovery</span>"
+    ]
+  },
+  {
+    "objectID": "02-study-discovery.html#study-evaluation-checklist",
+    "href": "02-study-discovery.html#study-evaluation-checklist",
+    "title": "Study Discovery",
+    "section": "Study Evaluation Checklist",
+    "text": "Study Evaluation Checklist\n\nDoes the study address the target population?\nIs metadata available and sufficiently detailed?\nAre raw sequencing data available?\nIs the sample size adequate?\nIs study documentation complete?\nCan the study support the intended analysis?",
+    "crumbs": [
+      "Foundations",
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Study Discovery</span>"
+    ]
+  },
+  {
+    "objectID": "02-study-discovery.html#alphabiomics-example",
+    "href": "02-study-discovery.html#alphabiomics-example",
+    "title": "Study Discovery",
+    "section": "AlphaBiomics Example",
+    "text": "AlphaBiomics Example\n\nBuild a healthy reference gut microbiome.\n\n\n\nCode\nflowchart TD\nA[Healthy Reference Goal] --&gt; B[Search Public Repositories]\nB --&gt; C[Identify Candidate Studies]\nC --&gt; D[Review Metadata]\nD --&gt; E[Apply Inclusion and Exclusion Criteria]\nE --&gt; F[Shortlist Studies]\n\n\n\n\n\nflowchart TD\nA[Healthy Reference Goal] --&gt; B[Search Public Repositories]\nB --&gt; C[Identify Candidate Studies]\nC --&gt; D[Review Metadata]\nD --&gt; E[Apply Inclusion and Exclusion Criteria]\nE --&gt; F[Shortlist Studies]",
+    "crumbs": [
+      "Foundations",
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Study Discovery</span>"
+    ]
+  },
+  {
+    "objectID": "02-study-discovery.html#looking-ahead",
+    "href": "02-study-discovery.html#looking-ahead",
+    "title": "Study Discovery",
+    "section": "Looking Ahead",
+    "text": "Looking Ahead\nIn the next chapter, we examine accession systems and the relationships between BioProjects, BioSamples, Experiments, and Runs.",
+    "crumbs": [
+      "Foundations",
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Study Discovery</span>"
+    ]
+  },
+  {
+    "objectID": "03-accession-systems.html",
+    "href": "03-accession-systems.html",
+    "title": "Accession Systems",
+    "section": "",
+    "text": "Why Accession Systems Matter\nPublic repositories contain enormous amounts of biological data, but locating the correct files often requires navigating multiple layers of identifiers and accession systems.\nA single study may contain hundreds or thousands of samples, multiple experiments, and numerous sequencing runs. Understanding how these entities relate to one another is essential for efficient data acquisition and reproducible dataset assembly.\nThis chapter introduces the accession systems commonly encountered in public omics repositories and explains how they connect different components of a study.\nAccession identifiers provide a structured way to organize, track, retrieve, and reference biological data.\nThey help researchers answer questions such as:\nWithout accession systems, large-scale public repositories would be difficult to navigate and maintain.",
+    "crumbs": [
+      "Foundations",
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Accession Systems</span>"
+    ]
+  },
+  {
+    "objectID": "03-accession-systems.html#why-accession-systems-matter",
+    "href": "03-accession-systems.html#why-accession-systems-matter",
+    "title": "Accession Systems",
+    "section": "",
+    "text": "Which project generated these data?\nWhich sample produced these sequences?\nWhich experiment was performed?\nWhich files should be downloaded?",
+    "crumbs": [
+      "Foundations",
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Accession Systems</span>"
+    ]
+  },
+  {
+    "objectID": "03-accession-systems.html#the-study-hierarchy",
+    "href": "03-accession-systems.html#the-study-hierarchy",
+    "title": "Accession Systems",
+    "section": "The Study Hierarchy",
+    "text": "The Study Hierarchy\nA common hierarchy used by major sequence repositories is:\n\n\nCode\nflowchart TD\n\nA[BioProject]\n--&gt; B[BioSample]\n\nB --&gt; C[Experiment]\n\nC --&gt; D[Run]\n\n\n\n\n\nflowchart TD\n\nA[BioProject]\n--&gt; B[BioSample]\n\nB --&gt; C[Experiment]\n\nC --&gt; D[Run]\n\n\n\n\n\n\nEach level describes a different aspect of the data acquisition process.",
+    "crumbs": [
+      "Foundations",
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Accession Systems</span>"
+    ]
+  },
+  {
+    "objectID": "03-accession-systems.html#common-accession-prefixes",
+    "href": "03-accession-systems.html#common-accession-prefixes",
+    "title": "Accession Systems",
+    "section": "Common Accession Prefixes",
+    "text": "Common Accession Prefixes\n\n\n\nLevel\nDescription\nExample Prefix\n\n\n\n\nBioProject\nResearch project\nPRJNA\n\n\nBioSample\nBiological specimen\nSAMN\n\n\nExperiment\nSequencing experiment\nSRX\n\n\nRun\nSequencing output\nSRR",
+    "crumbs": [
+      "Foundations",
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Accession Systems</span>"
+    ]
+  },
+  {
+    "objectID": "03-accession-systems.html#bioproject",
+    "href": "03-accession-systems.html#bioproject",
+    "title": "Accession Systems",
+    "section": "BioProject",
+    "text": "BioProject\nA BioProject represents the overall research initiative.\nExamples:\n\nHealthy gut microbiome study\nRNA-Seq cancer study\nAgricultural genomics project\n\nCommon accession prefix:\nPRJNA123456",
+    "crumbs": [
+      "Foundations",
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Accession Systems</span>"
+    ]
+  },
+  {
+    "objectID": "03-accession-systems.html#biosample",
+    "href": "03-accession-systems.html#biosample",
+    "title": "Accession Systems",
+    "section": "BioSample",
+    "text": "BioSample\nA BioSample describes an individual biological specimen.\nExamples:\n\nStool sample\nBlood sample\nTissue biopsy\n\nBioSample records often contain valuable metadata such as age, sex, disease status, body site, and geographic origin.\nCommon accession prefix:\nSAMN12345678",
+    "crumbs": [
+      "Foundations",
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Accession Systems</span>"
+    ]
+  },
+  {
+    "objectID": "03-accession-systems.html#experiment",
+    "href": "03-accession-systems.html#experiment",
+    "title": "Accession Systems",
+    "section": "Experiment",
+    "text": "Experiment\nAn Experiment describes how a sample was processed and sequenced.\nExamples include:\n\n16S rRNA sequencing\nShotgun metagenomics\nRNA-Seq\nSingle-cell sequencing\n\nCommon accession prefix:\nSRX1234567",
+    "crumbs": [
+      "Foundations",
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Accession Systems</span>"
+    ]
+  },
+  {
+    "objectID": "03-accession-systems.html#run",
+    "href": "03-accession-systems.html#run",
+    "title": "Accession Systems",
+    "section": "Run",
+    "text": "Run\nA Run represents the actual sequencing output generated from an experiment.\nRuns typically correspond to downloadable sequence files.\nCommon accession prefix:\nSRR12345678",
+    "crumbs": [
+      "Foundations",
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Accession Systems</span>"
+    ]
+  },
+  {
+    "objectID": "03-accession-systems.html#following-the-breadcrumbs",
+    "href": "03-accession-systems.html#following-the-breadcrumbs",
+    "title": "Accession Systems",
+    "section": "Following the Breadcrumbs",
+    "text": "Following the Breadcrumbs\nResearchers often begin with a BioProject and progressively navigate toward downloadable sequencing files.\n\n\nCode\nflowchart TB\n\nPRJNA[BioProject]\n--&gt; SAMN[BioSamples]\n\nSAMN --&gt; SRX[Experiments]\n\nSRX --&gt; SRR[Runs]\n\nSRR --&gt; FASTQ[FASTQ Files]\n\n\n\n\n\nflowchart TB\n\nPRJNA[BioProject]\n--&gt; SAMN[BioSamples]\n\nSAMN --&gt; SRX[Experiments]\n\nSRX --&gt; SRR[Runs]\n\nSRR --&gt; FASTQ[FASTQ Files]\n\n\n\n\n\n\nThis progression is common across many public repositories.",
+    "crumbs": [
+      "Foundations",
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Accession Systems</span>"
+    ]
+  },
+  {
+    "objectID": "03-accession-systems.html#repository-variations",
+    "href": "03-accession-systems.html#repository-variations",
+    "title": "Accession Systems",
+    "section": "Repository Variations",
+    "text": "Repository Variations\nAlthough accession systems differ slightly between repositories, the underlying concepts are similar.\n\n\n\nRepository\nStudy\nSample\nData\n\n\n\n\nNCBI\nBioProject\nBioSample\nSRA\n\n\nGEO\nGSE\nGSM\nSupplementary Files\n\n\nENA\nProject\nSample\nRuns\n\n\nDDBJ\nBioProject\nBioSample\nDRA",
+    "crumbs": [
+      "Foundations",
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Accession Systems</span>"
+    ]
+  },
+  {
+    "objectID": "03-accession-systems.html#example-workflow",
+    "href": "03-accession-systems.html#example-workflow",
+    "title": "Accession Systems",
+    "section": "Example Workflow",
+    "text": "Example Workflow\nSuppose we identify a microbiome study relevant to our project.\n\n\nCode\nflowchart TD\n\nA[BioProject]\n--&gt; B[BioSample Metadata]\n\nB --&gt; C[Experiment]\n\nC --&gt; D[Run Accessions]\n\nD --&gt; E[Data Download]\n\n\n\n\n\nflowchart TD\n\nA[BioProject]\n--&gt; B[BioSample Metadata]\n\nB --&gt; C[Experiment]\n\nC --&gt; D[Run Accessions]\n\nD --&gt; E[Data Download]\n\n\n\n\n\n\nResearchers often begin with a BioProject and work downward toward downloadable run files.",
+    "crumbs": [
+      "Foundations",
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Accession Systems</span>"
+    ]
+  },
+  {
+    "objectID": "03-accession-systems.html#healthy-reference-microbiome-example",
+    "href": "03-accession-systems.html#healthy-reference-microbiome-example",
+    "title": "Accession Systems",
+    "section": "Healthy Reference Microbiome Example",
+    "text": "Healthy Reference Microbiome Example\nA healthy reference microbiome workflow may proceed as follows:\nHealthy Reference Objective\n        ↓\nIdentify BioProject\n        ↓\nRetrieve BioSamples\n        ↓\nReview Metadata\n        ↓\nSelect Eligible Samples\n        ↓\nCollect Run Accessions\n        ↓\nDownload Data\nThis process illustrates why accession systems are central to reproducible data acquisition.",
+    "crumbs": [
+      "Foundations",
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Accession Systems</span>"
+    ]
+  },
+  {
+    "objectID": "03-accession-systems.html#looking-ahead",
+    "href": "03-accession-systems.html#looking-ahead",
+    "title": "Accession Systems",
+    "section": "Looking Ahead",
+    "text": "Looking Ahead\nAccession systems tell us where data reside, but metadata tell us whether those data are suitable for our objective.\nIn the next chapter, we explore metadata acquisition and how metadata drive study selection, sample filtering, and reference dataset construction.",
+    "crumbs": [
+      "Foundations",
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Accession Systems</span>"
+    ]
+  },
+  {
+    "objectID": "04-metadata-acquisition.html",
+    "href": "04-metadata-acquisition.html",
+    "title": "Metadata Acquisition",
+    "section": "",
+    "text": "Introduction\nOnce relevant studies have been discovered and their accession systems understood, the next step is metadata acquisition.\nMetadata provide the context needed to understand biological samples, sequencing experiments, and associated data files. They help researchers determine whether a study is relevant to a particular objective and whether individual samples should be included or excluded from downstream analyses.\nWithout metadata, sequencing files become difficult to interpret, compare, validate, or integrate into a reproducible dataset.\nMetadata acquisition is the process of discovering, retrieving, validating, evaluating, and organizing information that describes sequencing studies, samples, experiments, sequencing runs, and associated files.\nBefore any sequencing data are downloaded, metadata provide the information needed to understand:\nFor many projects, metadata acquisition is the most important stage of the data acquisition workflow because it determines which data ultimately enter the analysis pipeline.",
+    "crumbs": [
+      "Acquisition Systems",
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Metadata Acquisition</span>"
+    ]
+  },
+  {
+    "objectID": "04-metadata-acquisition.html#introduction",
+    "href": "04-metadata-acquisition.html#introduction",
+    "title": "Metadata Acquisition",
+    "section": "",
+    "text": "What was studied\nWhich samples were collected\nHow sequencing was performed\nWhich sequencing runs are available\nWhich files can be downloaded\nWhether a dataset meets project requirements",
+    "crumbs": [
+      "Acquisition Systems",
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Metadata Acquisition</span>"
+    ]
+  },
+  {
+    "objectID": "04-metadata-acquisition.html#what-is-metadata",
+    "href": "04-metadata-acquisition.html#what-is-metadata",
+    "title": "Metadata Acquisition",
+    "section": "What Is Metadata?",
+    "text": "What Is Metadata?\nMetadata are data about data.\nIn public sequencing repositories, metadata describe the context surrounding biological data rather than the sequencing reads themselves.\n\n\n\nData\nMetadata\n\n\n\n\nFASTQ file\nFile size, sequencing platform, run accession\n\n\nSequencing run\nRun date, read count, instrument model\n\n\nBiological sample\nOrganism, body site, disease status\n\n\nStudy\nTitle, description, publication",
+    "crumbs": [
+      "Acquisition Systems",
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Metadata Acquisition</span>"
+    ]
+  },
+  {
+    "objectID": "04-metadata-acquisition.html#why-metadata-matter",
+    "href": "04-metadata-acquisition.html#why-metadata-matter",
+    "title": "Metadata Acquisition",
+    "section": "Why Metadata Matter?",
+    "text": "Why Metadata Matter?\nMetadata support:\n\nStudy discovery\nSample selection\nQuality assessment\nDownload planning\nDataset assembly\nReproducible research",
+    "crumbs": [
+      "Acquisition Systems",
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Metadata Acquisition</span>"
+    ]
+  },
+  {
+    "objectID": "04-metadata-acquisition.html#metadata-across-the-data-acquisition-lifecycle",
+    "href": "04-metadata-acquisition.html#metadata-across-the-data-acquisition-lifecycle",
+    "title": "Metadata Acquisition",
+    "section": "Metadata Across the Data Acquisition Lifecycle",
+    "text": "Metadata Across the Data Acquisition Lifecycle\nStudy Discovery\n      ↓\nMetadata Acquisition\n      ↓\nMetadata Evaluation\n      ↓\nDownload Planning\n      ↓\nData Download\n      ↓\nReference Dataset Assembly",
+    "crumbs": [
+      "Acquisition Systems",
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Metadata Acquisition</span>"
+    ]
+  },
+  {
+    "objectID": "04-metadata-acquisition.html#metadata-categories",
+    "href": "04-metadata-acquisition.html#metadata-categories",
+    "title": "Metadata Acquisition",
+    "section": "Metadata Categories",
+    "text": "Metadata Categories\n\nStudy Metadata\nExamples:\n\nBioProject accession\nStudy title\nStudy description\nAssociated publication\n\n\n\nSample Metadata\nExamples:\n\nBioSample accession\nOrganism\nBody site\nDisease status\nGeographic location\n\n\n\nExperiment Metadata\nExamples:\n\nLibrary strategy\nLibrary source\nLibrary selection\nSequencing platform\n\n\n\nRun Metadata\nExamples:\n\nRun accession\nRead counts\nBase counts\nInstrument model\n\n\n\nFile Metadata\nExamples:\n\nFASTQ locations\nFile sizes\nMD5 checksums\nDownload URLs",
+    "crumbs": [
+      "Acquisition Systems",
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Metadata Acquisition</span>"
+    ]
+  },
+  {
+    "objectID": "04-metadata-acquisition.html#metadata-sources",
+    "href": "04-metadata-acquisition.html#metadata-sources",
+    "title": "Metadata Acquisition",
+    "section": "Metadata Sources",
+    "text": "Metadata Sources\n\nRepository Metadata\n\nNCBI\nENA\nDDBJ\n\n\n\nPublication Metadata\n\nStudy objectives\nExperimental design\nCohort descriptions\n\n\n\nSupplementary Metadata\n\nSample sheets\nMetadata spreadsheets\nClinical annotation tables\n\n\n\nCurated Metadata\n\nDownload manifests\nIntegrated metadata tables\nProject inventories",
+    "crumbs": [
+      "Acquisition Systems",
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Metadata Acquisition</span>"
+    ]
+  },
+  {
+    "objectID": "04-metadata-acquisition.html#metadata-completeness",
+    "href": "04-metadata-acquisition.html#metadata-completeness",
+    "title": "Metadata Acquisition",
+    "section": "Metadata Completeness",
+    "text": "Metadata Completeness\nNot all studies provide the same level of metadata.\nRich metadata may include:\n\nAge\nSex\nDisease status\nTreatment information\nBody site\nCollection date\n\nLimited metadata may include only accession identifiers and basic sequencing information.\nMetadata completeness often determines whether a dataset can be reused for a particular analysis.",
+    "crumbs": [
+      "Acquisition Systems",
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Metadata Acquisition</span>"
+    ]
+  },
+  {
+    "objectID": "04-metadata-acquisition.html#inclusion-and-exclusion-criteria",
+    "href": "04-metadata-acquisition.html#inclusion-and-exclusion-criteria",
+    "title": "Metadata Acquisition",
+    "section": "Inclusion and Exclusion Criteria",
+    "text": "Inclusion and Exclusion Criteria\nMetadata are frequently used to decide which samples should enter a project.\nExamples of inclusion criteria:\n\nHealthy individuals\nHuman gut microbiome samples\nShotgun metagenomic sequencing\n\nExamples of exclusion criteria:\n\nDisease cohorts\nIntervention studies\nIncomplete metadata\n\n\nHealthy Reference Microbiome Example\nBuilding a healthy reference microbiome dataset requires careful metadata review before any sequencing files are downloaded.\nSamples may be excluded because of:\n\nDisease status\nAntibiotic exposure\nMissing metadata\nInappropriate sample types",
+    "crumbs": [
+      "Acquisition Systems",
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Metadata Acquisition</span>"
+    ]
+  },
+  {
+    "objectID": "04-metadata-acquisition.html#metadata-challenges",
+    "href": "04-metadata-acquisition.html#metadata-challenges",
+    "title": "Metadata Acquisition",
+    "section": "Metadata Challenges",
+    "text": "Metadata Challenges\nCommon metadata challenges include:\n\nMissing metadata\nInconsistent terminology\nAmbiguous sample descriptions\nRepository-specific differences\nIncomplete publications\n\nThese challenges often require manual review and curation.",
+    "crumbs": [
+      "Acquisition Systems",
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Metadata Acquisition</span>"
+    ]
+  },
+  {
+    "objectID": "04-metadata-acquisition.html#metadata-as-a-scientific-asset",
+    "href": "04-metadata-acquisition.html#metadata-as-a-scientific-asset",
+    "title": "Metadata Acquisition",
+    "section": "Metadata as a Scientific Asset",
+    "text": "Metadata as a Scientific Asset\nMetadata are not merely supporting information.\nWell-curated metadata become scientific assets that:\n\nEnable reproducible research\nSupport dataset integration\nImprove study interpretation\nFacilitate downstream analyses\n\n\nAlphaBiomics Example\nIn projects such as healthy reference microbiome construction, metadata become the foundation for:\n\nStudy selection\nSample selection\nDataset integration\nReference dataset assembly",
+    "crumbs": [
+      "Acquisition Systems",
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Metadata Acquisition</span>"
+    ]
+  },
+  {
+    "objectID": "04-metadata-acquisition.html#installing-entrez-direct-edirect",
+    "href": "04-metadata-acquisition.html#installing-entrez-direct-edirect",
+    "title": "Metadata Acquisition",
+    "section": "Installing Entrez Direct (EDirect)",
+    "text": "Installing Entrez Direct (EDirect)\nEDirect provides command-line access to NCBI databases and is widely used for metadata retrieval from BioProject, BioSample, SRA, and PubMed.\nThroughout this chapter we use three core commands:\n\nesearch — search NCBI databases\nefetch — retrieve records\nxtract — extract fields from structured outputs\n\n\nEnvironment Setup\nCreate an environment.yml file containing the required metadata acquisition tools.\nname: cdi-data-acquisition\n\nchannels:\n  - conda-forge\n  - bioconda\n\ndependencies:\n  - entrez-direct\nCreate the environment:\nmamba env create -f environment.yml\nActivate the environment:\nconda activate cdi-data-acquisition\n\n\nVerification\nConfirm that EDirect tools are available:\nwhich esearch\nwhich efetch\nwhich xtract\nExample output:\n/Users/tmbmacbookair/anaconda3/envs/cdi-data-acquisition/bin/esearch\n/Users/tmbmacbookair/anaconda3/envs/cdi-data-acquisition/bin/efetch\n/Users/tmbmacbookair/anaconda3/envs/cdi-data-acquisition/bin/xtract\nNext, test communication with NCBI:\nesearch -db sra \\\n-query \"PRJNA477349[bioproject]\"\nExample output:\n&lt;ENTREZ_DIRECT&gt;\n  &lt;Db&gt;sra&lt;/Db&gt;\n  &lt;WebEnv&gt;MCID_6a292bec9551de53c901708f&lt;/WebEnv&gt;\n  &lt;QueryKey&gt;1&lt;/QueryKey&gt;\n  &lt;Count&gt;133&lt;/Count&gt;\n  &lt;Step&gt;1&lt;/Step&gt;\n  &lt;Elapsed&gt;3&lt;/Elapsed&gt;\n&lt;/ENTREZ_DIRECT&gt;\nInterpretation:\n\nDb indicates the database queried (sra).\nWebEnv is an NCBI session identifier used internally by EDirect.\nQueryKey identifies the result set within the session.\nCount reports the number of matching records (133 sequencing runs for this BioProject). Later, when retrieving the RunInfo table, you should expect 134 lines in total: 133 sequencing runs plus 1 header row.\nStep indicates the workflow step executed by EDirect.\nElapsed reports the query execution time in seconds.\n\nA successful query confirms that EDirect is installed correctly and can communicate with NCBI. The result count also provides a useful first validation of the dataset before retrieving detailed metadata.\n\n\n\n\n\n\nTip\n\n\n\nUsing an environment file ensures that metadata acquisition workflows remain reproducible and portable across systems.",
+    "crumbs": [
+      "Acquisition Systems",
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Metadata Acquisition</span>"
+    ]
+  },
+  {
+    "objectID": "04-metadata-acquisition.html#worked-example-from-bioproject-to-download-manifest",
+    "href": "04-metadata-acquisition.html#worked-example-from-bioproject-to-download-manifest",
+    "title": "Metadata Acquisition",
+    "section": "Worked Example: From BioProject to Download Manifest",
+    "text": "Worked Example: From BioProject to Download Manifest\nBioProject:\nPRJNA477349\n\nRetrieve Run Metadata\nesearch -db sra \\\n-query 'PRJNA477349[bioproject]' \\\n| efetch -format runinfo \\\n&gt; data/metadata/runinfo-prjna477349.csv\n\n\nValidate Metadata\nwc -l data/metadata/runinfo-prjna477349.csv\nExpected:\n134\n133 sequencing runs plus one header row.\n\n\nExtract Run Accessions\ncut -d',' -f1 data/metadata/runinfo-prjna477349.csv | head\nExplanation:\n\n-d',' specifies comma-delimited fields.\n-f1 extracts the first column.\n\nRemove the header:\ntail -n +2 data/metadata/runinfo-prjna477349.csv | wc -l\n\n\nCreate Download Manifest\ncut -d',' -f1 data/metadata/runinfo-prjna477349.csv \\\n| tail -n +2 \\\n&gt; data/metadata/srr-accessions.txt",
+    "crumbs": [
+      "Acquisition Systems",
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Metadata Acquisition</span>"
+    ]
+  },
+  {
+    "objectID": "04-metadata-acquisition.html#metadata-validation",
+    "href": "04-metadata-acquisition.html#metadata-validation",
+    "title": "Metadata Acquisition",
+    "section": "Metadata Validation",
+    "text": "Metadata Validation\nValidation activities include:\n\nRecord counts\nAccession completeness\nField verification\nManifest generation\n\nOutputs:\n\nruninfo-prjna477349.csv\nsrr-accessions.txt",
+    "crumbs": [
+      "Acquisition Systems",
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Metadata Acquisition</span>"
+    ]
+  },
+  {
+    "objectID": "04-metadata-acquisition.html#metadata-acquisition-beyond-ncbi",
+    "href": "04-metadata-acquisition.html#metadata-acquisition-beyond-ncbi",
+    "title": "Metadata Acquisition",
+    "section": "Metadata Acquisition Beyond NCBI",
+    "text": "Metadata Acquisition Beyond NCBI\n\nThe INSDC Ecosystem\nPublic sequencing metadata are distributed across the International Nucleotide Sequence Database Collaboration (INSDC), a partnership between three major repositories:\nINSDC\n│\n├── NCBI (USA)\n├── ENA  (Europe)\n└── DDBJ (Japan)\nThese repositories regularly exchange records and often contain the same underlying studies, samples, and sequencing runs.\n\n\nENA Example\nIn addition to NCBI, metadata can be retrieved directly from the European Nucleotide Archive (ENA).\ncurl -o data/metadata/ena-prjna477349.tsv \\\n\"https://www.ebi.ac.uk/ena/portal/api/filereport?accession=PRJNA477349&result=read_run\"\nExample output:\n100 33717    0 33717    0     0  12205      0 --:--:--  0:00:02 --:--:-- 12203\nInterpretation:\n\n100 indicates that the download completed successfully.\n33717 bytes of metadata were downloaded.\nThe metadata were saved to:\n\ndata/metadata/ena-prjna477349.tsv\n\n\nValidation\nConfirm that the metadata file was created successfully:\nwc -l data/metadata/ena-prjna477349.tsv\nExample output:\n134\nInterpretation:\nThe ENA file contains:\n\n133 sequencing run records\n1 header row\n\nThis matches the NCBI metadata retrieval results obtained earlier.\n\n\nNCBI Versus ENA\nThe same BioProject can often be accessed through both NCBI and ENA.\nFor BioProject PRJNA477349:\nEDirect Search\n      ↓\nCount = 133\n\nNCBI RunInfo\n      ↓\n133 records\n\nENA File Report\n      ↓\n133 records\nThe agreement between NCBI and ENA provides confidence that metadata retrieval was successful and complete.\n\n\n\n\n\n\n\nRepository\nPrimary Strength\n\n\n\n\nNCBI\nMetadata discovery, accession relationships, and repository navigation\n\n\nENA\nDownload metadata, FASTQ locations, file sizes, and checksums\n\n\nDDBJ\nAlternative INSDC access point\n\n\n\n\n\nRepository Selection Strategy\nA practical metadata acquisition workflow often combines NCBI and ENA.\nStudy Discovery\n      ↓\nNCBI\n      ↓\nMetadata Validation\n      ↓\nENA\n      ↓\nDownload Planning\n      ↓\nData Download\nIn this workflow:\n\nNCBI is used to discover studies and retrieve metadata.\nENA is used to obtain download-oriented metadata such as FASTQ locations, file sizes, and MD5 checksums.\nDDBJ serves as an additional access point within the INSDC ecosystem when needed.",
+    "crumbs": [
+      "Acquisition Systems",
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Metadata Acquisition</span>"
+    ]
+  },
+  {
+    "objectID": "04-metadata-acquisition.html#metadata-acquisition-outputs",
+    "href": "04-metadata-acquisition.html#metadata-acquisition-outputs",
+    "title": "Metadata Acquisition",
+    "section": "Metadata Acquisition Outputs",
+    "text": "Metadata Acquisition Outputs\nThe workflows presented in this chapter generate reusable metadata assets that support downstream data acquisition activities.\ndata/\n└── metadata/\n    ├── runinfo-prjna477349.csv\n    ├── ena-prjna477349.tsv\n    └── srr-accessions.txt\n\n\n\n\n\n\n\nFile\nPurpose\n\n\n\n\nruninfo-prjna477349.csv\nRun-level metadata retrieved from NCBI SRA\n\n\nena-prjna477349.tsv\nDownload-oriented metadata retrieved from ENA\n\n\nsrr-accessions.txt\nDownload manifest containing sequencing run accessions\n\n\n\nTogether, these assets provide the foundation for reproducible data download and dataset assembly workflows.",
+    "crumbs": [
+      "Acquisition Systems",
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Metadata Acquisition</span>"
+    ]
+  },
+  {
+    "objectID": "04-metadata-acquisition.html#summary",
+    "href": "04-metadata-acquisition.html#summary",
+    "title": "Metadata Acquisition",
+    "section": "Summary",
+    "text": "Summary\nIn this chapter, we transformed a study accession into validated metadata assets suitable for downstream analysis.\nStudy Accession\n      ↓\nMetadata Discovery\n      ↓\nMetadata Retrieval\n      ↓\nMetadata Validation\n      ↓\nMetadata Evaluation\n      ↓\nDownload Manifest\nAlong the way, we explored:\n\nMetadata categories and sources\nMetadata completeness and quality\nInclusion and exclusion criteria\nNCBI metadata retrieval using EDirect\nENA metadata retrieval using the ENA API\nValidation and manifest generation\nMetadata as a scientific asset\n\nThe resulting metadata assets provide the information needed to identify relevant samples, plan downloads, and support reproducible dataset construction.",
+    "crumbs": [
+      "Acquisition Systems",
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Metadata Acquisition</span>"
+    ]
+  },
+  {
+    "objectID": "04-metadata-acquisition.html#looking-ahead",
+    "href": "04-metadata-acquisition.html#looking-ahead",
+    "title": "Metadata Acquisition",
+    "section": "Looking Ahead",
+    "text": "Looking Ahead\nMetadata acquisition determines what data should be downloaded.\nThe next stage of the Data Acquisition System focuses on retrieving the data themselves.\nIn Chapter 05, we use the download manifest generated here to acquire sequencing data from public repositories, validate downloaded files, and prepare them for downstream analysis.\nMetadata Acquisition\n      ↓\nDownload Manifest\n      ↓\nData Download\n      ↓\nFASTQ Files",
+    "crumbs": [
+      "Acquisition Systems",
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Metadata Acquisition</span>"
+    ]
+  },
+  {
+    "objectID": "05-data-download-system.html",
+    "href": "05-data-download-system.html",
+    "title": "Data Download System",
+    "section": "",
+    "text": "Learning Objectives\nOnce studies have been identified, accession systems understood, and metadata evaluated, the next step is acquiring the sequencing data.\nData download transforms study selection and metadata assets into locally accessible sequencing files that can be validated, organized, transferred, and assembled into downstream reference datasets. A reproducible acquisition workflow requires more than simply downloading files. Researchers must understand where files reside, how they are accessed, how downloads can be resumed, and how file integrity can be verified.\nBy the end of this chapter, you will be able to:",
+    "crumbs": [
+      "Acquisition Systems",
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Data Download System</span>"
+    ]
+  },
+  {
+    "objectID": "05-data-download-system.html#learning-objectives",
+    "href": "05-data-download-system.html#learning-objectives",
+    "title": "Data Download System",
+    "section": "",
+    "text": "Select appropriate repositories for sequencing data download.\nReuse the CDI data acquisition Conda environment.\nInstall and verify SRA Toolkit commands.\nBuild download manifests from metadata assets.\nRetrieve sequencing files through ENA and NCBI workflows.\nOrganize downloaded files into a reproducible project structure.\nVerify file presence, file size, checksums, and sample counts.\nGenerate FASTQ inventories for downstream validation.",
+    "crumbs": [
+      "Acquisition Systems",
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Data Download System</span>"
+    ]
+  },
+  {
+    "objectID": "05-data-download-system.html#why-a-data-download-system-matters",
+    "href": "05-data-download-system.html#why-a-data-download-system-matters",
+    "title": "Data Download System",
+    "section": "Why a Data Download System Matters",
+    "text": "Why a Data Download System Matters\nMetadata acquisition tells us what data exist.\nThe Data Download System retrieves the actual sequencing files required for downstream analysis.\nMetadata Assets\n      ↓\nDownload Manifest\n      ↓\nRepository Selection\n      ↓\nDownload Execution\n      ↓\nIntegrity Verification\n      ↓\nFASTQ Inventory\n      ↓\nData Validation System\nThe quality of downstream analyses depends on the quality and completeness of acquired data. A successful download workflow should ensure that:\n\nThe correct files are retrieved.\nFiles are complete.\nDownloads are reproducible.\nData provenance is preserved.\nAcquisition steps can be repeated when necessary.",
+    "crumbs": [
+      "Acquisition Systems",
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Data Download System</span>"
+    ]
+  },
+  {
+    "objectID": "05-data-download-system.html#data-download-system-architecture",
+    "href": "05-data-download-system.html#data-download-system-architecture",
+    "title": "Data Download System",
+    "section": "Data Download System Architecture",
+    "text": "Data Download System Architecture\n\n\nCode\nflowchart TD\n\nA[Metadata Assets]\n--&gt; B[Download Manifest]\n\nB --&gt; C[Repository Selection]\n\nC --&gt; D[Download Execution]\n\nD --&gt; E[Integrity Verification]\n\nE --&gt; F[FASTQ Inventory]\n\nF --&gt; G[Data Validation System]\n\n\n\n\n\nflowchart TD\n\nA[Metadata Assets]\n--&gt; B[Download Manifest]\n\nB --&gt; C[Repository Selection]\n\nC --&gt; D[Download Execution]\n\nD --&gt; E[Integrity Verification]\n\nE --&gt; F[FASTQ Inventory]\n\nF --&gt; G[Data Validation System]\n\n\n\n\n\n\nThe Data Download System begins with metadata assets generated in Chapter 04 and ends with a documented inventory of downloaded files.",
+    "crumbs": [
+      "Acquisition Systems",
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Data Download System</span>"
+    ]
+  },
+  {
+    "objectID": "05-data-download-system.html#environment-reuse",
+    "href": "05-data-download-system.html#environment-reuse",
+    "title": "Data Download System",
+    "section": "Environment Reuse",
+    "text": "Environment Reuse\nThe CDI Data Acquisition System uses a single Conda environment throughout the workflow.\nconda activate cdi-data-acquisition\nThis avoids unnecessary environment switching and ensures that metadata acquisition, data download, validation, and dataset assembly operate within a consistent software environment.",
+    "crumbs": [
+      "Acquisition Systems",
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Data Download System</span>"
+    ]
+  },
+  {
+    "objectID": "05-data-download-system.html#cdi-data-acquisition-environment",
+    "href": "05-data-download-system.html#cdi-data-acquisition-environment",
+    "title": "Data Download System",
+    "section": "CDI Data Acquisition Environment",
+    "text": "CDI Data Acquisition Environment\nThe environment used throughout this book is defined as:\nname: cdi-data-acquisition\n\nchannels:\n  - conda-forge\n  - bioconda\n\ndependencies:\n  - entrez-direct\n  - pysradb\n  - sra-tools\n  - wget\n  - curl\n  - seqkit\n  - csvtk\n  - jq\n  - parallel\n  - pigz\n  - python",
+    "crumbs": [
+      "Acquisition Systems",
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Data Download System</span>"
+    ]
+  },
+  {
+    "objectID": "05-data-download-system.html#environment-verification",
+    "href": "05-data-download-system.html#environment-verification",
+    "title": "Data Download System",
+    "section": "Environment Verification",
+    "text": "Environment Verification\nVerify the key tools required by the Data Download System.\npython --version\n\nprefetch --version\nfasterq-dump --version\nvdb-validate --version\n\npysradb --help\n\nseqkit version\ncsvtk version\n\njq --version\nparallel --version\n\nwhich esearch\nSuccessful execution confirms that the shared CDI data acquisition environment is ready for metadata acquisition, data download, and data validation workflows.",
+    "crumbs": [
+      "Acquisition Systems",
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Data Download System</span>"
+    ]
+  },
+  {
+    "objectID": "05-data-download-system.html#common-sources-of-downloadable-data",
+    "href": "05-data-download-system.html#common-sources-of-downloadable-data",
+    "title": "Data Download System",
+    "section": "Common Sources of Downloadable Data",
+    "text": "Common Sources of Downloadable Data\nPublic repositories provide access to a variety of downloadable file types.\n\n\n\n\n\n\n\n\nRepository\nTypical Data\nCommon Role in This System\n\n\n\n\nSRA\nRaw sequencing reads\nRun accession source and SRA Toolkit download\n\n\nENA\nRaw sequencing reads and FASTQ URLs\nDirect FASTQ retrieval and checksum validation\n\n\nGEO\nProcessed and supplementary data\nStudy-level context and supplementary files\n\n\nMGnify\nProcessed microbiome outputs\nProcessed microbiome reference outputs\n\n\nGWAS Catalog\nSummary statistics and study information\nAssociation study discovery and summary statistics\n\n\n\nFor large public sequencing datasets, the two most important download sources are usually ENA and NCBI SRA.",
+    "crumbs": [
+      "Acquisition Systems",
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Data Download System</span>"
+    ]
+  },
+  {
+    "objectID": "05-data-download-system.html#common-download-formats",
+    "href": "05-data-download-system.html#common-download-formats",
+    "title": "Data Download System",
+    "section": "Common Download Formats",
+    "text": "Common Download Formats\nResearchers frequently encounter:\n\nFASTQ\nFASTA\nBAM\nCRAM\nTSV\nCSV\nMetadata spreadsheets\n\nFor raw sequencing acquisition, the most common target output is FASTQ. In microbiome, RNA-seq, metagenomics, and many other NGS workflows, FASTQ files serve as the starting point for downstream quality control and analysis.",
+    "crumbs": [
+      "Acquisition Systems",
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Data Download System</span>"
+    ]
+  },
+  {
+    "objectID": "05-data-download-system.html#metadata-assets-as-inputs",
+    "href": "05-data-download-system.html#metadata-assets-as-inputs",
+    "title": "Data Download System",
+    "section": "Metadata Assets as Inputs",
+    "text": "Metadata Assets as Inputs\nThe Data Download System consumes metadata assets generated during metadata acquisition.\ndata/\n└── metadata/\n    ├── runinfo-prjna477349.csv\n    ├── ena-prjna477349.tsv\n    └── srr-accessions.txt\nThese files provide accession identifiers, sample-level metadata, and potential download locations required for data retrieval.\nThe most important handoff from Chapter 04 is the run accession list:\nSRR accession list\n      ↓\nDownload manifest\n      ↓\nFASTQ retrieval",
+    "crumbs": [
+      "Acquisition Systems",
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Data Download System</span>"
+    ]
+  },
+  {
+    "objectID": "05-data-download-system.html#download-manifest",
+    "href": "05-data-download-system.html#download-manifest",
+    "title": "Data Download System",
+    "section": "Download Manifest",
+    "text": "Download Manifest\nA download manifest represents the authoritative list of files or accessions to retrieve.\nA simple accession-only manifest may look like this:\nSRR1234567\nSRR1234568\nSRR1234569\nA richer manifest may include repository links and checksums:\nrun_accession    fastq_ftp                         fastq_md5\nSRR1234567       ftp.sra.ebi.ac.uk/.../file_1.gz   abc123...\nSRR1234568       ftp.sra.ebi.ac.uk/.../file_1.gz   def456...\nRecommended output location:\ndata/\n└── manifests/\n    └── download-manifest.tsv\nThe manifest becomes the system contract: it defines what should be downloaded, from where, and how completeness will later be checked.",
+    "crumbs": [
+      "Acquisition Systems",
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Data Download System</span>"
+    ]
+  },
+  {
+    "objectID": "05-data-download-system.html#download-strategy",
+    "href": "05-data-download-system.html#download-strategy",
+    "title": "Data Download System",
+    "section": "Download Strategy",
+    "text": "Download Strategy\nThe CDI Data Acquisition System uses a staged download strategy that validates repository workflows before initiating large-scale data retrieval.\nBuild Manifest\n      ↓\nCreate Test Manifest\n      ↓\nValidate Repository Workflows\n      ├── ENA\n      └── NCBI/SRA\n      ↓\nProduction Download\nThis approach reduces risk by ensuring that:\n\nMetadata have been translated correctly into download manifests.\nRepository access is functioning as expected.\nDownload scripts operate correctly.\nRetrieved files can be validated before large-scale acquisition.\nBandwidth and storage resources are used efficiently.\n\nThe test manifest generated from the full download manifest serves as a representative subset for repository validation.\ndownload-manifest.tsv\n        ↓\ntest-manifest.tsv\n        ↓\nRepository Validation\n        ↓\nProduction Download\nSuccessful test downloads provide confidence that the acquisition workflow is functioning correctly before scaling to the complete dataset.\nOnly after successful repository validation should production downloads be initiated.",
+    "crumbs": [
+      "Acquisition Systems",
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Data Download System</span>"
+    ]
+  },
+  {
+    "objectID": "05-data-download-system.html#download-tools",
+    "href": "05-data-download-system.html#download-tools",
+    "title": "Data Download System",
+    "section": "Download Tools",
+    "text": "Download Tools\nSeveral tools are commonly used to retrieve public omics datasets.\n\nSRA Toolkit\nThe SRA Toolkit is commonly used for retrieving sequencing data from the NCBI Sequence Read Archive.\n\n\n\nTool\nPurpose\n\n\n\n\nprefetch\nDownload SRA files\n\n\nfasterq-dump\nConvert SRA files to FASTQ\n\n\nvdb-validate\nValidate downloaded SRA files\n\n\n\n\n\nFTP and HTTPS Utilities\nENA and other repositories often expose direct file links that can be retrieved with common command-line tools.\n\n\n\nTool\nPurpose\n\n\n\n\nwget\nDownload files from HTTP, HTTPS, or FTP links\n\n\ncurl\nRetrieve files and web resources\n\n\nmd5sum\nVerify MD5 checksums on Linux\n\n\nmd5\nVerify MD5 checksums on macOS\n\n\n\n\n\nCloud-Based Access\nSome repositories also provide access through cloud infrastructure and object storage systems. Cloud transfer workflows are introduced later in the book, after local download and validation concepts are established.",
+    "crumbs": [
+      "Acquisition Systems",
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Data Download System</span>"
+    ]
+  },
+  {
+    "objectID": "05-data-download-system.html#installing-sra-toolkit",
+    "href": "05-data-download-system.html#installing-sra-toolkit",
+    "title": "Data Download System",
+    "section": "Installing SRA Toolkit",
+    "text": "Installing SRA Toolkit\nActivate the shared CDI data acquisition environment:\nconda activate cdi-data-acquisition\nInstall SRA Toolkit:\nconda install -c bioconda sra-tools\nVerify installation:\nprefetch --version\nfasterq-dump --version\nvdb-validate --version\nIf the commands return version information, the toolkit is available in the active environment.",
+    "crumbs": [
+      "Acquisition Systems",
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Data Download System</span>"
+    ]
+  },
+  {
+    "objectID": "05-data-download-system.html#checking-download-utilities",
+    "href": "05-data-download-system.html#checking-download-utilities",
+    "title": "Data Download System",
+    "section": "Checking Download Utilities",
+    "text": "Checking Download Utilities\nMany systems already include curl. Some may require wget installation.\ncurl --version\nwget --version\nIf wget is missing, install it in the same environment:\nconda install -c conda-forge wget\nFor checksum verification, Linux commonly uses:\nmd5sum --version\nOn macOS, use:\nmd5 --version\nThe exact checksum command can differ by operating system, but the purpose is the same: confirm that downloaded files match the expected repository checksums.",
+    "crumbs": [
+      "Acquisition Systems",
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Data Download System</span>"
+    ]
+  },
+  {
+    "objectID": "05-data-download-system.html#recommended-directory-structure",
+    "href": "05-data-download-system.html#recommended-directory-structure",
+    "title": "Data Download System",
+    "section": "Recommended Directory Structure",
+    "text": "Recommended Directory Structure\nDownloaded files should be organized systematically.\nRecommended structure:\ndata/\n├── metadata/\n│   ├── runinfo-prjna477349.csv\n│   ├── ena-prjna477349.tsv\n│   └── srr-accessions.txt\n│\n├── manifests/\n│   └── download-manifest.tsv\n│\n├── raw/\n│   ├── sra/\n│   └── fastq/\n│\n├── logs/\n│   ├── download-ena.log\n│   ├── download-ncbi.log\n│   └── checksum.log\n│\n└── inventory/\n    └── fastq-inventory.tsv\nA consistent structure improves reproducibility, simplifies validation, and provides a clear handoff between chapters.\nCreate the directories:\nmkdir -p data/manifests\nmkdir -p data/raw/sra\nmkdir -p data/raw/fastq\nmkdir -p data/logs\nmkdir -p data/inventory",
+    "crumbs": [
+      "Acquisition Systems",
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Data Download System</span>"
+    ]
+  },
+  {
+    "objectID": "05-data-download-system.html#building-a-download-manifest",
+    "href": "05-data-download-system.html#building-a-download-manifest",
+    "title": "Data Download System",
+    "section": "Building a Download Manifest",
+    "text": "Building a Download Manifest\nA minimal accession manifest can be copied from the Chapter 04 output:\ncp data/metadata/srr-accessions.txt data/manifests/download-manifest.tsv\nPreview the manifest:\nhead data/manifests/download-manifest.tsv\nCount accessions:\nwc -l data/manifests/download-manifest.tsv\nThe expected count becomes one of the first validation checks after download.",
+    "crumbs": [
+      "Acquisition Systems",
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Data Download System</span>"
+    ]
+  },
+  {
+    "objectID": "05-data-download-system.html#system-scripts",
+    "href": "05-data-download-system.html#system-scripts",
+    "title": "Data Download System",
+    "section": "System Scripts",
+    "text": "System Scripts\nThe CDI Data Download System is implemented through a set of reusable Bash scripts.\nscripts/bash/\n├── 05a-build-download-manifest.sh\n│   └── Create production and test manifests\n│\n├── 05b-download-ena-fastq.sh\n│   └── Download FASTQ files from ENA\n│\n├── 05c-download-ncbi-sra.sh\n│   └── Download and convert SRA accessions\n│\n├── 05d-verify-downloads.sh\n│   └── Verify downloaded FASTQ assets\n│\n└── 05e-build-fastq-inventory.sh\n    └── Generate FASTQ inventory reports\nThese scripts operate on the directory structure and manifest created in the previous sections and provide a reproducible implementation of the Data Download System.\nBefore executing the full workflow, it is good practice to validate the environment, directory structure, and download process using a single accession. The following section demonstrates this verification step before scaling to larger manifests and automated script execution.",
+    "crumbs": [
+      "Acquisition Systems",
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Data Download System</span>"
+    ]
+  },
+  {
+    "objectID": "05-data-download-system.html#testing-and-verifying-the-download-system",
+    "href": "05-data-download-system.html#testing-and-verifying-the-download-system",
+    "title": "Data Download System",
+    "section": "Testing and Verifying the Download System",
+    "text": "Testing and Verifying the Download System\nBefore downloading an entire dataset, it is good practice to validate the workflow using a single accession from the download manifest.\nPreview the first accession:\nhead -n 1 data/manifests/download-manifest.tsv\nOutput:\nSRR7450741\nDownload the accession using SRA Toolkit:\nprefetch SRR7450741 \\\n  --output-directory data/raw/sra\nSuccessful execution created:\ndata/raw/sra/\n└── SRR7450741/\n    └── SRR7450741.sra\nVerify the downloaded file:\nfind data/raw/sra -type f\nOutput:\ndata/raw/sra/SRR7450741/SRR7450741.sra\nConvert the SRA file to FASTQ:\nfasterq-dump \\\n  data/raw/sra/SRR7450741/SRR7450741.sra \\\n  --outdir data/raw/fastq\nOutput:\nspots read      : 79,065\nreads read      : 158,130\nreads written   : 158,130\nInspect the generated FASTQ files:\nls -lh data/raw/fastq\nOutput:\ntotal 115344\n-rw-r--r--@ 1 tmbmacbookair  staff    28M Jun 11 15:35 SRR7450741_1.fastq\n-rw-r--r--@ 1 tmbmacbookair  staff    28M Jun 11 15:35 SRR7450741_2.fastq\nThe presence of two FASTQ files indicates that this sequencing run is paired-end.\nPerform a preliminary validation using SeqKit:\nseqkit stats data/raw/fastq/*.fastq\nOutput:\nfile                               format  type  num_seqs     sum_len  min_len  avg_len  max_len\ndata/raw/fastq/SRR7450741_1.fastq  FASTQ   DNA     79,065  11,938,815      151      151      151\ndata/raw/fastq/SRR7450741_2.fastq  FASTQ   DNA     79,065  11,938,815      151      151      151\n\nVerification Results\nThis simple test confirms that:\n\nThe download manifest is valid.\nSRA Toolkit successfully retrieved the sequencing run.\nFASTQ conversion completed without errors.\nThe run is paired-end, producing two FASTQ files.\nBoth FASTQ files contain the same number of reads (79,065).\nRead counts are consistent with the reported number of sequencing spots.\nRead length is uniform at 151 bp across both files.\nSeqKit successfully parsed both FASTQ files.\nNo obvious truncation or corruption is detected.\n\nAt this stage we have demonstrated:\nMetadata Assets\n        ↓\nDownload Manifest\n        ↓\nSRA Download\n        ↓\nFASTQ Generation\n        ↓\nBasic Validation\nThis preliminary verification provides confidence that the acquisition workflow is functioning correctly.\nRather than immediately downloading hundreds of sequencing runs, validating the workflow on a single accession helps confirm that repository access, directory structure, software installation, FASTQ conversion, and basic file inspection are all functioning as expected.\nOnce the workflow has been verified, the same approach can be scaled to the complete download manifest through the CDI Data Download System scripts.\nThe following sections describe two common strategies for large-scale data acquisition: direct FASTQ retrieval from ENA and SRA-based retrieval using the NCBI SRA Toolkit. Rather than executing individual commands manually, these workflows are implemented through the reusable Bash scripts introduced above.",
+    "crumbs": [
+      "Acquisition Systems",
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Data Download System</span>"
+    ]
+  },
+  {
+    "objectID": "05-data-download-system.html#repository-selection-strategy",
+    "href": "05-data-download-system.html#repository-selection-strategy",
+    "title": "Data Download System",
+    "section": "Repository Selection Strategy",
+    "text": "Repository Selection Strategy\nThe recommended strategy is to use NCBI for study discovery and accession resolution, then use ENA for direct FASTQ download when suitable links and checksums are available.\nStudy Discovery\n      ↓\nNCBI\n      ↓\nMetadata Acquisition\n      ↓\nENA\n      ↓\nDownload Planning\n      ↓\nData Download\n\n\n\n\n\n\n\nScenario\nPreferred Repository\n\n\n\n\nMetadata discovery\nNCBI\n\n\nFASTQ download with direct URLs\nENA\n\n\nMissing FASTQ URLs\nNCBI SRA Toolkit\n\n\nNeed SRA-native retrieval\nNCBI SRA Toolkit\n\n\nControlled-access data\nRepository-specific process\n\n\nSupplementary processed files\nGEO, ENA, project archive, or journal supplement\n\n\n\nThis strategy avoids treating all repositories as interchangeable. Each repository contributes differently to the acquisition system.",
+    "crumbs": [
+      "Acquisition Systems",
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Data Download System</span>"
+    ]
+  },
+  {
+    "objectID": "05-data-download-system.html#download-workflow-1-ena-direct-fastq-download",
+    "href": "05-data-download-system.html#download-workflow-1-ena-direct-fastq-download",
+    "title": "Data Download System",
+    "section": "Download Workflow 1: ENA Direct FASTQ Download",
+    "text": "Download Workflow 1: ENA Direct FASTQ Download\nENA is often preferred when direct FASTQ links and MD5 checksums are available.\nENA Metadata\n      ↓\nFASTQ URLs\n      ↓\nwget or curl\n      ↓\nFASTQ Files\n      ↓\nChecksum Verification\nThe ENA metadata file may contain columns such as:\n\nrun_accession\nfastq_ftp\nfastq_md5\nfastq_bytes\n\nThe exact column names should be inspected before writing download commands:\nhead -n 1 data/metadata/ena-prjna477349.tsv\nThe ENA download workflow is implemented by:\nbash scripts/bash/05b-download-ena-fastq.sh\nThis script extracts FASTQ URLs from the ENA metadata file, writes them to:\ndata/manifests/ena-fastq-urls.txt\nand downloads the files into:\ndata/raw/fastq/\nDownload logs are written to:\ndata/logs/download-ena.log\nThe script uses wget --continue, which allows interrupted downloads to resume when possible.",
+    "crumbs": [
+      "Acquisition Systems",
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Data Download System</span>"
+    ]
+  },
+  {
+    "objectID": "05-data-download-system.html#download-workflow-2-ncbi-sra-retrieval",
+    "href": "05-data-download-system.html#download-workflow-2-ncbi-sra-retrieval",
+    "title": "Data Download System",
+    "section": "Download Workflow 2: NCBI SRA Retrieval",
+    "text": "Download Workflow 2: NCBI SRA Retrieval\nWhen direct FASTQ links are unavailable, the SRA Toolkit workflow can be used.\nSRR Accessions\n      ↓\nprefetch\n      ↓\nSRA Files\n      ↓\nfasterq-dump\n      ↓\nFASTQ Files\nThe NCBI SRA workflow is implemented by:\nbash scripts/bash/05c-download-ncbi-sra.sh\nBy default, this script uses the small test manifest:\ndata/manifests/test-manifest.tsv\nThis makes the workflow safe for testing and book development.\nTo run the workflow on the full dataset, provide the full manifest explicitly:\nbash scripts/bash/05c-download-ncbi-sra.sh \\\n  data/manifests/download-manifest.tsv\nThe script performs three steps:\nDownload SRA files\n      ↓\nConvert SRA to FASTQ\n      ↓\nCompress FASTQ files\nOutputs are written to:\ndata/raw/sra/\ndata/raw/fastq/\ndata/logs/download-ncbi.log\nThis test-first pattern prevents accidentally launching a full dataset download before the workflow has been validated.\nFor large datasets, compression can take time. Faster alternatives such as pigz can be used when parallel compression is required.\nThe previous single-accession test demonstrated that the download workflow is functioning correctly on a representative sequencing run. After scaling to the complete download manifest, additional checks should be performed to confirm file integrity and completeness before proceeding to downstream validation.\nCommon post-download checks include:\n\nExpected file counts\nChecksum validation\nMetadata consistency\nSample completeness\n\nThe following section focuses on checksum verification, one of the most important safeguards against incomplete or corrupted downloads.",
+    "crumbs": [
+      "Acquisition Systems",
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Data Download System</span>"
+    ]
+  },
+  {
+    "objectID": "05-data-download-system.html#checksum-verification",
+    "href": "05-data-download-system.html#checksum-verification",
+    "title": "Data Download System",
+    "section": "Checksum Verification",
+    "text": "Checksum Verification\nIf ENA provides MD5 checksums, they should be used to verify that downloaded FASTQ files match the files distributed by the repository.\nA checksum file may look like this:\nabc123...  SRR1234567_1.fastq.gz\ndef456...  SRR1234567_2.fastq.gz\nOn Linux:\ncd data/raw/fastq\nmd5sum -c ../../manifests/ena-md5.txt | tee ../../logs/checksum.log\ncd -\nOn macOS, checksum verification may require a slightly different command or installing GNU coreutils.\nThe important principle is that expected checksums from the repository should match the local downloaded files.",
+    "crumbs": [
+      "Acquisition Systems",
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Data Download System</span>"
+    ]
+  },
+  {
+    "objectID": "05-data-download-system.html#fastq-inventory-generation",
+    "href": "05-data-download-system.html#fastq-inventory-generation",
+    "title": "Data Download System",
+    "section": "FASTQ Inventory Generation",
+    "text": "FASTQ Inventory Generation\nA FASTQ inventory records the sequencing files acquired during the download process and provides a reproducible record of downloaded assets.\nRecommended output:\ndata/\n└── inventory/\n    └── fastq-inventory.tsv\nThe inventory workflow is implemented through:\nbash scripts/bash/05e-build-fastq-inventory.sh\nThis script scans the FASTQ directory and generates an inventory containing file names and file sizes.\nPreview the inventory:\nhead data/inventory/fastq-inventory.tsv\nCount inventory records:\nwc -l data/inventory/fastq-inventory.tsv\nExample output:\nfile    size_bytes\ndata/raw/fastq/SRR7450741_1.fastq.gz    12123456\ndata/raw/fastq/SRR7450741_2.fastq.gz    12098765\nThe inventory provides a concise summary of acquired sequencing assets and supports:\n\nFASTQ file counting\nStorage estimation\nDownload completeness assessment\nSample tracking\nDataset auditing\n\nThe expected number of FASTQ files, total storage requirements, and sample coverage can all be assessed from the inventory before formal validation begins.\nThe inventory becomes a key input to the Data Validation System introduced in Chapter 06.",
+    "crumbs": [
+      "Acquisition Systems",
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Data Download System</span>"
+    ]
+  },
+  {
+    "objectID": "05-data-download-system.html#end-to-end-download-example",
+    "href": "05-data-download-system.html#end-to-end-download-example",
+    "title": "Data Download System",
+    "section": "End-to-End Download Example",
+    "text": "End-to-End Download Example\nSuppose a healthy reference microbiome project identifies 850 eligible samples.\nThe workflow proceeds as follows:\n850 Eligible Samples\n        ↓\nMetadata Acquisition\n        ↓\nDownload Manifest\n        ↓\nSingle-Accession Test\n        ↓\nWorkflow Verification\n        ↓\nENA or NCBI Download Workflow\n        ↓\nDownload Verification\n        ↓\nFASTQ Inventory\n        ↓\nData Validation System\nAt this stage, the objective is not analysis. The objective is to acquire a complete and reproducible sequencing dataset suitable for downstream validation and reference dataset assembly.",
+    "crumbs": [
+      "Acquisition Systems",
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Data Download System</span>"
+    ]
+  },
+  {
+    "objectID": "05-data-download-system.html#common-challenges",
+    "href": "05-data-download-system.html#common-challenges",
+    "title": "Data Download System",
+    "section": "Common Challenges",
+    "text": "Common Challenges\nResearchers frequently encounter:\n\nInterrupted downloads\nMissing files\nIncomplete metadata\nRepository-specific formats\nStorage limitations\nSlow transfer speeds\nInconsistent file naming\nPaired-end files split across multiple URLs\n\nPlanning for these challenges improves acquisition reliability.",
+    "crumbs": [
+      "Acquisition Systems",
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Data Download System</span>"
+    ]
+  },
+  {
+    "objectID": "05-data-download-system.html#reproducible-download-workflows",
+    "href": "05-data-download-system.html#reproducible-download-workflows",
+    "title": "Data Download System",
+    "section": "Reproducible Download Workflows",
+    "text": "Reproducible Download Workflows\nEvery download process should be documented.\nImportant records include:\n\nRepository source\nAccessions used\nDownload date\nCommands executed\nFile counts\nChecksum results\nValidation results\n\nThe goal is not only to download files, but to make the download process auditable and repeatable.",
+    "crumbs": [
+      "Acquisition Systems",
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Data Download System</span>"
+    ]
+  },
+  {
+    "objectID": "05-data-download-system.html#summary",
+    "href": "05-data-download-system.html#summary",
+    "title": "Data Download System",
+    "section": "Summary",
+    "text": "Summary\nThe Data Download System converts metadata assets into verified sequencing files.\nMetadata Assets\n      ↓\nDownload Manifest\n      ↓\nSingle-Accession Test\n      ↓\nWorkflow Verification\n      ↓\nENA or NCBI Download Workflow\n      ↓\nDownload Verification\n      ↓\nFASTQ Inventory\n      ↓\nData Validation System\nA reliable download system should answer five questions:\n\nWhat should be downloaded?\nWhere should it be downloaded from?\nHas the download workflow been validated?\nHow can downloaded files be verified?\nWhat inventory records the final acquired files?\n\n\nSystem Validation\nThe CDI Data Download System was validated using both ENA and NCBI acquisition workflows.\nValidation included:\n\nManifest generation (133 accessions)\nTest manifest generation (3 accessions)\nENA direct FASTQ download\nNCBI SRA download and FASTQ conversion\nFASTQ verification using SeqKit\nFASTQ inventory generation\n\nThe validation workflow successfully generated sequencing files, verification reports, and inventory records from publicly available microbiome sequencing datasets.",
+    "crumbs": [
+      "Acquisition Systems",
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Data Download System</span>"
+    ]
+  },
+  {
+    "objectID": "05-data-download-system.html#looking-ahead",
+    "href": "05-data-download-system.html#looking-ahead",
+    "title": "Data Download System",
+    "section": "Looking Ahead",
+    "text": "Looking Ahead\nAfter sequencing files have been downloaded, verified, and inventoried, the next challenge is determining whether the acquired dataset is complete, internally consistent, and suitable for downstream analysis.\nIn the next chapter, we implement the Data Validation System to evaluate file integrity, sample completeness, metadata consistency, and overall dataset readiness before reference dataset assembly and analysis.",
+    "crumbs": [
+      "Acquisition Systems",
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Data Download System</span>"
+    ]
+  },
+  {
+    "objectID": "06-data-validation-system.html",
+    "href": "06-data-validation-system.html",
+    "title": "Data Validation System",
+    "section": "",
+    "text": "Why Data Validation Matters\nAcquiring data is only one part of the data acquisition process. Before datasets can be used for analysis or reference dataset construction, researchers must verify that the downloaded files are complete, consistent, and aligned with project expectations.\nData validation provides confidence that the acquired dataset accurately represents the intended studies and samples.\nEven when data originate from reputable public repositories, validation remains essential.\nPotential issues include:\nIdentifying these issues early prevents downstream problems and improves reproducibility.",
+    "crumbs": [
+      "Acquisition Systems",
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Data Validation System</span>"
+    ]
+  },
+  {
+    "objectID": "06-data-validation-system.html#why-data-validation-matters",
+    "href": "06-data-validation-system.html#why-data-validation-matters",
+    "title": "Data Validation System",
+    "section": "",
+    "text": "Missing files\nIncomplete downloads\nCorrupted files\nMetadata mismatches\nDuplicate samples\nUnexpected sample counts",
+    "crumbs": [
+      "Acquisition Systems",
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Data Validation System</span>"
+    ]
+  },
+  {
+    "objectID": "06-data-validation-system.html#validation-across-the-acquisition-workflow",
+    "href": "06-data-validation-system.html#validation-across-the-acquisition-workflow",
+    "title": "Data Validation System",
+    "section": "Validation Across the Acquisition Workflow",
+    "text": "Validation Across the Acquisition Workflow\n\n\nCode\nflowchart TD\n\nA[Data Download]\n--&gt; B[Data Validation]\n\nB --&gt; C[Quality Assessment]\n\nC --&gt; D[Dataset Assembly]\n\n\n\n\n\nflowchart TD\n\nA[Data Download]\n--&gt; B[Data Validation]\n\nB --&gt; C[Quality Assessment]\n\nC --&gt; D[Dataset Assembly]\n\n\n\n\n\n\nValidation acts as a checkpoint between data acquisition and dataset construction.",
+    "crumbs": [
+      "Acquisition Systems",
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Data Validation System</span>"
+    ]
+  },
+  {
+    "objectID": "06-data-validation-system.html#repository-validation",
+    "href": "06-data-validation-system.html#repository-validation",
+    "title": "Data Validation System",
+    "section": "Repository Validation",
+    "text": "Repository Validation\nBefore initiating production downloads, the CDI Data Acquisition System validates repository workflows using a representative test manifest.\nTest Manifest\n      ↓\nSRR7450741\nSRR7450738\nSRR7450759\n      ↓\n      ├── ENA Retrieval\n      │        ↓\n      │     6 FASTQ Files\n      │\n      └── NCBI Retrieval\n               ↓\n            6 FASTQ Files\n      ↓\nRepository Validation\n      ↓\nProduction Readiness\nThe objective of repository validation is to confirm that:\n\nDownload manifests are constructed correctly.\nRepository access is functioning as expected.\nFASTQ files can be retrieved successfully.\nExpected file counts match downloaded files.\nMultiple repository pathways produce consistent results.\n\n\nRepository Validation Results\nfind data/raw/ena -name \"*.fastq.gz\" | wc -l\nOutput:\n6\nfind data/raw/ncbi -name \"*.fastq.gz\" | wc -l\nOutput:\n6\nValidation summary:\nRepository      Expected FASTQ Files    Downloaded FASTQ Files    Status\n\nENA                     6                        6               PASS\nNCBI/SRA                6                        6               PASS\nOverall result:\nRepository Validation Status\n\nENA: PASS\nNCBI/SRA: PASS\n\nREADY FOR PRODUCTION DOWNLOAD",
+    "crumbs": [
+      "Acquisition Systems",
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Data Validation System</span>"
+    ]
+  },
+  {
+    "objectID": "06-data-validation-system.html#validation-framework",
+    "href": "06-data-validation-system.html#validation-framework",
+    "title": "Data Validation System",
+    "section": "Validation Framework",
+    "text": "Validation Framework\nThe CDI Data Acquisition System uses a multi-layer validation strategy.\n\n\nCode\nflowchart TD\n\nA[Repository Validation]\n--&gt; B[File Count Validation]\n\nB --&gt; C[Integrity Validation]\n\nC --&gt; D[Metadata Validation]\n\nD --&gt; E[FASTQ Structure Validation]\n\nE --&gt; F[Validation Report]\n\n\n\n\n\nflowchart TD\n\nA[Repository Validation]\n--&gt; B[File Count Validation]\n\nB --&gt; C[Integrity Validation]\n\nC --&gt; D[Metadata Validation]\n\nD --&gt; E[FASTQ Structure Validation]\n\nE --&gt; F[Validation Report]\n\n\n\n\n\n\nEach validation layer addresses a different source of acquisition risk.",
+    "crumbs": [
+      "Acquisition Systems",
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Data Validation System</span>"
+    ]
+  },
+  {
+    "objectID": "06-data-validation-system.html#validation-project-structure",
+    "href": "06-data-validation-system.html#validation-project-structure",
+    "title": "Data Validation System",
+    "section": "Validation Project Structure",
+    "text": "Validation Project Structure\ndata/\n├── metadata/\n├── manifests/\n├── logs/\n├── raw/\n│   ├── ena/\n│   ├── ncbi/\n│   ├── sra/\n│   └── fastq/\n└── validation/\n    ├── repository-validation.tsv\n    ├── file-validation.tsv\n    ├── metadata-validation.tsv\n    └── validation-report.tsv\nThe validation directory stores outputs generated during the validation process.",
+    "crumbs": [
+      "Acquisition Systems",
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Data Validation System</span>"
+    ]
+  },
+  {
+    "objectID": "06-data-validation-system.html#file-level-validation",
+    "href": "06-data-validation-system.html#file-level-validation",
+    "title": "Data Validation System",
+    "section": "File-Level Validation",
+    "text": "File-Level Validation\nFile-level validation focuses on verifying the integrity of downloaded files.\nCommon checks include:\n\nFile existence\nFile size\nFile format\nCompression status\nReadability\n\nThese checks help identify incomplete or damaged downloads.\n\nVerify Downloaded File Count\nRepository validation example:\nfind data/raw/ena -name \"*.fastq.gz\" | wc -l\nfind data/raw/ncbi -name \"*.fastq.gz\" | wc -l\nExpected result:\nENA: 6\nNCBI/SRA: 6\nProduction validation example:\nfind data/raw/fastq \\\n-name \"*.fastq.gz\" \\\n| wc -l\nCompare against:\nwc -l data/manifests/ena-fastq-urls.txt\nExpected outcome:\nManifest Files = Downloaded Files",
+    "crumbs": [
+      "Acquisition Systems",
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Data Validation System</span>"
+    ]
+  },
+  {
+    "objectID": "06-data-validation-system.html#checksum-verification",
+    "href": "06-data-validation-system.html#checksum-verification",
+    "title": "Data Validation System",
+    "section": "Checksum Verification",
+    "text": "Checksum Verification\nMany repositories provide checksums that can be used to verify file integrity.\nCommon checksum methods include:\n\nMD5\nSHA-256\n\nChecksum validation helps confirm that downloaded files match repository records.\nExample:\nmd5sum sample.fastq.gz",
+    "crumbs": [
+      "Acquisition Systems",
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Data Validation System</span>"
+    ]
+  },
+  {
+    "objectID": "06-data-validation-system.html#compression-integrity-validation",
+    "href": "06-data-validation-system.html#compression-integrity-validation",
+    "title": "Data Validation System",
+    "section": "Compression Integrity Validation",
+    "text": "Compression Integrity Validation\nMost sequencing files are distributed as compressed archives.\nBefore analysis, compressed files should be tested for corruption.\ngzip -tv data/raw/fastq/*.gz\nExpected output:\nOK\nFiles failing this check should be re-downloaded.",
+    "crumbs": [
+      "Acquisition Systems",
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Data Validation System</span>"
+    ]
+  },
+  {
+    "objectID": "06-data-validation-system.html#sample-count-validation",
+    "href": "06-data-validation-system.html#sample-count-validation",
+    "title": "Data Validation System",
+    "section": "Sample Count Validation",
+    "text": "Sample Count Validation\nResearchers should verify that expected sample counts match downloaded data.\nExample:\nExpected Samples: 850\nDownloaded Samples: 850\nStatus: Pass\nDiscrepancies should be investigated before proceeding.",
+    "crumbs": [
+      "Acquisition Systems",
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Data Validation System</span>"
+    ]
+  },
+  {
+    "objectID": "06-data-validation-system.html#metadata-consistency-checks",
+    "href": "06-data-validation-system.html#metadata-consistency-checks",
+    "title": "Data Validation System",
+    "section": "Metadata Consistency Checks",
+    "text": "Metadata Consistency Checks\nValidation should also compare downloaded files against metadata records.\nQuestions to consider:\n\nDoes every sample have metadata?\nDo metadata identifiers match downloaded files?\nAre required variables present?\nAre there unexpected missing values?\n\nConsistency between metadata and sequencing data is critical.",
+    "crumbs": [
+      "Acquisition Systems",
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Data Validation System</span>"
+    ]
+  },
+  {
+    "objectID": "06-data-validation-system.html#duplicate-detection",
+    "href": "06-data-validation-system.html#duplicate-detection",
+    "title": "Data Validation System",
+    "section": "Duplicate Detection",
+    "text": "Duplicate Detection\nDuplicate samples may occur when:\n\nStudies overlap\nSamples are submitted multiple times\nMetadata contain redundant entries\n\nDuplicate detection helps prevent inflated sample counts and biased analyses.",
+    "crumbs": [
+      "Acquisition Systems",
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Data Validation System</span>"
+    ]
+  },
+  {
+    "objectID": "06-data-validation-system.html#fastq-structure-validation",
+    "href": "06-data-validation-system.html#fastq-structure-validation",
+    "title": "Data Validation System",
+    "section": "FASTQ Structure Validation",
+    "text": "FASTQ Structure Validation\nFor sequencing projects, validating FASTQ structure is particularly important.\nEach FASTQ record should contain four lines:\n@SEQ_ID\nSEQUENCE\n+\nQUALITY\nQuick inspection:\nzcat sample.fastq.gz | head\nThis confirms that the file can be decompressed and follows the expected FASTQ format.",
+    "crumbs": [
+      "Acquisition Systems",
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Data Validation System</span>"
+    ]
+  },
+  {
+    "objectID": "06-data-validation-system.html#paired-end-validation",
+    "href": "06-data-validation-system.html#paired-end-validation",
+    "title": "Data Validation System",
+    "section": "Paired-End Validation",
+    "text": "Paired-End Validation\nMany sequencing studies generate paired-end reads.\nEach sample should contain:\nsample_1.fastq.gz\nsample_2.fastq.gz\nVerify that forward and reverse files exist for every sample.\nls *_1.fastq.gz | wc -l\nls *_2.fastq.gz | wc -l\nExpected outcome:\nForward Reads = Reverse Reads",
+    "crumbs": [
+      "Acquisition Systems",
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Data Validation System</span>"
+    ]
+  },
+  {
+    "objectID": "06-data-validation-system.html#validation-of-file-formats",
+    "href": "06-data-validation-system.html#validation-of-file-formats",
+    "title": "Data Validation System",
+    "section": "Validation of File Formats",
+    "text": "Validation of File Formats\nDifferent repositories may provide data in various formats.\nCommon examples include:\n\nFASTQ\nFASTA\nBAM\nCRAM\nTSV\nCSV\n\nResearchers should verify that files are in the expected format and can be successfully opened or parsed.",
+    "crumbs": [
+      "Acquisition Systems",
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Data Validation System</span>"
+    ]
+  },
+  {
+    "objectID": "06-data-validation-system.html#automated-validation-workflow",
+    "href": "06-data-validation-system.html#automated-validation-workflow",
+    "title": "Data Validation System",
+    "section": "Automated Validation Workflow",
+    "text": "Automated Validation Workflow\nTo support reproducibility, validation should be automated whenever possible.\nExample system component:\nscripts/bash/06-validate-downloads.sh\nWorkflow:\nRepository Validation\n        ↓\nFile Count Check\n        ↓\nCompression Check\n        ↓\nMetadata Check\n        ↓\nFASTQ Validation\n        ↓\nValidation Report\nAutomated validation minimizes manual errors and ensures consistency across projects.",
+    "crumbs": [
+      "Acquisition Systems",
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Data Validation System</span>"
+    ]
+  },
+  {
+    "objectID": "06-data-validation-system.html#validation-documentation",
+    "href": "06-data-validation-system.html#validation-documentation",
+    "title": "Data Validation System",
+    "section": "Validation Documentation",
+    "text": "Validation Documentation\nValidation results should be recorded as part of the acquisition workflow.\nRecommended records include:\n\nValidation date\nFiles checked\nSample counts\nMissing files\nDetected issues\nCorrective actions\n\nDocumentation improves transparency and reproducibility.",
+    "crumbs": [
+      "Acquisition Systems",
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Data Validation System</span>"
+    ]
+  },
+  {
+    "objectID": "06-data-validation-system.html#alphabiomics-example",
+    "href": "06-data-validation-system.html#alphabiomics-example",
+    "title": "Data Validation System",
+    "section": "AlphaBiomics Example",
+    "text": "AlphaBiomics Example\nSuppose a healthy reference microbiome project downloads data for 850 eligible samples.\nValidation may involve:\n850 Expected Samples\n        ↓\nVerify Downloaded Files\n        ↓\nCheck Metadata Consistency\n        ↓\nCheck FASTQ Integrity\n        ↓\nRemove Duplicates\n        ↓\nValidated Dataset\nOnly after successful validation should samples be considered for reference dataset assembly.",
+    "crumbs": [
+      "Acquisition Systems",
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Data Validation System</span>"
+    ]
+  },
+  {
+    "objectID": "06-data-validation-system.html#common-validation-challenges",
+    "href": "06-data-validation-system.html#common-validation-challenges",
+    "title": "Data Validation System",
+    "section": "Common Validation Challenges",
+    "text": "Common Validation Challenges\nResearchers frequently encounter:\n\nMissing metadata\nCorrupted files\nInconsistent naming conventions\nDuplicate records\nRepository updates\n\nA structured validation workflow helps address these challenges systematically.",
+    "crumbs": [
+      "Acquisition Systems",
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Data Validation System</span>"
+    ]
+  },
+  {
+    "objectID": "06-data-validation-system.html#validation-as-risk-reduction",
+    "href": "06-data-validation-system.html#validation-as-risk-reduction",
+    "title": "Data Validation System",
+    "section": "Validation as Risk Reduction",
+    "text": "Validation as Risk Reduction\nData validation is not merely a technical exercise.\nIt reduces the risk of:\n\nIncorrect analyses\nMissing samples\nReproducibility failures\nMisleading conclusions\n\nValidation protects the integrity of downstream scientific work.\n\nValidation Report Example\nThe validation script generates a machine-readable report summarizing validation outcomes.\nExample execution:\nbash scripts/bash/06-validate-download.sh data/raw/ena\nOutput:\ncheck   status  value\nfastq_file_count    PASS    6\ncompression_validation  PASS    0\npaired_end_validation   PASS    3\nfastq_validation    PASS    data/raw/ena/SRR7450738_1.fastq.gz\nInterpretation:\nFASTQ File Count\nExpected: 6\nObserved: 6\nStatus: PASS\nCompression Validation\nFailed Files: 0\nStatus: PASS\nPaired-End Validation\nForward Reads: 3\nReverse Reads: 3\nStatus: PASS\nFASTQ Validation\nTest File:\nSRR7450738_1.fastq.gz\n\nStatus: PASS\nOverall result:\nRepository Validation: PASS\nFile Validation: PASS\nCompression Validation: PASS\nPaired-End Validation: PASS\nFASTQ Validation: PASS\n\nOverall Status:\nVALIDATED\nThe validation report provides a reproducible record of dataset integrity and serves as the final quality gate before production-scale data acquisition and reference dataset assembly.",
+    "crumbs": [
+      "Acquisition Systems",
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Data Validation System</span>"
+    ]
+  },
+  {
+    "objectID": "06-data-validation-system.html#summary",
+    "href": "06-data-validation-system.html#summary",
+    "title": "Data Validation System",
+    "section": "Summary",
+    "text": "Summary\nData validation transforms downloaded files into trusted analytical assets.\nRepository Validation\n        ↓\nFile Validation\n        ↓\nCompression Validation\n        ↓\nMetadata Validation\n        ↓\nFASTQ Validation\n        ↓\nValidated Dataset\nA validated dataset provides confidence that acquisition objectives have been achieved and that downstream analyses are based on complete and reliable data.",
+    "crumbs": [
+      "Acquisition Systems",
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Data Validation System</span>"
+    ]
+  },
+  {
+    "objectID": "06-data-validation-system.html#looking-ahead",
+    "href": "06-data-validation-system.html#looking-ahead",
+    "title": "Data Validation System",
+    "section": "Looking Ahead",
+    "text": "Looking Ahead\nOnce datasets have been validated, the next challenge is managing storage, transfers, and scalable access to acquired data.\nIn the next chapter, we explore cloud storage and data transfer strategies that support reproducible and collaborative data acquisition workflows while preserving the integrity of validated datasets.",
+    "crumbs": [
+      "Acquisition Systems",
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Data Validation System</span>"
+    ]
+  },
+  {
+    "objectID": "07-cloud-storage-and-transfer-system.html",
+    "href": "07-cloud-storage-and-transfer-system.html",
+    "title": "Cloud Storage and Transfer System",
+    "section": "",
+    "text": "Why Cloud Storage Matters\nAcquiring and validating data are only part of the data acquisition lifecycle. Once datasets have been validated, they must be stored, transferred, organized, and shared in a manner that supports reproducibility, collaboration, and long-term accessibility.\nThe Cloud Storage and Transfer System provides the infrastructure layer connecting validated datasets to downstream analytical workflows and reference dataset assembly.\nModern omics datasets can range from gigabytes to terabytes in size.\nExamples include:\nManaging these datasets requires storage systems that are scalable, accessible, and resilient.",
+    "crumbs": [
+      "Acquisition Systems",
+      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Cloud Storage and Transfer System</span>"
+    ]
+  },
+  {
+    "objectID": "07-cloud-storage-and-transfer-system.html#why-cloud-storage-matters",
+    "href": "07-cloud-storage-and-transfer-system.html#why-cloud-storage-matters",
+    "title": "Cloud Storage and Transfer System",
+    "section": "",
+    "text": "Large microbiome cohorts\nPopulation-scale sequencing studies\nRNA-Seq consortia\nSingle-cell atlases\nMulti-omics projects",
+    "crumbs": [
+      "Acquisition Systems",
+      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Cloud Storage and Transfer System</span>"
+    ]
+  },
+  {
+    "objectID": "07-cloud-storage-and-transfer-system.html#storage-options",
+    "href": "07-cloud-storage-and-transfer-system.html#storage-options",
+    "title": "Cloud Storage and Transfer System",
+    "section": "Storage Options",
+    "text": "Storage Options\n\nLocal Storage\nExamples:\n\nLaptops\nWorkstations\nExternal drives\n\nAdvantages:\n\nSimple\nImmediate access\n\nLimitations:\n\nLimited capacity\nHigher risk of data loss\n\n\n\nInstitutional Storage\nExamples:\n\nUniversity servers\nResearch clusters\nShared file systems\n\nAdvantages:\n\nCentralized management\nCollaboration support\n\n\n\nCloud Storage\nExamples:\n\nAWS S3\nGoogle Cloud Storage\nAzure Blob Storage\n\nAdvantages:\n\nScalability\nDurability\nGlobal accessibility",
+    "crumbs": [
+      "Acquisition Systems",
+      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Cloud Storage and Transfer System</span>"
+    ]
+  },
+  {
+    "objectID": "07-cloud-storage-and-transfer-system.html#cloud-storage-in-the-cdi-data-acquisition-system",
+    "href": "07-cloud-storage-and-transfer-system.html#cloud-storage-in-the-cdi-data-acquisition-system",
+    "title": "Cloud Storage and Transfer System",
+    "section": "Cloud Storage in the CDI Data Acquisition System",
+    "text": "Cloud Storage in the CDI Data Acquisition System\n\n\nCode\nflowchart TD\n\nA[Metadata Acquisition System]\n--&gt; B[Data Download System]\n\nB --&gt; C[Data Validation System]\n\nC --&gt; D[Cloud Storage and Transfer System]\n\nD --&gt; E[Reference Dataset Assembly System]\n\n\n\n\n\nflowchart TD\n\nA[Metadata Acquisition System]\n--&gt; B[Data Download System]\n\nB --&gt; C[Data Validation System]\n\nC --&gt; D[Cloud Storage and Transfer System]\n\nD --&gt; E[Reference Dataset Assembly System]\n\n\n\n\n\n\nCloud storage serves as the bridge between validated acquisition outputs and downstream analytical workflows.",
+    "crumbs": [
+      "Acquisition Systems",
+      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Cloud Storage and Transfer System</span>"
+    ]
+  },
+  {
+    "objectID": "07-cloud-storage-and-transfer-system.html#organizing-cloud-data",
+    "href": "07-cloud-storage-and-transfer-system.html#organizing-cloud-data",
+    "title": "Cloud Storage and Transfer System",
+    "section": "Organizing Cloud Data",
+    "text": "Organizing Cloud Data\nA structured storage layout improves reproducibility, traceability, and collaboration.\nThe Cloud Storage and Transfer System should preserve the outputs generated during metadata acquisition, download, and validation.\nLocal project structure:\nproject/\n├── metadata/\n│   ├── runinfo-prjna477349.csv\n│   ├── ena-prjna477349.tsv\n│   └── srr-accessions.txt\n├── manifests/\n│   ├── download-manifest.tsv\n│   └── test-manifest.tsv\n├── inventory/\n│   └── fastq-inventory.tsv\n├── raw/\n│   ├── ena/\n│   └── ncbi/\n├── validation/\n│   └── validation-report.tsv\n└── reference-dataset/\nAfter transfer, the same structure can be preserved in cloud storage.\nExample S3 layout:\ns3://my-reference-datasets/\n├── metadata/\n├── manifests/\n├── inventory/\n├── raw/\n└── validation/\nPreserving directory structure during transfer ensures that metadata, manifests, inventories, validation reports, and sequencing files remain linked throughout the data lifecycle.\nConsistent organization simplifies data transfer, collaboration, auditing, and long-term dataset management.",
+    "crumbs": [
+      "Acquisition Systems",
+      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Cloud Storage and Transfer System</span>"
+    ]
+  },
+  {
+    "objectID": "07-cloud-storage-and-transfer-system.html#data-transfer-methods",
+    "href": "07-cloud-storage-and-transfer-system.html#data-transfer-methods",
+    "title": "Cloud Storage and Transfer System",
+    "section": "Data Transfer Methods",
+    "text": "Data Transfer Methods\nCloud storage systems support a variety of data transfer mechanisms.\nCommon approaches include:\n\nHTTPS\nFTP\nAspera\nrsync\nCloud synchronization tools\n\nThe choice depends on data volume, infrastructure, transfer speed requirements, and repository support.\nFor large sequencing datasets, cloud-native transfer tools and object storage services are often preferred because they provide scalability, fault tolerance, and efficient handling of large file collections.\nTypical workflow:\nValidated Dataset\n        ↓\nTransfer Tool\n        ↓\nCloud Storage\n        ↓\nAnalysis Environment\nReliable transfer methods help ensure that validated datasets remain complete and accessible throughout the data lifecycle.",
+    "crumbs": [
+      "Acquisition Systems",
+      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Cloud Storage and Transfer System</span>"
+    ]
+  },
+  {
+    "objectID": "07-cloud-storage-and-transfer-system.html#cloud-transfer-implementation",
+    "href": "07-cloud-storage-and-transfer-system.html#cloud-transfer-implementation",
+    "title": "Cloud Storage and Transfer System",
+    "section": "Cloud Transfer Implementation",
+    "text": "Cloud Transfer Implementation\nAfter datasets have passed validation, they can be transferred to cloud storage for long-term preservation and collaboration.\nExample:\nbash scripts/bash/07a-sync-to-s3.sh   data   my-reference-datasets\nWorkflow:\nValidated Dataset\n        ↓\nCloud Transfer\n        ↓\nCloud Storage\n        ↓\nReference Dataset Repository\nCloud transfer scripts automate the movement of validated datasets while preserving directory structure and supporting reproducible storage workflows.",
+    "crumbs": [
+      "Acquisition Systems",
+      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Cloud Storage and Transfer System</span>"
+    ]
+  },
+  {
+    "objectID": "07-cloud-storage-and-transfer-system.html#data-provenance",
+    "href": "07-cloud-storage-and-transfer-system.html#data-provenance",
+    "title": "Cloud Storage and Transfer System",
+    "section": "Data Provenance",
+    "text": "Data Provenance\nEvery transfer should preserve provenance information.\nImportant records include:\n\nSource repository\nStudy accession\nSample accession\nRun accession\nTransfer date\nValidation status\nStorage location\n\nProvenance enables datasets to be traced, verified, and reconstructed throughout their lifecycle.\nExample provenance chain:\nPublic Repository\n        ↓\nMetadata Acquisition\n        ↓\nDownload Manifest\n        ↓\nValidation Report\n        ↓\nCloud Storage\nMaintaining provenance records supports reproducibility, auditing, collaboration, and long-term dataset management.",
+    "crumbs": [
+      "Acquisition Systems",
+      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Cloud Storage and Transfer System</span>"
+    ]
+  },
+  {
+    "objectID": "07-cloud-storage-and-transfer-system.html#security-and-access-control",
+    "href": "07-cloud-storage-and-transfer-system.html#security-and-access-control",
+    "title": "Cloud Storage and Transfer System",
+    "section": "Security and Access Control",
+    "text": "Security and Access Control\nNot all datasets are publicly accessible.\nResearchers may encounter:\n\nControlled-access datasets\nInstitutional permissions\nUser authentication requirements\nData use agreements\n\nStorage systems should support appropriate access controls to ensure that datasets are accessed only by authorized users and handled according to applicable policies and agreements.\nCommon mechanisms include:\n\nUser authentication\nRole-based permissions\nShared access groups\nAudit logs\nSecure data transfer protocols\n\nAlthough many public omics datasets are openly available, secure storage and access management become increasingly important when working with controlled-access or collaborative research projects.",
+    "crumbs": [
+      "Acquisition Systems",
+      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Cloud Storage and Transfer System</span>"
+    ]
+  },
+  {
+    "objectID": "07-cloud-storage-and-transfer-system.html#reference-dataset-example",
+    "href": "07-cloud-storage-and-transfer-system.html#reference-dataset-example",
+    "title": "Cloud Storage and Transfer System",
+    "section": "Reference Dataset Example",
+    "text": "Reference Dataset Example\nA reference dataset project may follow:\nPublic Repositories\n        ↓\nMetadata Filtering\n        ↓\nValidated Downloads\n        ↓\nCloud Storage\n        ↓\nReference Dataset Assembly\nCloud storage becomes the staging area where validated datasets are organized, preserved, and prepared for integration into a reference dataset.",
+    "crumbs": [
+      "Acquisition Systems",
+      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Cloud Storage and Transfer System</span>"
+    ]
+  },
+  {
+    "objectID": "07-cloud-storage-and-transfer-system.html#common-challenges",
+    "href": "07-cloud-storage-and-transfer-system.html#common-challenges",
+    "title": "Cloud Storage and Transfer System",
+    "section": "Common Challenges",
+    "text": "Common Challenges\nResearchers frequently encounter:\n\nStorage limits\nTransfer interruptions\nVersion confusion\nDuplicate files\nInconsistent folder structures\n\nPlanning storage workflows early helps avoid these problems.",
+    "crumbs": [
+      "Acquisition Systems",
+      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Cloud Storage and Transfer System</span>"
+    ]
+  },
+  {
+    "objectID": "07-cloud-storage-and-transfer-system.html#transfer-readiness-checklist",
+    "href": "07-cloud-storage-and-transfer-system.html#transfer-readiness-checklist",
+    "title": "Cloud Storage and Transfer System",
+    "section": "Transfer Readiness Checklist",
+    "text": "Transfer Readiness Checklist\nBefore transferring data to cloud storage, verify that:\n\nMetadata acquisition has been completed.\nDownload manifests have been generated.\nFASTQ files have been downloaded successfully.\nValidation checks have passed.\nInventory files have been created.\nCloud storage destination is available.\nAccess permissions have been verified.\nTransfer logging is enabled.\n\nChecklist workflow:\nMetadata\n      ↓\nDownloads\n      ↓\nValidation\n      ↓\nInventory\n      ↓\nCloud Transfer\nCompleting these checks helps ensure that only validated and reproducible datasets are transferred to long-term storage.",
+    "crumbs": [
+      "Acquisition Systems",
+      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Cloud Storage and Transfer System</span>"
+    ]
+  },
+  {
+    "objectID": "07-cloud-storage-and-transfer-system.html#summary",
+    "href": "07-cloud-storage-and-transfer-system.html#summary",
+    "title": "Cloud Storage and Transfer System",
+    "section": "Summary",
+    "text": "Summary\nThe Cloud Storage and Transfer System extends the CDI Data Acquisition System beyond the local workstation.\nValidated Dataset\n        ↓\nCloud Transfer\n        ↓\nCloud Storage\n        ↓\nCollaborative Access\n        ↓\nReference Dataset Assembly\nBy combining structured storage, reliable transfer methods, provenance tracking, and appropriate access controls, researchers can create durable and reproducible datasets suitable for long-term analysis and collaboration.",
+    "crumbs": [
+      "Acquisition Systems",
+      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Cloud Storage and Transfer System</span>"
+    ]
+  },
+  {
+    "objectID": "07-cloud-storage-and-transfer-system.html#looking-ahead",
+    "href": "07-cloud-storage-and-transfer-system.html#looking-ahead",
+    "title": "Cloud Storage and Transfer System",
+    "section": "Looking Ahead",
+    "text": "Looking Ahead\nOnce datasets have been acquired, validated, transferred, and organized, the next challenge is transforming them into coherent and reusable reference datasets.\nIn the next chapter, we explore the Reference Dataset Assembly System and the process of integrating validated data into analytical resources that support reproducible biological research.",
+    "crumbs": [
+      "Acquisition Systems",
+      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Cloud Storage and Transfer System</span>"
+    ]
+  },
+  {
+    "objectID": "08-reference-dataset-assembly-system.html",
+    "href": "08-reference-dataset-assembly-system.html",
+    "title": "Reference Dataset Assembly System",
+    "section": "",
+    "text": "What Is a Reference Dataset?\nAcquiring, validating, and storing data are essential steps in the data acquisition lifecycle. However, the ultimate objective is to transform these assets into a reference dataset that can support downstream analysis, benchmarking, interpretation, and decision-making.\nThe Reference Dataset Assembly System integrates validated sequencing data, metadata, inventories, and provenance records into a coherent and reproducible analytical resource.\nA reference dataset is a curated collection of samples and associated metadata assembled for a specific scientific objective.\nExamples include:\nUnlike raw repository data, reference datasets are intentionally constructed, documented, validated, and maintained.",
+    "crumbs": [
+      "Acquisition Systems",
+      "<span class='chapter-number'>10</span>  <span class='chapter-title'>Reference Dataset Assembly System</span>"
+    ]
+  },
+  {
+    "objectID": "08-reference-dataset-assembly-system.html#what-is-a-reference-dataset",
+    "href": "08-reference-dataset-assembly-system.html#what-is-a-reference-dataset",
+    "title": "Reference Dataset Assembly System",
+    "section": "",
+    "text": "Healthy gut microbiome references\nDisease-specific cohorts\nRNA-Seq benchmark datasets\nSingle-cell reference atlases\nPopulation genomics resources",
+    "crumbs": [
+      "Acquisition Systems",
+      "<span class='chapter-number'>10</span>  <span class='chapter-title'>Reference Dataset Assembly System</span>"
+    ]
+  },
+  {
+    "objectID": "08-reference-dataset-assembly-system.html#why-reference-dataset-assembly-matters",
+    "href": "08-reference-dataset-assembly-system.html#why-reference-dataset-assembly-matters",
+    "title": "Reference Dataset Assembly System",
+    "section": "Why Reference Dataset Assembly Matters",
+    "text": "Why Reference Dataset Assembly Matters\nPublic repositories contain data generated by different studies, laboratories, populations, and experimental designs.\nSimply combining datasets without careful evaluation can introduce:\n\nBias\nDuplicate samples\nInconsistent metadata\nConfounding variables\nReproducibility challenges\n\nReference dataset assembly helps ensure that the final dataset is appropriate for its intended objective.",
+    "crumbs": [
+      "Acquisition Systems",
+      "<span class='chapter-number'>10</span>  <span class='chapter-title'>Reference Dataset Assembly System</span>"
+    ]
+  },
+  {
+    "objectID": "08-reference-dataset-assembly-system.html#reference-dataset-assembly-in-the-cdi-data-acquisition-system",
+    "href": "08-reference-dataset-assembly-system.html#reference-dataset-assembly-in-the-cdi-data-acquisition-system",
+    "title": "Reference Dataset Assembly System",
+    "section": "Reference Dataset Assembly in the CDI Data Acquisition System",
+    "text": "Reference Dataset Assembly in the CDI Data Acquisition System\n\n\nCode\nflowchart TD\n\nA[Metadata Acquisition System]\n--&gt; B[Data Download System]\n\nB --&gt; C[Data Validation System]\n\nC --&gt; D[Cloud Storage and Transfer System]\n\nD --&gt; E[Reference Dataset Assembly System]\n\nE --&gt; F[Reusable Reference Dataset]\n\n\n\n\n\nflowchart TD\n\nA[Metadata Acquisition System]\n--&gt; B[Data Download System]\n\nB --&gt; C[Data Validation System]\n\nC --&gt; D[Cloud Storage and Transfer System]\n\nD --&gt; E[Reference Dataset Assembly System]\n\nE --&gt; F[Reusable Reference Dataset]\n\n\n\n\n\n\nThe Reference Dataset Assembly System integrates outputs from previous acquisition stages into a reusable analytical resource.",
+    "crumbs": [
+      "Acquisition Systems",
+      "<span class='chapter-number'>10</span>  <span class='chapter-title'>Reference Dataset Assembly System</span>"
+    ]
+  },
+  {
+    "objectID": "08-reference-dataset-assembly-system.html#define-the-dataset-objective",
+    "href": "08-reference-dataset-assembly-system.html#define-the-dataset-objective",
+    "title": "Reference Dataset Assembly System",
+    "section": "Define the Dataset Objective",
+    "text": "Define the Dataset Objective\nEvery reference dataset should begin with a clearly defined objective.\nExamples:\n\n\n\nObjective\nDataset Type\n\n\n\n\nHealthy Gut Reference\nHealthy cohort\n\n\nIBD Comparison Dataset\nDisease cohort\n\n\nRNA-Seq Benchmark\nExpression reference\n\n\nSingle-Cell Atlas\nCell-state reference\n\n\nPopulation Genomics Resource\nPopulation reference\n\n\n\nThe objective determines:\n\nWhich studies are included\nWhich samples are eligible\nWhich metadata fields are required\nWhich exclusion criteria are applied\n\nA clearly defined objective provides the foundation for dataset assembly.",
+    "crumbs": [
+      "Acquisition Systems",
+      "<span class='chapter-number'>10</span>  <span class='chapter-title'>Reference Dataset Assembly System</span>"
+    ]
+  },
+  {
+    "objectID": "08-reference-dataset-assembly-system.html#sample-selection-framework",
+    "href": "08-reference-dataset-assembly-system.html#sample-selection-framework",
+    "title": "Reference Dataset Assembly System",
+    "section": "Sample Selection Framework",
+    "text": "Sample Selection Framework\nReference datasets should be constructed using predefined inclusion and exclusion criteria.\n\nInclusion Examples\n\nHuman samples\nHealthy individuals\nStool specimens\nPublicly available metadata\nAvailable sequencing files\n\n\n\nExclusion Examples\n\nMissing metadata\nUnknown disease status\nDuplicate samples\nIncomplete sequencing files\nFailed validation checks\n\nConsistent criteria improve transparency and reproducibility.",
+    "crumbs": [
+      "Acquisition Systems",
+      "<span class='chapter-number'>10</span>  <span class='chapter-title'>Reference Dataset Assembly System</span>"
+    ]
+  },
+  {
+    "objectID": "08-reference-dataset-assembly-system.html#metadata-harmonization",
+    "href": "08-reference-dataset-assembly-system.html#metadata-harmonization",
+    "title": "Reference Dataset Assembly System",
+    "section": "Metadata Harmonization",
+    "text": "Metadata Harmonization\nStudies often use different terminology to describe the same concepts.\nExample:\n\n\n\nStudy A\nStudy B\nHarmonized Value\n\n\n\n\nHealthy\nControl\nHealthy\n\n\nMale\nM\nMale\n\n\nFemale\nF\nFemale\n\n\n\nMetadata harmonization creates a common representation across studies.\nThis process improves:\n\nDataset integration\nComparability\nReproducibility\nDownstream analysis",
+    "crumbs": [
+      "Acquisition Systems",
+      "<span class='chapter-number'>10</span>  <span class='chapter-title'>Reference Dataset Assembly System</span>"
+    ]
+  },
+  {
+    "objectID": "08-reference-dataset-assembly-system.html#dataset-integration",
+    "href": "08-reference-dataset-assembly-system.html#dataset-integration",
+    "title": "Reference Dataset Assembly System",
+    "section": "Dataset Integration",
+    "text": "Dataset Integration\nMultiple studies may contribute to a single reference dataset.\n\n\nCode\nflowchart LR\n\nA[Study 1]\n--&gt; D[Reference Dataset]\n\nB[Study 2]\n--&gt; D\n\nC[Study 3]\n--&gt; D\n\n\n\n\n\nflowchart LR\n\nA[Study 1]\n--&gt; D[Reference Dataset]\n\nB[Study 2]\n--&gt; D\n\nC[Study 3]\n--&gt; D\n\n\n\n\n\n\nDataset integration combines validated samples while preserving study-level provenance information.",
+    "crumbs": [
+      "Acquisition Systems",
+      "<span class='chapter-number'>10</span>  <span class='chapter-title'>Reference Dataset Assembly System</span>"
+    ]
+  },
+  {
+    "objectID": "08-reference-dataset-assembly-system.html#provenance-preservation",
+    "href": "08-reference-dataset-assembly-system.html#provenance-preservation",
+    "title": "Reference Dataset Assembly System",
+    "section": "Provenance Preservation",
+    "text": "Provenance Preservation\nReference datasets should retain information about:\n\nSource studies\nBioProjects\nBioSamples\nRun accessions\nDownload dates\nValidation status\nStorage locations\n\nProvenance enables datasets to be traced, verified, and reconstructed throughout their lifecycle.\nExample provenance chain:\nPublic Repository\n        ↓\nMetadata Acquisition\n        ↓\nDownload Manifest\n        ↓\nValidation Report\n        ↓\nReference Dataset\nMaintaining provenance records supports transparency, auditing, and reproducibility.",
+    "crumbs": [
+      "Acquisition Systems",
+      "<span class='chapter-number'>10</span>  <span class='chapter-title'>Reference Dataset Assembly System</span>"
+    ]
+  },
+  {
+    "objectID": "08-reference-dataset-assembly-system.html#reference-dataset-project-structure",
+    "href": "08-reference-dataset-assembly-system.html#reference-dataset-project-structure",
+    "title": "Reference Dataset Assembly System",
+    "section": "Reference Dataset Project Structure",
+    "text": "Reference Dataset Project Structure\nA reference dataset should preserve all components required for reproducibility.\nExample:\nreference-dataset/\n├── metadata/\n├── manifests/\n├── inventory/\n├── raw/\n├── validation/\n├── harmonized-metadata/\n├── inclusion-exclusion/\n├── documentation/\n└── dataset-release/\nThis structure separates acquisition assets from dataset-specific assembly outputs.",
+    "crumbs": [
+      "Acquisition Systems",
+      "<span class='chapter-number'>10</span>  <span class='chapter-title'>Reference Dataset Assembly System</span>"
+    ]
+  },
+  {
+    "objectID": "08-reference-dataset-assembly-system.html#reference-dataset-assembly-workflow",
+    "href": "08-reference-dataset-assembly-system.html#reference-dataset-assembly-workflow",
+    "title": "Reference Dataset Assembly System",
+    "section": "Reference Dataset Assembly Workflow",
+    "text": "Reference Dataset Assembly Workflow\nReference dataset assembly transforms validated acquisition outputs into a curated analytical resource.\nCandidate Studies\n        ↓\nMetadata Review\n        ↓\nInclusion Criteria\n        ↓\nExclusion Criteria\n        ↓\nValidated Samples\n        ↓\nMetadata Harmonization\n        ↓\nDataset Integration\n        ↓\nReference Dataset\nEach step contributes to the quality and reproducibility of the final dataset.",
+    "crumbs": [
+      "Acquisition Systems",
+      "<span class='chapter-number'>10</span>  <span class='chapter-title'>Reference Dataset Assembly System</span>"
+    ]
+  },
+  {
+    "objectID": "08-reference-dataset-assembly-system.html#reference-dataset-documentation",
+    "href": "08-reference-dataset-assembly-system.html#reference-dataset-documentation",
+    "title": "Reference Dataset Assembly System",
+    "section": "Reference Dataset Documentation",
+    "text": "Reference Dataset Documentation\nEvery reference dataset should include documentation describing:\n\nDataset objective\nData sources\nInclusion criteria\nExclusion criteria\nMetadata fields\nValidation procedures\nHarmonization methods\nKnown limitations\n\nDocumentation enables others to understand, evaluate, and reuse the dataset.",
+    "crumbs": [
+      "Acquisition Systems",
+      "<span class='chapter-number'>10</span>  <span class='chapter-title'>Reference Dataset Assembly System</span>"
+    ]
+  },
+  {
+    "objectID": "08-reference-dataset-assembly-system.html#reference-dataset-readiness-checklist",
+    "href": "08-reference-dataset-assembly-system.html#reference-dataset-readiness-checklist",
+    "title": "Reference Dataset Assembly System",
+    "section": "Reference Dataset Readiness Checklist",
+    "text": "Reference Dataset Readiness Checklist\nBefore releasing a reference dataset, verify that:\n\nStudy selection criteria are documented.\nMetadata have been harmonized.\nValidation checks have passed.\nDuplicate samples have been removed.\nProvenance records are preserved.\nDataset documentation is complete.\nInclusion and exclusion criteria are recorded.\nDataset version information is assigned.\n\nChecklist workflow:\nValidated Data\n        ↓\nHarmonization\n        ↓\nIntegration\n        ↓\nDocumentation\n        ↓\nReference Dataset Release\nCompleting these checks helps ensure that the released dataset is reproducible and suitable for downstream analysis.",
+    "crumbs": [
+      "Acquisition Systems",
+      "<span class='chapter-number'>10</span>  <span class='chapter-title'>Reference Dataset Assembly System</span>"
+    ]
+  },
+  {
+    "objectID": "08-reference-dataset-assembly-system.html#healthy-reference-microbiome-example",
+    "href": "08-reference-dataset-assembly-system.html#healthy-reference-microbiome-example",
+    "title": "Reference Dataset Assembly System",
+    "section": "Healthy Reference Microbiome Example",
+    "text": "Healthy Reference Microbiome Example\nSuppose the objective is:\n\nBuild a healthy reference gut microbiome dataset.\n\nThe assembly workflow may proceed as follows:\nCandidate Studies\n        ↓\nMetadata Review\n        ↓\nApply Inclusion Criteria\n        ↓\nApply Exclusion Criteria\n        ↓\nValidate Samples\n        ↓\nHarmonize Metadata\n        ↓\nReference Dataset\nThe final dataset is no longer simply a collection of downloaded files. It becomes a curated analytical resource suitable for benchmarking, comparison, and interpretation.",
+    "crumbs": [
+      "Acquisition Systems",
+      "<span class='chapter-number'>10</span>  <span class='chapter-title'>Reference Dataset Assembly System</span>"
+    ]
+  },
+  {
+    "objectID": "08-reference-dataset-assembly-system.html#characteristics-of-a-high-quality-reference-dataset",
+    "href": "08-reference-dataset-assembly-system.html#characteristics-of-a-high-quality-reference-dataset",
+    "title": "Reference Dataset Assembly System",
+    "section": "Characteristics of a High-Quality Reference Dataset",
+    "text": "Characteristics of a High-Quality Reference Dataset\nA high-quality reference dataset should be:\n\nPurpose-driven\nReproducible\nWell-documented\nMetadata-rich\nValidated\nTraceable\nReusable\n\nThese characteristics increase confidence in downstream analyses and facilitate long-term reuse.",
+    "crumbs": [
+      "Acquisition Systems",
+      "<span class='chapter-number'>10</span>  <span class='chapter-title'>Reference Dataset Assembly System</span>"
+    ]
+  },
+  {
+    "objectID": "08-reference-dataset-assembly-system.html#common-challenges",
+    "href": "08-reference-dataset-assembly-system.html#common-challenges",
+    "title": "Reference Dataset Assembly System",
+    "section": "Common Challenges",
+    "text": "Common Challenges\nResearchers frequently encounter:\n\nIncomplete metadata\nConflicting sample annotations\nDuplicate samples\nInconsistent terminology\nStudy-specific biases\nRepository updates\n\nA structured assembly workflow helps address these challenges systematically.",
+    "crumbs": [
+      "Acquisition Systems",
+      "<span class='chapter-number'>10</span>  <span class='chapter-title'>Reference Dataset Assembly System</span>"
+    ]
+  },
+  {
+    "objectID": "08-reference-dataset-assembly-system.html#summary",
+    "href": "08-reference-dataset-assembly-system.html#summary",
+    "title": "Reference Dataset Assembly System",
+    "section": "Summary",
+    "text": "Summary\nThe Reference Dataset Assembly System transforms validated acquisition outputs into reusable analytical resources.\nMetadata Acquisition\n        ↓\nData Download\n        ↓\nData Validation\n        ↓\nCloud Storage\n        ↓\nReference Dataset Assembly\n        ↓\nReusable Reference Dataset\nBy combining structured sample selection, metadata harmonization, provenance preservation, and rigorous documentation, researchers can construct reference datasets that support reproducible biological research.",
+    "crumbs": [
+      "Acquisition Systems",
+      "<span class='chapter-number'>10</span>  <span class='chapter-title'>Reference Dataset Assembly System</span>"
+    ]
+  },
+  {
+    "objectID": "08-reference-dataset-assembly-system.html#looking-ahead",
+    "href": "08-reference-dataset-assembly-system.html#looking-ahead",
+    "title": "Reference Dataset Assembly System",
+    "section": "Looking Ahead",
+    "text": "Looking Ahead\nThe previous chapters described the individual components of the CDI Data Acquisition System.\nIn the next chapter, we bring these components together through an end-to-end case study that demonstrates the complete workflow from study discovery to reference dataset assembly.",
+    "crumbs": [
+      "Acquisition Systems",
+      "<span class='chapter-number'>10</span>  <span class='chapter-title'>Reference Dataset Assembly System</span>"
+    ]
+  },
+  {
+    "objectID": "09-end-to-end-case-study.html",
+    "href": "09-end-to-end-case-study.html",
+    "title": "End-to-End Case Study",
+    "section": "",
+    "text": "Case Study Objective\nThe previous chapters introduced the individual components of the CDI Data Acquisition System. This chapter demonstrates how these components work together as a complete end-to-end workflow.\nThe objective is to illustrate how publicly available sequencing studies can be transformed into a validated and reproducible reference dataset.\nRather than focusing on a specific organization or project, this case study presents a generalized workflow that can be adapted to a wide range of omics data acquisition scenarios.\nObjective:\nThe goal is to demonstrate how the CDI Data Acquisition System can transform public repository data into a curated analytical resource.\nExpected outputs include:",
+    "crumbs": [
+      "Case Study",
+      "<span class='chapter-number'>11</span>  <span class='chapter-title'>End-to-End Case Study</span>"
+    ]
+  },
+  {
+    "objectID": "09-end-to-end-case-study.html#case-study-objective",
+    "href": "09-end-to-end-case-study.html#case-study-objective",
+    "title": "End-to-End Case Study",
+    "section": "",
+    "text": "Build a healthy reference gut microbiome dataset from publicly available sequencing studies.\n\n\n\n\nMetadata assets\nDownload manifests\nSequencing files\nValidation reports\nCloud storage assets\nReference dataset components",
+    "crumbs": [
+      "Case Study",
+      "<span class='chapter-number'>11</span>  <span class='chapter-title'>End-to-End Case Study</span>"
+    ]
+  },
+  {
+    "objectID": "09-end-to-end-case-study.html#end-to-end-system-workflow",
+    "href": "09-end-to-end-case-study.html#end-to-end-system-workflow",
+    "title": "End-to-End Case Study",
+    "section": "End-to-End System Workflow",
+    "text": "End-to-End System Workflow\n\n\nCode\nflowchart TD\n\nA[Study Discovery]\n--&gt; B[Metadata Acquisition]\n\nB --&gt; C[Data Download]\n\nC --&gt; D[Data Validation]\n\nD --&gt; E[Cloud Storage and Transfer]\n\nE --&gt; F[Reference Dataset Assembly]\n\nF --&gt; G[Reference Dataset Release]\n\n\n\n\n\nflowchart TD\n\nA[Study Discovery]\n--&gt; B[Metadata Acquisition]\n\nB --&gt; C[Data Download]\n\nC --&gt; D[Data Validation]\n\nD --&gt; E[Cloud Storage and Transfer]\n\nE --&gt; F[Reference Dataset Assembly]\n\nF --&gt; G[Reference Dataset Release]\n\n\n\n\n\n\nEach stage contributes a reproducible component to the final dataset.",
+    "crumbs": [
+      "Case Study",
+      "<span class='chapter-number'>11</span>  <span class='chapter-title'>End-to-End Case Study</span>"
+    ]
+  },
+  {
+    "objectID": "09-end-to-end-case-study.html#step-1-study-discovery",
+    "href": "09-end-to-end-case-study.html#step-1-study-discovery",
+    "title": "End-to-End Case Study",
+    "section": "Step 1: Study Discovery",
+    "text": "Step 1: Study Discovery\nThe process begins by identifying candidate studies relevant to the dataset objective.\nExample workflow:\nLiterature Review\n        ↓\nPublic Repositories\n        ↓\nCandidate Studies\nExample candidate studies:\nPRJNA477349\nPRJNA802976\nPRJNA322554\nKey activities:\n\nReview scientific literature\nIdentify relevant studies\nEvaluate study eligibility\nRecord accession information\n\nOutput:\nCandidate Studies",
+    "crumbs": [
+      "Case Study",
+      "<span class='chapter-number'>11</span>  <span class='chapter-title'>End-to-End Case Study</span>"
+    ]
+  },
+  {
+    "objectID": "09-end-to-end-case-study.html#step-2-metadata-acquisition",
+    "href": "09-end-to-end-case-study.html#step-2-metadata-acquisition",
+    "title": "End-to-End Case Study",
+    "section": "Step 2: Metadata Acquisition",
+    "text": "Step 2: Metadata Acquisition\nOnce studies have been identified, metadata are retrieved from public repositories.\nExample workflow:\nBioProject\n        ↓\nRun Metadata\n        ↓\nENA Metadata\n        ↓\nSample Inventory\nExample outputs:\ndata/metadata/\n├── runinfo-prjna477349.csv\n├── ena-prjna477349.tsv\n└── srr-accessions.txt\nMetadata acquisition provides the foundation for downstream filtering and sample selection.\nOutput:\nMetadata Assets",
+    "crumbs": [
+      "Case Study",
+      "<span class='chapter-number'>11</span>  <span class='chapter-title'>End-to-End Case Study</span>"
+    ]
+  },
+  {
+    "objectID": "09-end-to-end-case-study.html#step-3-metadata-review-and-sample-selection",
+    "href": "09-end-to-end-case-study.html#step-3-metadata-review-and-sample-selection",
+    "title": "End-to-End Case Study",
+    "section": "Step 3: Metadata Review and Sample Selection",
+    "text": "Step 3: Metadata Review and Sample Selection\nMetadata are reviewed against predefined inclusion and exclusion criteria.\nExample inclusion criteria:\n\nHuman samples\nHealthy individuals\nStool specimens\nPublicly available sequencing data\n\nExample exclusion criteria:\n\nDisease status unknown\nMissing metadata\nIncomplete records\nDuplicate samples\n\nWorkflow:\nMetadata Assets\n        ↓\nInclusion Criteria\n        ↓\nExclusion Criteria\n        ↓\nEligible Samples\nOutput:\nDownload Manifest",
+    "crumbs": [
+      "Case Study",
+      "<span class='chapter-number'>11</span>  <span class='chapter-title'>End-to-End Case Study</span>"
+    ]
+  },
+  {
+    "objectID": "09-end-to-end-case-study.html#step-4-data-download",
+    "href": "09-end-to-end-case-study.html#step-4-data-download",
+    "title": "End-to-End Case Study",
+    "section": "Step 4: Data Download",
+    "text": "Step 4: Data Download\nValidated metadata are used to retrieve sequencing data.\nExample workflows:\n\nENA Retrieval\nbash scripts/bash/05b-download-ena-fastq.sh\n\n\nNCBI Retrieval\nbash scripts/bash/05c-download-ncbi-sra.sh\nExample outputs:\ndata/raw/\n├── ena/\n└── ncbi/\nWorkflow:\nDownload Manifest\n        ↓\nRepository Retrieval\n        ↓\nFASTQ Files\nOutput:\nSequencing Data",
+    "crumbs": [
+      "Case Study",
+      "<span class='chapter-number'>11</span>  <span class='chapter-title'>End-to-End Case Study</span>"
+    ]
+  },
+  {
+    "objectID": "09-end-to-end-case-study.html#step-5-download-verification",
+    "href": "09-end-to-end-case-study.html#step-5-download-verification",
+    "title": "End-to-End Case Study",
+    "section": "Step 5: Download Verification",
+    "text": "Step 5: Download Verification\nDownloaded files are verified against repository expectations.\nVerification activities:\n\nFile count verification\nDownload completeness\nInventory generation\nRepository reconciliation\n\nExample:\nbash scripts/bash/05d-verify-downloads.sh\nInventory generation:\nbash scripts/bash/05e-build-fastq-inventory.sh\nOutput:\nFASTQ Inventory",
+    "crumbs": [
+      "Case Study",
+      "<span class='chapter-number'>11</span>  <span class='chapter-title'>End-to-End Case Study</span>"
+    ]
+  },
+  {
+    "objectID": "09-end-to-end-case-study.html#step-6-data-validation",
+    "href": "09-end-to-end-case-study.html#step-6-data-validation",
+    "title": "End-to-End Case Study",
+    "section": "Step 6: Data Validation",
+    "text": "Step 6: Data Validation\nDownloaded files undergo systematic validation before being used for downstream analysis.\nExample:\nbash scripts/bash/06-validate-download.sh\nValidation workflow:\nRepository Validation\n        ↓\nFile Validation\n        ↓\nCompression Validation\n        ↓\nPaired-End Validation\n        ↓\nFASTQ Validation\nExample output:\ncheck   status  value\nfastq_file_count    PASS    6\ncompression_validation  PASS    0\npaired_end_validation   PASS    3\nfastq_validation    PASS\nOutput:\nValidated Dataset",
+    "crumbs": [
+      "Case Study",
+      "<span class='chapter-number'>11</span>  <span class='chapter-title'>End-to-End Case Study</span>"
+    ]
+  },
+  {
+    "objectID": "09-end-to-end-case-study.html#step-7-cloud-storage-and-transfer",
+    "href": "09-end-to-end-case-study.html#step-7-cloud-storage-and-transfer",
+    "title": "End-to-End Case Study",
+    "section": "Step 7: Cloud Storage and Transfer",
+    "text": "Step 7: Cloud Storage and Transfer\nValidated datasets are transferred to durable storage.\nExample:\nbash scripts/bash/07-transfer-to-cloud.sh \\\n  data \\\n  my-reference-datasets\nExample storage structure:\ns3://my-reference-datasets/\n├── metadata/\n├── manifests/\n├── inventory/\n├── raw/\n└── validation/\nWorkflow:\nValidated Dataset\n        ↓\nCloud Transfer\n        ↓\nCloud Storage\nOutput:\nCloud Repository",
+    "crumbs": [
+      "Case Study",
+      "<span class='chapter-number'>11</span>  <span class='chapter-title'>End-to-End Case Study</span>"
+    ]
+  },
+  {
+    "objectID": "09-end-to-end-case-study.html#step-8-reference-dataset-assembly",
+    "href": "09-end-to-end-case-study.html#step-8-reference-dataset-assembly",
+    "title": "End-to-End Case Study",
+    "section": "Step 8: Reference Dataset Assembly",
+    "text": "Step 8: Reference Dataset Assembly\nValidated data and metadata are integrated into a coherent reference dataset.\nWorkflow:\nValidated Samples\n        ↓\nMetadata Harmonization\n        ↓\nDataset Integration\n        ↓\nReference Dataset\nExample structure:\nreference-dataset/\n├── metadata/\n├── harmonized-metadata/\n├── documentation/\n└── dataset-release/\nKey activities:\n\nMetadata harmonization\nSample integration\nProvenance preservation\nDocumentation\n\nOutput:\nReference Dataset",
+    "crumbs": [
+      "Case Study",
+      "<span class='chapter-number'>11</span>  <span class='chapter-title'>End-to-End Case Study</span>"
+    ]
+  },
+  {
+    "objectID": "09-end-to-end-case-study.html#final-deliverables",
+    "href": "09-end-to-end-case-study.html#final-deliverables",
+    "title": "End-to-End Case Study",
+    "section": "Final Deliverables",
+    "text": "Final Deliverables\nThe completed reference dataset consists of multiple components.\nExample:\nReference Dataset\n├── Sequencing Data\n├── Metadata\n├── Download Manifests\n├── Validation Reports\n├── Inventory Files\n├── Provenance Records\n└── Documentation\nThese assets provide a complete and reproducible dataset package.",
+    "crumbs": [
+      "Case Study",
+      "<span class='chapter-number'>11</span>  <span class='chapter-title'>End-to-End Case Study</span>"
+    ]
+  },
+  {
+    "objectID": "09-end-to-end-case-study.html#system-outputs",
+    "href": "09-end-to-end-case-study.html#system-outputs",
+    "title": "End-to-End Case Study",
+    "section": "System Outputs",
+    "text": "System Outputs\nThe CDI Data Acquisition System transforms public repository data into reusable analytical resources.\nStudy Discovery\n        ↓\nMetadata Acquisition\n        ↓\nData Download\n        ↓\nData Validation\n        ↓\nCloud Storage\n        ↓\nReference Dataset Assembly\n        ↓\nReusable Reference Dataset\nEach stage contributes traceable and reproducible outputs.",
+    "crumbs": [
+      "Case Study",
+      "<span class='chapter-number'>11</span>  <span class='chapter-title'>End-to-End Case Study</span>"
+    ]
+  },
+  {
+    "objectID": "09-end-to-end-case-study.html#reproducibility-considerations",
+    "href": "09-end-to-end-case-study.html#reproducibility-considerations",
+    "title": "End-to-End Case Study",
+    "section": "Reproducibility Considerations",
+    "text": "Reproducibility Considerations\nA reproducible reference dataset should preserve:\n\nSource repositories\nStudy accessions\nSample identifiers\nDownload manifests\nValidation reports\nStorage locations\nDataset documentation\n\nThese records enable future users to reconstruct and verify the dataset.",
+    "crumbs": [
+      "Case Study",
+      "<span class='chapter-number'>11</span>  <span class='chapter-title'>End-to-End Case Study</span>"
+    ]
+  },
+  {
+    "objectID": "09-end-to-end-case-study.html#common-challenges",
+    "href": "09-end-to-end-case-study.html#common-challenges",
+    "title": "End-to-End Case Study",
+    "section": "Common Challenges",
+    "text": "Common Challenges\nResearchers frequently encounter:\n\nMissing metadata\nInconsistent annotations\nDuplicate samples\nRepository updates\nLarge file transfers\nIncomplete downloads\nStorage limitations\n\nThe CDI Data Acquisition System provides a structured framework for addressing these challenges.",
+    "crumbs": [
+      "Case Study",
+      "<span class='chapter-number'>11</span>  <span class='chapter-title'>End-to-End Case Study</span>"
+    ]
+  },
+  {
+    "objectID": "09-end-to-end-case-study.html#summary",
+    "href": "09-end-to-end-case-study.html#summary",
+    "title": "End-to-End Case Study",
+    "section": "Summary",
+    "text": "Summary\nThe End-to-End Case Study demonstrates how the CDI Data Acquisition System transforms public omics data into a validated and reusable reference dataset.\nPublic Repository Data\n        ↓\nMetadata Acquisition\n        ↓\nData Download\n        ↓\nData Validation\n        ↓\nCloud Storage\n        ↓\nReference Dataset Assembly\n        ↓\nReusable Analytical Resource\nBy combining structured workflows, validation procedures, provenance tracking, and reproducible documentation, researchers can construct high-quality reference datasets suitable for downstream biological analysis.",
+    "crumbs": [
+      "Case Study",
+      "<span class='chapter-number'>11</span>  <span class='chapter-title'>End-to-End Case Study</span>"
+    ]
+  },
+  {
+    "objectID": "09-end-to-end-case-study.html#concluding-remarks",
+    "href": "09-end-to-end-case-study.html#concluding-remarks",
+    "title": "End-to-End Case Study",
+    "section": "Concluding Remarks",
+    "text": "Concluding Remarks\nThe CDI Data Acquisition System provides a reproducible framework for discovering, acquiring, validating, storing, and assembling public omics datasets.\nAlthough the examples presented throughout this guide focus primarily on microbiome sequencing studies, the same principles can be applied across a broad range of omics domains including RNA-Seq, single-cell sequencing, genomics, and multi-omics integration.\nThe combination of systematic study discovery, metadata-driven sample selection, validated data acquisition, cloud-based storage, and reference dataset assembly creates a foundation for reproducible biological research and data-driven discovery.",
+    "crumbs": [
+      "Case Study",
+      "<span class='chapter-number'>11</span>  <span class='chapter-title'>End-to-End Case Study</span>"
+    ]
+  },
+  {
+    "objectID": "999-appendix.html",
+    "href": "999-appendix.html",
+    "title": "Appendix A — CDI Data Acquisition System Overview",
+    "section": "",
+    "text": "Repository Accession Reference\nThe CDI Data Acquisition System consists of a series of interconnected systems that transform public omics data into reusable reference datasets.\nCommon accession types encountered during data acquisition:",
+    "crumbs": [
+      "Appendices",
+      "<span class='chapter-number'>A</span>  <span class='chapter-title'>CDI Data Acquisition System Overview</span>"
+    ]
+  },
+  {
+    "objectID": "999-appendix.html#repository-accession-reference",
+    "href": "999-appendix.html#repository-accession-reference",
+    "title": "Appendix A — CDI Data Acquisition System Overview",
+    "section": "",
+    "text": "Resource\nExample\n\n\n\n\nBioProject\nPRJNA477349\n\n\nBioSample\nSAMN12345678\n\n\nSRA Run\nSRR12345678\n\n\nGEO Series\nGSE123456\n\n\nENA Study\nERP123456",
+    "crumbs": [
+      "Appendices",
+      "<span class='chapter-number'>A</span>  <span class='chapter-title'>CDI Data Acquisition System Overview</span>"
+    ]
+  },
+  {
+    "objectID": "999-appendix.html#directory-structure-reference",
+    "href": "999-appendix.html#directory-structure-reference",
+    "title": "Appendix A — CDI Data Acquisition System Overview",
+    "section": "Directory Structure Reference",
+    "text": "Directory Structure Reference\nExample CDI Data Acquisition System project structure:\nproject/\n├── data/\n│   ├── metadata/\n│   ├── manifests/\n│   ├── inventory/\n│   ├── raw/\n│   └── validation/\n├── scripts/\n│   └── bash/\n├── library/\n├── docs/\n└── environment.yml",
+    "crumbs": [
+      "Appendices",
+      "<span class='chapter-number'>A</span>  <span class='chapter-title'>CDI Data Acquisition System Overview</span>"
+    ]
+  },
+  {
+    "objectID": "999-appendix.html#bash-scripts-reference",
+    "href": "999-appendix.html#bash-scripts-reference",
+    "title": "Appendix A — CDI Data Acquisition System Overview",
+    "section": "Bash Scripts Reference",
+    "text": "Bash Scripts Reference\nThe following scripts are developed throughout this guide.\nscripts/bash/\n├── 05a-build-download-manifest.sh\n├── 05b-download-ena-fastq.sh\n├── 05c-download-ncbi-sra.sh\n├── 05d-verify-downloads.sh\n├── 05e-build-fastq-inventory.sh\n├── 06-validate-download.sh\n└── 07-transfer-to-cloud.sh",
+    "crumbs": [
+      "Appendices",
+      "<span class='chapter-number'>A</span>  <span class='chapter-title'>CDI Data Acquisition System Overview</span>"
+    ]
+  },
+  {
+    "objectID": "999-appendix.html#common-repository-tools",
+    "href": "999-appendix.html#common-repository-tools",
+    "title": "Appendix A — CDI Data Acquisition System Overview",
+    "section": "Common Repository Tools",
+    "text": "Common Repository Tools\n\nMetadata Acquisition\nEDirect\npysradb\ncurl\nwget\n\n\nData Download\nSRA Toolkit\nwget\ncurl\n\n\nValidation\ngzip\nseqkit\ncsvtk\n\n\nCloud Storage\nAWS CLI\nrsync\nAspera",
+    "crumbs": [
+      "Appendices",
+      "<span class='chapter-number'>A</span>  <span class='chapter-title'>CDI Data Acquisition System Overview</span>"
+    ]
+  },
+  {
+    "objectID": "999-appendix.html#conda-environment",
+    "href": "999-appendix.html#conda-environment",
+    "title": "Appendix A — CDI Data Acquisition System Overview",
+    "section": "Conda Environment",
+    "text": "Conda Environment\nExample environment:\nconda env create -f environment.yml\n\nconda activate cdi-data-acquisition",
+    "crumbs": [
+      "Appendices",
+      "<span class='chapter-number'>A</span>  <span class='chapter-title'>CDI Data Acquisition System Overview</span>"
+    ]
+  },
+  {
+    "objectID": "999-appendix.html#recommended-workflow",
+    "href": "999-appendix.html#recommended-workflow",
+    "title": "Appendix A — CDI Data Acquisition System Overview",
+    "section": "Recommended Workflow",
+    "text": "Recommended Workflow\nResearch Question\n        ↓\nStudy Discovery\n        ↓\nMetadata Acquisition\n        ↓\nMetadata Review\n        ↓\nData Download\n        ↓\nData Validation\n        ↓\nCloud Storage\n        ↓\nReference Dataset Assembly\n        ↓\nDataset Release",
+    "crumbs": [
+      "Appendices",
+      "<span class='chapter-number'>A</span>  <span class='chapter-title'>CDI Data Acquisition System Overview</span>"
+    ]
+  },
+  {
+    "objectID": "999-appendix.html#key-principles",
+    "href": "999-appendix.html#key-principles",
+    "title": "Appendix A — CDI Data Acquisition System Overview",
+    "section": "Key Principles",
+    "text": "Key Principles\nThe CDI Data Acquisition System is built upon the following principles:\n\nReproducibility\nTransparency\nMetadata-first design\nValidation before analysis\nProvenance preservation\nCloud-ready workflows\nReusable reference datasets",
+    "crumbs": [
+      "Appendices",
+      "<span class='chapter-number'>A</span>  <span class='chapter-title'>CDI Data Acquisition System Overview</span>"
+    ]
+  },
+  {
+    "objectID": "999-appendix.html#bibliography-and-resources",
+    "href": "999-appendix.html#bibliography-and-resources",
+    "title": "Appendix A — CDI Data Acquisition System Overview",
+    "section": "Bibliography and Resources",
+    "text": "Bibliography and Resources\nThe references cited throughout this guide are maintained in the bibliography database (library/references.bib) and are included automatically during book generation.\nThis appendix also provides a quick reference to commonly cited resources and repositories used throughout the CDI Data Acquisition System.",
+    "crumbs": [
+      "Appendices",
+      "<span class='chapter-number'>A</span>  <span class='chapter-title'>CDI Data Acquisition System Overview</span>"
+    ]
+  },
+  {
+    "objectID": "999-appendix.html#suggested-citation-keys",
+    "href": "999-appendix.html#suggested-citation-keys",
+    "title": "Appendix A — CDI Data Acquisition System Overview",
+    "section": "Suggested Citation Keys",
+    "text": "Suggested Citation Keys\nThe following citation keys are commonly used throughout the CDI Data Acquisition System:\n\n(Leinonen, Sugawara, and Shumway 2011)\n(Kodama, Shumway, and Leinonen 2012)\n(Barrett et al. 2013)\n(Arita, Karsch-Mizrachi, and Cochrane 2021)\n(Brazma et al. 2001)\n(Yilmaz et al. 2011)\n(Wilkinson et al. 2016)\n(Sandve et al. 2013)\n(Mitchell et al. 2020)\n(Knight et al. 2018)",
+    "crumbs": [
+      "Appendices",
+      "<span class='chapter-number'>A</span>  <span class='chapter-title'>CDI Data Acquisition System Overview</span>"
+    ]
+  },
+  {
+    "objectID": "999-appendix.html#major-public-data-resources",
+    "href": "999-appendix.html#major-public-data-resources",
+    "title": "Appendix A — CDI Data Acquisition System Overview",
+    "section": "Major Public Data Resources",
+    "text": "Major Public Data Resources\n\nNCBI — https://www.ncbi.nlm.nih.gov (National Center for Biotechnology Information 2026d)\nSequence Read Archive (SRA) — https://www.ncbi.nlm.nih.gov/sra (National Center for Biotechnology Information 2026e)\nBioProject — https://www.ncbi.nlm.nih.gov/bioproject (National Center for Biotechnology Information 2026a)\nBioSample — https://www.ncbi.nlm.nih.gov/biosample (National Center for Biotechnology Information 2026b)\nGene Expression Omnibus (GEO) — https://www.ncbi.nlm.nih.gov/geo (National Center for Biotechnology Information 2026c)\nEuropean Nucleotide Archive (ENA) — https://www.ebi.ac.uk/ena (European Nucleotide Archive 2026)\nMGnify — https://www.ebi.ac.uk/metagenomics (European Bioinformatics Institute 2026b)\nGWAS Catalog — https://www.ebi.ac.uk/gwas (European Bioinformatics Institute 2026a)\nDNA Data Bank of Japan (DDBJ) — https://www.ddbj.nig.ac.jp (DNA Data Bank of Japan 2026)\n\n\n\n\n\nArita, M., I. Karsch-Mizrachi, and G. Cochrane. 2021. “The International Nucleotide Sequence Database Collaboration.” Nucleic Acids Research 49 (D1): D121–24.\n\n\nBarrett, T., S. E. Wilhite, P. Ledoux, et al. 2013. “NCBI GEO: Archive for Functional Genomics Data Sets—Update.” Nucleic Acids Research 41 (Database issue): D991–95.\n\n\nBrazma, A., P. Hingamp, J. Quackenbush, et al. 2001. “Minimum Information about a Microarray Experiment (MIAME)—Toward Standards for Microarray Data.” Nature Genetics 29 (4): 365–71.\n\n\nDNA Data Bank of Japan. 2026. “DDBJ.” https://www.ddbj.nig.ac.jp.\n\n\nEuropean Bioinformatics Institute. 2026a. “GWAS Catalog.” https://www.ebi.ac.uk/gwas.\n\n\n———. 2026b. “MGnify.” https://www.ebi.ac.uk/metagenomics.\n\n\nEuropean Nucleotide Archive. 2026. “European Nucleotide Archive (ENA).” https://www.ebi.ac.uk/ena.\n\n\nKnight, R., A. Vrbanac, B. C. Taylor, et al. 2018. “Best Practices for Analysing Microbiomes.” Nature Reviews Microbiology 16 (7): 410–22.\n\n\nKodama, Y., M. Shumway, and R. Leinonen. 2012. “The Sequence Read Archive: Explosive Growth of Sequencing Data.” Nucleic Acids Research 40 (Database issue): D54–56.\n\n\nLeinonen, R., H. Sugawara, and M. Shumway. 2011. “The Sequence Read Archive.” Nucleic Acids Research 39 (Database issue): D19–21.\n\n\nMitchell, A. L., A. Almeida, M. Beracochea, et al. 2020. “MGnify: The Microbiome Analysis Resource in 2020.” Nucleic Acids Research 48 (D1): D570–78.\n\n\nNational Center for Biotechnology Information. 2026a. “BioProject.” https://www.ncbi.nlm.nih.gov/bioproject.\n\n\n———. 2026b. “BioSample.” https://www.ncbi.nlm.nih.gov/biosample.\n\n\n———. 2026c. “Gene Expression Omnibus (GEO).” https://www.ncbi.nlm.nih.gov/geo.\n\n\n———. 2026d. “NCBI.” https://www.ncbi.nlm.nih.gov.\n\n\n———. 2026e. “Sequence Read Archive (SRA).” https://www.ncbi.nlm.nih.gov/sra.\n\n\nSandve, G. K., A. Nekrutenko, J. Taylor, and E. Hovig. 2013. “Ten Simple Rules for Reproducible Computational Research.” PLoS Computational Biology 9 (10): e1003285.\n\n\nWilkinson, M. D., M. Dumontier, I. J. Aalbersberg, et al. 2016. “The FAIR Guiding Principles for Scientific Data Management and Stewardship.” Scientific Data 3: 160018.\n\n\nYilmaz, P., R. Kottmann, D. Field, et al. 2011. “Minimum Information about a Marker Gene Sequence (MIMARKS) and Minimum Information about Any Sequence (MIxS) Specifications.” Nature Biotechnology 29 (5): 415–20.",
+    "crumbs": [
+      "Appendices",
+      "<span class='chapter-number'>A</span>  <span class='chapter-title'>CDI Data Acquisition System Overview</span>"
+    ]
+  },
+  {
+    "objectID": "999-references.html",
+    "href": "999-references.html",
+    "title": "Appendix B — References",
+    "section": "",
+    "text": "Arita, M., I. Karsch-Mizrachi, and G. Cochrane. 2021. “The\nInternational Nucleotide Sequence Database Collaboration.”\nNucleic Acids Research 49 (D1): D121–24.\n\n\nBarrett, T., S. E. Wilhite, P. Ledoux, et al. 2013. “NCBI GEO:\nArchive for Functional Genomics Data Sets—Update.” Nucleic\nAcids Research 41 (Database issue): D991–95.\n\n\nBrazma, A., P. Hingamp, J. Quackenbush, et al. 2001. “Minimum\nInformation about a Microarray Experiment (MIAME)—Toward Standards for\nMicroarray Data.” Nature Genetics 29 (4): 365–71.\n\n\nDNA Data Bank of Japan. 2026. “DDBJ.” https://www.ddbj.nig.ac.jp.\n\n\nEuropean Bioinformatics Institute. 2026a. “GWAS Catalog.”\nhttps://www.ebi.ac.uk/gwas.\n\n\n———. 2026b. “MGnify.” https://www.ebi.ac.uk/metagenomics.\n\n\nEuropean Nucleotide Archive. 2026. “European Nucleotide Archive\n(ENA).” https://www.ebi.ac.uk/ena.\n\n\nKnight, R., A. Vrbanac, B. C. Taylor, et al. 2018. “Best Practices\nfor Analysing Microbiomes.” Nature Reviews Microbiology\n16 (7): 410–22.\n\n\nKodama, Y., M. Shumway, and R. Leinonen. 2012. “The Sequence Read\nArchive: Explosive Growth of Sequencing Data.” Nucleic Acids\nResearch 40 (Database issue): D54–56.\n\n\nLeinonen, R., H. Sugawara, and M. Shumway. 2011. “The Sequence\nRead Archive.” Nucleic Acids Research 39 (Database\nissue): D19–21.\n\n\nMitchell, A. L., A. Almeida, M. Beracochea, et al. 2020. “MGnify:\nThe Microbiome Analysis Resource in 2020.” Nucleic Acids\nResearch 48 (D1): D570–78.\n\n\nNational Center for Biotechnology Information. 2026a.\n“BioProject.” https://www.ncbi.nlm.nih.gov/bioproject.\n\n\n———. 2026b. “BioSample.” https://www.ncbi.nlm.nih.gov/biosample.\n\n\n———. 2026c. “Gene Expression Omnibus (GEO).” https://www.ncbi.nlm.nih.gov/geo.\n\n\n———. 2026d. “NCBI.” https://www.ncbi.nlm.nih.gov.\n\n\n———. 2026e. “Sequence Read Archive (SRA).” https://www.ncbi.nlm.nih.gov/sra.\n\n\nSandve, G. K., A. Nekrutenko, J. Taylor, and E. Hovig. 2013. “Ten\nSimple Rules for Reproducible Computational Research.” PLoS\nComputational Biology 9 (10): e1003285.\n\n\nWilkinson, M. D., M. Dumontier, I. J. Aalbersberg, et al. 2016.\n“The FAIR Guiding Principles for Scientific Data Management and\nStewardship.” Scientific Data 3: 160018.\n\n\nYilmaz, P., R. Kottmann, D. Field, et al. 2011. “Minimum\nInformation about a Marker Gene Sequence (MIMARKS) and Minimum\nInformation about Any Sequence (MIxS) Specifications.” Nature\nBiotechnology 29 (5): 415–20.",
+    "crumbs": [
+      "Appendices",
+      "<span class='chapter-number'>B</span>  <span class='chapter-title'>References</span>"
+    ]
+  }
+]
