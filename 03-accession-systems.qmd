@@ -120,7 +120,7 @@ SRR12345678
 Researchers often begin with a BioProject and progressively navigate toward downloadable sequencing files.
 
 ```{mermaid}
-flowchart LR
+flowchart TB
 
 PRJNA[BioProject]
 --> SAMN[BioSamples]
@@ -164,7 +164,7 @@ D --> E[Data Download]
 
 Researchers often begin with a BioProject and work downward toward downloadable run files.
 
-## AlphaBiomics Example
+## Healthy Reference Microbiome Example
 
 A healthy reference microbiome workflow may proceed as follows:
 

@@ -311,7 +311,7 @@
     "href": "03-accession-systems.html#following-the-breadcrumbs",
     "title": "Accession Systems",
     "section": "Following the Breadcrumbs",
-    "text": "Following the Breadcrumbs\nResearchers often begin with a BioProject and progressively navigate toward downloadable sequencing files.\n\n\nCode\nflowchart LR\n\nPRJNA[BioProject]\n--&gt; SAMN[BioSamples]\n\nSAMN --&gt; SRX[Experiments]\n\nSRX --&gt; SRR[Runs]\n\nSRR --&gt; FASTQ[FASTQ Files]\n\n\n\n\n\nflowchart LR\n\nPRJNA[BioProject]\n--&gt; SAMN[BioSamples]\n\nSAMN --&gt; SRX[Experiments]\n\nSRX --&gt; SRR[Runs]\n\nSRR --&gt; FASTQ[FASTQ Files]\n\n\n\n\n\n\nThis progression is common across many public repositories.",
+    "text": "Following the Breadcrumbs\nResearchers often begin with a BioProject and progressively navigate toward downloadable sequencing files.\n\n\nCode\nflowchart TB\n\nPRJNA[BioProject]\n--&gt; SAMN[BioSamples]\n\nSAMN --&gt; SRX[Experiments]\n\nSRX --&gt; SRR[Runs]\n\nSRR --&gt; FASTQ[FASTQ Files]\n\n\n\n\n\nflowchart TB\n\nPRJNA[BioProject]\n--&gt; SAMN[BioSamples]\n\nSAMN --&gt; SRX[Experiments]\n\nSRX --&gt; SRR[Runs]\n\nSRR --&gt; FASTQ[FASTQ Files]\n\n\n\n\n\n\nThis progression is common across many public repositories.",
     "crumbs": [
       "Foundations",
       "<span class='chapter-number'>5</span>  <span class='chapter-title'>Accession Systems</span>"
@@ -340,11 +340,11 @@
     ]
   },
   {
-    "objectID": "03-accession-systems.html#alphabiomics-example",
-    "href": "03-accession-systems.html#alphabiomics-example",
+    "objectID": "03-accession-systems.html#healthy-reference-microbiome-example",
+    "href": "03-accession-systems.html#healthy-reference-microbiome-example",
     "title": "Accession Systems",
-    "section": "AlphaBiomics Example",
-    "text": "AlphaBiomics Example\nA healthy reference microbiome workflow may proceed as follows:\nHealthy Reference Objective\n        ↓\nIdentify BioProject\n        ↓\nRetrieve BioSamples\n        ↓\nReview Metadata\n        ↓\nSelect Eligible Samples\n        ↓\nCollect Run Accessions\n        ↓\nDownload Data\nThis process illustrates why accession systems are central to reproducible data acquisition.",
+    "section": "Healthy Reference Microbiome Example",
+    "text": "Healthy Reference Microbiome Example\nA healthy reference microbiome workflow may proceed as follows:\nHealthy Reference Objective\n        ↓\nIdentify BioProject\n        ↓\nRetrieve BioSamples\n        ↓\nReview Metadata\n        ↓\nSelect Eligible Samples\n        ↓\nCollect Run Accessions\n        ↓\nDownload Data\nThis process illustrates why accession systems are central to reproducible data acquisition.",
     "crumbs": [
       "Foundations",
       "<span class='chapter-number'>5</span>  <span class='chapter-title'>Accession Systems</span>"

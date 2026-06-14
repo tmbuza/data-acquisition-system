@@ -277,7 +277,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#following-the-breadcrumbs" id="toc-following-the-breadcrumbs" class="nav-link" data-scroll-target="#following-the-breadcrumbs">Following the Breadcrumbs</a></li>
   <li><a href="#repository-variations" id="toc-repository-variations" class="nav-link" data-scroll-target="#repository-variations">Repository Variations</a></li>
   <li><a href="#example-workflow" id="toc-example-workflow" class="nav-link" data-scroll-target="#example-workflow">Example Workflow</a></li>
-  <li><a href="#alphabiomics-example" id="toc-alphabiomics-example" class="nav-link" data-scroll-target="#alphabiomics-example">AlphaBiomics Example</a></li>
+  <li><a href="#healthy-reference-microbiome-example" id="toc-healthy-reference-microbiome-example" class="nav-link" data-scroll-target="#healthy-reference-microbiome-example">Healthy Reference Microbiome Example</a></li>
   <li><a href="#looking-ahead" id="toc-looking-ahead" class="nav-link" data-scroll-target="#looking-ahead">Looking Ahead</a></li>
   </ul>
 </nav>
@@ -453,7 +453,7 @@ C --&gt; D[Run]
 <div class="cell" data-layout-align="default">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>flowchart LR</span>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>flowchart TB</span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>PRJNA[BioProject]</span>
 <span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>--&gt; SAMN[BioSamples]</span>
@@ -468,7 +468,7 @@ C --&gt; D[Run]
 <div>
 <p></p><figure class="figure"><p></p>
 <div>
-<pre class="mermaid mermaid-js">flowchart LR
+<pre class="mermaid mermaid-js">flowchart TB
 
 PRJNA[BioProject]
 --&gt; SAMN[BioSamples]
@@ -565,8 +565,8 @@ D --&gt; E[Data Download]
 </div>
 <p>Researchers often begin with a BioProject and work downward toward downloadable run files.</p>
 </section>
-<section id="alphabiomics-example" class="level2">
-<h2 class="anchored" data-anchor-id="alphabiomics-example">AlphaBiomics Example</h2>
+<section id="healthy-reference-microbiome-example" class="level2">
+<h2 class="anchored" data-anchor-id="healthy-reference-microbiome-example">Healthy Reference Microbiome Example</h2>
 <p>A healthy reference microbiome workflow may proceed as follows:</p>
 <pre class="text"><code>Healthy Reference Objective
         ↓
